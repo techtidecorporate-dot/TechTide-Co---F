@@ -9,11 +9,16 @@ import CareerPage from "./pages/career";
 import ContactPage from "./pages/contact";
 import BlogDetailPage from "./pages/BlogDetail";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CookiePolicy from "./pages/CookiePolicy";
 import { PartnerWithUsDrawer } from "./components/ui/PartnerWithUsDrawer";
 import SignInPage from "./components/ui/signin";
 import { useState, useEffect } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
+import { FloatingCTA } from "./components/ui/FloatingCTA";
+import { Toaster } from "sonner";
 
 import AdminLayout from "./pages/admin/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
@@ -23,6 +28,7 @@ import ServiceManagement from "./pages/admin/Services";
 import ContactMessages from "./pages/admin/ContactSubmissions";
 import UserManagement from "./pages/admin/Users";
 import JobApplications from "./pages/admin/Jobs";
+import TalentPool from "./pages/admin/TalentPool";
 import JobPositions from "./pages/admin/JobPositions";
 import PartnerSubmissions from "./pages/admin/PartnerSubmissions";
 
@@ -43,6 +49,7 @@ export default function App() {
   return (
     <AuthProvider>
       <ScrollToTop />
+      <Toaster position="top-center" richColors />
       <div className="relative min-h-screen bg-white">
         {!hideNavFooter && <Navbar />}
         <Routes>
@@ -55,6 +62,9 @@ export default function App() {
           <Route path="/career" element={<CareerPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/signin" element={<SignInPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
@@ -66,13 +76,17 @@ export default function App() {
             <Route path="users" element={<UserManagement />} />
             <Route path="job-positions" element={<JobPositions />} />
             <Route path="jobs" element={<JobApplications />} />
+            <Route path="talent-pool" element={<TalentPool />} />
             <Route path="partners" element={<PartnerSubmissions />} />
           </Route>
         </Routes>
-        <PartnerWithUsDrawer
-          isOpen={isPartnerDrawerOpen}
-          onClose={() => setIsPartnerDrawerOpen(false)}
-        />
+        {isPartnerDrawerOpen && (
+          <PartnerWithUsDrawer
+            isOpen={isPartnerDrawerOpen}
+            onClose={() => setIsPartnerDrawerOpen(false)}
+          />
+        )}
+        {!hideNavFooter && <FloatingCTA />}
         {!hideNavFooter && <Footer />}
       </div>
     </AuthProvider>

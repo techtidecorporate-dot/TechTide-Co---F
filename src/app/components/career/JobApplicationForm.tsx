@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { X, Upload, FileText } from "lucide-react";
-import { jobAPI, JobPosition } from "@/api";
+import { jobAPI, talentPoolAPI, JobPosition } from "@/api";
 import { toast } from "sonner";
 
 interface JobApplicationFormProps {
@@ -19,12 +19,13 @@ export function JobApplicationForm({
     email: "",
     phone: "",
     coverLetter: "",
+    areaOfInterest: "",
   });
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  if (!isOpen || !position) return null;
+  if (!isOpen) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,16 +38,31 @@ export function JobApplicationForm({
     setIsSubmitting(true);
 
     try {
-      const formDataToSend = new FormData();
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("phone", formData.phone);
-      formDataToSend.append("position", position.title);
-      formDataToSend.append("jobPosition", position._id);
-      formDataToSend.append("coverLetter", formData.coverLetter);
-      formDataToSend.append("resume", cvFile);
+      if (position) {
+        // Specific Job Application
+        const formDataToSend = new FormData();
+        formDataToSend.append("name", formData.name);
+        formDataToSend.append("email", formData.email);
+        formDataToSend.append("phone", formData.phone);
+        formDataToSend.append("position", position.title);
+        formDataToSend.append("jobPosition", position.id);
+        formDataToSend.append("coverLetter", formData.coverLetter);
+        formDataToSend.append("resume", cvFile);
 
-      await jobAPI.create(formDataToSend);
+        await jobAPI.create(formDataToSend);
+      } else {
+        // Speculative Application (Talent Pool)
+        const speculativeData = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          areaOfInterest: formData.areaOfInterest,
+          coverLetter: formData.coverLetter,
+          resume: cvFile, // This will be handled by talentPoolAPI.create
+        };
+
+        await talentPoolAPI.create(speculativeData);
+      }
 
       toast.success("Application submitted successfully!");
       handleClose();
@@ -60,7 +76,13 @@ export function JobApplicationForm({
   };
 
   const handleClose = () => {
-    setFormData({ name: "", email: "", phone: "", coverLetter: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      coverLetter: "",
+      areaOfInterest: "",
+    });
     setCvFile(null);
     onClose();
   };
@@ -118,10 +140,14 @@ export function JobApplicationForm({
         <div className="sticky top-0 bg-white p-6 border-b border-gray-100 flex items-center justify-between rounded-t-[2rem]">
           <div>
             <h3 className="text-2xl font-poppins font-medium text-[#191a23]">
-              Apply for {position.title}
+              {position
+                ? `Apply for ${position.title}`
+                : "Speculative Application"}
             </h3>
             <p className="text-sm text-gray-500 mt-1">
-              {position.department} • {position.location}
+              {position
+                ? `${position.department} • ${position.location}`
+                : "Join our talent pool"}
             </p>
           </div>
           <button
@@ -182,6 +208,31 @@ export function JobApplicationForm({
               placeholder="+92 300 1234567"
             />
           </div>
+
+          {!position && (
+            <div>
+              <label className="block text-sm font-medium text-[#191a23] mb-2">
+                Area of Interest *
+              </label>
+              <select
+                required
+                value={formData.areaOfInterest}
+                onChange={(e) =>
+                  setFormData({ ...formData, areaOfInterest: e.target.value })
+                }
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc]/50 focus:border-transparent"
+              >
+                <option value="">Select an area</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Mobile Apps">Mobile Apps</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Project Management">Project Management</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          )}
 
           <div>
             <label className="block text-sm font-medium text-[#191a23] mb-2">

@@ -37,7 +37,7 @@ export default function JobApplications() {
 
   const getFileUrl = (path: string | undefined) => {
     if (!path) return "";
-    if (path.startsWith("http")) return path;
+    if (path.startsWith("http") || path.startsWith("data:")) return path;
     return `http://localhost:5000${path}`;
   };
 
@@ -135,6 +135,11 @@ export default function JobApplications() {
                         <Phone size={14} /> {job.phone}
                       </span>
                     </div>
+                    {job.position === "Speculative" && job.areaOfInterest && (
+                      <div className="mt-2 inline-block px-3 py-1 bg-[#453abc]/10 text-[#453abc] rounded-lg text-xs font-semibold">
+                        Interest: {job.areaOfInterest}
+                      </div>
+                    )}
                     {job.coverLetter && (
                       <div className="mt-3 p-3 bg-white/5 rounded-lg">
                         <p className="text-xs text-gray-500 mb-1">

@@ -34,6 +34,16 @@ const uploadFile = async (file: File, path: string): Promise<string> => {
   return getDownloadURL(snapshot.ref);
 };
 
+// Helper to convert file to base64 (Data URL)
+const fileToBase64 = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = error => reject(error);
+  });
+};
+
 export const authAPI = {
   login: async (credentials: any) => {
     const userCredential = await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
@@ -326,13 +336,17 @@ export const jobAPI = {
     return { data };
   },
   create: async (data: FormData) => {
-    const cvFile = data.get('cv') as File;
-    let cvUrl = '';
-    if (cvFile) {
-        cvUrl = await uploadFile(cvFile, 'cvs');
+    const resumeFile = (data.get('resume') || data.get('cv')) as File;
+    let cvLink = '';
+    if (resumeFile && resumeFile instanceof File) {
+        // As per user request: "get storage may store ni karna cv be realtie dataabse may link bana kr stor eho"
+        // Using base64 Data URL to store in RTDB
+        cvLink = await fileToBase64(resumeFile);
     }
     const jobData = Object.fromEntries(data.entries());
-    jobData.cv = cvUrl; // Replace file object with URL
+    jobData.resume = cvLink; 
+    jobData.createdAt = new Date().toISOString();
+    jobData.status = 'pending';
     
     const newRef = push(dbRef(database, "jobs"));
     await set(newRef, jobData);
@@ -344,6 +358,41 @@ export const jobAPI = {
   },
   delete: async (id: string) => {
     await remove(dbRef(database, `jobs/${id}`));
+  }
+};
+
+export const talentPoolAPI = {
+  getAll: async () => {
+    const snapshot = await get(dbRef(database, "talent-pool"));
+    let data: any[] = [];
+    if (snapshot.exists()) {
+      const val = snapshot.val();
+      data = Object.keys(val).map(key => ({ id: key, ...val[key] }));
+    }
+    return { data };
+  },
+  create: async (data: any) => {
+    // Process file if it's in the data
+    if (data.resume && data.resume instanceof File) {
+      data.resumeLink = await fileToBase64(data.resume);
+      delete data.resume; // Remove the File object before storing
+    }
+
+    const newRef = push(dbRef(database, "talent-pool"));
+    const submissionData = {
+      ...data,
+      createdAt: new Date().toISOString(),
+      status: 'pending'
+    };
+    await set(newRef, submissionData);
+    return { data: { id: newRef.key, ...submissionData } };
+  },
+  updateStatus: async (id: string, status: string) => {
+    await update(dbRef(database, `talent-pool/${id}`), { status });
+    return { data: { id, status } };
+  },
+  delete: async (id: string) => {
+    await remove(dbRef(database, `talent-pool/${id}`));
   }
 };
 

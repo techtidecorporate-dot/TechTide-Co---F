@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Mail, MapPin, Phone, Send, Users, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 import { contactAPI } from "@/api";
-
 import { toast } from "sonner";
+import { sendEmailNotification } from "@/app/utils/emailService";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -26,6 +27,10 @@ export default function ContactPage() {
         subject: formData.subject,
         message: formData.message,
       });
+
+      // Send Email Notifications
+      await sendEmailNotification(formData, "contact");
+
       toast.success("Message sent! We'll get back to you soon.");
       setFormData({
         firstName: "",
@@ -61,8 +66,8 @@ export default function ContactPage() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      content: "techtidecorporate@gmail.com",
-      link: "mailto:techtidecorporate@gmail.com",
+      content: "info@techtidecorporate.com",
+      link: "mailto:info@techtidecorporate.com",
     },
     {
       icon: <Phone className="w-6 h-6" />,
@@ -79,33 +84,38 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7] mt-10">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 md:py-44 overflow-hidden">
+      <div className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[80px] md:blur-[120px]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-8 text-center">
-          <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
-            Get In Touch
-          </p>
-          <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
-            Let's Build Something{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
-              Amazing
-            </span>
-          </h1>
-          <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind? We'd love to hear about it. Send us a
-            message and we'll respond as soon as possible.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
+              Get In Touch
+            </p>
+            <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
+              Let's Build Something{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
+                Amazing
+              </span>
+            </h1>
+            <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Have a project in mind? We'd love to hear about it. Send us a
+              message and we'll respond as soon as possible.
+            </p>
+          </motion.div>
         </div>
       </div>
 
       {/* Contact Cards */}
-      <div className="max-w-7xl mx-auto px-6 md:px-8 -mt-6 md:-mt-12 mb-12 md:mb-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 mt-6 mb-12 md:mb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {contactInfo.map((info, index) => (
             <a

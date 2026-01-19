@@ -115,7 +115,7 @@ export default function BlogDetailPage() {
                   <p className="text-xs text-gray-500 font-medium">Published</p>
                   <p className="text-sm font-bold text-gray-900">
                     {new Date(
-                      post.uploadedDate || post.createdAt
+                      post.uploadedDate || post.createdAt || new Date()
                     ).toLocaleDateString("en-US", {
                       month: "long",
                       day: "numeric",

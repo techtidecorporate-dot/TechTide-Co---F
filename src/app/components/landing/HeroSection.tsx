@@ -1,12 +1,12 @@
 import heroVideo from "@/assets/hero.mp4";
 import { FloatingCTA } from "../../components/ui/FloatingCTA";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export function HeroSection() {
   const navigate = useNavigate();
-
   return (
-    <section className="relative h-screen min-h-screen w-full overflow-hidden bg-gray-900">
+    <section className="relative h-screen px-6 md:px-[70px] pt-48 pb-32 overflow-hidden bg-gray-900">
       <FloatingCTA />
 
       {/* Background Video */}
@@ -24,7 +24,11 @@ export function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 px-6 md:px-[70px] pt-32 md:pt-42">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative z-10"
+      >
         <div className="max-w-[986px]">
           <h1 className="mb-6 md:mb-8 leading-tight">
             <span className="font-poppins block text-white text-2xl md:text-[2rem] tracking-tight mb-2">
@@ -65,7 +69,7 @@ export function HeroSection() {
             <span className="text-white font-medium">Explore Services</span>
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

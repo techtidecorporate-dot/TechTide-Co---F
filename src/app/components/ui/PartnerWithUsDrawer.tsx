@@ -14,6 +14,7 @@ import {
 
 import { partnerAPI } from "@/api";
 import { toast } from "sonner";
+import { sendEmailNotification } from "@/app/utils/emailService";
 
 interface PartnerWithUsDrawerProps {
   isOpen: boolean;
@@ -61,6 +62,10 @@ export function PartnerWithUsDrawer({
     setLoading(true);
     try {
       await partnerAPI.create(formData);
+
+      // Send Email Notifications
+      await sendEmailNotification(formData, "partner");
+
       setIsSubmitted(true);
       toast.success("Request submitted successfully!");
     } catch (error) {
@@ -331,9 +336,15 @@ export function PartnerWithUsDrawer({
             <div className="p-6 md:p-8 bg-gray-50/50 border-t border-gray-100 text-center">
               <p className="text-xs text-gray-500">
                 Or reach us directly at{" "}
-                <span className="text-[#453abc] font-semibold">
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText("support@techtide.pk");
+                    toast.success("Email copied to clipboard!");
+                  }}
+                  className="text-[#453abc] font-semibold hover:underline"
+                >
                   support@techtide.pk
-                </span>
+                </button>
               </p>
             </div>
           </motion.div>

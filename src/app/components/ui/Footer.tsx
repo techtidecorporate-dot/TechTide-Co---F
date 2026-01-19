@@ -61,7 +61,7 @@ export function Footer() {
             {/* Social Links */}
             <div className="flex justify-center md:justify-start gap-4 mt-8">
               <a
-                href="#"
+                href="mailto:info@techtidecorporate.com"
                 onClick={handleCopyEmail}
                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#EA4335] flex items-center justify-center transition-all hover:-translate-y-1"
               >
@@ -161,31 +161,37 @@ export function Footer() {
               </h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <FaEnvelope className="text-[#453abc] " />
                   <a
-                    href="#"
+                    href="mailto:info@techtidecorporate.com"
                     onClick={handleCopyEmail}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                   >
-                    techtidecorporate@gmail.com
+                    <FaEnvelope className="text-[#453abc]" size={14} />
+                    info@techtidecorporate.com
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FaPhone className="text-[#453abc] mt-1" />
                   <a
                     href="tel:+923247991484"
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                   >
+                    <FaPhone className="text-[#453abc]" size={14} />
                     +92 324 7991484
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FaMapMarkerAlt className="text-[#453abc] mt-1 flex-shrink-0" />
-                  <span className="text-gray-400 text-sm leading-relaxed">
+                  <a
+                    href="https://www.google.com/maps/place/HEAVEN+MALL/@31.5488578,74.3987883,606m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3919055e3dbd05d5:0x6c7f09044264f7e!8m2!3d31.5488578!4d74.4013632!16s%2Fg%2F11hbfkzn6l?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D"
+                    className="flex items-center gap-2 text-gray-400 text-sm leading-relaxed"
+                  >
+                    <FaMapMarkerAlt
+                      className="text-[#453abc] mt-1 flex-shrink-0"
+                      size={14}
+                    />
                     G3 heaven mall zaraar
                     <br />
                     shaheed road lahore
-                  </span>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -225,18 +231,22 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-sm text-center">
-            © 2024 TechTideCo. All rights reserved.
+            © 2025 TechTideCo. All rights reserved.
           </p>
 
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
-            {footerLinks.legal.map((link, index) => (
-              <a
+            {[
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Terms of Service", href: "/terms-of-service" },
+              { label: "Cookie Policy", href: "/cookie-policy" },
+            ].map((link, index) => (
+              <Link
                 key={index}
-                href="#"
+                to={link.href}
                 className="text-gray-500 text-xs hover:text-white transition-colors"
               >
-                {link}
-              </a>
+                {link.label}
+              </Link>
             ))}
           </div>
         </div>

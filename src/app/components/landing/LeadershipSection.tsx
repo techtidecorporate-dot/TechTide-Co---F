@@ -120,7 +120,7 @@ export function LeadershipSection() {
             <span className="absolute -left-6 -top-4 text-4xl text-[#453abc] opacity-20 font-serif">
               "
             </span>
-            <p className="text-[#4b5563] text-lg leading-relaxed italic">
+            <p className="text-[#4b5563] text-lg leading-relaxed ">
               {leaders[current].message}
             </p>
             <span className="absolute -right-2 -bottom-4 text-4xl text-[#453abc] opacity-20 font-serif">
@@ -131,7 +131,7 @@ export function LeadershipSection() {
           {/* Social Links */}
           <div className="flex justify-center lg:justify-start gap-4">
             <a
-              href="#"
+              href=""
               onClick={(e) =>
                 handleEmailClick(e, leaders[current].social.gmail)
               }

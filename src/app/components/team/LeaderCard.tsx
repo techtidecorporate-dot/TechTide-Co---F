@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Mail } from "lucide-react";
 import { TeamMember } from "@/types";
+import { toast } from "sonner";
 
 interface LeaderCardProps {
   member: TeamMember;
@@ -13,6 +14,12 @@ const LeaderCard: React.FC<LeaderCardProps> = ({ member }) => {
     typeof member.image === "string" && member.image.startsWith("/uploads")
       ? `http://localhost:5000${member.image}`
       : member.image;
+
+  const handleCopyEmail = (e: React.MouseEvent, email: string) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(email);
+    toast.success("Email copied to clipboard!");
+  };
 
   return (
     <motion.div
@@ -45,18 +52,21 @@ const LeaderCard: React.FC<LeaderCardProps> = ({ member }) => {
               {member.social?.linkedin && (
                 <a
                   href={member.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"
                 >
                   <Linkedin className="w-4 h-4 text-white" />
                 </a>
               )}
               {member.social?.email && (
-                <a
-                  href={member.social.email}
+                <button
+                  onClick={(e) => handleCopyEmail(e, member.social!.email!)}
                   className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"
+                  title="Copy Email"
                 >
                   <Mail className="w-4 h-4 text-white" />
-                </a>
+                </button>
               )}
             </div>
           </div>

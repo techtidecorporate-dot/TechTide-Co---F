@@ -87,6 +87,7 @@ export interface JobApplication {
   jobPosition?: string | JobPosition;
   coverLetter: string;
   resume?: string;
+  areaOfInterest?: string;
   status: 'pending' | 'reviewed' | 'contacted' | 'rejected';
   createdAt: string;
 }
