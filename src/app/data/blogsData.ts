@@ -141,7 +141,7 @@ In 2025, mobile app security is no longer optional. Protecting user trust is fun
   {
   id: "6964d2d18048f65436eef873",
   title: "Building Secure Mobile Apps: Best Practices for 2025",
-  slug: "mobile-app-security-2025",
+  slug: "mobile-app-security-best-practices-2025",
   author: "Mubashir Ahmad",
   image:
     "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",

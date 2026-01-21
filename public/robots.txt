@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /signin
+
+Sitemap: https://techtidecorporate.com/sitemap.xml

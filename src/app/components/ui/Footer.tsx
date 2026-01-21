@@ -114,7 +114,7 @@ export function Footer() {
               <ul className="space-y-4 mb-6">
                 <li>
                   <a
-                    href="/services/crm"
+                    href="/services/crm-customer-relationship-management"
                     className="text-gray-400 text-sm hover:text-white transition-colors"
                   >
                     CRM (Customer Management)
@@ -122,7 +122,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/services/erp"
+                    href="/services/erp-portal-system"
                     className="text-gray-400 text-sm hover:text-white transition-colors"
                   >
                     ERP (Business Portal)
@@ -130,7 +130,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/services/ecommerce"
+                    href="/services/ecommerce-order-management-system"
                     className="text-gray-400 text-sm hover:text-white transition-colors"
                   >
                     E-Commerce Solutions
@@ -138,7 +138,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/services/hrms"
+                    href="/services/human-resource-management-system"
                     className="text-gray-400 text-sm hover:text-white transition-colors"
                   >
                     HRMS (HR Management)
