@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { contactAPI } from "@/api";
 import { toast } from "sonner";
 import { sendEmailNotification } from "@/app/utils/emailService";
+import SEO from "../components/ui/SEO";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -54,7 +55,7 @@ export default function ContactPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({
       ...formData,
@@ -85,6 +86,11 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Contact Us"
+        description="Get in touch with TechTide Corporate LLP for your next web development project. We're here to help you build your digital future."
+        keywords="contact TechTide, web development inquiry, software project consultation, hire web developers, IT services contact"
+      />
       {/* Hero Section */}
       <div className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -98,17 +104,18 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
-              Get In Touch
+              Get In Touch with TechTide Corporate LLP{" "}
             </p>
             <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
-              Let's Build Something{" "}
+              Let’s Build Your Next{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
-                Amazing
+                Web or Software Project
               </span>
             </h1>
             <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Have a project in mind? We'd love to hear about it. Send us a
-              message and we'll respond as soon as possible.
+              Have an idea for a website, ERP, CRM, or custom software? Contact
+              us today, and our expert team will help bring your project to life
+              quickly and efficiently.
             </p>
           </motion.div>
         </div>

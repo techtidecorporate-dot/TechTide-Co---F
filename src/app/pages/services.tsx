@@ -1,12 +1,18 @@
 import { systemsData } from "../data/servicesData";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "../components/ui/SEO";
 
 export default function ServicesPage() {
   const services = systemsData;
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Web & Software Development Services"
+        description="Comprehensive web development, ERP, CRM, and custom software services. TechTide Corporate LLP helps businesses automate and scale with modern technologies."
+        keywords="ERP development, CRM systems, custom web applications, e-commerce development, business automation, software consultancy, TechTide services"
+      />
       {/* Hero Section */}
       <div className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -20,17 +26,18 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
-              Our Expertise
+              Our Expertise in Web & Software Solutions
             </p>
             <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
-              Comprehensive{" "}
+              Comprehensive Technology{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
-                Tech Solutions
+                Services for Businesses
               </span>
             </h1>
             <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              We deliver end-to-end technology solutions that empower businesses
-              to innovate, scale, and lead in the digital era.
+              We deliver end-to-end web development, ERP, CRM, e-commerce, and
+              custom software solutions that help businesses innovate, automate
+              processes, and grow in the digital era.
             </p>
           </motion.div>
         </div>

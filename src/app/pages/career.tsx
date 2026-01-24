@@ -14,13 +14,14 @@ import { motion } from "framer-motion";
 import { jobPositionAPI, JobPosition } from "@/api";
 import { JobApplicationForm } from "../components/career/JobApplicationForm";
 import { toast } from "sonner";
+import SEO from "../components/ui/SEO";
 
 export default function CareersPage() {
   const [selectedDepartment, setSelectedDepartment] = useState("All");
   const [jobListings, setJobListings] = useState<JobPosition[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPosition, setSelectedPosition] = useState<JobPosition | null>(
-    null
+    null,
   );
   const [isApplicationFormOpen, setIsApplicationFormOpen] = useState(false);
 
@@ -74,6 +75,11 @@ export default function CareersPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
+      <SEO
+        title="Careers at TechTide"
+        description="Join TechTide Corporate LLP and help us build the future of technology. Explore our current job openings and career opportunities."
+        keywords="careers at TechTide, remote tech jobs, software developer jobs, UI/UX design careers, hiring developers Lahore, join TechTide"
+      />
       {/* Hero Section */}
       <div className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

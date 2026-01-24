@@ -4,6 +4,7 @@ import { Code, TrendingUp, Users } from "lucide-react";
 import LeaderCard from "../components/team/LeaderCard";
 import TeamMemberCard from "../components/team/TeamMemberCard";
 import { teamData } from "../components/team/teamData";
+import SEO from "../components/ui/SEO";
 
 const TeamOption1 = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -11,7 +12,7 @@ const TeamOption1 = () => {
   // Categorization logic
   const ceo = teamData.find((m) => m.category === "CEO");
   const executives = teamData.filter((m) =>
-    ["CTO", "CFO", "COO", "Executive Leadership"].includes(m.category)
+    ["CTO", "CFO", "COO", "Executive Leadership"].includes(m.category),
   );
 
   const getDepartmentData = (dept: string) => {
@@ -29,6 +30,11 @@ const TeamOption1 = () => {
 
   return (
     <div className="bg-white">
+      <SEO
+        title="Our Team"
+        description="Meet the experts at TechTide Corporate LLP. Our team of skilled developers and designers is dedicated to building high-quality digital solutions."
+        keywords="TechTide team, web developers Lahore, software engineers, UI designers, expert tech team, digital transformation experts"
+      />
       <div className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
@@ -41,17 +47,18 @@ const TeamOption1 = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
-              Our Team
+              Meet the TechTide Corporate LLP Team
             </p>
             <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
-              Meet Our{" "}
+              Experts in Web Development, Software{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
-                Team
+                Solutions & Digital Innovation
               </span>
             </h1>
             <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Meet our team members and learn more about their roles and
-              expertise.
+              Get to know our talented team of developers, designers, and
+              strategists who deliver end-to-end technology solutions for
+              businesses and startups.
             </p>
           </motion.div>
         </div>

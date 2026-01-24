@@ -3,6 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { blogsData } from "../data/blogsData";
+import SEO from "../components/ui/SEO";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -24,6 +25,11 @@ export default function BlogPage() {
 
   return (
     <div className=" bg-white">
+      <SEO
+        title="Blog & Insights"
+        description="Stay updated with the latest trends in web development, mobile apps, and digital innovation from TechTide Corporate LLP."
+        keywords="web development blog, tech news, mobile app development trends, digital marketing insights, TechTide insights, software engineering blog"
+      />
       {/* Hero Section */}
       <div className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -37,17 +43,18 @@ export default function BlogPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
-              Our Blog
+              Our Blog on Technology, Design & Digital Innovation
             </p>
             <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
-              Insights &{" "}
+              Insights, Tips & Trends for{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
-                Innovation
+                Businesses and Startups
               </span>
             </h1>
             <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Stay ahead of the curve with our latest thoughts on technology,
-              design, and the future of digital transformation.
+              Stay ahead with TechTide Corporate LLP’s latest articles on web
+              development, software solutions, digital transformation, and
+              emerging tech trends that drive business growth.
             </p>
           </motion.div>
         </div>
@@ -85,7 +92,7 @@ export default function BlogPage() {
                     {featuredPost.uploadedDate || featuredPost.createdAt
                       ? new Date(
                           (featuredPost.uploadedDate ||
-                            featuredPost.createdAt) as string
+                            featuredPost.createdAt) as string,
                         ).toLocaleDateString()
                       : "N/A"}
                   </span>
@@ -198,7 +205,7 @@ export default function BlogPage() {
                       <Calendar className="w-3.5 h-3.5 text-[#453abc]" />
                       {post.uploadedDate || post.createdAt
                         ? new Date(
-                            (post.uploadedDate || post.createdAt) as string
+                            (post.uploadedDate || post.createdAt) as string,
                           ).toLocaleDateString()
                         : "N/A"}
                     </span>

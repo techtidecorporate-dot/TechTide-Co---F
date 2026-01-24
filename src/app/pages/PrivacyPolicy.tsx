@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Lock } from "lucide-react";
+import SEO from "../components/ui/SEO";
 
 const PrivacyPolicy = () => {
   const lastUpdated = "January 2026";
@@ -48,6 +49,10 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="pt-32 pb-20 min-h-screen bg-white">
+      <SEO
+        title="Privacy Policy"
+        description="Privacy Policy of TechTide Corporate LLP. Learn how we collect, use, and protect your personal data."
+      />
       <div className="max-w-4xl mx-auto px-6">
         {/* Hero Section */}
         <motion.div

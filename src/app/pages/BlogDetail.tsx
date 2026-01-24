@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { blogsData, BlogPost } from "../data/blogsData";
 import { Calendar, User, Clock, ChevronLeft, Share2, Tag } from "lucide-react";
+import SEO from "../components/ui/SEO";
 
 export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -12,43 +13,14 @@ export default function BlogDetailPage() {
       const foundPost = blogsData.find((p) => p.slug === slug);
       if (foundPost) {
         setPost(foundPost);
-        // Set SEO Meta Tags
-        document.title =
-          foundPost.seoTitle || `${foundPost.title} | TechTide Co.`;
-
-        let metaDesc = document.querySelector('meta[name="description"]');
-        if (!metaDesc) {
-          metaDesc = document.createElement("meta");
-          metaDesc.setAttribute("name", "description");
-          document.head.appendChild(metaDesc);
-        }
-        metaDesc.setAttribute(
-          "content",
-          foundPost.seoDescription || foundPost.description
-        );
-
-        let metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (!metaKeywords) {
-          metaKeywords = document.createElement("meta");
-          metaKeywords.setAttribute("name", "keywords");
-          document.head.appendChild(metaKeywords);
-        }
-        metaKeywords.setAttribute(
-          "content",
-          (foundPost.seoKeywords || []).join(", ")
-        );
       }
     }
-
-    // Cleanup meta tags on unmount (optional but good practice)
-    return () => {
-      document.title = "TechTide Co.";
-    };
   }, [slug]);
 
   if (!post) {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
+        <SEO title="Post Not Found" />
         <h1 className="text-2xl font-bold text-gray-900 mb-4">
           Blog Post Not Found
         </h1>
@@ -65,6 +37,13 @@ export default function BlogDetailPage() {
 
   return (
     <main className="pt-24 pb-20 bg-white">
+      <SEO
+        title={post.seoTitle || post.title}
+        description={post.seoDescription || post.description}
+        keywords={(post.seoKeywords || post.tags).join(", ")}
+        ogImage={post.image}
+        ogUrl={`https://techtidecorporate.com/blog/${post.slug}`}
+      />
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumbs */}
         <nav className="mb-8">
@@ -115,7 +94,7 @@ export default function BlogDetailPage() {
                   <p className="text-xs text-gray-500 font-medium">Published</p>
                   <p className="text-sm font-bold text-gray-900">
                     {new Date(
-                      post.uploadedDate || post.createdAt || new Date()
+                      post.uploadedDate || post.createdAt || new Date(),
                     ).toLocaleDateString("en-US", {
                       month: "long",
                       day: "numeric",

@@ -20,6 +20,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { systemsData, SystemItem } from "../data/servicesData";
+import SEO from "../components/ui/SEO";
 
 const iconMap: Record<string, any> = {
   Sparkles,
@@ -80,6 +81,13 @@ export default function ServiceDetailPage() {
   /* ---------------- Page ---------------- */
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f9fafb] via-[#fcfcfd] to-white pt-32 pb-24">
+      <SEO
+        title={service.title}
+        description={service.shortDescription}
+        keywords={`${service.title}, web development, custom software, ${service.features?.slice(0, 3).join(", ")}`}
+        ogImage={service.image}
+        ogUrl={`https://techtidecorporate.com/services/${service.slug}`}
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         {/* Back Button */}
         <Link
