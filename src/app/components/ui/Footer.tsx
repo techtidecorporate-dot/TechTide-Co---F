@@ -34,7 +34,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white pt-8 md:pt-6 pb-4 overflow-hidden">
+    <footer className="bg-gray-900 text-white pt-8 md:pt-16 pb-14 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
