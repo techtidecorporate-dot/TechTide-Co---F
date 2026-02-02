@@ -67,7 +67,7 @@ export function Navbar() {
           <img
             src={imgVector}
             className="h-8 md:h-10 w-auto"
-            alt="TechTide Corporate LLP Logo – TechTide Co. Software & Digital Solutions Company"
+            alt="TechTide Corporate LLP – TechTide Co. Software & Digital Solutions Company"
             title="TechTide Corporate LLP | TechTide Co."
             loading="eager"
             decoding="async"
@@ -89,8 +89,8 @@ export function Navbar() {
                     ? "text-white font-medium"
                     : "text-[#453abc] font-medium"
                   : shouldBeTransparent
-                  ? "text-white/80 hover:text-white"
-                  : "text-gray-600 hover:text-gray-900"
+                    ? "text-white/80 hover:text-white"
+                    : "text-gray-600 hover:text-gray-900"
               }`}
             >
               <span className="relative z-10">{item.label}</span>
@@ -116,7 +116,7 @@ export function Navbar() {
               <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white font-semibold">
                 {user.name?.[0]?.toUpperCase() || "U"}
               </div>
-              <span className="font-medium text-white">{user.name}</span>
+              <span className="font-medium text-blue-600">{user.name}</span>
             </button>
 
             {showUserMenu && (

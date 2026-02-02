@@ -45,7 +45,7 @@ export function Footer() {
                 <img
                   src={imgVector}
                   className="h-8 md:h-10 w-auto"
-                  alt="TechTide Corporate LLP Logo – TechTide Co. Software & Digital Solutions Company"
+                  alt="TechTide Corporate LLP – TechTide Co. Software & Digital Solutions Company"
                   title="TechTide Corporate LLP | TechTide Co."
                   loading="eager"
                   decoding="async"

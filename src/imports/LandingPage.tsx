@@ -38,9 +38,7 @@ function BuildingTechnologyInvestingInTommrrowsPakistan() {
               "linear-gradient(98.6725deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",
           }}
         >
-          We are Corporate LLP committed to excellence in Digital solutions
-          ,Channeling profits directly into youth growth , critical employment
-          and free education resources .
+         Professional Web Development Company Helping Startups & Businesses Build Powerful Websites
         </span>
         <span>
           <br aria-hidden="true" />

@@ -78,7 +78,7 @@ export function PartnerWithUsDrawer({
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -338,12 +338,12 @@ export function PartnerWithUsDrawer({
                 Or reach us directly at{" "}
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText("support@techtide.pk");
+                    navigator.clipboard.writeText("info@techtidecorporate.com");
                     toast.success("Email copied to clipboard!");
                   }}
                   className="text-[#453abc] font-semibold hover:underline"
                 >
-                  support@techtide.pk
+                  info@techtidecorporate.com
                 </button>
               </p>
             </div>

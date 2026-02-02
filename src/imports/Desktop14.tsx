@@ -11,8 +11,7 @@ function BuildingTechnologyInvestingInTommrrowsPakistan() {
       </div>
       <p className="absolute font-['Inter:Bold',sans-serif] font-['Inter:Regular',sans-serif] font-bold font-normal leading-[1.2] left-0 text-[#042147] text-[0px] text-[32px] top-[287px] w-[986px]">
         <span className="bg-clip-text" style={{ WebkitTextFillColor: "transparent", backgroundImage: "linear-gradient(98.6725deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)" }}>
-          We are Corporate LLP committed to excellence in Digital solutions ,Channeling profits directly into youth growth , critical employment and free education resources .
-        </span>
+Professional Web Development Company Helping Startups & Businesses Build Powerful Websites        </span>
         <span>
           <br aria-hidden="true" />
         </span>
