@@ -106,11 +106,10 @@ const TeamOption1 = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab("development")}
-            className={`px-8 py-4 rounded-2xl font-semibold flex items-center gap-3 transition-all ${
-              activeTab === "development"
-                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl"
-                : "bg-white text-gray-600 shadow-md hover:shadow-lg"
-            }`}
+            className={`px-8 py-4 rounded-2xl font-semibold flex items-center gap-3 transition-all ${activeTab === "development"
+              ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl"
+              : "bg-white text-gray-600 shadow-md hover:shadow-lg"
+              }`}
           >
             <Code className="w-5 h-5" />
             Development Team
@@ -119,11 +118,10 @@ const TeamOption1 = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab("marketing")}
-            className={`px-8 py-4 rounded-2xl font-semibold flex items-center gap-3 transition-all ${
-              activeTab === "marketing"
-                ? "bg-gradient-to-r from-orange-500 to-pink-600 text-white shadow-xl"
-                : "bg-white text-gray-600 shadow-md hover:shadow-lg"
-            }`}
+            className={`px-8 py-4 rounded-2xl font-semibold flex items-center gap-3 transition-all ${activeTab === "marketing"
+              ? "bg-gradient-to-r from-orange-500 to-pink-600 text-white shadow-xl"
+              : "bg-white text-gray-600 shadow-md hover:shadow-lg"
+              }`}
           >
             <TrendingUp className="w-5 h-5" />
             Marketing Team
@@ -132,11 +130,10 @@ const TeamOption1 = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab("all")}
-            className={`px-8 py-4 rounded-2xl font-semibold flex items-center gap-3 transition-all ${
-              activeTab === "all"
-                ? "bg-gradient-to-r from-gray-700 to-gray-900 text-white shadow-xl"
-                : "bg-white text-gray-600 shadow-md hover:shadow-lg"
-            }`}
+            className={`px-8 py-4 rounded-2xl font-semibold flex items-center gap-3 transition-all ${activeTab === "all"
+              ? "bg-gradient-to-r from-gray-700 to-gray-900 text-white shadow-xl"
+              : "bg-white text-gray-600 shadow-md hover:shadow-lg"
+              }`}
           >
             <Users className="w-5 h-5" />
             All
@@ -240,7 +237,7 @@ const TeamOption1 = () => {
           </div>
 
           {/* Intern Section */}
-          <div className="space-y-8">
+          <div className="space-y-8 mb-20">
             {(devTeam.intern.length > 0 || mktTeam.intern.length > 0) && (
               <>
                 <div className="flex items-center gap-3">
