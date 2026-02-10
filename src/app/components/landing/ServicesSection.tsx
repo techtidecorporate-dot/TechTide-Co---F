@@ -168,7 +168,7 @@ export function ServicesSection() {
         </div>
 
         {/* Controls */}
-        <div className="absolute inset-x-4 md:inset-x-10 flex justify-between items-center pointer-events-none z-50">
+        <div className="absolute inset-x-4 md:inset-x-10 flex justify-between items-center pointer-events-none z-40">
           <button
             onClick={handlePrevious}
             className="pointer-events-auto bg-white/90 backdrop-blur border border-gray-200 p-2 md:p-3 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 active:scale-90"

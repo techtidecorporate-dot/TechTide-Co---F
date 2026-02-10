@@ -4,7 +4,7 @@ export function FloatingCTA() {
   };
 
   return (
-    <div className="fixed -right-2 top-1/2 -translate-y-1/2 z-50 h-[180px] w-[56px] flex items-center justify-center">
+    <div className="fixed -right-2 top-1/2 -translate-y-1/2 z-40 h-[180px] w-[56px] flex items-center justify-center">
       <div className="rotate-[270deg]">
         <button
           onClick={openDrawer}
