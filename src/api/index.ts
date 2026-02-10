@@ -226,9 +226,14 @@ export const blogAPI = {
       blogData = Object.fromEntries(data.entries());
       blogData.image = imageUrl;
     }
+    const blogWithTimestamps = {
+      ...blogData,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
     const newRef = push(dbRef(database, "blogs"));
-    await set(newRef, blogData);
-    return { data: { id: newRef.key, ...blogData } };
+    await set(newRef, blogWithTimestamps);
+    return { data: { id: newRef.key, ...blogWithTimestamps } };
   },
   update: async (id: string, data: FormData | Partial<BlogPost>) => {
     let blogData: any = data;
@@ -240,8 +245,12 @@ export const blogAPI = {
       }
       blogData = Object.fromEntries(data.entries());
     }
-    await update(dbRef(database, `blogs/${id}`), blogData);
-    return { data: { id, ...blogData } };
+    const updatedData = {
+      ...blogData,
+      updatedAt: new Date().toISOString(),
+    };
+    await update(dbRef(database, `blogs/${id}`), updatedData);
+    return { data: { id, ...updatedData } };
   },
   delete: async (id: string) => {
     await remove(dbRef(database, `blogs/${id}`));

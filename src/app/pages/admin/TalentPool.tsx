@@ -8,7 +8,6 @@ import {
   Search,
   Mail,
   Phone,
-  User,
   Eye,
   X,
   Target,
@@ -81,7 +80,7 @@ export default function TalentPool() {
     (s) =>
       s.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       s.areaOfInterest?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      s.email?.toLowerCase().includes(searchTerm.toLowerCase())
+      s.email?.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -163,7 +162,7 @@ export default function TalentPool() {
                 <div className="flex flex-wrap items-center gap-4">
                   <span
                     className={`px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] shadow-sm ${getStatusColor(
-                      sub.status
+                      sub.status,
                     )}`}
                   >
                     {sub.status || "pending"}
@@ -217,7 +216,7 @@ export default function TalentPool() {
                     <button
                       onClick={() =>
                         setSelectedResume(
-                          getFileUrl(sub.resumeLink || sub.resume)
+                          getFileUrl(sub.resumeLink || sub.resume),
                         )
                       }
                       className="flex items-center gap-2 bg-[#453abc] hover:bg-[#3a2f9e] px-6 py-3 rounded-xl text-sm font-bold text-white transition-all shadow-lg shadow-[#453abc]/20 hover:shadow-[#453abc]/40 active:scale-95"
@@ -233,11 +232,16 @@ export default function TalentPool() {
                   Submitted via Talent Pool
                 </span>
                 <span>
-                  {new Date(sub.createdAt).toLocaleDateString()} at{" "}
-                  {new Date(sub.createdAt).toLocaleTimeString([], {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                  {sub.createdAt
+                    ? new Date(sub.createdAt).toLocaleDateString()
+                    : "N/A"}{" "}
+                  at{" "}
+                  {sub.createdAt
+                    ? new Date(sub.createdAt).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })
+                    : ""}
                 </span>
               </div>
             </div>

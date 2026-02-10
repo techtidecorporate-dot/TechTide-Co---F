@@ -20,7 +20,7 @@ export default function JobPositions() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [editingPosition, setEditingPosition] = useState<JobPosition | null>(
-    null
+    null,
   );
   const [formData, setFormData] = useState({
     title: "",
@@ -53,7 +53,7 @@ export default function JobPositions() {
     e.preventDefault();
     try {
       if (editingPosition) {
-        await jobPositionAPI.update(editingPosition._id, formData);
+        await jobPositionAPI.update(editingPosition.id, formData);
         toast.success("Position updated successfully");
       } else {
         await jobPositionAPI.create(formData);
@@ -129,7 +129,7 @@ export default function JobPositions() {
   const filteredPositions = positions.filter(
     (p) =>
       p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.department.toLowerCase().includes(searchTerm.toLowerCase())
+      p.department.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -171,7 +171,7 @@ export default function JobPositions() {
         ) : (
           filteredPositions.map((position) => (
             <div
-              key={position._id}
+              key={position.id}
               className="bg-[#16161a] border border-white/5 rounded-2xl p-6 shadow-xl hover:border-white/10 transition-all"
             >
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
@@ -231,7 +231,7 @@ export default function JobPositions() {
                       <Edit2 size={18} />
                     </button>
                     <button
-                      onClick={() => handleDelete(position._id)}
+                      onClick={() => handleDelete(position.id)}
                       className="p-2 hover:bg-red-500/10 rounded-lg text-red-400 transition-all"
                       title="Delete"
                     >

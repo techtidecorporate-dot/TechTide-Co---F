@@ -53,7 +53,7 @@ export default function BlogManagement() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -139,7 +139,7 @@ export default function BlogManagement() {
   const filteredBlogs = blogs.filter(
     (b) =>
       b.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      b.author.toLowerCase().includes(searchTerm.toLowerCase())
+      b.author.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -244,7 +244,13 @@ export default function BlogManagement() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Calendar size={14} />
-                    <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
+                    <span>
+                      {blog.createdAt
+                        ? new Date(blog.createdAt).toLocaleDateString()
+                        : blog.uploadedDate
+                          ? new Date(blog.uploadedDate).toLocaleDateString()
+                          : "N/A"}
+                    </span>
                   </div>
                 </div>
               </div>

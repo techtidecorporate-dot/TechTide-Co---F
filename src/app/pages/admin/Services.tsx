@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { serviceAPI, Service } from "@/api";
 import { Plus, Edit2, Trash2, X, Save, Search } from "lucide-react";
-
 import { toast } from "sonner";
 
 export default function ServiceManagement() {
@@ -44,7 +43,7 @@ export default function ServiceManagement() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -57,7 +56,7 @@ export default function ServiceManagement() {
       if (key === "features") {
         form.append(
           key,
-          JSON.stringify(value.split("\n").filter((f) => f.trim() !== ""))
+          JSON.stringify(value.split("\n").filter((f) => f.trim() !== "")),
         );
       } else if (key === "seoKeywords") {
         form.append(
@@ -66,8 +65,8 @@ export default function ServiceManagement() {
             value
               .split(",")
               .map((k) => k.trim())
-              .filter((k) => k !== "")
-          )
+              .filter((k) => k !== ""),
+          ),
         );
       } else {
         form.append(key, value);
@@ -147,7 +146,7 @@ export default function ServiceManagement() {
   };
 
   const filteredServices = services.filter((s) =>
-    s.title.toLowerCase().includes(searchTerm.toLowerCase())
+    s.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   const getImageUrl = (path: string) => {

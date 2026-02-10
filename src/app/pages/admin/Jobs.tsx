@@ -79,7 +79,7 @@ export default function JobApplications() {
   const filteredJobs = jobs.filter(
     (j) =>
       j.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      j.position.toLowerCase().includes(searchTerm.toLowerCase())
+      j.position.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -156,7 +156,7 @@ export default function JobApplications() {
                 <div className="flex flex-wrap items-center gap-3">
                   <span
                     className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest ${getStatusColor(
-                      job.status
+                      job.status,
                     )}`}
                   >
                     {job.status}
@@ -201,8 +201,14 @@ export default function JobApplications() {
                 </div>
               </div>
               <div className="mt-4 pt-4 border-t border-white/5 text-xs text-gray-500">
-                Applied on {new Date(job.createdAt).toLocaleDateString()} at{" "}
-                {new Date(job.createdAt).toLocaleTimeString()}
+                Applied on{" "}
+                {job.createdAt
+                  ? new Date(job.createdAt).toLocaleDateString()
+                  : "N/A"}{" "}
+                at{" "}
+                {job.createdAt
+                  ? new Date(job.createdAt).toLocaleTimeString()
+                  : ""}
               </div>
             </div>
           ))

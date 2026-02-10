@@ -49,7 +49,7 @@ export default function ContactMessages() {
     (m) =>
       m.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       m.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      m.email.toLowerCase().includes(searchTerm.toLowerCase())
+      m.email.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -86,7 +86,7 @@ export default function ContactMessages() {
         ) : (
           filteredMessages.map((msg) => (
             <div
-              key={msg._id}
+              key={msg.id}
               className={`bg-[#16161a] border rounded-2xl p-6 shadow-xl transition-all ${
                 msg.status === "new"
                   ? "border-[#453abc]/40 bg-[#453abc]/5"
@@ -132,13 +132,13 @@ export default function ContactMessages() {
                 <div className="flex flex-col items-end gap-4 min-w-[150px]">
                   <div className="flex items-center gap-2">
                     <button
-                      onClick={() => handleStatusUpdate(msg._id, "read")}
+                      onClick={() => handleStatusUpdate(msg.id, "read")}
                       className="p-2 hover:bg-white/10 rounded-lg text-gray-400 title='Mark as Read'"
                     >
                       <CheckCircle size={20} />
                     </button>
                     <button
-                      onClick={() => handleDelete(msg._id)}
+                      onClick={() => handleDelete(msg.id)}
                       className="p-2 hover:bg-red-500/10 rounded-lg text-red-500 title='Delete'"
                     >
                       <Trash2 size={20} />
@@ -146,10 +146,14 @@ export default function ContactMessages() {
                   </div>
                   <div className="text-right">
                     <p className="text-xs text-gray-500">
-                      {new Date(msg.createdAt).toLocaleDateString()}
+                      {msg.createdAt
+                        ? new Date(msg.createdAt).toLocaleDateString()
+                        : "N/A"}
                     </p>
                     <p className="text-xs text-gray-600 font-mono">
-                      {new Date(msg.createdAt).toLocaleTimeString()}
+                      {msg.createdAt
+                        ? new Date(msg.createdAt).toLocaleTimeString()
+                        : ""}
                     </p>
                   </div>
                 </div>
