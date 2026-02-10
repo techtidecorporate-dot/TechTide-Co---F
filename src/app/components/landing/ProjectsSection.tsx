@@ -1,13 +1,5 @@
 import { useState, useEffect, SetStateAction } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  ExternalLink,
-  Sparkles,
-  ArrowUpRight,
-} from "lucide-react";
 import { motion } from "framer-motion";
-
 import imgNexusClinic from "@/assets/nexus.webp";
 import imgRaynovaTech from "@/assets/raynova.webp";
 import imgSerenaiva from "@/assets/sereniva.webp";
@@ -99,16 +91,6 @@ export function ProjectsSection() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  const handleNext = () => {
-    setIsAutoPlaying(false);
-    setActiveIndex((prev) => (prev + 1) % projects.length);
-  };
-
-  const handlePrev = () => {
-    setIsAutoPlaying(false);
-    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
   const handleThumbnailClick = (index: SetStateAction<number>) => {
     setIsAutoPlaying(false);
     setActiveIndex(index);
@@ -158,11 +140,11 @@ export function ProjectsSection() {
             <div className="absolute -inset-4 bg-gradient-to-r from-[#453abc] to-[#60c3e3] rounded-[2.5rem] blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
 
             <div className="relative bg-white rounded-[2rem] p-1 shadow-xl border border-gray-100">
-              <div className="relative overflow-hidden rounded-[1.8rem] aspect-[16/9]">
+              <div className="relative overflow-hidden rounded-[1rem] aspect-[16/9]">
                 <motion.img
                   key={activeProject.title}
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  // initial={{ opacity: 0, scale: 1.1 }}
+                  // animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   src={activeProject.image}
                   alt={activeProject.title}

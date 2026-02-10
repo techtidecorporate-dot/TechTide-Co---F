@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { systemsData } from "../../data/servicesData";
 
@@ -62,7 +62,7 @@ export function ServicesSection() {
 
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev === services.length - 1 ? 0 : prev + 1));
-    }, 4000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [isPaused]);
@@ -77,44 +77,11 @@ export function ServicesSection() {
     setActiveIndex((prev) => (prev === services.length - 1 ? 0 : prev + 1));
   };
 
-  const getPosition = (index: number) => {
-    if (index === activeIndex) return "center";
-    if (index === (activeIndex - 1 + services.length) % services.length)
-      return "left";
-    if (index === (activeIndex + 1) % services.length) return "right";
-    return "hidden";
-  };
-
-  const variants = {
-    center: {
-      x: 0,
-      scale: 1,
-      opacity: 1,
-      rotate: 0,
-      filter: "blur(0px)",
-      zIndex: 3,
-    },
-    left: {
-      x: -220,
-      scale: 0.88,
-      opacity: 0.5,
-      rotate: 0,
-      filter: "blur(3px)",
-      zIndex: 2,
-    },
-    right: {
-      x: 220,
-      scale: 0.88,
-      opacity: 0.5,
-      rotate: 0,
-      filter: "blur(3px)",
-      zIndex: 2,
-    },
-    hidden: {
-      opacity: 0,
-      scale: 0.75,
-      zIndex: 1,
-    },
+  const getDistance = (index: number) => {
+    let diff = index - activeIndex;
+    if (diff > services.length / 2) diff -= services.length;
+    if (diff < -services.length / 2) diff += services.length;
+    return diff;
   };
 
   return (
@@ -140,30 +107,53 @@ export function ServicesSection() {
 
       {/* Slider Container */}
       <div
-        className="relative max-w-7xl mx-auto h-[450px] md:h-[500px] flex items-center justify-center overflow-hidden"
+        className="relative max-w-[1440px] mx-auto h-[480px] md:h-[520px] flex items-center justify-center"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        <AnimatePresence>
+        <div className="relative w-full h-full flex items-center justify-center">
           {services.map((service, index) => {
-            const position = getPosition(index);
-            const xOffset =
-              position === "left" ? -280 : position === "right" ? 280 : 0;
-            const mobileXOffset =
-              position === "left" ? -160 : position === "right" ? 160 : 0;
+            const distance = getDistance(index);
+            const isVisible = Math.abs(distance) <= 2;
+            const isMobile =
+              typeof window !== "undefined" && window.innerWidth < 768;
+
+            // Clamping distance for X only prevents "flying" across the center during wrap
+            const xDistance = Math.max(-3, Math.min(3, distance));
+
+            // Positioning constants
+            const desktopSpacing = 200;
+            const mobileSpacing = 140;
+
+            const x = isMobile
+              ? xDistance * mobileSpacing
+              : xDistance * desktopSpacing;
+
+            // Visual properties based on distance
+            const scale = isVisible ? 1 - Math.abs(distance) * 0.12 : 0.6;
+            const opacity = isVisible ? 1 - Math.abs(distance) * 0.35 : 0;
+            const zIndex = 30 - Math.abs(distance) * 10;
+            const blur = isVisible ? Math.abs(distance) * 2 : 8;
 
             return (
               <motion.div
                 key={service.id}
-                className="absolute w-[280px] md:w-[350px]"
-                variants={variants}
-                animate={position}
-                transition={{ duration: 0.7, ease: "easeInOut" }}
+                className="absolute w-[280px] md:w-[320px]"
+                animate={{
+                  x,
+                  scale,
+                  opacity,
+                  filter: `blur(${blur}px)`,
+                  z: 0,
+                }}
                 style={{
-                  x:
-                    typeof window !== "undefined" && window.innerWidth < 768
-                      ? mobileXOffset
-                      : xOffset,
+                  zIndex,
+                  pointerEvents: distance === 0 ? "auto" : "none",
+                  willChange: "transform, opacity, filter",
+                }}
+                transition={{
+                  duration: 0.2,
+                  ease: "easeOut",
                 }}
               >
                 <ServiceCard
@@ -175,10 +165,10 @@ export function ServicesSection() {
               </motion.div>
             );
           })}
-        </AnimatePresence>
+        </div>
 
-        {/* Controls - Hidden on very small screens to avoid clutter if needed, or just smaller */}
-        <div className="absolute inset-x-4 md:inset-x-10 flex justify-between pointer-events-none z-10">
+        {/* Controls */}
+        <div className="absolute inset-x-4 md:inset-x-10 flex justify-between items-center pointer-events-none z-50">
           <button
             onClick={handlePrevious}
             className="pointer-events-auto bg-white/90 backdrop-blur border border-gray-200 p-2 md:p-3 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 active:scale-90"
