@@ -56,75 +56,79 @@ export function FloatingCTA() {
                 : { duration: 0.9, ease: [0.4, 0, 0.2, 1] }
             }
           >
-            {/* Glowing ring */}
-            <motion.div
-              className="relative flex items-center justify-center w-20 h-20 rounded-full"
-              animate={
-                phase === "center"
-                  ? {
-                      boxShadow: [
-                        "0 0 0px 0px rgba(30,58,138,0.6)",
-                        "0 0 50px 22px rgba(147,197,253,0.35)",
-                        "0 0 0px 0px rgba(30,58,138,0.6)",
-                      ],
-                    }
-                  : {}
-              }
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            >
-              {/* Outer ring pulse */}
-              <motion.span
-                className="absolute inset-0 rounded-full border-2 border-[#93c5fd]/70"
-                animate={{ scale: [1, 1.6, 1], opacity: [0.8, 0, 0.8] }}
+            {/* Centred column */}
+            <div className="flex flex-col items-center">
+              {/* Glowing ring */}
+              <motion.div
+                className="relative flex items-center justify-center w-20 h-20 rounded-full"
+                animate={
+                  phase === "center"
+                    ? {
+                        boxShadow: [
+                          "0 0 0px 0px rgba(30,58,138,0.6)",
+                          "0 0 50px 22px rgba(147,197,253,0.35)",
+                          "0 0 0px 0px rgba(30,58,138,0.6)",
+                        ],
+                      }
+                    : {}
+                }
                 transition={{
                   repeat: Infinity,
                   duration: 2,
                   ease: "easeInOut",
-                }}
-              />
-              <motion.span
-                className="absolute inset-0 rounded-full border border-[#e2e8f0]/40"
-                animate={{ scale: [1, 2.2, 1], opacity: [0.5, 0, 0.5] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 2,
-                  ease: "easeInOut",
-                  delay: 0.6,
-                }}
-              />
-
-              {/* Icon bubble */}
-              <div
-                className="w-16 h-16 rounded-full flex items-center justify-center shadow-2xl"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #0d1b3e 0%, #1e3a8a 45%, #93c5fd 100%)",
-                  boxShadow:
-                    "0 8px 40px rgba(13,27,62,0.6), 0 0 0 1px rgba(147,197,253,0.25)",
                 }}
               >
-                <Handshake
-                  className="w-7 h-7 text-white ml-1.5"
-                  strokeWidth={1.8}
+                {/* Outer ring pulse */}
+                <motion.span
+                  className="absolute inset-0 rounded-full border-2 border-[#93c5fd]/70"
+                  animate={{ scale: [1, 1.6, 1], opacity: [0.8, 0, 0.8] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 2,
+                    ease: "easeInOut",
+                  }}
                 />
-              </div>
-            </motion.div>
+                <motion.span
+                  className="absolute inset-0 rounded-full border border-[#e2e8f0]/40"
+                  animate={{ scale: [1, 2.2, 1], opacity: [0.5, 0, 0.5] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 2,
+                    ease: "easeInOut",
+                    delay: 0.6,
+                  }}
+                />
 
-            {/* Label below */}
-            {phase === "center" && (
-              <motion.p
-                className="mt-3 text-center text-[14px] font-semibold tracking-widest uppercase"
-                style={{
-                  color: "#93c5fd",
-                  textShadow: "0 0 14px rgba(147,197,253,0.6)",
-                }}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                Partner with Us
-              </motion.p>
-            )}
+                {/* Icon bubble */}
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center shadow-2xl"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #0d1b3e 0%, #1e3a8a 45%, #93c5fd 100%)",
+                    boxShadow:
+                      "0 8px 40px rgba(13,27,62,0.6), 0 0 0 1px rgba(147,197,253,0.25)",
+                  }}
+                >
+                  <Handshake className="w-7 h-7 text-white" strokeWidth={1.8} />
+                </div>
+              </motion.div>
+
+              {/* Label below */}
+              {phase === "center" && (
+                <motion.p
+                  className="mt-3 text-center text-[14px] font-semibold tracking-widest uppercase"
+                  style={{
+                    color: "#93c5fd",
+                    textShadow: "0 0 14px rgba(147,197,253,0.6)",
+                  }}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  Partner with Us
+                </motion.p>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
