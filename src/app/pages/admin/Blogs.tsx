@@ -93,11 +93,15 @@ export default function BlogManagement() {
         ? new Date(blog.uploadedDate).toISOString().split("T")[0]
         : "",
       image: blog.image || "",
-      tags: blog.tags.join(", "),
+      tags: (blog.tags || []).join(", "),
       slug: blog.slug || "",
       seoTitle: blog.seoTitle || "",
       seoDescription: blog.seoDescription || "",
-      seoKeywords: blog.seoKeywords ? blog.seoKeywords.join(", ") : "",
+      seoKeywords: blog.seoKeywords
+        ? Array.isArray(blog.seoKeywords)
+          ? blog.seoKeywords.join(", ")
+          : blog.seoKeywords
+        : "",
       metaTags: blog.metaTags || "",
     });
     setImagePreview(blog.image || "");
@@ -222,7 +226,7 @@ export default function BlogManagement() {
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex gap-2 mb-3 flex-wrap">
-                  {blog.tags.slice(0, 3).map((tag, i) => (
+                  {(blog.tags || []).slice(0, 3).map((tag, i) => (
                     <span
                       key={i}
                       className="text-[10px] uppercase tracking-widest font-bold px-2 py-1 bg-[#453abc]/10 text-[#60c3e3] rounded-md"

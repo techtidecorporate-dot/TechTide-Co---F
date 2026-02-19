@@ -34,7 +34,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             id: firebaseUser.uid,
             name: firebaseUser.displayName || "User",
             email: firebaseUser.email || "",
-            role: "user", // Default or need to fetch from claims/db
+            role:
+              firebaseUser.email === "techtidecorporate@gmail.com"
+                ? "admin"
+                : "user",
           } as User);
         }
       } else {

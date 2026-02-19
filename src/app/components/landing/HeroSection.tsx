@@ -53,7 +53,7 @@ export function HeroSection() {
                 Professional Web Development Company Helping Startups &
                 Businesses Build Powerful Websites
               </span>
-            </p>
+            </p> 
           </div>
 
           <button

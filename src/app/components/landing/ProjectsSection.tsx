@@ -14,7 +14,7 @@ const projects = [
     technologies: [
       "React",
       "TypeScript",
-      "Vite",
+      "Vite", 
       "Tailwind CSS",
       "Node.js",
       "Express.js",

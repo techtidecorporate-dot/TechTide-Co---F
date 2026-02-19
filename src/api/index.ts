@@ -49,23 +49,28 @@ export const authAPI = {
     const userCredential = await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
     const user = userCredential.user;
     
-    // Fetch user profile from Realtime Database to get role
-    const rtdbRef = dbRef(database);
-    const snapshot = await get(child(rtdbRef, `users/${user.uid}`));
+    let role = user.email === "techtidecorporate@gmail.com" ? "admin" : "user";
     
-    let role = 'user';
-    if (snapshot.exists()) {
-      const userData = snapshot.val();
-      role = userData.role || 'user';
-    } else {
-      // If user doesn't exist in database, create profile
-      role = user.email === "techtidecorporate@gmail.com" ? "admin" : "user";
-      await set(dbRef(database, 'users/' + user.uid), {
-        username: user.displayName || user.email?.split('@')[0] || 'User',
-        email: user.email,
-        role: role,
-        createdAt: new Date().toISOString()
-      });
+    try {
+      // Fetch user profile from Realtime Database to get role
+      const rtdbRef = dbRef(database);
+      const snapshot = await get(child(rtdbRef, `users/${user.uid}`));
+      
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
+        role = userData.role || role;
+      } else {
+        // If user doesn't exist in database, create profile
+        await set(dbRef(database, 'users/' + user.uid), {
+          username: user.displayName || user.email?.split('@')[0] || 'User',
+          email: user.email,
+          role: role,
+          createdAt: new Date().toISOString()
+        });
+      }
+    } catch (dbError) {
+      console.error("Database error during login, falling back to email-based role:", dbError);
+      // We still return success because authentication was successful
     }
     
     return { 
@@ -80,39 +85,56 @@ export const authAPI = {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
     
-    // Check if user exists in Realtime Database
-    const rtdbRef = dbRef(database);
-    const snapshot = await get(child(rtdbRef, `users/${user.uid}`));
+    let role = user.email === "techtidecorporate@gmail.com" ? "admin" : "user";
 
-    if (!snapshot.exists()) {
-      // Create new user in Realtime Database
-      const role = user.email === "techtidecorporate@gmail.com" ? "admin" : "user";
-      await set(dbRef(database, 'users/' + user.uid), {
-        username: user.displayName,
-        email: user.email,
-        role: role,
-        createdAt: new Date().toISOString(),
-        photoURL: user.photoURL
-      });
-    } else {
-       // Optional: Ensure admin role is enforced
-       if (user.email === "techtidecorporate@gmail.com") {
-         await update(dbRef(database, 'users/' + user.uid), { role: "admin" });
-       }
+    try {
+      // Check if user exists in Realtime Database
+      const rtdbRef = dbRef(database);
+      const snapshot = await get(child(rtdbRef, `users/${user.uid}`));
+
+      if (!snapshot.exists()) {
+        // Create new user in Realtime Database
+        await set(dbRef(database, 'users/' + user.uid), {
+          username: user.displayName,
+          email: user.email,
+          role: role,
+          createdAt: new Date().toISOString(),
+          photoURL: user.photoURL
+        });
+      } else {
+         const userData = snapshot.val();
+         role = userData.role || role;
+         // Optional: Ensure admin role is enforced if it's the admin email
+         if (user.email === "techtidecorporate@gmail.com" && userData.role !== "admin") {
+           await update(dbRef(database, 'users/' + user.uid), { role: "admin" });
+           role = "admin";
+         }
+      }
+    } catch (dbError) {
+      console.error("Database error during Google login:", dbError);
     }
     
-    return { data: user };
+    return { 
+      data: {
+        ...user,
+        role: role
+      }
+    };
   },
   register: async (userData: any) => {
     const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password);
     // Create user profile in Realtime Database
     const role = userData.email === "techtidecorporate@gmail.com" ? "admin" : "user";
-    await set(dbRef(database, 'users/' + userCredential.user.uid), {
-      username: userData.username,
-      email: userData.email,
-      role: role,
-      createdAt: new Date().toISOString()
-    });
+    try {
+      await set(dbRef(database, 'users/' + userCredential.user.uid), {
+        username: userData.username,
+        email: userData.email,
+        role: role,
+        createdAt: new Date().toISOString()
+      });
+    } catch (dbError) {
+      console.error("Database error during registration:", dbError);
+    }
     return { data: userCredential.user };
   },
   logout: async () => {
@@ -122,17 +144,28 @@ export const authAPI = {
     const user = auth.currentUser;
     if (!user) return { data: null };
     
-    // Fetch user profile from Realtime Database
-    const rtdbRef = dbRef(database);
-    const snapshot = await get(child(rtdbRef, `users/${user.uid}`));
-    const userData = snapshot.exists() ? snapshot.val() : {};
+    let role = user.email === "techtidecorporate@gmail.com" ? "admin" : "user";
+    let userData: any = null;
+
+    try {
+      // Fetch user profile from Realtime Database
+      const rtdbRef = dbRef(database);
+      const snapshot = await get(child(rtdbRef, `users/${user.uid}`));
+      if (snapshot.exists()) {
+        userData = snapshot.val();
+        role = userData?.role || role;
+      }
+    } catch (dbError) {
+      console.error("Database error during getProfile:", dbError);
+      // Fallback to role based on email if DB read fails
+    }
 
     return { 
       data: { 
         id: user.uid, 
-        name: userData?.username || user.displayName || 'User',
+        name: userData?.username || user.displayName || (user.email ? user.email.split('@')[0] : 'User'),
         email: user.email || '',
-        role: userData?.role || 'user'
+        role: role as 'admin' | 'user'
       } as User 
     };
   },
@@ -218,14 +251,21 @@ export const blogAPI = {
   create: async (data: FormData | Partial<BlogPost>) => {
     let blogData: any = data;
     if (data instanceof FormData) {
-      const image = data.get('image') as File;
-      let imageUrl = '';
-      if (image) {
-        imageUrl = await uploadFile(image, 'blogs');
-      }
       blogData = Object.fromEntries(data.entries());
-      blogData.image = imageUrl;
+      const imageFile = data.get('image');
+      if (imageFile instanceof File && imageFile.size > 0) {
+        blogData.image = await uploadFile(imageFile, 'blogs');
+      }
     }
+
+    // Ensure tags and keywords are arrays
+    if (typeof blogData.tags === 'string') {
+      blogData.tags = blogData.tags.split(',').map((t: string) => t.trim()).filter(Boolean);
+    }
+    if (typeof blogData.seoKeywords === 'string') {
+      blogData.seoKeywords = blogData.seoKeywords.split(',').map((k: string) => k.trim()).filter(Boolean);
+    }
+
     const blogWithTimestamps = {
       ...blogData,
       createdAt: new Date().toISOString(),

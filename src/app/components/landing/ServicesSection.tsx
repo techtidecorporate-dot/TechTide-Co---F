@@ -7,7 +7,7 @@ import { systemsData } from "../../data/servicesData";
 interface ServiceCardProps {
   title: string;
   description: string;
-  image: string;
+  image: string; 
   slug: string;
 }
 
