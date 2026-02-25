@@ -29,7 +29,7 @@ import ContactMessages from "./pages/admin/ContactSubmissions";
 import UserManagement from "./pages/admin/Users";
 import JobApplications from "./pages/admin/Jobs";
 import TalentPool from "./pages/admin/TalentPool";
-import JobPositions from "./pages/admin/JobPositions";
+import JobListingManagement from "./pages/admin/JobListingManagement";
 import PartnerSubmissions from "./pages/admin/PartnerSubmissions";
 
 export default function App() {
@@ -74,7 +74,7 @@ export default function App() {
             <Route path="services" element={<ServiceManagement />} />
             <Route path="messages" element={<ContactMessages />} />
             <Route path="users" element={<UserManagement />} />
-            <Route path="job-positions" element={<JobPositions />} />
+            <Route path="job-positions" element={<JobListingManagement />} />
             <Route path="jobs" element={<JobApplications />} />
             <Route path="talent-pool" element={<TalentPool />} />
             <Route path="partners" element={<PartnerSubmissions />} />

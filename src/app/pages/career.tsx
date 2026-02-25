@@ -34,7 +34,7 @@ export default function CareersPage() {
       const { data } = await jobPositionAPI.getActive();
       setJobListings(data);
     } catch (error) {
-      toast.error("Failed to load job positions");
+      console.error("Career Page fetchJobs error:", error);
     } finally {
       setLoading(false);
     }
@@ -202,81 +202,121 @@ export default function CareersPage() {
             </p>
           </div>
         ) : (
-          <div className="space-y-6 md:space-y-8">
-            {filteredJobs.map((job) => (
-              <div
-                key={job.id}
-                className="bg-white rounded-[2rem] md:rounded-[2.5rem] border border-transparent shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_100px_rgba(0,0,0,0.1)] hover:border-[#453abc]/10 transition-all duration-500 p-8 md:p-10 lg:p-14 group"
-              >
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 md:gap-10">
-                  <div className="flex-1">
-                    <div className="flex items-start md:items-center gap-4 md:gap-6 mb-8">
-                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white flex-shrink-0 shadow-lg">
-                        <Briefcase className="w-6 h-6 md:w-7 md:h-7" />
+          <div className="space-y-5 md:space-y-6">
+            {filteredJobs.map((job) => {
+              return (
+                <motion.div
+                  key={job.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_rgba(69,58,188,0.1)] hover:border-[#453abc]/15 transition-all duration-400 overflow-hidden group"
+                >
+                  {/* Top colour bar */}
+                  <div className="h-1 w-full bg-gradient-to-r from-[#453abc] to-[#60c3e3]" />
+
+                  <div className="p-6 md:p-8 lg:p-10">
+                    {/* Header row */}
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-5">
+                      <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white flex-shrink-0 shadow-md">
+                        <Briefcase className="w-5 h-5" />
                       </div>
-                      <div>
-                        <h3 className="text-xl md:text-2xl lg:text-3xl font-poppins font-medium text-[#191a23] mb-3 group-hover:text-[#453abc] transition-colors leading-tight">
+
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg md:text-xl lg:text-2xl font-poppins font-semibold text-[#191a23] group-hover:text-[#453abc] transition-colors leading-snug mb-2">
                           {job.title}
                         </h3>
-                        <div className="flex flex-wrap gap-2 md:gap-4">
-                          <span className="px-3 py-1 rounded-lg bg-[#453abc]/5 text-[#453abc] text-[10px] font-semibold uppercase tracking-wider">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="px-2.5 py-1 rounded-md bg-[#453abc]/8 text-[#453abc] text-[10px] font-bold uppercase tracking-wider">
                             {job.department}
                           </span>
-                          <div className="flex items-center gap-1.5 text-xs text-[#6b7280] font-medium">
-                            <MapPin className="w-3.5 h-3.5" />
-                            <span className="whitespace-nowrap">
-                              {job.location}
+                          <span className="flex items-center gap-1 text-[11px] text-[#6b7280] font-medium bg-gray-50 px-2.5 py-1 rounded-md">
+                            <MapPin className="w-3 h-3" />
+                            {job.location}
+                          </span>
+                          <span className="flex items-center gap-1 text-[11px] text-[#6b7280] font-medium bg-gray-50 px-2.5 py-1 rounded-md">
+                            <Clock className="w-3 h-3" />
+                            {job.type}
+                          </span>
+                          {job.salary && (
+                            <span className="flex items-center gap-1 text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-2.5 py-1 rounded-md">
+                              <DollarSign className="w-3 h-3" />
+                              {job.salary}
                             </span>
-                          </div>
-                          <div className="flex items-center gap-1.5 text-xs text-[#6b7280] font-medium">
-                            <Clock className="w-3.5 h-3.5" />
-                            <span className="whitespace-nowrap">
-                              {job.type}
-                            </span>
-                          </div>
+                          )}
                         </div>
                       </div>
+
+                      {/* Apply button – top right on desktop */}
+                      <button
+                        onClick={() => handleApplyClick(job)}
+                        className="hidden sm:flex items-center gap-2 flex-shrink-0 bg-[#191a23] text-white text-sm font-poppins font-medium px-5 py-2.5 rounded-xl hover:bg-[#453abc] hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+                      >
+                        Apply Now
+                        <ArrowUpRight className="w-4 h-4" />
+                      </button>
                     </div>
 
-                    <p className="text-[#6b7280] text-base md:text-lg mb-8 lg:max-w-3xl leading-relaxed font-inter">
+                    {/* Role Overview */}
+                    <p className="text-[#6b7280] text-sm md:text-[15px] leading-relaxed mb-5">
                       {job.description}
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                      {job.requirements.map((req, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center gap-3 px-5 py-3 rounded-xl bg-[#f8f9fa] text-xs md:text-sm text-[#191a23] font-medium"
-                        >
-                          <Zap className="w-3.5 h-3.5 text-[#453abc]" />
-                          {req}
+                    {/* Key Responsibilities – numbered list */}
+                    {job.responsibilities &&
+                      job.responsibilities.length > 0 && (
+                        <div className="mb-5">
+                          <div className="border-t border-gray-100 mb-4" />
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-[#6b7280] mb-3">
+                            Key Responsibilities
+                          </p>
+                          <ol className="space-y-2">
+                            {job.responsibilities.map((resp, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br from-[#453abc] to-[#60c3e3] text-white text-[10px] font-bold flex items-center justify-center mt-0.5">
+                                  {idx + 1}
+                                </span>
+                                <span className="text-[#374151] text-sm leading-relaxed">
+                                  {resp}
+                                </span>
+                              </li>
+                            ))}
+                          </ol>
                         </div>
-                      ))}
-                    </div>
-                  </div>
+                      )}
 
-                  <div className="flex flex-col sm:flex-row lg:flex-col items-center lg:items-end justify-between lg:justify-center gap-6 bg-gray-50 p-8 md:p-10 rounded-[2rem] lg:min-w-[280px]">
-                    {job.salary && (
-                      <div className="text-center lg:text-right">
-                        <span className="block text-[10px] font-poppins font-semibold text-[#6b7280] uppercase tracking-widest mb-1">
-                          Estimated Range
-                        </span>
-                        <span className="text-xl md:text-2xl font-poppins font-medium text-[#191a23]">
-                          {job.salary}
-                        </span>
-                      </div>
+                    {/* Requirements */}
+                    {job.requirements && job.requirements.length > 0 && (
+                      <>
+                        <div className="border-t border-gray-100 mb-4" />
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-[#6b7280] mb-3">
+                          Key Requirements
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {job.requirements.map((req, idx) => (
+                            <span
+                              key={idx}
+                              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#f4f3ff] text-[#453abc] text-xs font-medium"
+                            >
+                              <Zap className="w-3 h-3 flex-shrink-0" />
+                              {req}
+                            </span>
+                          ))}
+                        </div>
+                      </>
                     )}
+
+                    {/* Mobile apply button */}
                     <button
                       onClick={() => handleApplyClick(job)}
-                      className="w-full sm:w-auto lg:w-full bg-[#191a23] text-white px-8 py-4.5 rounded-xl font-poppins font-medium hover:bg-[#453abc] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2"
+                      className="sm:hidden mt-5 w-full flex items-center justify-center gap-2 bg-[#191a23] text-white text-sm font-poppins font-medium px-5 py-3 rounded-xl hover:bg-[#453abc] transition-all duration-300"
                     >
                       Apply Now
-                      <ArrowUpRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      <ArrowUpRight className="w-4 h-4" />
                     </button>
                   </div>
-                </div>
-              </div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         )}
       </div>

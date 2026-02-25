@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import { partnerAPI, PartnerRequest } from "@/api";
-import { Search, Mail, Phone, Building } from "lucide-react";
+import {
+  Search,
+  Mail,
+  Phone,
+  Building,
+  Trash2,
+  CheckCircle,
+  Clock,
+} from "lucide-react";
 import { toast } from "sonner";
 
 export default function PartnerSubmissions() {
@@ -23,12 +31,36 @@ export default function PartnerSubmissions() {
     }
   };
 
+  const handleStatusUpdate = async (id: string, status: string) => {
+    try {
+      await partnerAPI.updateStatus(id, status);
+      toast.success(`Request marked as ${status}`);
+      fetchRequests();
+    } catch (error) {
+      toast.error("Status update failed");
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    if (
+      window.confirm("Are you sure you want to delete this partner request?")
+    ) {
+      try {
+        await partnerAPI.delete(id);
+        toast.success("Request removed");
+        fetchRequests();
+      } catch (error) {
+        toast.error("Delete failed");
+      }
+    }
+  };
+
   const filteredRequests = requests.filter(
     (r) =>
       r.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       r.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (r.companyName &&
-        r.companyName.toLowerCase().includes(searchTerm.toLowerCase()))
+        r.companyName.toLowerCase().includes(searchTerm.toLowerCase())),
   );
 
   return (
@@ -111,8 +143,8 @@ export default function PartnerSubmissions() {
                           req.status === "new"
                             ? "bg-[#453abc] text-white"
                             : req.status === "contacted"
-                            ? "bg-yellow-500/20 text-yellow-500"
-                            : "bg-green-500/20 text-green-500"
+                              ? "bg-yellow-500/20 text-yellow-500"
+                              : "bg-green-500/20 text-green-500"
                         }`}
                       >
                         {req.status}
@@ -130,17 +162,44 @@ export default function PartnerSubmissions() {
                   </div>
                 </div>
 
-                <div className="flex flex-col items-end gap-2 min-w-[150px]">
-                  <p className="text-xs text-gray-500">
-                    {req.createdAt
-                      ? new Date(req.createdAt).toLocaleDateString()
-                      : "N/A"}
-                  </p>
-                  <p className="text-xs text-gray-600 font-mono">
-                    {req.createdAt
-                      ? new Date(req.createdAt).toLocaleTimeString()
-                      : ""}
-                  </p>
+                <div className="flex flex-col items-end justify-between min-w-[150px]">
+                  <div className="text-right">
+                    <p className="text-xs text-gray-500">
+                      {req.createdAt
+                        ? new Date(req.createdAt).toLocaleDateString()
+                        : "N/A"}
+                    </p>
+                    <p className="text-xs text-gray-600 font-mono">
+                      {req.createdAt
+                        ? new Date(req.createdAt).toLocaleTimeString()
+                        : ""}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2 bg-white/5 p-1.5 rounded-xl border border-white/5 mt-4">
+                    <button
+                      onClick={() => handleStatusUpdate(req.id, "contacted")}
+                      className="p-2 hover:bg-yellow-500/20 rounded-lg text-yellow-500 transition-all"
+                      title="Mark as Contacted"
+                    >
+                      <Clock size={18} />
+                    </button>
+                    <button
+                      onClick={() => handleStatusUpdate(req.id, "resolved")}
+                      className="p-2 hover:bg-green-500/20 rounded-lg text-green-500 transition-all"
+                      title="Mark as Resolved"
+                    >
+                      <CheckCircle size={18} />
+                    </button>
+                    <div className="w-[1px] h-6 bg-white/10 mx-1"></div>
+                    <button
+                      onClick={() => handleDelete(req.id)}
+                      className="p-2 hover:bg-red-500/10 rounded-lg text-gray-500 hover:text-red-500 transition-all"
+                      title="Delete"
+                    >
+                      <Trash2 size={18} />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

@@ -72,6 +72,7 @@ export interface JobPosition {
   type: string;
   salary?: string;
   description: string;
+  responsibilities?: string[];
   requirements: string[];
   isActive: boolean;
   createdAt: string;

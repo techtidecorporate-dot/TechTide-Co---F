@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "@/app/context/AuthContext";
 import { Users, Briefcase, BookOpen, Mail, LucideIcon } from "lucide-react";
-import { authAPI, blogAPI, jobAPI, contactAPI } from "@/api";
+import { authAPI, blogAPI, jobAPI, contactAPI, talentPoolAPI } from "@/api";
 
 interface StatCardProps {
   label: string;
@@ -45,6 +45,7 @@ export default function Dashboard() {
     jobs: 0,
     blogs: 0,
     messages: 0,
+    talentPool: 0,
   });
   const [loading, setLoading] = useState(true);
   const [recentActivity, setRecentActivity] = useState<
@@ -54,12 +55,13 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const [usersRes, jobsRes, blogsRes, messagesRes] =
+        const [usersRes, jobsRes, blogsRes, messagesRes, talentRes] =
           await Promise.allSettled([
             authAPI.getUsers(),
             jobAPI.getAll(),
             blogAPI.getAll(),
             contactAPI.getAll(),
+            talentPoolAPI.getAll(),
           ]);
 
         const get = (res: PromiseSettledResult<any>) =>
@@ -70,6 +72,7 @@ export default function Dashboard() {
           jobs: get(jobsRes),
           blogs: get(blogsRes),
           messages: get(messagesRes),
+          talentPool: get(talentRes),
         });
 
         // Build recent activity
@@ -113,6 +116,17 @@ export default function Dashboard() {
             const latest = jobsData[jobsData.length - 1];
             activity.push({
               label: `Job application from ${latest.name ?? "Unknown"}`,
+              time: getRelativeTime(latest.createdAt),
+            });
+          }
+        }
+
+        if (talentRes.status === "fulfilled") {
+          const talentData = talentRes.value?.data ?? [];
+          if (talentData.length > 0) {
+            const latest = talentData[talentData.length - 1];
+            activity.push({
+              label: `Talent Pool entry from ${latest.name ?? "Unknown"}`,
               time: getRelativeTime(latest.createdAt),
             });
           }
@@ -167,6 +181,13 @@ export default function Dashboard() {
           value={stats.messages}
           icon={Mail}
           color="bg-orange-500"
+          loading={loading}
+        />
+        <StatCard
+          label="Talent Pool"
+          value={stats.talentPool}
+          icon={Briefcase}
+          color="bg-blue-600"
           loading={loading}
         />
       </div>

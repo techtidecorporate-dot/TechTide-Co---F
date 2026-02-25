@@ -341,15 +341,17 @@ export const serviceAPI = {
 
 export const jobPositionAPI = {
   getActive: async () => {
-    const q = query(dbRef(database, "job-positions"), orderByChild("status"), equalTo("active"));
-    const snapshot = await get(q);
-    
-    let data: JobPosition[] = [];
-    if (snapshot.exists()) {
+    try {
+      const snapshot = await get(dbRef(database, "job-positions"));
+      if (!snapshot.exists()) return { data: [] };
       const val = snapshot.val();
-      data = Object.keys(val).map(key => ({ id: key, ...val[key] }));
+      const data = Object.keys(val)
+        .map(key => ({ id: key, ...val[key] }))
+        .filter(job => job && job.isActive !== false);
+      return { data };
+    } catch (error: any) {
+      return { data: [] };
     }
-    return { data };
   },
   getAll: async () => {
     const snapshot = await get(dbRef(database, "job-positions"));
@@ -362,12 +364,21 @@ export const jobPositionAPI = {
   },
   create: async (data: Partial<JobPosition>) => {
     const newRef = push(dbRef(database, "job-positions"));
-    await set(newRef, data);
-    return { data: { id: newRef.key, ...data } };
+    const jobData = {
+      ...data,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+    await set(newRef, jobData);
+    return { data: { id: newRef.key, ...jobData } };
   },
   update: async (id: string, data: Partial<JobPosition>) => {
-    await update(dbRef(database, `job-positions/${id}`), data);
-    return { data: { id, ...data } };
+    const jobData = {
+      ...data,
+      updatedAt: new Date().toISOString(),
+    };
+    await update(dbRef(database, `job-positions/${id}`), jobData);
+    return { data: { id, ...jobData } };
   },
   delete: async (id: string) => {
     await remove(dbRef(database, `job-positions/${id}`));
@@ -447,7 +458,7 @@ export const talentPoolAPI = {
 
 export const contactAPI = {
   getAll: async () => {
-    const snapshot = await get(dbRef(database, "contacts"));
+    const snapshot = await get(dbRef(database, "messages"));
     let data: ContactMessage[] = [];
     if (snapshot.exists()) {
       const val = snapshot.val();
@@ -456,16 +467,21 @@ export const contactAPI = {
     return { data };
   },
   create: async (data: any) => {
-    const newRef = push(dbRef(database, "contacts"));
-    await set(newRef, data);
-    return { data: { id: newRef.key, ...data } };
+    const newRef = push(dbRef(database, "messages"));
+    const messageData = {
+      ...data,
+      status: 'new',
+      createdAt: new Date().toISOString()
+    };
+    await set(newRef, messageData);
+    return { data: { id: newRef.key, ...messageData } };
   },
   updateStatus: async (id: string, status: string) => {
-    await update(dbRef(database, `contacts/${id}`), { status });
+    await update(dbRef(database, `messages/${id}`), { status });
     return { data: { id, status } };
   },
   delete: async (id: string) => {
-    await remove(dbRef(database, `contacts/${id}`));
+    await remove(dbRef(database, `messages/${id}`));
   }
 };
 
@@ -483,6 +499,13 @@ export const partnerAPI = {
     const newRef = push(dbRef(database, "partners"));
     await set(newRef, data);
     return { data: { id: newRef.key, ...data } };
+  },
+  updateStatus: async (id: string, status: string) => {
+    await update(dbRef(database, `partners/${id}`), { status });
+    return { data: { id, status } };
+  },
+  delete: async (id: string) => {
+    await remove(dbRef(database, `partners/${id}`));
   }
 };
 
