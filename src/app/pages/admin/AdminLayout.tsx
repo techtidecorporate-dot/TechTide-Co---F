@@ -74,14 +74,14 @@ export default function AdminLayout() {
     <div className="flex min-h-screen bg-[#0a0a0c] text-white">
       {/* Sidebar */}
       <aside className="w-64 border-r border-white/10 flex flex-col">
-        <div className="p-8">
-          <h1 className="text-2xl font-poppins font-semibold">
-            Tech<span className="text-[#60c3e3]">Tide</span>
+        <Link to="/" className="p-8 hover:opacity-80 transition-opacity cursor-pointer">
+          <h1 className="text-2xl font-poppins font-semibold bg-gradient-to-r from-[#453abc] via-[#60c3e3] to-[#453abc] bg-clip-text text-transparent">
+            TechTide
           </h1>
-          <p className="text-xs text-gray-500 mt-1 uppercase tracking-widest">
+          <p className="text-xs bg-gradient-to-r from-[#60c3e3] to-[#453abc] bg-clip-text text-transparent mt-1 uppercase tracking-widest font-semibold">
             Admin Panel
           </p>
-        </div>
+        </Link>
 
         <nav className="flex-1 mt-4">
           {menuItems.map((item) => (
