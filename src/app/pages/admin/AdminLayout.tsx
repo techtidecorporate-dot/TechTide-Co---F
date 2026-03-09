@@ -11,6 +11,7 @@ import {
   Box,
   Handshake,
   Target,
+  CalendarCheck,
 } from "lucide-react";
 
 interface SidebarLinkProps {
@@ -67,6 +68,7 @@ export default function AdminLayout() {
     { to: "/admin/blogs", icon: BookOpen, label: "Blogs" },
     { to: "/admin/services", icon: Box, label: "Services" },
     { to: "/admin/partners", icon: Handshake, label: "Partners" },
+    { to: "/admin/appointments", icon: CalendarCheck, label: "Appointments" },
     { to: "/admin/messages", icon: Mail, label: "Messages" },
   ];
 
@@ -74,7 +76,10 @@ export default function AdminLayout() {
     <div className="flex min-h-screen bg-[#0a0a0c] text-white">
       {/* Sidebar */}
       <aside className="w-64 border-r border-white/10 flex flex-col">
-        <Link to="/" className="p-8 hover:opacity-80 transition-opacity cursor-pointer">
+        <Link
+          to="/"
+          className="p-8 hover:opacity-80 transition-opacity cursor-pointer"
+        >
           <h1 className="text-2xl font-poppins font-semibold bg-gradient-to-r from-[#453abc] via-[#60c3e3] to-[#453abc] bg-clip-text text-transparent">
             TechTide
           </h1>

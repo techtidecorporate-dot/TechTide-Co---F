@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import imgVector from "@/assets/brand-logo-dark.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, LogOut, LayoutDashboard } from "lucide-react";
+import { Menu, X, LogOut, LayoutDashboard, CalendarCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/app/context/AuthContext";
 
@@ -149,8 +149,8 @@ export function Navbar() {
           </div>
         ) : (
           <Link
-            to="/signin"
-            className="relative px-7 py-2.5 rounded-lg font-medium text-white 
+            to="/book-appointment"
+            className="relative flex items-center gap-2 px-7 py-2.5 rounded-lg font-medium text-white 
                transition-all duration-300 
                hover:-translate-y-0.5 active:translate-y-0 
                shadow-[0_10px_30px_-10px_rgba(69,58,188,0.6)]
@@ -162,7 +162,8 @@ export function Navbar() {
             }}
           >
             <span className="absolute inset-0 rounded-lg bg-white/10 opacity-0 hover:opacity-100 transition-opacity pointer-events-none" />
-            <span className="relative z-10">Sign in</span>
+            <CalendarCheck className="relative z-10 w-4 h-4" />
+            <span className="relative z-10">Book Appointment</span>
           </Link>
         )}
       </div>
@@ -208,15 +209,16 @@ export function Navbar() {
               })}
               <hr className="border-gray-100 my-4" />
               <Link
-                to="/signin"
+                to="/book-appointment"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full py-4 rounded-xl text-center text-white font-poppins font-medium shadow-lg"
+                className="w-full py-4 rounded-xl text-center text-white font-poppins font-medium shadow-lg flex items-center justify-center gap-2"
                 style={{
                   background:
                     "linear-gradient(95deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 100%)",
                 }}
               >
-                Sign in
+                <CalendarCheck className="w-5 h-5" />
+                Book Appointment
               </Link>
 
               <div className="mt-auto pt-8">

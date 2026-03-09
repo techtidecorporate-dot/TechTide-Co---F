@@ -14,6 +14,7 @@ import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import { PartnerWithUsDrawer } from "./components/ui/PartnerWithUsDrawer";
 import SignInPage from "./components/ui/signin";
+import BookAppointment from "./pages/BookAppointment";
 import { useState, useEffect } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
@@ -31,6 +32,7 @@ import JobApplications from "./pages/admin/Jobs";
 import TalentPool from "./pages/admin/TalentPool";
 import JobListingManagement from "./pages/admin/JobListingManagement";
 import PartnerSubmissions from "./pages/admin/PartnerSubmissions";
+import AppointmentManagement from "./pages/admin/Appointments";
 
 export default function App() {
   const location = useLocation();
@@ -62,6 +64,7 @@ export default function App() {
           <Route path="/career" element={<CareerPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/signin" element={<SignInPage />} />
+          <Route path="/book-appointment" element={<BookAppointment />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
@@ -78,6 +81,7 @@ export default function App() {
             <Route path="jobs" element={<JobApplications />} />
             <Route path="talent-pool" element={<TalentPool />} />
             <Route path="partners" element={<PartnerSubmissions />} />
+            <Route path="appointments" element={<AppointmentManagement />} />
           </Route>
         </Routes>
         {isPartnerDrawerOpen && (
