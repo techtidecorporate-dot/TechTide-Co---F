@@ -316,16 +316,16 @@ export default function BookAppointment() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="text-[#6b7280] font-inter">
-                    Monday – Friday
+                    Monday – Saturday
                   </span>
                   <span className="font-medium text-[#191a23] font-inter">
-                    9:00 AM – 6:00 PM
+                    11:00 AM – 7:00 PM
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-[#6b7280] font-inter">Saturday</span>
+                  <span className="text-[#6b7280] font-inter">Friday</span>
                   <span className="font-medium text-[#191a23] font-inter">
-                    10:00 AM – 4:00 PM
+                    03:00 AM – 7:00 PM
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-2">
@@ -358,7 +358,7 @@ export default function BookAppointment() {
                 >
                   <Mail className="w-4 h-4" />
                   <span className="text-sm font-inter">
-                    ceo@techtidecorporate.com
+                    info@techtidecorporate.com
                   </span>
                 </a>
               </div>
