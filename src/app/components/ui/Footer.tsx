@@ -113,45 +113,45 @@ export function Footer() {
               </h4>
               <ul className="space-y-4 mb-6">
                 <li>
-                  <a
-                    href="/services/crm-customer-relationship-management"
+                  <Link
+                    to="/services/crm-software-development"
                     className="text-gray-400 text-sm hover:text-white transition-colors"
                   >
                     CRM (Customer Management)
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/services/erp-portal-system"
+                  <Link
+                    to="/services/erp-software-development"
                     className="text-gray-400 text-sm hover:text-white transition-colors"
                   >
                     ERP (Business Portal)
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/services/ecommerce-order-management-system"
+                  <Link
+                    to="/services/ecommerce-website-development-oms"
                     className="text-gray-400 text-sm hover:text-white transition-colors"
                   >
                     E-Commerce Solutions
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/services/human-resource-management-system"
+                  <Link
+                    to="/services/hrms-software-development"
                     className="text-gray-400 text-sm hover:text-white transition-colors"
                   >
                     HRMS (HR Management)
-                  </a>
+                  </Link>
                 </li>
               </ul>
-              <a
-                href="/services"
+              <Link
+                to="/services"
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-white/10 text-white text-sm font-medium hover:bg-white/5 transition-all w-fit"
               >
                 <span>Explore More</span>
                 <FaArrowRight size={14} className="text-[#453abc]" />
-              </a>
+              </Link>
             </div>
 
             {/* Contact Information */}
