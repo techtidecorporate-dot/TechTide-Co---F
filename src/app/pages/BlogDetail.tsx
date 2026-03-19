@@ -1,21 +1,39 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { blogsData, BlogPost } from "../data/blogsData";
+import { blogAPI, BlogPost } from "../../api";
 import { Calendar, User, Clock, ChevronLeft, Share2, Tag } from "lucide-react";
 import SEO from "../components/ui/SEO";
 
 export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (slug) {
-      const foundPost = blogsData.find((p) => p.slug === slug);
-      if (foundPost) {
-        setPost(foundPost);
+    const fetchPost = async () => {
+      try {
+        setLoading(true);
+        const { data } = await blogAPI.getAll();
+        const foundPost = data.find((p: BlogPost) => p.slug === slug);
+        if (foundPost) {
+          setPost(foundPost);
+        }
+      } catch (error) {
+        console.error("Failed to fetch post", error);
+      } finally {
+        setLoading(false);
       }
-    }
+    };
+    if (slug) fetchPost();
   }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
+        <div className="text-gray-500 text-lg">Loading...</div>
+      </div>
+    );
+  }
 
   if (!post) {
     return (

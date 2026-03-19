@@ -1,18 +1,29 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { blogsData } from "../../data/blogsData";
+import { blogAPI, BlogPost } from "../../../api";
 
 export function BlogSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const { data } = await blogAPI.getAll();
+        setBlogPosts(data || []);
+      } catch (error) {
+        console.error("Failed to fetch blogs", error);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
-
-  const blogPosts = blogsData;
 
   // Different speeds for each column
   const slow = useSpring(useTransform(scrollYProgress, [0, 1], [0, -60]), {

@@ -1,8 +1,8 @@
 import { ArrowRight, Calendar, Clock, Search } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { blogsData } from "../data/blogsData";
+import { blogAPI, BlogPost } from "../../api";
 import SEO from "../components/ui/SEO";
 
 export default function BlogPage() {
@@ -10,7 +10,19 @@ export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const categories = ["All", "Web Development", "Mobile Apps", "Tech Trends"];
-  const blogPosts = blogsData;
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const { data } = await blogAPI.getAll();
+        setBlogPosts(data || []);
+      } catch (error) {
+        console.error("Failed to fetch blogs", error);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
   const filteredPosts = blogPosts.filter((post) => {
     const matchesCategory =
