@@ -2,11 +2,9 @@ import NadirImg from '@/assets/team/nadir (1).png'
 import ShaminImg from '@/assets/team/shamin.png'
 import MoazzamImg from '@/assets/team/moazzam.png'
 import SajideenImg from '@/assets/team/sajideen.png'
-import AmmarImg from '@/assets/team/ammar.png'
 import MubashirImg from '@/assets/team/mubashir.png'
 import AhmedImg from '@/assets/team/bilal.png'
 import HammadImg from '@/assets/team/hammad.png'
-import SyedaImg from '@/assets/team/areesha.png'
 import SairaImg from '@/assets/team/saira.png'
 import AmnaImg from '@/assets/team/amna.png'
 import MahmoodImg from '@/assets/team/mahmood.png'
@@ -61,15 +59,6 @@ export const teamData: TeamMember[] = [
     skills: [],
   },
   {
-    id: "69625d97fda2c2b0e6345e80",
-    name: "Muhammad Ammar Haider",
-    role: "Head of Digital Marketing",
-    category: "Head",
-    department: "Marketing",
-    image: AmmarImg,
-    skills: ["Digital Marketing"],
-  },
-  {
     id: "69625deafda2c2b0e6345e84",
     name: "Mubashir Ahmad Hamza",
     role: "Development Head",
@@ -113,15 +102,6 @@ export const teamData: TeamMember[] = [
     skills: ["React", "Tailwind CSS", "JavaScript", "Node.js", "TypeScript"],
   },
   {
-    id: "69625f4efda2c2b0e6345e90",
-    name: "Syeda Aresha",
-    role: "Business Developer",
-    category: "Senior",
-    department: "Marketing",
-    image: SyedaImg,
-    skills: ["Business Development"],
-  },
-  {
     id: "69625fa6fda2c2b0e6345e94",
     name: "Saira Shaheen",
     role: "Digital Content Creator",
@@ -130,15 +110,6 @@ export const teamData: TeamMember[] = [
     image: SairaImg,
     skills: ["Social Media Ads"],
   },
-  // {
-  //   id: "69625fd6fda2c2b0e6345e98",
-  //   name: "Mashhood Shafqat",
-  //   role: "Front-end Developer",
-  //   category: "Junior",
-  //   department: "Development",
-  //   image: MashhoodImg,
-  //   skills: ["HTML", "CSS", "JavaScript"],
-  // },
   {
     id: "69626011fda2c2b0e6345e9c",
     name: "Amna Durrani",

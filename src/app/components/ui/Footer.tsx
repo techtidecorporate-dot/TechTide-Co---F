@@ -53,9 +53,9 @@ export function Footer() {
               </Link>
             </div>
             <p className="text-gray-400 text-sm mt-6 max-w-md mx-auto md:mx-0 leading-relaxed">
-              Building technology and investing in tomorrow's Pakistan. We
-              create innovative digital solutions that empower businesses and
-              communities.
+              Based in Pakistan, Serving the World. We build high-performance
+              web, mobile, and SaaS solutions for businesses across the UK, USA, 
+              Canada, Germany, and Europe.
             </p>
 
             {/* Social Links */}

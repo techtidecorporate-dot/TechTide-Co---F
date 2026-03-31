@@ -3,101 +3,125 @@
   <!-- Main Pages -->
   <url>
     <loc>https://techtidecorporate.com/</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://techtidecorporate.com/ourteam</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://techtidecorporate.com/services</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://techtidecorporate.com/blog</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://techtidecorporate.com/career</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://techtidecorporate.com/contact</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Service Detail Pages -->
   <url>
-    <loc>https://techtidecorporate.com/services/erp-portal-system</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/web-development-company</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/services/ecommerce-order-management-system</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/mobile-app-development-company</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/services/analytics-reporting-system</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/saas-software-development-company</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/services/human-resource-management-system</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/ai-web-development</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/services/user-management-security-system</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/hrms-software-development</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/services/customer-management-system</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/billing-invoice-software-development</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/services/billing-invoice-system</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/ecommerce-website-development-oms</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/services/crm-customer-relationship-management</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/crm-software-development</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/services/support-ticketing-booking-chat-system</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/erp-software-development</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/services/api-integration-system</loc>
-    <lastmod>2026-01-21</lastmod>
+    <loc>https://techtidecorporate.com/services/api-development-system-integration</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://techtidecorporate.com/services/customer-management-system-crm</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://techtidecorporate.com/services/customer-support-ticketing-booking-system</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://techtidecorporate.com/services/business-analytics-reporting-system</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://techtidecorporate.com/services/user-management-application-security</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Blog Detail Pages -->
@@ -120,19 +144,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://techtidecorporate.com/blog/mobile-app-security-best-practices-2025</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://techtidecorporate.com/blog/future-web-development-ai</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://techtidecorporate.com/blog/cloud-computing-2025-business-scalability</loc>
     <lastmod>2026-01-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -147,12 +159,6 @@
   </url>
   <url>
     <loc>https://techtidecorporate.com/terms-of-service</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://techtidecorporate.com/cookie-policy</loc>
     <lastmod>2026-01-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import SEO from "../components/ui/SEO";
 
 export default function ServicesPage() {
-  const services = systemsData;
+  const services = systemsData.filter((s) => !s.isLandingPage);
 
   return (
     <div className="min-h-screen bg-white">
@@ -65,12 +65,12 @@ export default function ServicesPage() {
               )}
               <div className="p-4">
                 <Link to={`/services/${service.slug}`}>
-                  <h3 className="text-xl md:text-2xl font-poppins font-medium text-[#191a23] mb-3  group-hover:text-[#453abc] transition-colors">
+                  <h3 className="text-xl md:text-2xl font-poppins font-medium text-[#191a23] mb-3 group-hover:text-[#453abc] transition-colors line-clamp-2 min-h-[3.5rem] md:min-h-[4rem] flex items-center">
                     {service.title}
                   </h3>
                 </Link>
 
-                <p className="text-[#6b7280] text-sm md:text-base leading-relaxed font-inter mb-6">
+                <p className="text-[#6b7280] text-sm md:text-base leading-relaxed font-inter mb-6 line-clamp-3 min-h-[4.5rem] md:min-h-[5rem]">
                   {service.shortDescription}
                 </p>
 

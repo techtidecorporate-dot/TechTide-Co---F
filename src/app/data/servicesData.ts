@@ -1,5 +1,27 @@
 import SupportImg from "@/assets/support, ticketing, booking & communication system.png";
 import EcommerceImg from "@/assets/ecommerce.jpg";
+import { seoServicesData } from "./seoServicesData";
+export interface ProcessStep {
+  step: string;
+  title: string;
+  description: string;
+}
+
+export interface Benefit {
+  title: string;
+  description: string;
+}
+
+export interface IndustryUseCase {
+  industry: string;
+  description: string;
+}
+
+export interface USP {
+  title: string;
+  description: string;
+}
+
 export interface SystemItem {
   id: string;
   title: string;
@@ -14,12 +36,22 @@ export interface SystemItem {
   seoTitle: string;
   seoDescription: string;
   seoKeywords: string[];
+  // Rich SEO page fields (optional for backward compatibility)
+  introContent?: string;
+  servicesContent?: string[];
+  benefits?: Benefit[];
+  processSteps?: ProcessStep[];
+  industryUseCases?: IndustryUseCase[];
+  usps?: USP[];
+  ctaHeading?: string;
+  ctaDescription?: string;
+  isLandingPage?: boolean;
 }
 
 export const systemsData: SystemItem[] = [
   {
   id: "6966067f23963ba3d561d58b",
-  title: "CRM Software Development & Customer Relationship Management System",
+  title: "CRM & Customer Engagement Systems",
   shortDescription:
     "Custom CRM software to manage customer relationships, sales pipelines, leads, communication, and customer data from one centralized platform.",
   description:
@@ -56,9 +88,9 @@ export const systemsData: SystemItem[] = [
 ,
  {
   id: "6966067f23963ba3d561d592",
-  title: "User Management & Application Security System Development",
+  title: "User Management & App Security",
   shortDescription:
-    "Custom user management and application security systems to control access, manage permissions, and protect business applications.",
+    "Custom user management and application security systems to control access, manage permissions, and protect business data with advanced security.",
   description:
     "TechTide Corporate LLP provides user management and application security system development for businesses and enterprises. Our solutions include secure authentication, role-based access control, multi-factor authentication, activity logging, and audit trails to protect applications and sensitive data.",
   image:
@@ -92,9 +124,9 @@ export const systemsData: SystemItem[] = [
 },
   {
   id: "6966067f23963ba3d561d590",
-  title: "Business Analytics & Reporting System Development",
+  title: "Business Analytics & Reporting",
   shortDescription:
-    "Custom business analytics and reporting systems that turn raw data into real-time dashboards, insights, and performance reports.",
+    "Custom business analytics and reporting systems that turn raw data into real-time dashboards, actionable insights, and performance reports.",
   description:
     "TechTide Corporate LLP provides custom business analytics and reporting system development to help organizations make data-driven decisions. Our solutions offer real-time dashboards, advanced data visualization, KPI tracking, and automated reports that improve performance, strategy, and operational efficiency.",
   image:
@@ -128,11 +160,11 @@ export const systemsData: SystemItem[] = [
 },
   {
   id: "6966067f23963ba3d561d58e",
-  title: "E-Commerce Website Development & Order Management System (OMS)",
+  title: "E-Commerce & Order Management",
   shortDescription:
-    "Custom e-commerce website development and order management systems to manage products, orders, payments, inventory, and fulfillment efficiently.",
+    "Custom e-commerce platforms and order management systems (OMS) to manage products, payments, and global fulfillment from a single dashboard.",
   description:
-    "TechTide Corporate LLP offers professional e-commerce website development and custom Order Management System (OMS) solutions for businesses of all sizes. Our platforms help you sell online, manage inventory, process orders, integrate secure payment gateways, and streamline fulfillment across multiple sales channels.",
+    "TechTide Corporate LLP offers professional e-commerce website development and custom Order Management System (OMS) solutions for businesses across the UK, USA, Canada, Germany, and Europe. Our platforms help you sell online, manage inventory, process orders, integrate secure payment gateways, and streamline fulfillment across multiple sales channels — built by our expert team in Pakistan.",
   image: EcommerceImg,
   features: [
     "Custom e-commerce website development",
@@ -158,17 +190,22 @@ export const systemsData: SystemItem[] = [
     "online store development",
     "inventory and order management system",
     "e-commerce development company",
-    "e-commerce website development in Pakistan",
+    "ecommerce web development UK",
+    "ecommerce web development company USA",
+    "Shopify development company USA",
+    "ecommerce web development Canada",
+    "ecommerce development company Germany",
+    "Shopify Entwicklung Deutschland",
   ],
 },
 
 {
   id: "6966067f23963ba3d561d58f",
-  title: "HRMS Software Development & Human Resource Management System",
+  title: "Custom HRMS & HR Solutions",
   shortDescription:
-    "Custom HRMS software to manage employees, payroll, attendance, recruitment, and performance from a single centralized platform.",
+    "Bespoke HRMS development to manage employees, payroll, attendance, and recruitment through a secure, tailored platform for UK and global companies.",
   description:
-    "TechTide Corporate LLP provides custom HRMS software development and Human Resource Management System solutions for businesses of all sizes. Our HRMS platforms streamline employee records, attendance, payroll, recruitment, and performance management while delivering actionable HR analytics.",
+    "As a leading HR software development company based in Pakistan, TechTide Corporate LLP delivers custom HRMS software development and bespoke HR management system solutions for businesses across the United Kingdom. Whether you need employee management software development for a growing startup or an enterprise-grade human resource platform, our expert team builds scalable, secure, and fully tailored solutions that simplify workforce operations and drive organisational efficiency.",
   image:
     "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80",
   features: [
@@ -179,30 +216,146 @@ export const systemsData: SystemItem[] = [
     "Performance evaluation & reviews",
     "HR analytics & reports",
     "Role-based access & data security",
+    "Self-service employee portals",
+    "Document & contract management",
+    "UK employment law compliance tools",
   ],
   slug: "hrms-software-development",
   color: "#000000",
   bgColor: "#ffffff",
   seoTitle:
-    "HRMS Software Development Company | Payroll & HR Solutions",
+    "Custom HRMS Software Development UK | HR Software Company",
   seoDescription:
-    "Simplify workforce management with TechTide Corporate LLP. We build custom HRMS software for payroll, attendance, recruitment, and employee performance management.",
+    "Leading HR software development company serving UK businesses. We build bespoke HR management systems, employee management software, and custom HRMS solutions.",
   seoKeywords: [
-    "HRMS software development",
-    "human resource management system",
+    "custom hrms software development",
+    "hr software development company",
+    "bespoke hr management system",
+    "employee management software development",
+    "HRMS software UK",
+    "custom HR solutions",
     "payroll management system",
-    "employee management software",
-    "attendance and leave management system",
-    "HR software development company",
-    "custom HRMS solutions",
-    "HRMS software in Pakistan",
+    "workforce management software",
+    "human resource management system UK",
+    "HR automation software",
   ],
+  introContent:
+    "Managing human resources efficiently is the backbone of every successful organisation. From recruitment and onboarding to payroll processing and performance reviews, HR operations demand precision, compliance, and scalability. Based in Pakistan and serving clients across the United Kingdom, TechTide Corporate LLP specialises in custom HRMS software development that empowers UK businesses to streamline their entire HR lifecycle. As a trusted HR software development company, we understand that no two organisations are alike — which is why every bespoke HR management system we build is tailored to your exact operational requirements, workforce size, and growth ambitions.",
+  servicesContent: [
+    "Employee Database & Records Management — Centralised, secure storage for all employee data, contracts, documents, and organisational charts with instant search and filtering.",
+    "Attendance, Leave & Shift Management — Automated time tracking, leave requests, approval workflows, shift scheduling, and absence monitoring with real-time dashboards.",
+    "Payroll & Compensation Processing — End-to-end payroll automation with tax calculations, National Insurance deductions, pension contributions, and HMRC-compliant payslip generation.",
+    "Recruitment & Onboarding Automation — Applicant tracking systems (ATS), job posting management, interview scheduling, offer letter generation, and digital onboarding checklists.",
+    "Performance Management & Appraisals — Goal setting, 360-degree feedback, performance review cycles, competency tracking, and automated appraisal reports.",
+    "Employee Self-Service Portal — Empower your team with self-service access to payslips, leave balances, policy documents, training records, and personal information updates.",
+    "HR Analytics & Workforce Reporting — Real-time dashboards tracking headcount, attrition, diversity metrics, overtime costs, and departmental performance KPIs.",
+    "Compliance & Document Management — Automated policy distribution, e-signature collection, right-to-work verification, and UK employment law compliance tools.",
+  ],
+  benefits: [
+    {
+      title: "Fully Bespoke Solutions",
+      description: "Every module, workflow, and dashboard is custom-built to match your organisation's specific HR processes — no forcing your business into a rigid template.",
+    },
+    {
+      title: "UK Compliance Built-In",
+      description: "Our systems are designed with HMRC regulations, GDPR requirements, and UK employment law at the core, ensuring you stay compliant effortlessly.",
+    },
+    {
+      title: "Scalable Architecture",
+      description: "Whether you have 20 employees or 20,000, our HRMS solutions scale seamlessly as your organisation grows, without performance degradation.",
+    },
+    {
+      title: "Reduced Administrative Burden",
+      description: "Automate repetitive tasks like payroll runs, leave approvals, and document generation — freeing your HR team to focus on strategic initiatives.",
+    },
+    {
+      title: "Improved Employee Experience",
+      description: "Self-service portals, mobile access, and intuitive interfaces boost employee satisfaction and reduce HR ticket volumes.",
+    },
+    {
+      title: "Data-Driven Decision Making",
+      description: "Real-time analytics and workforce insights help leadership make informed decisions about hiring, retention, and resource allocation.",
+    },
+  ],
+  processSteps: [
+    {
+      step: "01",
+      title: "Discovery & Requirements Analysis",
+      description: "We conduct in-depth workshops to understand your HR workflows, compliance needs, integration requirements, and growth plans.",
+    },
+    {
+      step: "02",
+      title: "Solution Architecture & UX Design",
+      description: "Our architects design a scalable system blueprint while UX designers create intuitive interfaces that your HR team and employees will love.",
+    },
+    {
+      step: "03",
+      title: "Agile Development & Integration",
+      description: "We build your HRMS in iterative sprints, integrating with existing payroll providers, accounting tools, and communication platforms along the way.",
+    },
+    {
+      step: "04",
+      title: "Testing, Compliance & Data Migration",
+      description: "Rigorous QA testing, GDPR compliance audits, and secure migration of your existing employee data into the new system.",
+    },
+    {
+      step: "05",
+      title: "Deployment, Training & Ongoing Support",
+      description: "Smooth production launch with comprehensive training for HR staff and employees, followed by dedicated maintenance and feature updates.",
+    },
+  ],
+  industryUseCases: [
+    {
+      industry: "Healthcare & NHS Trusts",
+      description: "Manage complex shift patterns, compliance certifications, and large distributed workforces with specialised HR modules.",
+    },
+    {
+      industry: "Financial Services & Banking",
+      description: "Strict regulatory compliance, audit trails, and secure access controls for sensitive employee and organisational data.",
+    },
+    {
+      industry: "Retail & Hospitality",
+      description: "Seasonal workforce management, flexible scheduling, and high-volume recruitment automation for fast-paced environments.",
+    },
+    {
+      industry: "Education & Universities",
+      description: "Academic staff management, contract tracking, sabbatical planning, and integration with institutional systems.",
+    },
+    {
+      industry: "Manufacturing & Logistics",
+      description: "Workforce planning, overtime tracking, health & safety compliance, and multi-site employee management.",
+    },
+    {
+      industry: "Technology & SaaS Companies",
+      description: "Agile team management, remote workforce tools, equity tracking, and integration with project management platforms.",
+    },
+  ],
+  usps: [
+    {
+      title: "Pakistan-Based, UK Market Experts",
+      description: "Work directly with our skilled Pakistan-based team who understand UK business culture, employment regulations, and compliance requirements — delivering premium quality at competitive rates.",
+    },
+    {
+      title: "MERN Stack Expertise",
+      description: "We leverage MongoDB, Express.js, React, and Node.js to build lightning-fast, modern HR applications that outperform legacy systems.",
+    },
+    {
+      title: "End-to-End Ownership",
+      description: "From initial concept through to deployment and ongoing support, we take full responsibility for your HRMS project's success.",
+    },
+    {
+      title: "Transparent & Agile Process",
+      description: "Regular sprint demos, clear communication, and full visibility into project progress — no surprises, ever.",
+    },
+  ],
+  ctaHeading: "Ready to Transform Your HR Operations?",
+  ctaDescription: "Partner with TechTide Corporate LLP — your trusted software development partner in Pakistan — to build a bespoke HR management system tailored to your UK business. Let's discuss your requirements and create an HRMS that drives efficiency, compliance, and growth.",
 },
  {
   id: "6966067f23963ba3d561d593",
-  title: "Customer Support, Ticketing, Booking & Communication System Development",
+  title: "Support, Booking & Ticketing",
   shortDescription:
-    "Custom customer support, ticketing, booking, and communication systems to manage tickets, chats, schedules, and customer interactions from one platform.",
+    "Custom support ticketing and booking systems to centralize chats, schedules, and customer interactions for improved service efficiency.",
   description:
     "TechTide Corporate LLP provides customer support, ticketing, booking, and communication system development for businesses and startups. Our solutions centralize support tickets, live chat, bookings, automated responses, and customer feedback to improve response time, efficiency, and overall customer experience.",
   image: SupportImg,
@@ -237,9 +390,9 @@ export const systemsData: SystemItem[] = [
 
  {
   id: "6966067f23963ba3d561d58c",
-  title: "Customer Management System (CMS) & CRM Software Development",
+  title: "Custom CMS & CRM Platforms",
   shortDescription:
-    "Custom customer management and CRM software to centralize customer data, track interactions, and improve customer engagement.",
+    "Custom customer management systems (CMS) to centralize data, track engagement, and build stronger relationships through tailored CRM features.",
   description:
     "TechTide Corporate LLP provides Customer Management System (CMS) and CRM software development solutions that help businesses manage customer data, communication, and engagement efficiently. Our systems offer secure access, customer segmentation, activity tracking, and seamless integrations to support sales, marketing, and customer support teams.",
   image:
@@ -274,46 +427,162 @@ export const systemsData: SystemItem[] = [
 ,
   {
   id: "6966067f23963ba3d561d591",
-  title: "Billing & Invoice Software Development for Businesses",
+  title: "Billing & Invoice Management",
   shortDescription:
-    "Custom billing and invoicing software to automate invoices, manage recurring payments, track transactions, and generate financial reports.",
+    "Custom billing and invoice software to automate payments, track financial transactions, and maintain compliance through bespoke digital workflows.",
   description:
-    "TechTide Corporate LLP provides billing and invoice software development for businesses looking to automate invoicing, recurring billing, payment tracking, and financial reporting. Our secure systems support tax management, multi-currency payments, and integrations with accounting and payment gateways.",
+    "Looking for custom invoice software for your UK business? TechTide Corporate LLP is a specialist billing software development company based in Pakistan, delivering bespoke invoice management system development for businesses across the United Kingdom. Our tailored solutions automate invoicing workflows, simplify payment tracking, ensure VAT compliance, and provide real-time financial visibility — helping UK businesses of all sizes get paid faster and manage cash flow with confidence.",
   image:
     "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=80",
   features: [
-    "Automated invoice generation",
-    "Recurring billing & subscriptions",
-    "Payment tracking & reconciliation",
-    "Tax & VAT management",
-    "Multi-currency & multi-payment support",
-    "Financial reports & analytics",
+    "Automated invoice generation & delivery",
+    "Recurring billing & subscription management",
+    "Payment tracking & bank reconciliation",
+    "HMRC-compliant VAT & tax management",
+    "Multi-currency & multi-payment gateway support",
+    "Financial reports & cash flow analytics",
     "Secure billing & payment workflows",
+    "Credit note & refund management",
+    "Client portal with payment history",
+    "Integration with UK accounting platforms",
   ],
   slug: "billing-invoice-software-development",
   color: "#000000",
   bgColor: "#ffffff",
   seoTitle:
-    "Billing & Invoice Software Development Company",
+    "Custom Invoice Software UK | Billing Software Development",
   seoDescription:
-    "Automate your billing with TechTide Corporate LLP. We build custom billing and invoicing software for businesses, including recurring payments, tax management, and financial reporting.",
+    "Leading billing software development company serving UK businesses. We build custom invoice software, invoice management systems, and billing solutions for the UK.",
   seoKeywords: [
-    "billing software development",
-    "invoice software development",
-    "billing and invoicing system",
-    "payment management system",
+    "custom invoice software UK",
+    "invoice management system development UK",
+    "billing software development company UK",
+    "custom invoicing solution",
+    "payment management system UK",
     "recurring billing software",
-    "business invoicing software",
-    "billing software company",
-    "invoice software development in Pakistan",
+    "VAT compliant invoicing software",
+    "accounts receivable automation",
+    "financial software development UK",
+    "invoice automation platform",
   ],
+  introContent:
+    "In today's fast-paced UK business landscape, manual invoicing and disconnected billing processes cost companies thousands in administrative overhead, delayed payments, and compliance risks. Based in Pakistan and proudly serving UK clients, TechTide Corporate LLP specialises in custom invoice software development and invoice management system development for businesses across the UK. As a dedicated billing software development company, we build tailored solutions that automate your entire billing lifecycle — from quote generation and invoice creation to payment collection and financial reporting — all while maintaining full HMRC compliance and Making Tax Digital (MTD) readiness.",
+  servicesContent: [
+    "Automated Invoice Generation & Delivery — Create professional, branded invoices automatically from quotes, orders, or time entries. Schedule delivery via email, client portals, or integrated platforms with automatic reminders for overdue payments.",
+    "Recurring Billing & Subscription Management — Set up automated recurring invoices for retainers, subscriptions, and service contracts. Manage billing cycles, pro-rata calculations, and automatic payment collection with ease.",
+    "Payment Tracking & Bank Reconciliation — Real-time visibility into outstanding payments, partial payments, and overdue accounts. Automated bank feed reconciliation reduces manual data entry and eliminates errors.",
+    "HMRC-Compliant VAT & Tax Management — Built-in VAT calculation, reverse charge mechanisms, CIS deductions, and Making Tax Digital (MTD) compliance. Generate VAT returns and tax summaries ready for submission.",
+    "Multi-Currency & Payment Gateway Integration — Accept payments in multiple currencies through Stripe, GoCardless, PayPal, and direct bank transfers. Automatic currency conversion and exchange rate tracking.",
+    "Client Portal & Self-Service Access — Give your clients a branded portal to view invoices, download statements, make payments, and access their complete transaction history.",
+    "Credit Notes, Refunds & Dispute Management — Handle credit notes, partial refunds, and payment disputes within a structured workflow that maintains accurate financial records.",
+    "Financial Reporting & Cash Flow Analytics — Real-time dashboards for revenue tracking, aged debtors, cash flow forecasting, profit margins, and financial performance KPIs.",
+  ],
+  benefits: [
+    {
+      title: "Get Paid Faster",
+      description: "Automated invoice delivery, payment reminders, and online payment options reduce your average payment cycle by up to 40%.",
+    },
+    {
+      title: "Full HMRC & MTD Compliance",
+      description: "Built-in VAT calculations, Making Tax Digital readiness, and automated tax reporting keep you compliant without the stress.",
+    },
+    {
+      title: "Eliminate Manual Errors",
+      description: "Automated calculations, bank reconciliation, and data validation eliminate the costly errors inherent in manual invoicing processes.",
+    },
+    {
+      title: "Real-Time Financial Visibility",
+      description: "Instant access to cash flow dashboards, aged debtor reports, and revenue analytics — empowering smarter financial decisions.",
+    },
+    {
+      title: "Seamless Integration",
+      description: "Connect your invoice system with Xero, QuickBooks, Sage, CRM tools, and banking platforms for a unified financial ecosystem.",
+    },
+    {
+      title: "Scalable for Growth",
+      description: "From sole traders to enterprise organisations, our billing solutions scale with your business without requiring platform migrations.",
+    },
+  ],
+  processSteps: [
+    {
+      step: "01",
+      title: "Financial Workflow Analysis",
+      description: "We map your current invoicing processes, payment flows, compliance requirements, and integration needs to define the optimal solution architecture.",
+    },
+    {
+      step: "02",
+      title: "Solution Design & Prototyping",
+      description: "Our team designs the system architecture, invoice templates, payment workflows, and user interfaces — validated with interactive prototypes.",
+    },
+    {
+      step: "03",
+      title: "Development & Payment Integration",
+      description: "Agile development with iterative releases, integrating payment gateways, accounting platforms, and banking APIs throughout the build.",
+    },
+    {
+      step: "04",
+      title: "Compliance Testing & Data Migration",
+      description: "Comprehensive testing for VAT accuracy, MTD compliance, security audits, and secure migration of existing financial data and client records.",
+    },
+    {
+      step: "05",
+      title: "Launch, Training & Support",
+      description: "Production deployment with team training, documentation, and ongoing technical support to ensure smooth operation and continuous improvement.",
+    },
+  ],
+  industryUseCases: [
+    {
+      industry: "Professional Services & Consultancies",
+      description: "Time-based billing, project invoicing, retainer management, and expense tracking for law firms, accountants, and consultancies.",
+    },
+    {
+      industry: "Construction & Trades",
+      description: "CIS-compliant invoicing, milestone billing, materials tracking, and subcontractor payment management for construction businesses.",
+    },
+    {
+      industry: "SaaS & Subscription Businesses",
+      description: "Automated recurring billing, usage-based pricing, trial management, and subscription lifecycle automation.",
+    },
+    {
+      industry: "E-Commerce & Retail",
+      description: "Order-to-invoice automation, multi-channel sales reconciliation, refund processing, and marketplace settlement tracking.",
+    },
+    {
+      industry: "Healthcare & Private Clinics",
+      description: "Patient billing, insurance claim processing, appointment-based invoicing, and NHS/private payment splitting.",
+    },
+    {
+      industry: "Creative & Marketing Agencies",
+      description: "Project-based invoicing, retainer billing, time tracking integration, and multi-client financial management.",
+    },
+  ],
+  usps: [
+    {
+      title: "Deep UK Financial Expertise",
+      description: "Our Pakistan-based team has deep expertise in UK tax law, HMRC regulations, and Making Tax Digital requirements — built into every solution from day one.",
+    },
+    {
+      title: "Modern Technology Stack",
+      description: "We leverage the MERN stack (MongoDB, Express.js, React, Node.js) to build fast, responsive, and scalable billing platforms.",
+    },
+    {
+      title: "Proven Track Record",
+      description: "From our base in Pakistan, we've helped businesses across the UK automate their billing operations, reduce payment delays, and achieve compliance with confidence.",
+    },
+    {
+      title: "Dedicated Support Team",
+      description: "Post-launch maintenance, feature updates, and responsive support to keep your billing system running smoothly around the clock.",
+    },
+  ],
+  ctaHeading: "Ready to Automate Your Invoicing?",
+  ctaDescription: "Partner with TechTide Corporate LLP — your trusted software development partner in Pakistan — to build a custom invoice management system that streamlines billing, accelerates payments, and ensures compliance for your UK business. Let's discuss your requirements today.",
 }
 ,
  {
   id: "6966067f23963ba3d561d58d",
-  title: "ERP Software Development & Enterprise ERP Portal Solutions",
+  title: "Enterprise ERP Portal Solutions",
   shortDescription:
-    "Custom ERP software and portal solutions to manage finance, operations, inventory, and business workflows from one centralized system.",
+    "Custom ERP portals to centralize finance, operations, inventory, and business workflows into a scalable, high-performance enterprise platform.",
   description:
     "TechTide Corporate LLP provides custom ERP software development and ERP portal solutions designed for growing businesses and enterprises. Our ERP systems integrate finance, HR, inventory, operations, and analytics into a secure, scalable platform that improves efficiency, automation, and decision-making.",
   image:
@@ -348,9 +617,9 @@ export const systemsData: SystemItem[] = [
 
  {
   id: "6966067f23963ba3d561d594",
-  title: "API Development & System Integration Solutions",
+  title: "API & System Integration",
   shortDescription:
-    "Custom API development and system integration services to connect applications, automate workflows, and synchronize data securely.",
+    "Custom API development and system integration services to securely connect platforms, automate data flow, and synchronize business applications.",
   description:
     "TechTide Corporate LLP provides API development and system integration solutions for businesses and startups. Our services enable seamless communication between internal systems, third-party platforms, and web applications through REST & GraphQL APIs, secure authentication, webhooks, and scalable architectures.",
   image:
@@ -383,4 +652,165 @@ export const systemsData: SystemItem[] = [
   ],
 },
 
+{
+  id: "6966067f23963ba3d561d595",
+  title: "AI & Machine Learning Solutions",
+  shortDescription:
+    "Custom AI-powered software and machine learning solutions to automate complex processes, unlock data insights, and enhance customer experiences.",
+  description:
+    "TechTide Corporate LLP is a specialist AI web development company based in Pakistan, delivering artificial intelligence software development for businesses across the UK, USA, Canada, Germany, and Europe. From intelligent web applications and machine learning models to natural language processing and predictive analytics platforms, our team builds custom AI solutions that automate operations, enhance customer experiences, and unlock data-driven growth.",
+  image:
+    "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+  features: [
+    "AI-powered web application development",
+    "Machine learning model development & deployment",
+    "Natural language processing (NLP) solutions",
+    "Computer vision & image recognition",
+    "Predictive analytics & forecasting",
+    "AI chatbot & virtual assistant development",
+    "Intelligent automation & workflow optimisation",
+    "Recommendation engine development",
+    "AI API integration & custom model training",
+    "Data pipeline & MLOps infrastructure",
+  ],
+  slug: "ai-web-development",
+  color: "#000000",
+  bgColor: "#ffffff",
+  seoTitle:
+    "AI Web Development Company UK | AI Software Development",
+  seoDescription:
+    "Leading AI web development company serving UK businesses. TechTide builds artificial intelligence software, machine learning solutions, and AI-powered web applications.",
+  seoKeywords: [
+    "AI web development company UK",
+    "artificial intelligence software development UK",
+    "AI software solutions",
+    "machine learning development UK",
+    "AI powered web applications",
+    "custom AI solutions",
+    "NLP development company",
+    "AI chatbot development",
+    "predictive analytics software UK",
+    "intelligent automation solutions",
+    "AI software development company USA",
+    "AI web development agency USA",
+    "AI web development company Canada",
+    "AI app development Canada",
+    "KI Softwareentwicklung Deutschland",
+    "AI development company Germany",
+    "AI software development Europe",
+  ],
+  introContent:
+    "Artificial intelligence is no longer a futuristic concept — it's a competitive necessity. Businesses across the United Kingdom, United States, Canada, Germany, and Europe are leveraging AI to automate complex processes, deliver personalised customer experiences, extract actionable insights from data, and build products that were simply impossible just a few years ago. Based in Pakistan and serving clients globally, TechTide Corporate LLP is a leading AI web development company that combines deep expertise in artificial intelligence software development with modern web technologies to build intelligent applications that deliver real, measurable business impact. Whether you're looking to integrate AI capabilities into an existing platform or build an entirely new AI-powered product, our team has the technical depth and industry experience to bring your vision to life.",
+  servicesContent: [
+    "AI-Powered Web Application Development — We build web applications with embedded AI capabilities including smart search, content generation, automated decision-making, personalisation engines, and intelligent user interfaces that adapt to user behaviour.",
+    "Machine Learning Model Development & Deployment — From data analysis and feature engineering to model training, validation, and production deployment, we develop custom ML models for classification, regression, clustering, and anomaly detection.",
+    "Natural Language Processing (NLP) Solutions — Text analysis, sentiment detection, document summarisation, entity extraction, language translation, and conversational AI — we build NLP solutions that help machines understand human language.",
+    "AI Chatbot & Virtual Assistant Development — Intelligent conversational agents for customer support, sales qualification, appointment booking, and internal helpdesk automation — powered by large language models and custom training data.",
+    "Predictive Analytics & Forecasting — Transform historical data into future insights with predictive models for demand forecasting, customer churn prediction, financial modelling, and risk assessment.",
+    "Computer Vision & Image Recognition — Object detection, image classification, facial recognition, document OCR, and visual quality inspection solutions for manufacturing, retail, healthcare, and security applications.",
+    "Recommendation Engine Development — Personalised product, content, and service recommendations powered by collaborative filtering, content-based algorithms, and hybrid AI models.",
+    "Intelligent Process Automation — Combine AI with robotic process automation (RPA) to automate complex business workflows, document processing, data extraction, and decision-making pipelines.",
+  ],
+  benefits: [
+    {
+      title: "Competitive Advantage Through AI",
+      description: "AI-powered features differentiate your products and services, enabling you to deliver experiences and capabilities that competitors simply cannot match.",
+    },
+    {
+      title: "Dramatically Reduce Operational Costs",
+      description: "Intelligent automation of repetitive tasks, data processing, and decision-making reduces manual effort and operational expenditure across your organisation.",
+    },
+    {
+      title: "Data-Driven Decision Making",
+      description: "Predictive analytics and AI-generated insights transform raw data into actionable intelligence, enabling leaders to make confident, evidence-based decisions.",
+    },
+    {
+      title: "Enhanced Customer Experiences",
+      description: "Personalisation, intelligent recommendations, and conversational AI create memorable customer journeys that drive loyalty and revenue.",
+    },
+    {
+      title: "Scalable & Future-Proof",
+      description: "Our AI solutions are built on modern, scalable architectures that grow with your business and adapt to emerging AI technologies and models.",
+    },
+    {
+      title: "Faster Time to Market",
+      description: "Our proven AI development frameworks and pre-built components accelerate delivery, getting your intelligent applications into production faster.",
+    },
+  ],
+  processSteps: [
+    {
+      step: "01",
+      title: "AI Strategy & Feasibility Assessment",
+      description: "We evaluate your business challenges, data assets, and objectives to identify the highest-impact AI opportunities and define a clear implementation roadmap.",
+    },
+    {
+      step: "02",
+      title: "Data Engineering & Preparation",
+      description: "Our engineers collect, clean, structure, and enrich your data — building the robust data foundation that every successful AI project requires.",
+    },
+    {
+      step: "03",
+      title: "Model Development & Training",
+      description: "We develop, train, and validate custom AI models using state-of-the-art algorithms, frameworks, and techniques — iterating until performance targets are achieved.",
+    },
+    {
+      step: "04",
+      title: "Application Integration & Testing",
+      description: "AI models are integrated into your web applications with production-grade APIs, comprehensive testing, performance benchmarking, and user acceptance validation.",
+    },
+    {
+      step: "05",
+      title: "Deployment, Monitoring & Optimisation",
+      description: "Production deployment with MLOps monitoring, model drift detection, A/B testing, and continuous optimisation to ensure sustained AI performance.",
+    },
+  ],
+  industryUseCases: [
+    {
+      industry: "E-Commerce & Retail",
+      description: "AI-powered product recommendations, dynamic pricing, visual search, demand forecasting, and personalised marketing automation.",
+    },
+    {
+      industry: "Financial Services & FinTech",
+      description: "Fraud detection, credit risk scoring, algorithmic trading signals, regulatory compliance automation, and intelligent customer onboarding.",
+    },
+    {
+      industry: "Healthcare & Life Sciences",
+      description: "Medical image analysis, patient risk prediction, drug discovery support, clinical document processing, and AI-assisted diagnostics.",
+    },
+    {
+      industry: "Property & Real Estate",
+      description: "Automated property valuation models, tenant screening, smart building management, and market trend prediction.",
+    },
+    {
+      industry: "Legal & Professional Services",
+      description: "Contract analysis, legal document review, case outcome prediction, and AI-powered research assistants for law firms.",
+    },
+    {
+      industry: "Manufacturing & Supply Chain",
+      description: "Predictive maintenance, quality inspection automation, supply chain optimisation, and production planning intelligence.",
+    },
+  ],
+  usps: [
+    {
+      title: "Deep AI & ML Expertise",
+      description: "Our engineers have hands-on experience with TensorFlow, PyTorch, OpenAI, Hugging Face, and custom model architectures — delivering AI that actually works in production.",
+    },
+    {
+      title: "Full-Stack AI Capabilities",
+      description: "We don't just build models — we build complete, production-ready AI applications with beautiful front-ends, robust APIs, and scalable infrastructure.",
+    },
+    {
+      title: "Global Team, UK Market Expertise",
+      description: "Based in Pakistan with deep understanding of UK market dynamics, regulatory requirements, and business culture — delivering world-class AI solutions at competitive rates.",
+    },
+    {
+      title: "Responsible AI Development",
+      description: "We follow ethical AI principles including transparency, fairness, privacy protection, and bias mitigation in every solution we build.",
+    },
+  ],
+  ctaHeading: "Ready to Build Intelligent Software?",
+  ctaDescription: "Partner with TechTide Corporate LLP — your trusted AI web development company in Pakistan, proudly serving businesses across the UK, USA, Canada, Germany, and Europe. Let's explore how artificial intelligence can transform your business operations, delight your customers, and give you a lasting competitive edge.",
+},
+
+...seoServicesData,
 ];

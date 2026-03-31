@@ -19,6 +19,7 @@ export default function JobApplications() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedResume, setSelectedResume] = useState<string | null>(null);
+  const [selectedCoverLetter, setSelectedCoverLetter] = useState<string | null>(null);
 
   useEffect(() => {
     fetchJobs();
@@ -148,6 +149,13 @@ export default function JobApplications() {
                         <p className="text-sm text-gray-300 line-clamp-3">
                           {job.coverLetter}
                         </p>
+                        <button
+                          onClick={() => setSelectedCoverLetter(job.coverLetter)}
+                          className="mt-2 flex items-center gap-1 text-xs bg-[#453abc]/20 hover:bg-[#453abc]/30 text-[#60c3e3] px-3 py-1.5 rounded transition-all font-semibold"
+                        >
+                          <Eye size={12} />
+                          See Full Letter
+                        </button>
                       </div>
                     )}
                   </div>
@@ -235,6 +243,29 @@ export default function JobApplications() {
                 className="w-full h-full"
                 title="Resume PDF"
               />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Cover Letter Viewer Modal */}
+      {selectedCoverLetter && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-[#16161a] border border-white/10 w-full max-w-3xl max-h-[85vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden">
+            <div className="p-4 flex items-center justify-between border-b border-white/10">
+              <h3 className="text-xl font-bold text-white">Full Cover Letter</h3>
+              <button
+                onClick={() => setSelectedCoverLetter(null)}
+                className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-6">
+              <p className="text-gray-300 whitespace-pre-wrap leading-relaxed">
+                {selectedCoverLetter}
+              </p>
             </div>
           </div>
         </div>
