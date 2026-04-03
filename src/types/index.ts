@@ -34,7 +34,17 @@ export interface BlogPost {
   id: string;
   title: string;
   description: string;
-  content: string;
+  content?:
+    | string
+    | Array<{
+        subtitle?: string;
+        title?: string;
+        paragraph?: string;
+        content?: string;
+        text?: string;
+        image?: string;
+        image_url?: string;
+      }>;
   author: string;
   readTime: string;
   image?: string;

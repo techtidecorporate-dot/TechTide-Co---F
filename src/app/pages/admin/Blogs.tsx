@@ -58,10 +58,22 @@ export default function BlogManagement() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const generateSlugFromTitle = (title: string) =>
+    title
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/[\s\W-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const finalSlug =
+      formData.slug?.trim() || generateSlugFromTitle(formData.title || "blog-post");
+
     const payload = new FormData();
-    Object.entries(formData).forEach(([key, value]) => {
+    Object.entries({ ...formData, slug: finalSlug }).forEach(([key, value]) => {
       payload.append(key, value);
     });
 
@@ -83,10 +95,20 @@ export default function BlogManagement() {
 
   const handleEdit = (blog: BlogPost) => {
     setEditingBlog(blog);
+    const contentString =
+      typeof blog.content === "string"
+        ? blog.content
+        : Array.isArray(blog.content)
+        ? blog.content
+            .map((block) => block.paragraph || block.content || block.text || "")
+            .filter((t) => t)
+            .join("\n\n")
+        : "";
+
     setFormData({
       title: blog.title,
       description: blog.description || "",
-      content: blog.content,
+      content: contentString,
       author: blog.author,
       readTime: blog.readTime || "",
       uploadedDate: blog.uploadedDate
@@ -239,7 +261,14 @@ export default function BlogManagement() {
                   {blog.title}
                 </h3>
                 <p className="text-gray-400 text-sm line-clamp-3 mb-6">
-                  {blog.content}
+                  {typeof blog.content === "string"
+                    ? blog.content
+                    : Array.isArray(blog.content)
+                    ? blog.content
+                        .map((block) => block.paragraph || block.content || block.text)
+                        .filter(Boolean)
+                        .join(" ")
+                    : ""}
                 </p>
                 <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between text-xs text-gray-500">
                   <div className="flex items-center gap-2">

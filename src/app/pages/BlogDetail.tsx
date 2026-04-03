@@ -14,7 +14,12 @@ export default function BlogDetailPage() {
       try {
         setLoading(true);
         const { data } = await blogAPI.getAll();
-        const foundPost = data.find((p: BlogPost) => p.slug === slug);
+        const normalizedSlug = slug?.toLowerCase().trim();
+        const foundPost = data.find(
+          (p: BlogPost) =>
+            p.slug?.toLowerCase().trim() === normalizedSlug ||
+            p.id === slug,
+        );
         if (foundPost) {
           setPost(foundPost);
         }
@@ -34,6 +39,80 @@ export default function BlogDetailPage() {
       </div>
     );
   }
+
+  const renderContentBlock = () => {
+    const raw = post?.content;
+
+    if (!raw) return [];
+
+    const sections = (() => {
+      if (Array.isArray(raw)) return raw;
+
+      if (typeof raw === "string") {
+        const trimmed = raw.trim();
+        if (!trimmed) return [];
+
+        try {
+          const parsed = JSON.parse(trimmed);
+          if (Array.isArray(parsed)) return parsed;
+          if (typeof parsed === "string") return [{ paragraph: parsed }];
+          if (typeof parsed === "object" && parsed !== null) return [parsed];
+        } catch {
+          // not JSON
+        }
+
+        return trimmed
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean)
+          .map((line) => ({ paragraph: line }));
+      }
+
+      if (typeof raw === "object") return [raw];
+
+      return [];
+    })();
+
+    return sections.map((section: any, idx: number) => {
+      if (typeof section === "string") {
+        return <p key={idx}>{section}</p>;
+      }
+
+      const subtitle = section.subtitle || section.title;
+      const imageUrl = section.image || section.image_url;
+      const paragraphText =
+        section.paragraph || section.content || section.text || "";
+
+      const paragraphs = Array.isArray(paragraphText)
+        ? paragraphText
+        : typeof paragraphText === "string"
+        ? paragraphText.split("\n").map((line: string) => line.trim()).filter(Boolean)
+        : [JSON.stringify(paragraphText)];
+
+      return (
+        <div key={idx} className="space-y-4">
+          {subtitle && (
+            <div className="flex items-center gap-3">
+              <span className="block h-6 w-1 rounded-full bg-gradient-to-b from-[#453abc] via-[#60c3e3] to-[#a1d1ff]" />
+              <h2 className="text-2xl font-semibold text-gray-900">{subtitle}</h2>
+            </div>
+          )}
+          {imageUrl && (
+            <img
+              src={imageUrl}
+              alt={subtitle || `section-${idx}`}
+              className="w-full max-h-96 object-cover rounded-xl"
+            />
+          )}
+          {paragraphs.map((line: string, pIndex: number) => (
+            <p key={pIndex} className="text-base leading-relaxed text-gray-600">
+              {line}
+            </p>
+          ))}
+        </div>
+      );
+    });
+  };
 
   if (!post) {
     return (
@@ -86,9 +165,12 @@ export default function BlogDetailPage() {
               </span>
             ))}
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-8">
-            {post.title}
-          </h1>
+          <div className="flex items-center gap-4 mb-8">
+            <span className="block h-8 w-1" />
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+              {post.title}
+            </h1>
+          </div>
 
           <div className="flex flex-wrap items-center justify-between gap-6 py-6 border-y border-gray-100">
             <div className="flex items-center gap-8">
@@ -141,26 +223,9 @@ export default function BlogDetailPage() {
           </div>
         </header>
 
-        {/* Featured Image */}
-        <div className="relative aspect-video rounded-3xl overflow-hidden mb-12 shadow-2xl">
-          <img
-            src={
-              post.image
-                ? post.image.startsWith("http")
-                  ? post.image
-                  : `http://localhost:5000${post.image}`
-                : ""
-            }
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-
         {/* Content */}
         <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-6">
-          {post.content.split("\n").map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+          {renderContentBlock()}
         </div>
 
         {/* Footer info */}

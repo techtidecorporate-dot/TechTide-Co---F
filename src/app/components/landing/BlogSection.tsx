@@ -141,7 +141,7 @@ function BlogCard({
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
       className={`relative ${height} rounded-2xl overflow-hidden shadow-lg group cursor-pointer`}
     >
-      <Link to={`/blog/${blog.slug}`}>
+      <Link to={`/blog/${blog.slug || blog.id}`}>
         <img
           src={
             blog.image

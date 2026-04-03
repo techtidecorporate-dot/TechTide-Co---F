@@ -136,7 +136,7 @@ export default function BlogPage() {
                     </div>
                   </div>
                   <RouterLink
-                    to={`/blog/${featuredPost.slug}`}
+                    to={`/blog/${featuredPost.slug || featuredPost.id}`}
                     className="w-full sm:w-auto bg-[#191a23] text-white px-8 py-4 rounded-2xl font-poppins font-medium hover:bg-[#453abc] transition-all duration-300 hover:translate-x-2 flex items-center justify-center gap-3"
                   >
                     Read Article
@@ -189,7 +189,7 @@ export default function BlogPage() {
           {filteredPosts.map((post) => (
             <RouterLink
               key={post.id}
-              to={`/blog/${post.slug}`}
+              to={`/blog/${post.slug || post.id}`}
               className="bg-white rounded-2xl border border-transparent hover:border-[#453abc]/10 shadow-[0_15px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] transition-all duration-500 overflow-hidden group flex flex-col"
             >
               <article>

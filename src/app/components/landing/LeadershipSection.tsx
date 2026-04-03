@@ -5,7 +5,6 @@ import { Mail, Linkedin, Instagram } from "lucide-react";
 import imgNadir from "@/assets/nadir.png";
 import imgMoazzam from "@/assets/Moazzam.png";
 import imgSajid from "@/assets/sajideen.png";
-import imgAmmar from "@/assets/Muhammad Ammar Haider.png";
 import imgShamin from "@/assets/Shamin.png";
 
 const leaders = [
@@ -55,18 +54,6 @@ const leaders = [
       gmail: "Khanshamin512@gmail.com",
       linkedin: "https://www.linkedin.com/in/shamin-gul-khan/",
       instagram: "https://www.instagram.com/gul.shamin.khan/",
-    },
-  },
-  {
-    name: "Muhammad Ammar",
-    role: "Digital Marketing Head",
-    image: imgAmmar,
-    message:
-      "As Digital Marketing Head at TechTide Corporate, I lead performance-driven marketing strategies that enhance brand visibility, generate demand, and expand our global digital presence.",
-    social: {
-      gmail: "ammarhaider75@gmail.com",
-      linkedin: "https://www.linkedin.com/in/ammarhaider75/",
-      instagram: "https://www.instagram.com/ammarhaider_here/",
     },
   },
 ];
@@ -181,45 +168,43 @@ export function LeadershipSection() {
           {/* Desktop View: 3D Carousel */}
           <div className="hidden lg:block relative w-full max-w-sm h-full perspective-1000">
             {leaders.map((leader, index) => {
-              const position =
-                (index - current + leaders.length) % leaders.length;
+              const isCenter = index === current;
+              const rightIndex = (current + 1) % leaders.length;
+              const leftIndex = (current - 1 + leaders.length) % leaders.length;
 
-              // Position logic for 5 elements
               let xOffset = 0;
               let scale = 1;
               let blur = "0px";
               let rotateY = 0;
-              let zIndex = 20;
-              let opacity = 0;
+              let zIndex = 30;
+              let opacity = 1;
 
-              if (position === 0) {
-                // Center/Front - Crystal Clear
+              if (isCenter) {
                 xOffset = 0;
                 scale = 1;
+                rotateY = 0;
                 zIndex = 30;
                 opacity = 1;
                 blur = "0px";
-              } else if (position === 1) {
-                // Right side - Blurred
-                xOffset = 220;
-                scale = 0.75;
+              } else if (index === rightIndex) {
+                xOffset = 180;
+                scale = 0.8;
                 rotateY = -25;
                 zIndex = 20;
-                opacity = 0.4;
-                blur = "12px";
-              } else if (position === 4) {
-                // Left side - Blurred
-                xOffset = -220;
-                scale = 0.75;
+                opacity = 0.55;
+                blur = "6px";
+              } else if (index === leftIndex) {
+                xOffset = -180;
+                scale = 0.8;
                 rotateY = 25;
                 zIndex = 20;
-                opacity = 0.4;
-                blur = "12px";
+                opacity = 0.55;
+                blur = "6px";
               } else {
-                // In the back - Completely hidden and scaled to zero
                 xOffset = 0;
                 scale = 0;
-                zIndex = 5;
+                rotateY = 0;
+                zIndex = 1;
                 opacity = 0;
                 blur = "0px";
               }
@@ -238,10 +223,7 @@ export function LeadershipSection() {
                     filter: `blur(${blur})`,
                     rotateY,
                   }}
-                  transition={{
-                    duration: 0.8,
-                    ease: "easeInOut",
-                  }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
                   onClick={() => setCurrent(index)}
                   className="absolute top-0 left-0 w-full h-full object-contain object-top cursor-pointer"
                 />

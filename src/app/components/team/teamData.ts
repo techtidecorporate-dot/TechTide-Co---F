@@ -10,6 +10,7 @@ import AmnaImg from '@/assets/team/amna.png'
 import MahmoodImg from '@/assets/team/mahmood.png'
 import AliImg from '@/assets/team/ali.png'
 import AyeshaImg from '@/assets/team/ayesha.png'
+import AbeerImg from '@/assets/team/Abeer Hayat.png'
 
 export interface TeamMember {
   id: string;
@@ -145,5 +146,14 @@ export const teamData: TeamMember[] = [
     department: "Development",
     image: AyeshaImg,
     skills: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: "696260ffdda2c2b0e6345eb0",
+    name: "Abeer Hayat",
+    role: "Marketing Director",
+    category: "Head",
+    department: "Marketing",
+    image: AbeerImg,
+    skills: ["Marketing Strategy", "Content Marketing", "Brand Growth"],
   },
 ];

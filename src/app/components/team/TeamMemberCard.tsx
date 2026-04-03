@@ -20,19 +20,19 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
       viewport={{ once: true }}
     >
       <div className="group relative w-64 h-80 rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl">
-        {/* Full Image Background */}
+        {/* Full Image Background (transparent-friendly) */}
         <img
           src={imageUrl}
           alt={`Profile photo of ${member.name}, ${member.role}`}
-          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110 bg-transparent"
+          style={{ backgroundColor: "transparent" }}
         />
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        {/* Optional overlay removed so image background remains intact */}
 
         {/* Content - Slides up from bottom on hover */}
         <div className="absolute bottom-0 w-full p-5 transform translate-y-full transition-transform duration-500 group-hover:translate-y-0">
-          <div className="backdrop-blur-lg px-4 py-3 border border-white/20">
+          <div className="backdrop-blur-xl px-4 py-3 border border-white/10 bg-black/40">
             <h3 className="text-lg font-semibold text-white leading-tight">
               {member.name}
             </h3>
@@ -46,7 +46,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
                 {member.skills.slice(0, 3).map((skill, i) => (
                   <span
                     key={i}
-                    className="text-xs px-2 py-1 rounded-full bg-white/20 text-white"
+                    className="text-xs px-2 py-1 rounded-full bg-white/10 text-white"
                   >
                     {skill}
                   </span>
