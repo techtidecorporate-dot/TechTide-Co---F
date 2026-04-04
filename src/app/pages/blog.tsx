@@ -2,6 +2,7 @@ import { ArrowRight, Calendar, Clock, Search } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNewsletter } from "@/app/hooks/useNewsletter";
 import { blogAPI, BlogPost } from "../../api";
 import SEO from "../components/ui/SEO";
 
@@ -34,6 +35,12 @@ export default function BlogPage() {
   });
 
   const featuredPost = blogPosts[0];
+  const {
+    email: newsletterEmail,
+    setEmail: setNewsletterEmail,
+    loading: newsletterLoading,
+    subscribe: handleNewsletterSubscribe,
+  } = useNewsletter();
 
   return (
     <div className=" bg-white">
@@ -295,16 +302,25 @@ export default function BlogPage() {
               Join 5,000+ professionals receiving weekly updates on the latest
               tech innovations and digital transformation strategies.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <form
+              onSubmit={handleNewsletterSubscribe}
+              className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto"
+            >
               <input
                 type="email"
+                value={newsletterEmail}
+                onChange={(event) => setNewsletterEmail(event.target.value)}
                 placeholder="Enter your work email"
                 className="flex-1 px-8 py-4.5 md:py-5 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#453abc] transition-all font-inter text-sm md:text-base"
               />
-              <button className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-white px-10 py-4.5 md:py-5 rounded-2xl font-poppins font-medium hover:shadow-[0_10px_30px_rgba(69,58,188,0.4)] transition-all hover:-translate-y-1 whitespace-nowrap text-sm md:text-base">
-                Join Now
+              <button
+                type="submit"
+                disabled={newsletterLoading}
+                className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-white px-10 py-4.5 md:py-5 rounded-2xl font-poppins font-medium hover:shadow-[0_10px_30px_rgba(69,58,188,0.4)] transition-all hover:-translate-y-1 whitespace-nowrap text-sm md:text-base disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {newsletterLoading ? "Subscribing..." : "Join Now"}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>

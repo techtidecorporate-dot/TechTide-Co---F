@@ -11,6 +11,7 @@ import {
   Calendar,
 } from "lucide-react";
 import { toast } from "sonner";
+import { sendNewBlogNotification } from "@/app/utils/newsletterService";
 
 export default function BlogManagement() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
@@ -82,8 +83,32 @@ export default function BlogManagement() {
         await blogAPI.update(editingBlog.id, payload);
         toast.success("Blog post updated");
       } else {
-        await blogAPI.create(payload);
+        const createdBlog = await blogAPI.create(payload);
         toast.success("Blog post published");
+
+        try {
+          const summary = await sendNewBlogNotification(createdBlog.data);
+          if (summary.successCount > 0) {
+            toast.success(
+              `Newsletter sent to ${summary.successCount} subscriber${
+                summary.successCount > 1 ? "s" : ""
+              }.`,
+            );
+          } else if (summary.failureCount === 0) {
+            toast.info("No subscribers to notify.");
+          }
+          
+          if (summary.failureCount > 0) {
+            toast.error(
+              `${summary.failureCount} notification${
+                summary.failureCount > 1 ? "s" : ""
+              } failed. Check console for details.`,
+            );
+          }
+        } catch (emailError: any) {
+          console.error("Newsletter dispatch error:", emailError);
+          toast.error("Blog published, but newsletter dispatch failed.");
+        }
       }
       setIsModalOpen(false);
       resetForm();

@@ -1,5 +1,6 @@
 import imgVector from "@/assets/brand-logo-dark.svg";
 import { Link } from "react-router-dom";
+import { type MouseEvent } from "react";
 import {
   FaLinkedinIn,
   FaInstagram,
@@ -9,6 +10,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import { toast } from "sonner";
+import { useNewsletter } from "@/app/hooks/useNewsletter";
 
 const footerLinks = {
   quicklinks: [
@@ -27,7 +29,14 @@ const footerLinks = {
 };
 
 export function Footer() {
-  const handleCopyEmail = (e: React.MouseEvent) => {
+  const {
+    email: footerEmail,
+    setEmail: setFooterEmail,
+    loading: footerLoading,
+    subscribe: handleFooterSubscribe,
+  } = useNewsletter();
+
+  const handleCopyEmail = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     navigator.clipboard.writeText("techtidecorporate@gmail.com");
     toast.success("Email copied to clipboard!");
@@ -209,22 +218,26 @@ export function Footer() {
                 Stay updated with our latest news and offers
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <form onSubmit={handleFooterSubscribe} className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
+                value={footerEmail}
+                onChange={(event) => setFooterEmail(event.target.value)}
                 placeholder="Enter your email"
                 className="flex-1 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#453abc] transition-all"
               />
               <button
-                className="px-8 py-3 rounded-xl font-medium text-white transition-all hover:shadow-[0_10px_30px_-5px_rgba(69,58,188,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+                type="submit"
+                disabled={footerLoading}
+                className="px-8 py-3 rounded-xl font-medium text-white transition-all hover:shadow-[0_10px_30px_-5px_rgba(69,58,188,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
                 style={{
                   backgroundImage:
                     "linear-gradient(93.1835deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",
                 }}
               >
-                Subscribe
+                {footerLoading ? "Subscribing..." : "Subscribe"}
               </button>
-            </div>
+            </form>
           </div>
         </div>
 

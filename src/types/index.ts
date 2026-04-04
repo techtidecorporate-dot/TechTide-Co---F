@@ -58,6 +58,12 @@ export interface BlogPost {
   metaTags?: string;
 }
 
+export interface Subscriber {
+  id: string;
+  email: string;
+  subscribedAt: string;
+}
+
 export interface Service {
   id: string;
   title: string;

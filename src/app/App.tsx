@@ -28,11 +28,13 @@ import BlogManagement from "./pages/admin/Blogs";
 import ServiceManagement from "./pages/admin/Services";
 import ContactMessages from "./pages/admin/ContactSubmissions";
 import UserManagement from "./pages/admin/Users";
+import JobListingManagement from "./pages/admin/JobListingManagement";
 import JobApplications from "./pages/admin/Jobs";
 import TalentPool from "./pages/admin/TalentPool";
-import JobListingManagement from "./pages/admin/JobListingManagement";
 import PartnerSubmissions from "./pages/admin/PartnerSubmissions";
 import AppointmentManagement from "./pages/admin/Appointments";
+
+
 
 export default function App() {
   const location = useLocation();
