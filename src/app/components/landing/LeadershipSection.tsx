@@ -6,6 +6,7 @@ import imgNadir from "@/assets/nadir.png";
 import imgMoazzam from "@/assets/Moazzam.png";
 import imgSajid from "@/assets/sajideen.png";
 import imgShamin from "@/assets/Shamin.png";
+import imgAbeer from "@/assets/team/Abeer Hayat.png";
 
 const leaders = [
   {
@@ -54,6 +55,18 @@ const leaders = [
       gmail: "Khanshamin512@gmail.com",
       linkedin: "https://www.linkedin.com/in/shamin-gul-khan/",
       instagram: "https://www.instagram.com/gul.shamin.khan/",
+    },
+  },
+  {
+    name: "Abeer Hayat",
+    role: "Marketing Director",
+    image: imgAbeer,
+    message:
+      "As Marketing Director at TechTide Co., I drive our growth strategy by building brand presence, fostering strategic partnerships, and delivering impactful marketing campaigns that connect our solutions with businesses globally.",
+    social: {
+      gmail: "abeerhayat@techtidecorporate.com",
+      linkedin: "https://www.linkedin.com/in/abeer-hayat/",
+      instagram: "#",
     },
   },
 ];
