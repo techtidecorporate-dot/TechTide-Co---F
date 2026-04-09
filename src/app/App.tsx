@@ -14,7 +14,6 @@ import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import { PartnerWithUsDrawer } from "./components/ui/PartnerWithUsDrawer";
 import SignInPage from "./components/ui/signin";
-import BookAppointment from "./pages/BookAppointment";
 import { useState, useEffect } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
@@ -66,7 +65,6 @@ export default function App() {
           <Route path="/career" element={<CareerPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/signin" element={<SignInPage />} />
-          <Route path="/book-appointment" element={<BookAppointment />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />

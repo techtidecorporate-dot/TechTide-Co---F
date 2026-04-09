@@ -39,7 +39,7 @@ How a visitor submits data (like booking an appointment) and how the system proc
 ```mermaid
 sequenceDiagram
     actor Client
-    participant UI as BookAppointment.tsx
+    participant UI as Contact Form
     participant RTDB as Firebase Realtime DB (appointments)
     participant Email as EmailJS (via sendAppointmentEmail)
     participant Admin UI as Admin Dashboard
