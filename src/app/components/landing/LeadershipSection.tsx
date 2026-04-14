@@ -62,11 +62,11 @@ const leaders = [
     role: "Marketing Director",
     image: imgAbeer,
     message:
-      "As Marketing Director at TechTide Co., I drive our growth strategy by building brand presence, fostering strategic partnerships, and delivering impactful marketing campaigns that connect our solutions with businesses globally.",
+      "As Marketing Director at TechTide Co., I lead growth initiatives by building strong brand presence, crafting data-driven strategies, and driving partnerships that turn ideas into measurable business impact. My focus is simple: connect the right solutions with the right businesses, at the right time.",
     social: {
       gmail: "abeerhayat@techtidecorporate.com",
       linkedin: "https://www.linkedin.com/in/abeer-hayat/",
-      instagram: "#",
+      instagram: "https://www.instagram.com/_.abeer__hayat.__?igsh=d2N5cnQ0cTFhc3Zr",
     },
   },
 ];
@@ -93,11 +93,17 @@ export function LeadershipSection() {
       id="leadership"
       className="relative min-h-screen bg-white py-20 overflow-hidden"
     >
-      <h2 className="text-3xl md:text-4xl text-center font-poppins text-gray-900 mb-12 md:mb-20 px-6">
-        <span className=" bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">
-          Leadership <span className="text-black">& </span>Higher Management
-        </span>
-      </h2>
+      <div className="text-center mb-12 md:mb-20 px-6">
+        <h2 className="text-3xl md:text-5xl font-poppins font-medium mb-4 text-[#191a23]">
+          Leadership and <span className="text-[#453abc]">Management</span>
+        </h2>
+        <h3 className="text-xl md:text-2xl font-poppins text-gray-800 mb-4">
+          Leadership That Understands Both Technology and Business
+        </h3>
+        <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+          We combine technical expertise with business insight to build market-ready solutions.
+        </p>
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-8 flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-28">
         {/* Text Section */}

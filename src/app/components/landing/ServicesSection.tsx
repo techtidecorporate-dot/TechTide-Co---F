@@ -91,17 +91,12 @@ export function ServicesSection() {
     >
       {/* Header */}
       <div className="flex flex-col gap-3 items-center text-center mb-12 md:mb-16 px-6">
-        <p className="font-poppins text-sm md:text-lg font-medium tracking-widest text-[#453abc] uppercase">
-          What We Do
-        </p>
-
         <h2 className="text-[#191a23] text-3xl md:text-5xl font-poppins font-medium">
           Our <span className="text-[#453abc]">Services</span>
         </h2>
 
-        <p className="text-[#6b7280] max-w-xl text-base md:text-lg">
-          Discover Techtide Co.'s expertise in web development, mobile apps, and
-          digital marketing.
+        <p className="text-[#6b7280] max-w-2xl text-base md:text-xl">
+          End-to-End Digital Solutions for Growing Businesses
         </p>
       </div>
 

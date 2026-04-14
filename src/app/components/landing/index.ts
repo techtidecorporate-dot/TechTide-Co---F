@@ -6,4 +6,5 @@ export { ProjectsSection } from "./ProjectsSection";
 export { TeamSection } from "./testimonials";
 export { LeadershipSection } from "./LeadershipSection";
 export { SupportSection } from "./SupportSection";
+export { WhyChooseUs } from "./WhyChooseUs";
 export { Footer } from "../../components/ui/Footer";

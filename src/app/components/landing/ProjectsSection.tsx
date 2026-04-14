@@ -112,23 +112,15 @@ export function ProjectsSection() {
 
       {/* Header */}
       <div className="relative text-center mb-16 md:mb-24 px-6">
-        <div className="inline-flex items-center gap-2 mb-4">
-          <p className="font-poppins text-sm md:text-lg font-medium tracking-widest text-[#453abc] uppercase">
-            Our Recent Work
-          </p>
-        </div>
-
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-poppins font-medium mb-6 text-gray-900 tracking-tight">
           Our{" "}
           <span className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">
-            Latest
-          </span>{" "}
-          Projects
+            Projects
+          </span>
         </h2>
 
         <p className="text-gray-500 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-          Browse our recent projects showcasing innovative technology solutions
-          and creative digital experiences
+          Work That Delivers Measurable Results
         </p>
       </div>
 

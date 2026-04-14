@@ -44,24 +44,22 @@ export function BlogSection() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-white py-16 md:pt-24 overflow-hidden"
+      className="relative bg-white pt-16 pb-6 md:pt-24 md:pb-0 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
           {/* LEFT TEXT */}
           <div className="lg:w-[38%] text-center lg:text-left">
             <h5 className="font-poppins text-sm font-medium tracking-widest text-[#453abc] uppercase mb-3">
-              Featured Insights
+              Blog Section
             </h5>
 
-            <h2 className="text-3xl md:text-4xl font-poppins font-medium leading-tight mb-6">
-              <span className="text-black">
-                Stories of our transformations across Services and Industries
-              </span>
+            <h2 className="text-3xl md:text-5xl font-poppins font-medium leading-tight mb-6 text-[#191a23]">
+              Insights and <span className="text-[#453abc]">Digital Growth</span>
             </h2>
 
             <p className="text-gray-500 text-base md:text-lg mb-8 max-w-2xl mx-auto lg:mx-0">
-              From Concept to Completion
+              Stay informed with practical insights, industry trends, and expert perspectives on web development, software solutions, and digital marketing.
             </p>
 
             <Link

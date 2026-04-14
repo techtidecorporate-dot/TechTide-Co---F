@@ -10,11 +10,9 @@
   /* Add your gradient colors as custom properties */
   --gradient-primary-start: rgba(69, 58, 188, 1);
   --gradient-primary-end: rgba(96, 195, 227, 1);
-  --gradient-primary: linear-gradient(
-    135deg,
-    var(--gradient-primary-start),
-    var(--gradient-primary-end)
-  );
+  --gradient-primary: linear-gradient(135deg,
+      var(--gradient-primary-start),
+      var(--gradient-primary-end));
 
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
@@ -154,50 +152,40 @@
   h6 {
     font-family: var(--font-poppins);
   }
+
   /* Add custom gradient utilities */
   @layer utilities {
     .bg-gradient-primary {
-      background-image: linear-gradient(
-        135deg,
-        rgba(69, 58, 188, 1),
-        rgba(96, 195, 227, 1)
-      );
+      background-image: linear-gradient(135deg,
+          rgba(69, 58, 188, 1),
+          rgba(96, 195, 227, 1));
     }
 
     .bg-gradient-primary-horizontal {
-      background-image: linear-gradient(
-        90deg,
-        rgba(69, 58, 188, 1),
-        rgba(96, 195, 227, 1)
-      );
+      background-image: linear-gradient(90deg,
+          rgba(69, 58, 188, 1),
+          rgba(96, 195, 227, 1));
     }
 
     .bg-gradient-primary-diagonal {
-      background-image: linear-gradient(
-        45deg,
-        rgba(69, 58, 188, 1),
-        rgba(96, 195, 227, 1)
-      );
+      background-image: linear-gradient(45deg,
+          rgba(69, 58, 188, 1),
+          rgba(96, 195, 227, 1));
     }
 
     .text-gradient-primary {
-      background: linear-gradient(
-        135deg,
-        rgba(69, 58, 188, 1),
-        rgba(96, 195, 227, 1)
-      );
+      background: linear-gradient(135deg,
+          rgba(69, 58, 188, 1),
+          rgba(96, 195, 227, 1));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .border-gradient-primary {
-      border-image: linear-gradient(
-          135deg,
+      border-image: linear-gradient(135deg,
           rgba(69, 58, 188, 1),
-          rgba(96, 195, 227, 1)
-        )
-        1;
+          rgba(96, 195, 227, 1)) 1;
     }
 
     /* 3D Flip utilities */

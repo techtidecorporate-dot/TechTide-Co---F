@@ -21,13 +21,14 @@ export function VisionMissionSection() {
           </div>
 
           {/* Content */}
-          <p className="text-base md:text-xl text-gray-700 leading-relaxed max-w-5xl italic md:not-italic">
-            Techtide Corporate LLP is committed to setting a global standard in
-            technological excellence. More than a software company, we serve as
-            a trusted partner in innovation and meaningful impact using advanced
-            technology to uplift communities and build a future-ready world from
-            Pakistan outward.
-          </p>
+          <div className="space-y-4">
+            <p className="text-base md:text-xl text-gray-700 leading-relaxed max-w-5xl italic md:not-italic font-medium">
+              To become a trusted global technology partner known for building scalable, high-impact digital solutions that drive real business growth.
+            </p>
+            <p className="text-base md:text-xl text-gray-700 leading-relaxed max-w-5xl italic md:not-italic">
+              We aim to help businesses move beyond basic digital presence and build systems that are efficient, reliable, and ready for future expansion.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -49,13 +50,14 @@ export function VisionMissionSection() {
           </div>
 
           {/* Content */}
-          <p className="text-base md:text-xl text-gray-700 leading-relaxed max-w-5xl italic md:not-italic">
-            Techtide Corporate LLP is committed to crafting exceptional digital
-            solutions and reinvesting our growth where it matters into the
-            youth, into critical job creation, and into open access to
-            education. We stand for progress with intent and partnerships that
-            make a difference
-          </p>
+          <div className="space-y-4">
+            <p className="text-base md:text-xl text-gray-700 leading-relaxed max-w-5xl italic md:not-italic font-medium">
+              Our mission is to deliver practical, results-driven digital solutions that solve real business problems and create measurable value.
+            </p>
+            <p className="text-base md:text-xl text-gray-700 leading-relaxed max-w-5xl italic md:not-italic">
+              We focus on building long-term partnerships by combining technical expertise with clear communication, reliable execution, and continuous improvement.
+            </p>
+          </div>
         </div>
       </div>
     </section>

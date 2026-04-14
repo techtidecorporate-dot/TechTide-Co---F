@@ -4,10 +4,10 @@ import {
   VisionMissionSection,
   ServicesSection,
   ProjectsSection,
-  TeamSection,
   LeadershipSection,
   BlogSection,
   SupportSection,
+  WhyChooseUs,
 } from "../components/landing";
 
 import SEO from "../components/ui/SEO";
@@ -22,11 +22,11 @@ const LandingPage: React.FC = () => {
           keywords="web development company UK, mobile app development USA, SaaS development Canada, software development company Germany, custom software development UK, AI software development USA, bespoke web development, React development agency, Pakistan based software company"
         />
         <HeroSection />
-        <ServicesSection />
         <VisionMissionSection />
-        <ProjectsSection />
-        <TeamSection />
+        <ServicesSection />
+        <WhyChooseUs />
         <LeadershipSection />
+        <ProjectsSection />
         <BlogSection />
         <SupportSection />
       </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Users } from "lucide-react";
+import { Send, Users, CheckCircle, RefreshCw, BarChart, Zap } from "lucide-react";
 import { contactAPI } from "@/api";
 import { toast } from "sonner";
 
@@ -61,9 +61,9 @@ export function SupportSection() {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-16">
           <h2 className="text-[#191a23] text-3xl md:text-5xl font-poppins font-medium mb-4">
-            Our Premium{" "}
+            Reliable Support That Keeps Your{" "}
             <span
               className="bg-clip-text"
               style={{
@@ -72,27 +72,27 @@ export function SupportSection() {
                   "linear-gradient(95.6204deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",
               }}
             >
-              Support
+              Business Running
             </span>
           </h2>
-          <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto">
-            Leave a message here and we will get back to you as soon as
-            possible.
+          <p className="text-[#6b7280] text-base md:text-xl max-w-2xl mx-auto">
+            Our support services ensure your systems remain stable, secure, and efficient.
           </p>
         </div>
 
-        <div className="max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-gray-100 rounded-[2rem] shadow-xl md:p-8 border border-gray-100">
-            <h3 className="text-[#191a23] text-2xl font-poppins font-medium mb-6">
-              Send us a Message
+          <div className="bg-white rounded-[2rem] shadow-xl md:p-10 border border-gray-100 p-8 flex flex-col justify-center">
+            <h3 className="text-[#191a23] text-2xl font-poppins font-bold mb-8">
+              Send us a message
             </h3>
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div className="space-y-2">
                   <label
                     htmlFor="firstName"
-                    className="text-sm font-medium text-gray-700 ml-1"
+                    className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                   >
                     First Name
                   </label>
@@ -103,14 +103,14 @@ export function SupportSection() {
                     value={formData.firstName}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-4 md:py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
-                    placeholder="Enter first name"
+                    className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
+                    placeholder="John Doe"
                   />
                 </div>
                 <div className="space-y-2">
                   <label
                     htmlFor="email"
-                    className="text-sm font-medium text-gray-700 ml-1"
+                    className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                   >
                     Email Address
                   </label>
@@ -121,8 +121,8 @@ export function SupportSection() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-4 md:py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
-                    placeholder="Enter email address"
+                    className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
+                    placeholder="john@example.com"
                   />
                 </div>
               </div>
@@ -131,7 +131,7 @@ export function SupportSection() {
                 <div className="space-y-2">
                   <label
                     htmlFor="phone"
-                    className="text-sm font-medium text-gray-700 ml-1"
+                    className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                   >
                     Phone Number
                   </label>
@@ -142,14 +142,14 @@ export function SupportSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-4 md:py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
-                    placeholder="+92 000 0000000"
+                    className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
+                    placeholder="+92 000 000 0000"
                   />
                 </div>
                 <div className="space-y-2">
                   <label
                     htmlFor="subject"
-                    className="text-sm font-medium text-gray-700 ml-1"
+                    className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                   >
                     Subject
                   </label>
@@ -160,7 +160,7 @@ export function SupportSection() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-4 md:py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
+                    className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
                     placeholder="How can we help?"
                   />
                 </div>
@@ -169,7 +169,7 @@ export function SupportSection() {
               <div className="space-y-2">
                 <label
                   htmlFor="message"
-                  className="text-sm font-medium text-gray-700 ml-1"
+                  className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                 >
                   Message
                 </label>
@@ -179,89 +179,109 @@ export function SupportSection() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={2}
-                  className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all resize-none"
-                  placeholder="Tell us more about your project goals..."
+                  rows={5}
+                  className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all resize-none"
+                  placeholder="Tell us more about your project goals and requirements..."
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-8 py-4 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-8 py-5 rounded-2xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed group"
                 style={{
                   backgroundImage:
                     "linear-gradient(93.1835deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",
                 }}
               >
-                <span className="text-white font-poppins font-medium">
+                <span className="text-white font-poppins font-bold text-lg">
                   {loading ? "Sending..." : "Send Message"}
                 </span>
-                {!loading && <Send className="w-5 h-5 text-white" />}
+                {!loading && <Send className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />}
               </button>
             </form>
           </div>
 
           {/* Information Column */}
-          <div className="space-y-6 md:space-y-4 p-0 md:p-4">
-            <div className="bg-white rounded-[2rem] border border-gray-100 shadow-xl p-6 md:p-6">
-              <h3 className="text-xl md:text-2xl font-poppins font-semibold text-[#191a23] mb-6">
-                Why Choose TechTide?
+          <div className="space-y-6 flex flex-col">
+            <div className="bg-white rounded-[2rem] border border-gray-100 shadow-xl p-8 md:p-10 flex-grow">
+              <h3 className="text-xl md:text-2xl font-poppins font-bold text-[#191a23] mb-8">
+                What You Get:
               </h3>
               <div className="space-y-6">
-                <div className="flex gap-5">
-                  <div className="w-12 h-12 rounded-xl bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 shadow-sm">
-                    <Send className="w-6 h-6 rotate-[-45deg]" />
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 shadow-sm border border-[#453abc]/10">
+                    <CheckCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-poppins font-semibold text-[#191a23] mb-1">
-                      Fast Response Time
+                    <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
+                      Continuous technical support
                     </h4>
-                    <p className="text-[#6b7280] text-sm leading-relaxed">
-                      We respond to all inquiries within 24 hours
+                    <p className="text-[#6b7280] text-sm">
+                      Reliable assistance whenever you need it
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-5">
-                  <div className="w-12 h-12 rounded-xl bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 shadow-sm">
-                    <Users className="w-6 h-6" />
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 shadow-sm border border-[#453abc]/10">
+                    <RefreshCw className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-poppins font-semibold text-[#191a23] mb-1">
-                      Expert Team
+                    <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
+                      Regular updates and maintenance
                     </h4>
-                    <p className="text-[#6b7280] text-sm leading-relaxed">
-                      Work with experienced professionals
+                    <p className="text-[#6b7280] text-sm">
+                      Keeping your systems current and secure
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 shadow-sm border border-[#453abc]/10">
+                    <BarChart className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
+                      Priority issue resolution
+                    </h4>
+                    <p className="text-[#6b7280] text-sm">
+                      Fast tracking critical problems
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 shadow-sm border border-[#453abc]/10">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
+                      Performance monitoring
+                    </h4>
+                    <p className="text-[#6b7280] text-sm">
+                      Ensuring peak efficiency
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-[#191a23] bg-gradient-to-br from-[#191a23] via-[#453abc]/10 to-[#191a23] rounded-[2rem] p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#453abc]/10 rounded-full blur-[80px]" />
+            <div className="bg-[#191a23] bg-gradient-to-br from-[#191a23] via-[#453abc]/20 to-[#191a23] rounded-[2rem] p-8 text-white shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#453abc]/10 rounded-full blur-[60px] group-hover:scale-150 transition-transform duration-700" />
               <div className="relative z-10">
-                <h3 className="text-xl md:text-2xl font-poppins font-semibold mb-6">
+                <h3 className="text-xl md:text-2xl font-poppins font-bold mb-6">
                   Office Hours
                 </h3>
-                <div className="space-y-4 text-gray-300">
+                <div className="space-y-4 text-gray-400">
                   <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                    <span className="text-sm font-medium">
-                      Monday - Saturday
-                    </span>
-                    <span className="font-semibold text-white">
-                      11:00 AM - 7:00 PM
-                    </span>
+                    <span className="text-sm font-medium">Mon - Sat</span>
+                    <span className="font-bold text-white">11:00 AM - 7:00 PM</span>
                   </div>
                   <div className="flex justify-between items-center border-b border-white/5 pb-2">
                     <span className="text-sm font-medium">Friday</span>
-                    <span className="font-semibold text-white">
-                      3:00 PM - 7:00 PM
-                    </span>
+                    <span className="font-bold text-white">3:00 PM - 7:00 PM</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm font-medium">Sunday</span>
-                    <span className="font-semibold text-[#60c3e3]">Closed</span>
+                    <span className="font-bold text-[#60c3e3]">Closed</span>
                   </div>
                 </div>
               </div>
