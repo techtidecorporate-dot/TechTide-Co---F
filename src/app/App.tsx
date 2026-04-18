@@ -13,11 +13,12 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import { PartnerWithUsDrawer } from "./components/ui/PartnerWithUsDrawer";
+import { AuditDrawer } from "./components/ui/AuditDrawer";
+import { StrategyCallDrawer } from "./components/ui/StrategyCallDrawer";
 import SignInPage from "./components/ui/signin";
 import { useState, useEffect } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
-import { FloatingCTA } from "./components/ui/FloatingCTA";
 import { Toaster } from "sonner";
 
 import AdminLayout from "./pages/admin/AdminLayout";
@@ -31,6 +32,8 @@ import JobListingManagement from "./pages/admin/JobListingManagement";
 import JobApplications from "./pages/admin/Jobs";
 import TalentPool from "./pages/admin/TalentPool";
 import PartnerSubmissions from "./pages/admin/PartnerSubmissions";
+import AuditSubmissions from "./pages/admin/AuditSubmissions";
+import StrategyCallSubmissions from "./pages/admin/StrategyCallSubmissions";
 import AppointmentManagement from "./pages/admin/Appointments";
 
 
@@ -38,15 +41,27 @@ import AppointmentManagement from "./pages/admin/Appointments";
 export default function App() {
   const location = useLocation();
   const [isPartnerDrawerOpen, setIsPartnerDrawerOpen] = useState(false);
+  const [isAuditDrawerOpen, setIsAuditDrawerOpen] = useState(false);
+  const [isStrategyDrawerOpen, setIsStrategyDrawerOpen] = useState(false);
+  
   const isAdminPath = location.pathname.startsWith("/admin");
   const isSignInPath = location.pathname === "/signin";
   const hideNavFooter = isAdminPath || isSignInPath;
 
   useEffect(() => {
-    const handleOpenDrawer = () => setIsPartnerDrawerOpen(true);
-    window.addEventListener("open-partner-drawer", handleOpenDrawer);
-    return () =>
-      window.removeEventListener("open-partner-drawer", handleOpenDrawer);
+    const handleOpenPartner = () => setIsPartnerDrawerOpen(true);
+    const handleOpenAudit = () => setIsAuditDrawerOpen(true);
+    const handleOpenStrategy = () => setIsStrategyDrawerOpen(true);
+    
+    window.addEventListener("open-partner-drawer", handleOpenPartner);
+    window.addEventListener("open-audit-drawer", handleOpenAudit);
+    window.addEventListener("open-strategy-drawer", handleOpenStrategy);
+    
+    return () => {
+      window.removeEventListener("open-partner-drawer", handleOpenPartner);
+      window.removeEventListener("open-audit-drawer", handleOpenAudit);
+      window.removeEventListener("open-strategy-drawer", handleOpenStrategy);
+    };
   }, []);
 
   return (
@@ -81,18 +96,36 @@ export default function App() {
             <Route path="jobs" element={<JobApplications />} />
             <Route path="talent-pool" element={<TalentPool />} />
             <Route path="partners" element={<PartnerSubmissions />} />
+            <Route path="audits" element={<AuditSubmissions />} />
+            <Route path="strategy-calls" element={<StrategyCallSubmissions />} />
             <Route path="appointments" element={<AppointmentManagement />} />
           </Route>
         </Routes>
+        
         {isPartnerDrawerOpen && (
           <PartnerWithUsDrawer
             isOpen={isPartnerDrawerOpen}
             onClose={() => setIsPartnerDrawerOpen(false)}
           />
         )}
-        {!hideNavFooter && <FloatingCTA />}
+        
+        {isAuditDrawerOpen && (
+          <AuditDrawer
+            isOpen={isAuditDrawerOpen}
+            onClose={() => setIsAuditDrawerOpen(false)}
+          />
+        )}
+        
+        {isStrategyDrawerOpen && (
+          <StrategyCallDrawer
+            isOpen={isStrategyDrawerOpen}
+            onClose={() => setIsStrategyDrawerOpen(false)}
+          />
+        )}
+        
         {!hideNavFooter && <Footer />}
       </div>
     </AuthProvider>
   );
 }
+

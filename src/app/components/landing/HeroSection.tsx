@@ -1,4 +1,3 @@
-import { FloatingCTA } from "../../components/ui/FloatingCTA";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -7,7 +6,6 @@ export function HeroSection() {
 
   return (
     <section className="relative h-screen px-6 md:px-[70px] flex items-center justify-center text-center overflow-hidden bg-gray-900">
-      <FloatingCTA />
 
       {/* Background Technology Image */}
       <div className="absolute inset-0">
@@ -33,10 +31,10 @@ export function HeroSection() {
             className="mb-8 leading-[1.15]"
           >
             <span className="font-poppins block text-white text-3xl md:text-[3.5rem] lg:text-[4.5rem] font-bold tracking-tight">
-              Turn Your Ideas Into
+              We Help Businesses Generate
             </span>
             <span className="font-poppins block bg-gradient-to-r from-[#453abc] via-[#60c3e3] to-[#453abc] bg-clip-text text-transparent text-3xl md:text-[3.5rem] lg:text-[4.5rem] font-bold tracking-tight">
-              Scalable Products
+              3–5x More Leads
             </span>
           </motion.h1>
 
@@ -48,7 +46,7 @@ export function HeroSection() {
             className="max-w-3xl mx-auto space-y-4 md:space-y-2 text-base md:text-xl leading-relaxed text-white/70 font-medium"
           >
             <p>
-              We build high-performance websites, custom software, and digital solutions that help businesses grow and scale in a technology-driven world.
+              Through high-converting websites and digital systems. We transform your generic company profile into a high-performance sales asset that builds trust and generates qualified leads.
             </p> 
           </motion.div>
 
@@ -61,7 +59,7 @@ export function HeroSection() {
           >
             <button
               className="group relative w-full md:w-auto px-12 py-5 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 text-white font-bold text-lg shadow-[0_0_20px_rgba(69,58,188,0.3)] hover:shadow-[0_0_30px_rgba(69,58,188,0.6)]"
-              onClick={() => navigate("/contact")}
+              onClick={() => window.dispatchEvent(new CustomEvent("open-audit-drawer"))}
             >
               <div 
                 className="absolute inset-0 transition-transform duration-300 group-hover:scale-110"
@@ -69,13 +67,13 @@ export function HeroSection() {
                   backgroundImage: "linear-gradient(93.1835deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",
                 }}
               />
-              <span className="relative z-10">Start Your Project</span>
+              <span className="relative z-10">Get Free Website Audit</span>
             </button>
             <button
               className="w-full md:w-auto px-12 py-5 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 text-white font-bold text-lg backdrop-blur-md"
-              onClick={() => navigate("/services")}
+              onClick={() => window.dispatchEvent(new CustomEvent("open-strategy-drawer"))}
             >
-              Explore Services
+              Book Strategy Call
             </button>
           </motion.div>
         </div>

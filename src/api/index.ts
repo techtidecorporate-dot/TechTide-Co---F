@@ -509,6 +509,64 @@ export const partnerAPI = {
   }
 };
 
+export const auditAPI = {
+  getAll: async () => {
+    const snapshot = await get(dbRef(database, "audits"));
+    let data: any[] = [];
+    if (snapshot.exists()) {
+      const val = snapshot.val();
+      data = Object.keys(val).map(key => ({ id: key, ...val[key] }));
+    }
+    return { data };
+  },
+  create: async (data: any) => {
+    const newRef = push(dbRef(database, "audits"));
+    const submissionData = {
+      ...data,
+      createdAt: new Date().toISOString(),
+      status: 'new'
+    };
+    await set(newRef, submissionData);
+    return { data: { id: newRef.key, ...submissionData } };
+  },
+  updateStatus: async (id: string, status: string) => {
+    await update(dbRef(database, `audits/${id}`), { status });
+    return { data: { id, status } };
+  },
+  delete: async (id: string) => {
+    await remove(dbRef(database, `audits/${id}`));
+  }
+};
+
+export const strategyCallAPI = {
+  getAll: async () => {
+    const snapshot = await get(dbRef(database, "strategy-calls"));
+    let data: any[] = [];
+    if (snapshot.exists()) {
+      const val = snapshot.val();
+      data = Object.keys(val).map(key => ({ id: key, ...val[key] }));
+    }
+    return { data };
+  },
+  create: async (data: any) => {
+    const newRef = push(dbRef(database, "strategy-calls"));
+    const submissionData = {
+      ...data,
+      createdAt: new Date().toISOString(),
+      status: 'pending'
+    };
+    await set(newRef, submissionData);
+    return { data: { id: newRef.key, ...submissionData } };
+  },
+  updateStatus: async (id: string, status: string) => {
+    await update(dbRef(database, `strategy-calls/${id}`), { status });
+    return { data: { id, status } };
+  },
+  delete: async (id: string) => {
+    await remove(dbRef(database, `strategy-calls/${id}`));
+  }
+};
+
 // Export app/auth/storage/database for direct usage if needed
 export { app, auth, storage, database };
 export default app;

@@ -1,4 +1,6 @@
 export { HeroSection } from "./HeroSection";
+export { ProblemSection } from "./ProblemSection";
+export { SolutionSection } from "./SolutionSection";
 export { ServicesSection } from "./ServicesSection";
 export { VisionMissionSection } from "./VisionMissionSection";
 export { BlogSection } from "./BlogSection";
@@ -8,3 +10,6 @@ export { LeadershipSection } from "./LeadershipSection";
 export { SupportSection } from "./SupportSection";
 export { WhyChooseUs } from "./WhyChooseUs";
 export { Footer } from "../../components/ui/Footer";
+
+
+

@@ -148,8 +148,8 @@ export function Navbar() {
             )}
           </div>
         ) : (
-          <Link
-            to="/signin"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-partner-drawer"))}
             className="relative flex items-center gap-2 px-7 py-2.5 rounded-lg font-medium text-white 
                transition-all duration-300 
                hover:-translate-y-0.5 active:translate-y-0 
@@ -162,8 +162,8 @@ export function Navbar() {
             }}
           >
             <span className="absolute inset-0 rounded-lg bg-white/10 opacity-0 hover:opacity-100 transition-opacity pointer-events-none" />
-            <span className="relative z-10">Log In</span>
-          </Link>
+            <span className="relative z-10">Partner with Us</span>
+          </button>
         )}
       </div>
 
@@ -207,17 +207,19 @@ export function Navbar() {
                 );
               })}
               <hr className="border-gray-100 my-4" />
-              <Link
-                to="/signin"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent("open-partner-drawer"));
+                }}
                 className="w-full py-4 rounded-xl text-center text-white font-poppins font-medium shadow-lg flex items-center justify-center gap-2"
                 style={{
                   background:
                     "linear-gradient(95deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 100%)",
                 }}
               >
-                Log In
-              </Link>
+                Partner with Us
+              </button>
 
               <div className="mt-auto pt-8">
                 <p className="text-gray-400 text-sm mb-4">

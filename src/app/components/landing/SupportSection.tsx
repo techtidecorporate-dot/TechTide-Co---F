@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Users, CheckCircle, RefreshCw, BarChart, Zap } from "lucide-react";
+import { Send, CheckCircle, RefreshCw, BarChart, Zap } from "lucide-react";
 import { contactAPI } from "@/api";
 import { toast } from "sonner";
 
@@ -63,20 +63,17 @@ export function SupportSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-[#191a23] text-3xl md:text-5xl font-poppins font-medium mb-4">
-            Reliable Support That Keeps Your{" "}
-            <span
+            Ready to <span
               className="bg-clip-text"
               style={{
                 WebkitTextFillColor: "transparent",
                 backgroundImage:
                   "linear-gradient(95.6204deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",
               }}
-            >
-              Business Running
-            </span>
+            >Scale Your Business?</span>
           </h2>
           <p className="text-[#6b7280] text-base md:text-xl max-w-2xl mx-auto">
-            Our support services ensure your systems remain stable, secure, and efficient.
+            Book your 15-minute growth strategy call today and let's map out your path to 3-5x more leads.
           </p>
         </div>
 
@@ -84,7 +81,7 @@ export function SupportSection() {
           {/* Contact Form */}
           <div className="bg-white rounded-[2rem] shadow-xl md:p-10 border border-gray-100 p-8 flex flex-col justify-center">
             <h3 className="text-[#191a23] text-2xl font-poppins font-bold mb-8">
-              Send us a message
+              Book Your Free Consultation
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -94,7 +91,7 @@ export function SupportSection() {
                     htmlFor="firstName"
                     className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                   >
-                    First Name
+                    Name
                   </label>
                   <input
                     type="text"
@@ -104,7 +101,7 @@ export function SupportSection() {
                     onChange={handleChange}
                     required
                     className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
-                    placeholder="John Doe"
+                    placeholder="Full Name"
                   />
                 </div>
                 <div className="space-y-2">
@@ -112,7 +109,7 @@ export function SupportSection() {
                     htmlFor="email"
                     className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                   >
-                    Email Address
+                    Work Email
                   </label>
                   <input
                     type="email"
@@ -122,7 +119,7 @@ export function SupportSection() {
                     onChange={handleChange}
                     required
                     className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
-                    placeholder="john@example.com"
+                    placeholder="john@company.com"
                   />
                 </div>
               </div>
@@ -133,7 +130,7 @@ export function SupportSection() {
                     htmlFor="phone"
                     className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                   >
-                    Phone Number
+                    Phone / WhatsApp
                   </label>
                   <input
                     type="tel"
@@ -143,7 +140,7 @@ export function SupportSection() {
                     onChange={handleChange}
                     required
                     className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
-                    placeholder="+92 000 000 0000"
+                    placeholder="e.g. +92 300 1234567"
                   />
                 </div>
                 <div className="space-y-2">
@@ -151,7 +148,7 @@ export function SupportSection() {
                     htmlFor="subject"
                     className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                   >
-                    Subject
+                    Project Type
                   </label>
                   <input
                     type="text"
@@ -161,7 +158,7 @@ export function SupportSection() {
                     onChange={handleChange}
                     required
                     className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all"
-                    placeholder="How can we help?"
+                    placeholder="e.g. Lead Gen Website, SaaS, Marketing"
                   />
                 </div>
               </div>
@@ -171,7 +168,7 @@ export function SupportSection() {
                   htmlFor="message"
                   className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
                 >
-                  Message
+                  Your Goals
                 </label>
                 <textarea
                   id="message"
@@ -179,9 +176,9 @@ export function SupportSection() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
+                  rows={4}
                   className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#453abc] focus:border-transparent transition-all resize-none"
-                  placeholder="Tell us more about your project goals and requirements..."
+                  placeholder="What are your primary goals for this project?"
                 />
               </div>
 
@@ -195,7 +192,7 @@ export function SupportSection() {
                 }}
               >
                 <span className="text-white font-poppins font-bold text-lg">
-                  {loading ? "Sending..." : "Send Message"}
+                  {loading ? "Booking..." : "Book My Strategy Call"}
                 </span>
                 {!loading && <Send className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />}
               </button>
@@ -206,7 +203,7 @@ export function SupportSection() {
           <div className="space-y-6 flex flex-col">
             <div className="bg-white rounded-[2rem] border border-gray-100 shadow-xl p-8 md:p-10 flex-grow">
               <h3 className="text-xl md:text-2xl font-poppins font-bold text-[#191a23] mb-8">
-                What You Get:
+                Why book a call?
               </h3>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -215,10 +212,10 @@ export function SupportSection() {
                   </div>
                   <div>
                     <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
-                      Continuous technical support
+                      Customized Growth Roadmap
                     </h4>
                     <p className="text-[#6b7280] text-sm">
-                      Reliable assistance whenever you need it
+                      We'll analyze your current bottle-necks and map out a solution.
                     </p>
                   </div>
                 </div>
@@ -228,10 +225,10 @@ export function SupportSection() {
                   </div>
                   <div>
                     <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
-                      Regular updates and maintenance
+                      Predictable Results
                     </h4>
                     <p className="text-[#6b7280] text-sm">
-                      Keeping your systems current and secure
+                      Learn how we've helped others achieve 3-5x lead growth.
                     </p>
                   </div>
                 </div>
@@ -241,10 +238,10 @@ export function SupportSection() {
                   </div>
                   <div>
                     <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
-                      Priority issue resolution
+                      Expert Guidance
                     </h4>
                     <p className="text-[#6b7280] text-sm">
-                      Fast tracking critical problems
+                      Direct access to our senior strategists to answer your questions.
                     </p>
                   </div>
                 </div>
@@ -254,10 +251,10 @@ export function SupportSection() {
                   </div>
                   <div>
                     <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
-                      Performance monitoring
+                      Zero Obligation
                     </h4>
                     <p className="text-[#6b7280] text-sm">
-                      Ensuring peak efficiency
+                      A high-value session focused on your ROI, no pushy sales.
                     </p>
                   </div>
                 </div>

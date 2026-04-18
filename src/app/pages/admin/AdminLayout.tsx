@@ -60,6 +60,8 @@ export default function AdminLayout() {
 
   const menuItems = [
     { to: "/admin", icon: LayoutDashboard, label: "Dashboard" },
+    { to: "/admin/audits", icon: Box, label: "Audits" },
+    { to: "/admin/strategy-calls", icon: CalendarCheck, label: "Strategy Calls" },
     { to: "/admin/users", icon: Users, label: "Users" },
     { to: "/admin/job-positions", icon: Briefcase, label: "Job Positions" },
     { to: "/admin/jobs", icon: Briefcase, label: "Job Applications" },
