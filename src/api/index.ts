@@ -245,25 +245,24 @@ export const blogAPI = {
     if (snapshot.exists()) {
       const val = snapshot.val();
       data = Object.keys(val).map(key => ({ id: key, ...val[key] }));
+      // Sort by createdAt descending
+      data.sort((a, b) => {
+        const dateA = new Date(a.createdAt || 0).getTime();
+        const dateB = new Date(b.createdAt || 0).getTime();
+        return dateB - dateA;
+      });
     }
     return { data };
   },
-  create: async (data: FormData | Partial<BlogPost>) => {
-    let blogData: any = data;
-    if (data instanceof FormData) {
-      blogData = Object.fromEntries(data.entries());
-      const imageFile = data.get('image');
-      if (imageFile instanceof File && imageFile.size > 0) {
-        blogData.image = await uploadFile(imageFile, 'blogs');
-      }
-    }
+  create: async (data: Partial<BlogPost>) => {
+    const blogData = { ...data };
 
     // Ensure tags and keywords are arrays
     if (typeof blogData.tags === 'string') {
-      blogData.tags = blogData.tags.split(',').map((t: string) => t.trim()).filter(Boolean);
+      blogData.tags = (blogData.tags as string).split(',').map((t: string) => t.trim()).filter(Boolean);
     }
     if (typeof blogData.seoKeywords === 'string') {
-      blogData.seoKeywords = blogData.seoKeywords.split(',').map((k: string) => k.trim()).filter(Boolean);
+      blogData.seoKeywords = (blogData.seoKeywords as any).split(',').map((k: string) => k.trim()).filter(Boolean);
     }
 
     const blogWithTimestamps = {
@@ -275,16 +274,17 @@ export const blogAPI = {
     await set(newRef, blogWithTimestamps);
     return { data: { id: newRef.key, ...blogWithTimestamps } };
   },
-  update: async (id: string, data: FormData | Partial<BlogPost>) => {
-    let blogData: any = data;
-    if (data instanceof FormData) {
-      const image = data.get('image') as File;
-      if (image && image.size > 0) {
-        const imageUrl = await uploadFile(image, 'blogs');
-        data.set('image', imageUrl);
-      }
-      blogData = Object.fromEntries(data.entries());
+  update: async (id: string, data: Partial<BlogPost>) => {
+    const blogData = { ...data };
+    
+    // Ensure tags and keywords are arrays
+    if (typeof blogData.tags === 'string') {
+      blogData.tags = (blogData.tags as string).split(',').map((t: string) => t.trim()).filter(Boolean);
     }
+    if (typeof blogData.seoKeywords === 'string') {
+      blogData.seoKeywords = (blogData.seoKeywords as any).split(',').map((k: string) => k.trim()).filter(Boolean);
+    }
+
     const updatedData = {
       ...blogData,
       updatedAt: new Date().toISOString(),
@@ -294,6 +294,19 @@ export const blogAPI = {
   },
   delete: async (id: string) => {
     await remove(dbRef(database, `blogs/${id}`));
+  },
+  getBySlug: async (slug: string) => {
+    // In RTDB filtering by field is less efficient than in Firestore, but we can iterate
+    const snapshot = await get(dbRef(database, "blogs"));
+    if (!snapshot.exists()) return { data: null };
+    
+    const val = snapshot.val();
+    const key = Object.keys(val).find(k => val[k].slug === slug);
+    
+    if (key) {
+      return { data: { id: key, ...val[key] } as BlogPost };
+    }
+    return { data: null };
   }
 };
 
@@ -568,5 +581,5 @@ export const strategyCallAPI = {
 };
 
 // Export app/auth/storage/database for direct usage if needed
-export { app, auth, storage, database };
+export { app, auth, storage, database, db };
 export default app;

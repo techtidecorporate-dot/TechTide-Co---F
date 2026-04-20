@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { auditAPI } from "@/api";
-import { Search, Mail, Building, Globe, Trash2, CheckCircle, Clock } from "lucide-react";
+import { Search, Mail, Building, Globe, Trash2, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 
 export default function AuditSubmissions() {
