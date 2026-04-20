@@ -35,7 +35,7 @@ import PartnerSubmissions from "./pages/admin/PartnerSubmissions";
 import AuditSubmissions from "./pages/admin/AuditSubmissions";
 import StrategyCallSubmissions from "./pages/admin/StrategyCallSubmissions";
 import AppointmentManagement from "./pages/admin/Appointments";
-
+import SubscribersManagement from "@/app/pages/admin/Subscribers";
 
 
 export default function App() {
@@ -98,6 +98,7 @@ export default function App() {
             <Route path="partners" element={<PartnerSubmissions />} />
             <Route path="audits" element={<AuditSubmissions />} />
             <Route path="strategy-calls" element={<StrategyCallSubmissions />} />
+            <Route path="subscribers" element={<SubscribersManagement />} />
             <Route path="appointments" element={<AppointmentManagement />} />
           </Route>
         </Routes>

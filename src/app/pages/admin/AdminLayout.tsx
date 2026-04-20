@@ -71,6 +71,7 @@ export default function AdminLayout() {
     { to: "/admin/services", icon: Box, label: "Services" },
     { to: "/admin/partners", icon: Handshake, label: "Partners" },
     { to: "/admin/appointments", icon: CalendarCheck, label: "Appointments" },
+    { to: "/admin/subscribers", icon: Mail, label: "Subscribers" },
     { to: "/admin/messages", icon: Mail, label: "Messages" },
   ];
 
