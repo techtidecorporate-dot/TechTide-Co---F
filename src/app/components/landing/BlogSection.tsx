@@ -141,13 +141,7 @@ function BlogCard({
     >
       <Link to={`/blog/${blog.slug || blog.id}`}>
         <img
-          src={
-            blog.image
-              ? blog.image.startsWith("http")
-                ? blog.image
-                : `http://localhost:5000${blog.image}`
-              : defaultImage
-          }
+          src={blog.image || "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop"}
           alt={blog.title}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
