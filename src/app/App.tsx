@@ -23,7 +23,6 @@ import { Toaster } from "sonner";
 
 import AdminLayout from "./pages/admin/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
-import TeamManagement from "./pages/admin/Teams";
 import BlogManagement from "./pages/admin/Blogs";
 import ServiceManagement from "./pages/admin/Services";
 import ContactMessages from "./pages/admin/ContactSubmissions";
@@ -34,7 +33,6 @@ import TalentPool from "./pages/admin/TalentPool";
 import PartnerSubmissions from "./pages/admin/PartnerSubmissions";
 import AuditSubmissions from "./pages/admin/AuditSubmissions";
 import StrategyCallSubmissions from "./pages/admin/StrategyCallSubmissions";
-import AppointmentManagement from "./pages/admin/Appointments";
 import SubscribersManagement from "@/app/pages/admin/Subscribers";
 
 
@@ -87,7 +85,6 @@ export default function App() {
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
-            <Route path="teams" element={<TeamManagement />} />
             <Route path="blogs" element={<BlogManagement />} />
             <Route path="services" element={<ServiceManagement />} />
             <Route path="messages" element={<ContactMessages />} />
@@ -99,7 +96,6 @@ export default function App() {
             <Route path="audits" element={<AuditSubmissions />} />
             <Route path="strategy-calls" element={<StrategyCallSubmissions />} />
             <Route path="subscribers" element={<SubscribersManagement />} />
-            <Route path="appointments" element={<AppointmentManagement />} />
           </Route>
         </Routes>
         

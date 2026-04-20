@@ -66,11 +66,9 @@ export default function AdminLayout() {
     { to: "/admin/job-positions", icon: Briefcase, label: "Job Positions" },
     { to: "/admin/jobs", icon: Briefcase, label: "Job Applications" },
     { to: "/admin/talent-pool", icon: Target, label: "Talent Pool" },
-    { to: "/admin/teams", icon: Users, label: "Teams" },
     { to: "/admin/blogs", icon: BookOpen, label: "Blogs" },
     { to: "/admin/services", icon: Box, label: "Services" },
     { to: "/admin/partners", icon: Handshake, label: "Partners" },
-    { to: "/admin/appointments", icon: CalendarCheck, label: "Appointments" },
     { to: "/admin/subscribers", icon: Mail, label: "Subscribers" },
     { to: "/admin/messages", icon: Mail, label: "Messages" },
   ];
