@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { strategyCallAPI } from "@/api";
-import { Search, Mail, Phone, MessageSquare, Trash2, CheckCircle, Clock } from "lucide-react";
+import { Search, Mail, Phone, Trash2, CheckCircle, Clock } from "lucide-react";
 import { toast } from "sonner";
 
 export default function StrategyCallSubmissions() {

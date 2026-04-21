@@ -1,8 +1,7 @@
-import SupportImg from "@/assets/support, ticketing, booking & communication system.png";
 import ApiIntegrationImg from "@/assets/Api.jpg";
 import BrandingImg from "@/assets/branding-strategy-marketing-business-graphic-design.jpg";
-import BusinessToolsImg from "@/assets/inventory-stock-manufacturing-assets-goods-concept.jpg";
-
+import AutomationImg from "@/assets/automation.jpg";
+import LeadGenerationImg from '@/assets/lead-generation-service-in-pan-india-digital-marketing-1000x1000.webp'
 export interface ProcessStep {
   step: string;
   title: string;
@@ -38,6 +37,15 @@ export interface SystemItem {
   seoTitle: string;
   seoDescription: string;
   seoKeywords: string[];
+  isLandingPage?: boolean;
+  introContent?: string;
+  benefits?: Benefit[];
+  processSteps?: ProcessStep[];
+  industryUseCases?: IndustryUseCase[];
+  usps?: USP[];
+  servicesContent?: string[];
+  ctaHeading?: string;
+  ctaDescription?: string;
 }
 
 export const systemsData: SystemItem[] = [
@@ -46,7 +54,7 @@ export const systemsData: SystemItem[] = [
     title: "Lead Generation Websites",
     shortDescription: "Transform your website into a high-converting sales asset that generates qualified leads 24/7.",
     description: "We design and build bespoke websites optimized for conversion. Every element is strategically placed to guide users toward your primary CTA, ensuring a steady stream of leads for your business.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    image: LeadGenerationImg,
     features: [
       "Conversion-Optimized Layouts",
       "High-Speed Performance",
@@ -103,7 +111,7 @@ export const systemsData: SystemItem[] = [
     title: "Business Automation Systems",
     shortDescription: "Streamline operations and reduce manual work with custom automation tools.",
     description: "Optimize your internal workflows through custom ERP, CRM, and automation tools designed to save time and reduce operational costs.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    image: AutomationImg,
     features: [
       "Workflow Process Automation",
       "Custom ERP & CRM Solutions",

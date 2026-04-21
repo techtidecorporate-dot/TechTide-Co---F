@@ -23,6 +23,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import { systemsData, SystemItem } from "../data/servicesData";
+import { seoServicesData } from "../data/seoServicesData";
 import SEO from "../components/ui/SEO";
 
 const iconMap: Record<string, any> = {
@@ -51,7 +52,8 @@ export default function ServiceDetailPage() {
 
   useEffect(() => {
     if (slug) {
-      const foundService = systemsData.find((s) => s.slug === slug);
+      const allServices = [...seoServicesData, ...systemsData];
+      const foundService = allServices.find((s) => s.slug === slug);
       setService(foundService || null);
     }
   }, [slug]);

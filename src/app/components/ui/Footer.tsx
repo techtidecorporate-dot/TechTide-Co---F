@@ -12,6 +12,8 @@ import {
 import { toast } from "sonner";
 import { useNewsletter } from "@/app/hooks/useNewsletter";
 
+import { systemsData } from "@/app/data/servicesData";
+
 const footerLinks = {
   quicklinks: [
     { label: "Services", href: "/services" },
@@ -19,12 +21,10 @@ const footerLinks = {
     { label: "Careers", href: "/career" },
     { label: "Contact", href: "/contact" },
   ],
-  services: [
-    "Web Development",
-    "Mobile Apps",
-    "Digital Marketing",
-    "Cloud Solutions",
-  ],
+  services: systemsData.slice(0, 4).map(s => ({
+    label: s.title,
+    href: `/services/${s.slug}`
+  })),
   legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
 };
 
@@ -121,38 +121,16 @@ export function Footer() {
                 Services
               </h4>
               <ul className="space-y-4 mb-6">
-                <li>
-                  <Link
-                    to="/services/crm-software-development"
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
-                  >
-                    CRM (Customer Management)
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/erp-software-development"
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
-                  >
-                    ERP (Business Portal)
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/ecommerce-website-development-oms"
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
-                  >
-                    E-Commerce Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/hrms-software-development"
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
-                  >
-                    HRMS (HR Management)
-                  </Link>
-                </li>
+                {footerLinks.services.map((service, index) => (
+                  <li key={index}>
+                    <Link
+                      to={service.href}
+                      className="text-gray-400 text-sm hover:text-white transition-colors"
+                    >
+                      {service.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
               <Link
                 to="/services"
@@ -190,7 +168,7 @@ export function Footer() {
                 </li>
                 <li className="flex items-start gap-3">
                   <a
-                    href="https://www.google.com/maps/place/HEAVEN+MALL/@31.5488578,74.3987883,606m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3919055e3dbd05d5:0x6c7f09044264f7e!8m2!3d31.5488578!4d74.4013632!16s%2Fg%2F11hbfkzn6l?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D"
+                    href="https://www.google.com/maps/place/Techtide+Corporate+LLP/@31.548828,74.3988149,606m/data=!3m1!1e3!4m16!1m9!3m8!1s0x3919050017953d65:0x4946f90f8a3851c2!2sTechtide+Corporate+LLP!8m2!3d31.548828!4d74.4013898!9m1!1b1!16s%2Fg%2F11yn8dzf8z!3m5!1s0x3919050017953d65:0x4946f90f8a3851c2!8m2!3d31.548828!4d74.4013898!16s%2Fg%2F11yn8dzf8z?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
                     className="flex items-center gap-2 text-gray-400 text-sm leading-relaxed"
                   >
                     <FaMapMarkerAlt

@@ -118,11 +118,9 @@ export function BlogSection() {
 function BlogCard({
   blog,
   variant,
-  defaultImage,
 }: {
   blog: any;
   variant: "featured" | "medium" | "large" | "mobile";
-  defaultImage?: string;
 }) {
   const height =
     variant === "mobile"

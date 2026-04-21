@@ -1,10 +1,11 @@
 import { systemsData } from "../data/servicesData";
+import { seoServicesData } from "../data/seoServicesData";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/ui/SEO";
 
 export default function ServicesPage() {
-  const services = systemsData.filter((s) => !s.isLandingPage);
+  const services = [...seoServicesData, ...systemsData];
 
   return (
     <div className="min-h-screen bg-white">

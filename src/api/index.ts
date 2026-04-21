@@ -23,7 +23,7 @@ import {
   orderByChild,
   equalTo
 } from "firebase/database";
-import app, { auth, storage, database } from "@/firebase/config";
+import app, { auth, storage, database, db } from "@/firebase/config";
 import { User, TeamMember, BlogPost, Service, JobPosition, JobApplication, ContactMessage, PartnerRequest } from '@/types';
 export * from "@/types";
 
