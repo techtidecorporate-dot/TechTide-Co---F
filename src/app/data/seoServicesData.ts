@@ -9,7 +9,7 @@ export const seoServicesData: SystemItem[] = [
     description:
       "TechTide Corporate LLP is a professional web development company and web development agency delivering custom web development, web application development, bespoke web development, and full stack development services to clients across the UK, USA, Canada, Germany, and Europe. From affordable web development for small businesses to enterprise-grade web applications, our Pakistan-based team of React, Node.js, and MERN stack experts builds fast, scalable, and conversion-focused websites and web platforms that drive growth.",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
     features: [
       "Custom web application development",
       "React.js & Next.js frontend development",
@@ -182,7 +182,7 @@ export const seoServicesData: SystemItem[] = [
     description:
       "TechTide Corporate LLP is a leading mobile app development company delivering iOS app development, Android app development, and cross-platform app development using Flutter and React Native for businesses across the UK, USA, Canada, Germany, and Europe. From custom app development for small businesses to enterprise mobile solutions, our Pakistan-based team builds high-performance, beautifully designed mobile applications that engage users and drive revenue.",
     image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
     features: [
       "Native iOS app development (Swift/SwiftUI)",
       "Native Android app development (Kotlin)",
@@ -350,7 +350,7 @@ export const seoServicesData: SystemItem[] = [
     description:
       "TechTide Corporate LLP is a specialist SaaS development company and custom software development company delivering scalable SaaS platforms, MVP development, and enterprise software solutions for clients across the UK, USA, Canada, Germany, and Europe. As an experienced offshore software development partner based in Pakistan, we help startups validate ideas with rapid MVPs and help enterprises build robust, cloud-native SaaS products that scale to millions of users.",
     image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
     features: [
       "Custom SaaS platform development",
       "MVP development & rapid prototyping",

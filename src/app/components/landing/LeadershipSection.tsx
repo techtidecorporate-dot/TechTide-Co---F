@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { Mail, Linkedin, Instagram } from "lucide-react";
-import imgNadir from "@/assets/nadir.png";
-import imgMoazzam from "@/assets/Moazzam.png";
-import imgSajid from "@/assets/sajideen.png";
-import imgShamin from "@/assets/Shamin.png";
+import imgNadir from "@/assets/team/nadir (1).png";
+import imgMoazzam from "@/assets/team/moazzam.png";
+import imgSajid from "@/assets/team/sajideen.png";
+import imgShamin from "@/assets/team/shamin.png";
 import imgAbeer from "@/assets/team/Abeer Hayat.png";
 
 const leaders = [
@@ -94,10 +94,10 @@ export function LeadershipSection() {
       className="relative min-h-screen bg-white py-20 overflow-hidden"
     >
       <div className="text-center mb-12 md:mb-20 px-6">
-        <h2 className="text-3xl md:text-5xl font-poppins font-medium mb-4 text-[#191a23]">
+        <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-4 text-[#191a23]">
           Leadership and <span className="text-[#453abc]">Management</span>
         </h2>
-        <h3 className="text-xl md:text-2xl font-poppins text-gray-800 mb-4">
+        <h3 className="text-xl md:text-2xl font-poppins font-bold text-gray-800 mb-4">
           Leadership That Understands Both Technology and Business
         </h3>
         <p className="text-lg text-gray-500 max-w-2xl mx-auto">
@@ -180,6 +180,8 @@ export function LeadershipSection() {
                   setCurrent((prev) => (prev + 1) % leaders.length)
                 }
                 className="w-auto h-full max-h-[350px] object-contain drop-shadow-xl cursor-pointer"
+                loading="lazy"
+                decoding="async"
               />
             </AnimatePresence>
           </div>
@@ -245,6 +247,8 @@ export function LeadershipSection() {
                   transition={{ duration: 0.8, ease: "easeInOut" }}
                   onClick={() => setCurrent(index)}
                   className="absolute top-0 left-0 w-full h-full object-contain object-top cursor-pointer"
+                  loading="lazy"
+                  decoding="async"
                 />
               );
             })}

@@ -29,7 +29,7 @@ export default function ServicesPage() {
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
               Our Expertise in Web & Software Solutions
             </p>
-            <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
+            <h1 className="text-4xl md:text-7xl font-poppins font-bold text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
               Comprehensive Technology{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
                 Services for Businesses
@@ -57,21 +57,22 @@ export default function ServicesPage() {
                   to={`/services/${service.slug}`}
                   className="h-52 overflow-hidden block"
                 >
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
                 </Link>
               )}
               <div className="p-4">
                 <Link to={`/services/${service.slug}`}>
-                  <h3 className="text-xl md:text-2xl font-poppins font-medium text-[#191a23] mb-3 group-hover:text-[#453abc] transition-colors line-clamp-2 min-h-[3.5rem] md:min-h-[4rem] flex items-center">
+                  <h2 className="text-xl md:text-2xl font-poppins font-bold text-[#191a23] mb-3 group-hover:text-[#453abc] transition-colors line-clamp-2 min-h-[3.5rem] md:min-h-[4rem] flex items-center">
                     {service.title}
-                  </h3>
+                  </h2>
                 </Link>
 
-                <p className="text-[#6b7280] text-sm md:text-base leading-relaxed font-inter mb-6 line-clamp-3 min-h-[4.5rem] md:min-h-[5rem]">
+                <p className="text-[#6b7280] text-sm md:text-base leading-relaxed mb-6 line-clamp-3 min-h-[4.5rem] md:min-h-[5rem]">
                   {service.shortDescription}
                 </p>
 
@@ -100,11 +101,11 @@ export default function ServicesPage() {
           <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[100px] md:blur-[120px]" />
 
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-poppins font-medium text-white mb-6 md:mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-poppins font-bold text-white mb-6 md:mb-8 leading-tight">
               Ready to Start Your{" "}
               <span className="text-[#60c3e3]">Next Big Thing</span>?
             </h2>
-            <p className="text-white/70 text-base md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed font-inter">
+            <p className="text-white/70 text-base md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
               Join dozens of successful startups and enterprises who trust
               TechTide to build their most critical digital products.
             </p>

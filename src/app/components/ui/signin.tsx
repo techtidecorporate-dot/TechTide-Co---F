@@ -41,7 +41,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7] font-inter flex items-center justify-center py-12 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7] flex items-center justify-center py-12 px-4 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-[#453abc]/5 rounded-full blur-[150px]" />
@@ -58,7 +58,7 @@ export default function SignInPage() {
             </span>{" "}
             Co.
           </h1>
-          <p className="text-[#6b7280] text-base md:text-lg font-inter">
+          <p className="text-[#6b7280] text-base md:text-lg">
             Access your premium technology platform
           </p>
         </div>
@@ -91,7 +91,7 @@ export default function SignInPage() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-6 md:px-8 py-4 md:py-5 bg-white/50 border border-gray-200 rounded-2xl text-[#191a23] focus:outline-none focus:ring-2 focus:ring-[#453abc]/20 focus:bg-white transition-all font-inter placeholder:text-gray-400 text-sm md:text-base"
+                className="w-full px-6 md:px-8 py-4 md:py-5 bg-white/50 border border-gray-200 rounded-2xl text-[#191a23] focus:outline-none focus:ring-2 focus:ring-[#453abc]/20 focus:bg-white transition-all placeholder:text-gray-400 text-sm md:text-base"
                 placeholder="name@company.com"
               />
             </div>
@@ -109,7 +109,7 @@ export default function SignInPage() {
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 md:px-8 py-4 md:py-5 bg-white/50 border border-gray-200 rounded-2xl text-[#191a23] focus:outline-none focus:ring-2 focus:ring-[#453abc]/20 focus:bg-white transition-all font-inter pr-16 placeholder:text-gray-400 text-sm md:text-base"
+                  className="w-full px-6 md:px-8 py-4 md:py-5 bg-white/50 border border-gray-200 rounded-2xl text-[#191a23] focus:outline-none focus:ring-2 focus:ring-[#453abc]/20 focus:bg-white transition-all pr-16 placeholder:text-gray-400 text-sm md:text-base"
                   placeholder="••••••••"
                 />
                 <button
@@ -135,7 +135,7 @@ export default function SignInPage() {
           </form>
 
           <div className="mt-12 text-center pt-10 border-t border-gray-100">
-            <p className="text-[#6b7280] text-sm font-inter">
+            <p className="text-[#6b7280] text-sm">
               Don't have an enterprise account?{" "}
               <a
                 href="mailto:info@techtidecorporate.com"

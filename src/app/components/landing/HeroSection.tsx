@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import HeroImage from '../../../assets/landing/Hero Image.webp'
 
 export function HeroSection() {
-  const navigate = useNavigate();
 
   return (
     <section className="relative h-screen px-6 md:px-[70px] flex items-center justify-center text-center overflow-hidden bg-gray-900">
@@ -10,9 +8,13 @@ export function HeroSection() {
       {/* Background Technology Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80"
+          src={HeroImage}
           alt="Technology Background"
           className="w-full h-full object-cover"
+          loading="eager"
+          // @ts-ignore
+          fetchpriority="high"
+          decoding="async"
         />
         {/* Dark Premium Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0c]/90 via-[#0a0a0c]/70 to-[#0a0a0c]" />
@@ -24,39 +26,24 @@ export function HeroSection() {
           
 
           {/* Main Heading */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8 leading-[1.15]"
-          >
+          <h1 className="mb-8 leading-[1.15] opacity-0 animate-fade-up delay-200">
             <span className="font-poppins block text-white text-3xl md:text-[3.5rem] lg:text-[4.5rem] font-bold tracking-tight">
               We Help Businesses Generate
             </span>
             <span className="font-poppins block bg-gradient-to-r from-[#453abc] via-[#60c3e3] to-[#453abc] bg-clip-text text-transparent text-3xl md:text-[3.5rem] lg:text-[4.5rem] font-bold tracking-tight">
-              3–5x More Leads
+              3 to 5x More Leads
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subheading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="max-w-3xl mx-auto space-y-4 md:space-y-2 text-base md:text-xl leading-relaxed text-white/70 font-medium"
-          >
+          <div className="max-w-3xl mx-auto space-y-4 md:space-y-2 text-base md:text-xl leading-relaxed text-white/70 font-medium opacity-0 animate-fade-up delay-400">
             <p>
               Through high-converting websites and digital systems. We transform your generic company profile into a high-performance sales asset that builds trust and generates qualified leads.
             </p> 
-          </motion.div>
+          </div>
 
           {/* Action Buttons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12"
-          >
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12 opacity-0 animate-fade-up delay-600">
             <button
               className="group relative w-full md:w-auto px-12 py-5 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 text-white font-bold text-lg shadow-[0_0_20px_rgba(69,58,188,0.3)] hover:shadow-[0_0_30px_rgba(69,58,188,0.6)]"
               onClick={() => window.dispatchEvent(new CustomEvent("open-audit-drawer"))}
@@ -75,9 +62,10 @@ export function HeroSection() {
             >
               Book Strategy Call
             </button>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+

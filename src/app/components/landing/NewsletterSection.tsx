@@ -17,10 +17,10 @@ export function NewsletterSection() {
             <p className="text-sm font-medium uppercase tracking-[0.32em] text-[#453abc] mb-4">
               Stay in the loop
             </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#111827] mb-4">
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-[#111827] mb-4">
               Subscribe to our newsletter for new blog alerts.
             </h2>
-            <p className="text-base text-[#6b7280] max-w-2xl leading-relaxed">
+            <p className="text-base text-[#4b5563] max-w-2xl leading-relaxed">
               Get notified when we publish the latest business insights, product updates, and technology stories from TechTide Corporate LLP.
             </p>
           </div>
@@ -56,7 +56,7 @@ export function NewsletterSection() {
               </button>
             </div>
 
-            <p className="text-sm text-[#6b7280]">
+            <p className="text-sm text-[#4b5563]">
               We keep your email secure and only send notifications for new blogs.
             </p>
           </form>

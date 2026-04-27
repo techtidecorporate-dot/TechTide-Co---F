@@ -1,7 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Zap, Shield, Rocket } from "lucide-react";
-import growthImg from "@/assets/landing/Dashboard-Growth.jpg";
+import growthImg from "@/assets/landing/Dashboard-Growth.webp";
 const solutions = [
   {
     title: "Conversion-Focused Design",
@@ -62,7 +61,9 @@ export function SolutionSection() {
               <img
                 src={growthImg}
                 alt="Growth Machine Dashboard Transformation"
-                className="w-full h-full"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-[#453abc]/20 via-transparent to-transparent pointer-events-none" />
             </div>

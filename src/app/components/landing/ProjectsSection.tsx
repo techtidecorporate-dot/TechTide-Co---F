@@ -1,9 +1,9 @@
 import { useState, useEffect, SetStateAction } from "react";
 import { motion } from "framer-motion";
-import imgNexusClinic from "@/assets/nexus.webp";
-import imgRaynovaTech from "@/assets/raynova.webp";
-import imgSerenaiva from "@/assets/sereniva.webp";
-import imgAura from "@/assets/winter1.webp";
+import imgNexusClinic from "@/assets/projects/nexus.webp";
+import imgRaynovaTech from "@/assets/projects/raynova.webp";
+import imgSerenaiva from "@/assets/projects/sereniva.webp";
+import imgAura from "@/assets/projects/winter1.webp";
 
 const projects = [
   {
@@ -101,14 +101,14 @@ export function ProjectsSection() {
 
       {/* Header */}
       <div className="relative text-center mb-16 md:mb-24 px-6">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-poppins font-medium mb-6 text-gray-900 tracking-tight">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 text-gray-900 tracking-tight">
           Success Stories &{" "}
           <span className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">
             Case Studies
           </span>
         </h2>
 
-        <p className="text-gray-500 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+        <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
           Real businesses. Real problems. Measurable results.
         </p>
       </div>
@@ -124,12 +124,12 @@ export function ProjectsSection() {
               <div className="relative overflow-hidden rounded-[1rem] aspect-[16/9]">
                 <motion.img
                   key={activeProject.title}
-                  // initial={{ opacity: 0, scale: 1.1 }}
-                  // animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   src={activeProject.image}
                   alt={activeProject.title}
                   className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 {/* Gradient Overlay */}
@@ -165,7 +165,7 @@ export function ProjectsSection() {
 
               {/* Description */}
               <div className="mb-8">
-                <p className="text-gray-500 text-base md:text-lg leading-relaxed">
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                   {activeProject.description}
                 </p>
               </div>
@@ -182,7 +182,7 @@ export function ProjectsSection() {
 
               {/* Technologies */}
               <div className="space-y-4 mb-8">
-                <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">
+                <p className="text-sm font-bold text-gray-500 uppercase tracking-widest">
                   Solution Tech Stack
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -210,6 +210,7 @@ export function ProjectsSection() {
               <button
                 key={index}
                 onClick={() => handleThumbnailClick(index)}
+                aria-label={`View ${project.title} details`}
                 className={`relative flex-shrink-0 group transition-all duration-500 ${
                   activeIndex === index
                     ? "scale-100"
@@ -226,8 +227,10 @@ export function ProjectsSection() {
                 >
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt=""
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   {/* Overlay */}
                   <div
@@ -242,18 +245,21 @@ export function ProjectsSection() {
             ))}
           </div>
 
-          {/* Minimal Progress Indicator */}
-          <div className="flex gap-2">
-            {projects.map((_, index) => (
+          {/* Progress Indicator - Increased touch target */}
+          <div className="flex gap-4 p-2">
+            {projects.map((project, index) => (
               <button
                 key={index}
                 onClick={() => handleThumbnailClick(index)}
-                className={`h-1.5 transition-all duration-500 rounded-full ${
+                aria-label={`Go to ${project.title} slide`}
+                className="group relative p-2"
+              >
+                <div className={`h-2 transition-all duration-500 rounded-full ${
                   activeIndex === index
                     ? "w-8 bg-gradient-to-r from-[#453abc] to-[#60c3e3]"
-                    : "w-1.5 bg-gray-200"
-                }`}
-              />
+                    : "w-2 bg-gray-300 group-hover:bg-gray-400"
+                }`} />
+              </button>
             ))}
           </div>
         </div>

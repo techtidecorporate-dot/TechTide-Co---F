@@ -5,7 +5,7 @@ export function VisionMissionSection() {
     <section className="bg-white py-16 md:py-24 px-6 md:px-16 overflow-hidden">
       {/* Vision */}
       <div className="mb-20">
-        <h2 className="text-3xl md:text-5xl font-poppins font-medium mb-12 text-center md:text-left">
+        <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-12 text-center md:text-left">
           Our{" "}
           <span className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">
             Vision
@@ -34,7 +34,7 @@ export function VisionMissionSection() {
 
       {/* Mission */}
       <div>
-        <h2 className="text-3xl md:text-5xl font-poppins font-medium mb-12 text-center md:text-left">
+        <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-12 text-center md:text-left">
           Our{" "}
           <span className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">
             Mission

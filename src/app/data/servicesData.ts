@@ -1,7 +1,7 @@
-import ApiIntegrationImg from "@/assets/Api.jpg";
-import BrandingImg from "@/assets/branding-strategy-marketing-business-graphic-design.jpg";
-import AutomationImg from "@/assets/automation.jpg";
-import LeadGenerationImg from '@/assets/lead-generation-service-in-pan-india-digital-marketing-1000x1000.webp'
+import ApiIntegrationImg from "../../assets/Services/Api.webp";
+import BrandingImg from "../../assets/Services/branding-strategy-marketing-business-graphic-design.webp";
+import AutomationImg from "../../assets/Services/Automation.webp";
+import LeadGenerationImg from '../../assets/Services/lead-generation-service-in-pan-india-digital-marketing-1000x1000.webp'
 export interface ProcessStep {
   step: string;
   title: string;
@@ -92,7 +92,7 @@ export const systemsData: SystemItem[] = [
     title: "Growth Marketing Systems",
     shortDescription: "Scalable marketing infrastructures that drive predictable growth and high ROI.",
     description: "We build digital marketing systems that combine SEO, performance marketing, and automation to create a predictable flow of new business opportunities.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     features: [
       "Predictable Growth Funnels",
       "Automated Email Sequences",
@@ -130,7 +130,7 @@ export const systemsData: SystemItem[] = [
     title: "Scalable SaaS Products",
     shortDescription: "Build and scale profitable software-as-a-service products from scratch.",
     description: "We help founders and enterprises build secure, scalable, and multi-tenant SaaS platforms that are ready for mass adoption.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
     features: [
       "Multi-tenant Architecture",
       "Subscription Management",

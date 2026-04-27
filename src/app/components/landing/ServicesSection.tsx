@@ -21,12 +21,14 @@ function ServiceCard({ title, description, image, slug }: ServiceCardProps) {
             alt={`Illustration of ${title} services`}
             className="w-full h-full object-cover"
             src={image}
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
         {/* Content */}
         <div className="px-5 pb-5 space-y-3">
-          <h3 className="text-[#191a23] text-lg font-semibold">{title}</h3>
+          <h3 className="text-[#191a23] text-lg font-bold">{title}</h3>
 
           <p className="text-[#6b7280] text-sm leading-relaxed line-clamp-3">
             {description}
@@ -89,11 +91,16 @@ export function ServicesSection() {
       id="services"
       className="relative bg-white overflow-hidden py-16 md:py-24"
     >
-      {/* Header */}
+      {/* Header */} 
       <div className="flex flex-col gap-3 items-center text-center mb-12 md:mb-16 px-6">
-        <h2 className="text-[#191a23] text-3xl md:text-5xl font-poppins font-medium">
-          Our <span className="text-[#453abc]">Services</span>
-        </h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-[#191a23] text-4xl md:text-6xl font-poppins font-bold leading-[1.1]"
+        >
+          Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#453abc] to-[#60c3e3]">Services</span>
+        </motion.h2>
 
         <p className="text-[#6b7280] max-w-2xl text-base md:text-xl">
           End-to-End Digital Solutions for Growing Businesses
@@ -166,6 +173,7 @@ export function ServicesSection() {
         <div className="absolute inset-x-4 md:inset-x-10 flex justify-between items-center pointer-events-none z-40">
           <button
             onClick={handlePrevious}
+            aria-label="Previous service"
             className="pointer-events-auto bg-white/90 backdrop-blur border border-gray-200 p-2 md:p-3 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 active:scale-90"
           >
             <ChevronLeft size={24} className="text-[#453abc]" />
@@ -173,6 +181,7 @@ export function ServicesSection() {
 
           <button
             onClick={handleNext}
+            aria-label="Next service"
             className="pointer-events-auto bg-white/90 backdrop-blur border border-gray-200 p-2 md:p-3 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 active:scale-90"
           >
             <ChevronRight size={24} className="text-[#453abc]" />

@@ -1,6 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { XCircle, AlertTriangle, TrendingDown, ArrowRight } from "lucide-react";
+import { XCircle, AlertTriangle, TrendingDown } from "lucide-react";
 
 const problems = [
   {
@@ -34,20 +32,14 @@ export function ProblemSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-24">
-          <motion.div
-             initial={{ opacity: 0, scale: 0.9 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true }}
-             className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[#453abc]/10 bg-[#453abc]/5 backdrop-blur-md"
+          <div
+             className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[#453abc]/10 bg-[#453abc]/5 backdrop-blur-md opacity-0 animate-fade-up"
           >
             <span className="text-xs font-bold text-[#453abc] uppercase tracking-[0.3em]">The Opportunity Cost</span>
-          </motion.div>
+          </div>
           
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold text-[#191a23] mb-8 leading-[1.1]"
+          <h2
+            className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold text-[#191a23] mb-8 leading-[1.1] opacity-0 animate-fade-up delay-200"
           >
             Is Your Website <br />
             <span className="relative inline-block mt-2">
@@ -64,35 +56,31 @@ export function ProblemSection() {
                 </defs>
               </svg>
             </span> Business?
-          </motion.h2>
+          </h2>
           
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light"
+          <p
+            className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light opacity-0 animate-fade-up delay-400"
           >
             A generic profile is a liability. We help you transition from being "just another option" to the only logical choice.
-          </motion.p>
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
           {problems.map((problem, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="group relative"
+              className={`group relative opacity-0 animate-fade-up`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Outer Glow Effect for Light Theme */}
               <div className="absolute -inset-2 bg-gradient-to-b from-[#453abc]/10 to-transparent rounded-[2.5rem] transition-opacity duration-500 opacity-0 group-hover:opacity-100 blur-xl" />
               
               <div className="relative h-full p-10 md:p-12 rounded-[2.5rem] bg-white border border-gray-100 overflow-hidden transition-all duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(69,58,188,0.15)] group-hover:-translate-y-2">
                 {/* Large Background ID Number for Light Theme */}
-                <div className="absolute -top-6 -right-4 text-9xl font-bold text-gray-400/5 select-none group-hover:text-[#453abc]/5 transition-colors pointer-events-none font-inter">
+                <div 
+                  aria-hidden="true"
+                  className="absolute -top-6 -right-4 text-9xl font-bold text-gray-400/10 select-none group-hover:text-[#453abc]/10 transition-colors pointer-events-none font-poppins"
+                >
                    {problem.id}
                 </div>
 
@@ -107,19 +95,19 @@ export function ProblemSection() {
                   {problem.title}
                 </h3>
                 
-                <p className="text-gray-500 leading-relaxed text-base font-light mb-10 group-hover:text-gray-700 transition-colors">
+                <p className="text-gray-600 leading-relaxed text-base font-light mb-10 group-hover:text-gray-700 transition-colors">
                   {problem.description}
                 </p>
 
                 <div className="pt-8 border-t border-gray-100 mt-auto flex items-center justify-between">
                    <div className="flex flex-col">
-                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-1">Financial Impact</span>
+                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-1">Financial Impact</span>
                       <span className="text-lg font-bold text-[#453abc] tracking-tight">Revenue Loss</span>
                    </div>
                    
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

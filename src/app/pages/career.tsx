@@ -331,7 +331,7 @@ export default function CareersPage() {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-poppins font-medium text-white mb-6 md:mb-8 leading-tight">
               Don't See Your <span className="text-[#60c3e3]">Ideal Role</span>?
             </h2>
-            <p className="text-white/70 text-base md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed font-inter">
+            <p className="text-white/70 text-base md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed font-poppins">
               We're always looking for brilliant minds to join us. Send us your
               portfolio and tell us how you can help us reshape the digital
               landscape.

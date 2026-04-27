@@ -162,7 +162,7 @@ export default function BlogPage() {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-14 pr-6 py-4 bg-[#f8f9fa] border border-gray-100 rounded-2xl focus:ring-2 focus:ring-[#453abc]/20 transition-all font-inter"
+              className="w-full pl-14 pr-6 py-4 bg-[#f8f9fa] border border-gray-100 rounded-2xl focus:ring-2 focus:ring-[#453abc]/20 transition-all"
             />
           </div>
 
@@ -298,7 +298,7 @@ export default function BlogPage() {
                 value={newsletterEmail}
                 onChange={(event) => setNewsletterEmail(event.target.value)}
                 placeholder="Enter your work email"
-                className="flex-1 px-8 py-4 px-6 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#453abc] transition-all font-inter text-sm md:text-base"
+                className="flex-1 px-8 py-4 px-6 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#453abc] transition-all text-sm md:text-base"
               />
               <button
                 type="submit"

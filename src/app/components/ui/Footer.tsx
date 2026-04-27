@@ -2,13 +2,13 @@ import imgVector from "@/assets/brand-logo-dark.svg";
 import { Link } from "react-router-dom";
 import { type MouseEvent } from "react";
 import {
-  FaLinkedinIn,
-  FaInstagram,
-  FaPhone,
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaArrowRight,
-} from "react-icons/fa";
+  Linkedin,
+  Instagram,
+  Phone,
+  Mail,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 import { toast } from "sonner";
 import { useNewsletter } from "@/app/hooks/useNewsletter";
 
@@ -57,6 +57,8 @@ export function Footer() {
                   alt="TechTide Corporate LLP – TechTide Co. Software & Digital Solutions Company"
                   title="TechTide Corporate LLP | TechTide Co."
                   loading="eager"
+                  // @ts-ignore
+                  fetchpriority="high"
                   decoding="async"
                 />
               </Link>
@@ -72,25 +74,28 @@ export function Footer() {
               <a
                 href="mailto:info@techtidecorporate.com"
                 onClick={handleCopyEmail}
+                aria-label="Copy email address to clipboard"
                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#EA4335] flex items-center justify-center transition-all hover:-translate-y-1"
               >
-                <FaEnvelope className="text-white w-4 h-4" />
+                <Mail className="text-white w-4 h-4" />
               </a>
               <a
                 href="https://www.linkedin.com/company/techtideco/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow us on LinkedIn"
                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#453abc] flex items-center justify-center transition-all hover:-translate-y-1"
               >
-                <FaLinkedinIn className="text-white w-4 h-4" />
+                <Linkedin className="text-white w-4 h-4" />
               </a>
               <a
                 href="https://www.instagram.com/techtidecorporatellp/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#c13584] flex items-center justify-center transition-all hover:-translate-y-1"
               >
-                <FaInstagram className="text-white w-4 h-4" />
+                <Instagram className="text-white w-4 h-4" />
               </a>
             </div>
           </div>
@@ -98,9 +103,9 @@ export function Footer() {
           {/* Links Columns */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:col-span-3 gap-8 text-left">
             <div>
-              <h4 className="text-white font-poppins font-medium mb-6">
+              <h3 className="text-white font-poppins font-medium mb-6">
                 Quick Links
-              </h4>
+              </h3>
               <ul className="space-y-4">
                 {footerLinks.quicklinks.map((link, index) => (
                   <li key={index}>
@@ -117,9 +122,9 @@ export function Footer() {
 
             {/* Services */}
             <div className="flex flex-col">
-              <h4 className="text-white font-poppins font-medium mb-6">
+              <h3 className="text-white font-poppins font-medium mb-6">
                 Services
-              </h4>
+              </h3>
               <ul className="space-y-4 mb-6">
                 {footerLinks.services.map((service, index) => (
                   <li key={index}>
@@ -137,15 +142,15 @@ export function Footer() {
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-white/10 text-white text-sm font-medium hover:bg-white/5 transition-all w-fit"
               >
                 <span>Explore More</span>
-                <FaArrowRight size={14} className="text-[#453abc]" />
+                <ArrowRight size={14} className="text-[#453abc]" />
               </Link>
             </div>
 
             {/* Contact Information */}
             <div>
-              <h4 className="text-white font-poppins font-medium mb-6">
+              <h3 className="text-white font-poppins font-medium mb-6">
                 Contact
-              </h4>
+              </h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <a
@@ -153,7 +158,7 @@ export function Footer() {
                     onClick={handleCopyEmail}
                     className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                   >
-                    <FaEnvelope className="text-[#453abc]" size={14} />
+                    <Mail className="text-[#453abc]" size={14} />
                     info@techtidecorporate.com
                   </a>
                 </li>
@@ -162,7 +167,7 @@ export function Footer() {
                     href="tel:+923247991484"
                     className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                   >
-                    <FaPhone className="text-[#453abc]" size={14} />
+                    <Phone className="text-[#453abc]" size={14} />
                     +92 324 7991484
                   </a>
                 </li>
@@ -171,7 +176,7 @@ export function Footer() {
                     href="https://www.google.com/maps/place/Techtide+Corporate+LLP/@31.548828,74.3988149,606m/data=!3m1!1e3!4m16!1m9!3m8!1s0x3919050017953d65:0x4946f90f8a3851c2!2sTechtide+Corporate+LLP!8m2!3d31.548828!4d74.4013898!9m1!1b1!16s%2Fg%2F11yn8dzf8z!3m5!1s0x3919050017953d65:0x4946f90f8a3851c2!8m2!3d31.548828!4d74.4013898!16s%2Fg%2F11yn8dzf8z?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
                     className="flex items-center gap-2 text-gray-400 text-sm leading-relaxed"
                   >
-                    <FaMapMarkerAlt
+                    <MapPin
                       className="text-[#453abc] mt-1 flex-shrink-0"
                       size={14}
                     />
@@ -221,7 +226,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-500 text-sm text-center">
+          <p className="text-gray-400 text-sm text-center">
             © 2025 TechTideCo. All rights reserved.
           </p>
 
@@ -234,7 +239,7 @@ export function Footer() {
               <Link
                 key={index}
                 to={link.href}
-                className="text-gray-500 text-xs hover:text-white transition-colors"
+                className="text-gray-400 text-xs hover:text-white transition-colors"
               >
                 {link.label}
               </Link>

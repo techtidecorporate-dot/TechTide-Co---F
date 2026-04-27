@@ -62,7 +62,7 @@ export function SupportSection() {
       <div className="relative max-w-7xl mx-auto px-6 md:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-[#191a23] text-3xl md:text-5xl font-poppins font-medium mb-4">
+          <h2 className="text-[#191a23] text-3xl md:text-5xl font-poppins font-bold mb-4">
             Ready to <span
               className="bg-clip-text"
               style={{
@@ -72,7 +72,7 @@ export function SupportSection() {
               }}
             >Scale Your Business?</span>
           </h2>
-          <p className="text-[#6b7280] text-base md:text-xl max-w-2xl mx-auto">
+          <p className="text-gray-600 text-base md:text-xl max-w-2xl mx-auto">
             Book your 15-minute growth strategy call today and let's map out your path to 3-5x more leads.
           </p>
         </div>
@@ -89,7 +89,7 @@ export function SupportSection() {
                 <div className="space-y-2">
                   <label
                     htmlFor="firstName"
-                    className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
+                    className="text-sm font-bold text-gray-700 ml-1 uppercase tracking-wider"
                   >
                     Name
                   </label>
@@ -107,7 +107,7 @@ export function SupportSection() {
                 <div className="space-y-2">
                   <label
                     htmlFor="email"
-                    className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
+                    className="text-sm font-bold text-gray-700 ml-1 uppercase tracking-wider"
                   >
                     Work Email
                   </label>
@@ -128,7 +128,7 @@ export function SupportSection() {
                 <div className="space-y-2">
                   <label
                     htmlFor="phone"
-                    className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
+                    className="text-sm font-bold text-gray-700 ml-1 uppercase tracking-wider"
                   >
                     Phone / WhatsApp
                   </label>
@@ -146,7 +146,7 @@ export function SupportSection() {
                 <div className="space-y-2">
                   <label
                     htmlFor="subject"
-                    className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
+                    className="text-sm font-bold text-gray-700 ml-1 uppercase tracking-wider"
                   >
                     Project Type
                   </label>
@@ -166,7 +166,7 @@ export function SupportSection() {
               <div className="space-y-2">
                 <label
                   htmlFor="message"
-                  className="text-sm font-bold text-[#191a23]/60 ml-1 uppercase tracking-wider"
+                  className="text-sm font-bold text-gray-700 ml-1 uppercase tracking-wider"
                 >
                   Your Goals
                 </label>
@@ -214,7 +214,7 @@ export function SupportSection() {
                     <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
                       Customized Growth Roadmap
                     </h4>
-                    <p className="text-[#6b7280] text-sm">
+                    <p className="text-gray-600 text-sm">
                       We'll analyze your current bottle-necks and map out a solution.
                     </p>
                   </div>
@@ -227,7 +227,7 @@ export function SupportSection() {
                     <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
                       Predictable Results
                     </h4>
-                    <p className="text-[#6b7280] text-sm">
+                    <p className="text-gray-600 text-sm">
                       Learn how we've helped others achieve 3-5x lead growth.
                     </p>
                   </div>
@@ -240,7 +240,7 @@ export function SupportSection() {
                     <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
                       Expert Guidance
                     </h4>
-                    <p className="text-[#6b7280] text-sm">
+                    <p className="text-gray-600 text-sm">
                       Direct access to our senior strategists to answer your questions.
                     </p>
                   </div>
@@ -253,7 +253,7 @@ export function SupportSection() {
                     <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
                       Zero Obligation
                     </h4>
-                    <p className="text-[#6b7280] text-sm">
+                    <p className="text-gray-600 text-sm">
                       A high-value session focused on your ROI, no pushy sales.
                     </p>
                   </div>

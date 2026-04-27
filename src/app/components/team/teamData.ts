@@ -11,7 +11,7 @@ import MahmoodImg from '@/assets/team/mahmood.png'
 import AliImg from '@/assets/team/ali.png'
 import AyeshaImg from '@/assets/team/ayesha.png'
 import AbeerImg from '@/assets/team/Abeer Hayat.png'
-import FajarImg from '@/assets/team/Fajar Rizwan.png'
+import FajarImg from '@/assets/team/Fajar Rizwan.webp'
 
 export interface TeamMember {
   id: string;

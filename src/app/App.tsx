@@ -1,40 +1,51 @@
+import { lazy, Suspense, useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Footer } from "./components/ui/Footer";
 import { Navbar } from "./components/ui/Navbar";
-import LandingPage from "./pages/landing";
-import TeamPage from "./pages/ourteam";
-import ServicesPage from "./pages/services";
-import BlogPage from "./pages/blog";
-import CareerPage from "./pages/career";
-import ContactPage from "./pages/contact";
-import BlogDetailPage from "./pages/BlogDetail";
-import ServiceDetailPage from "./pages/ServiceDetailPage";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import CookiePolicy from "./pages/CookiePolicy";
-import { PartnerWithUsDrawer } from "./components/ui/PartnerWithUsDrawer";
-import { AuditDrawer } from "./components/ui/AuditDrawer";
-import { StrategyCallDrawer } from "./components/ui/StrategyCallDrawer";
-import SignInPage from "./components/ui/signin";
-import { useState, useEffect } from "react";
+import { Footer } from "./components/ui/Footer";
 import { AuthProvider } from "./context/AuthContext";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
 import { Toaster } from "sonner";
 
-import AdminLayout from "./pages/admin/AdminLayout";
-import Dashboard from "./pages/admin/Dashboard";
-import BlogManagement from "./pages/admin/Blogs";
-import ServiceManagement from "./pages/admin/Services";
-import ContactMessages from "./pages/admin/ContactSubmissions";
-import UserManagement from "./pages/admin/Users";
-import JobListingManagement from "./pages/admin/JobListingManagement";
-import JobApplications from "./pages/admin/Jobs";
-import TalentPool from "./pages/admin/TalentPool";
-import PartnerSubmissions from "./pages/admin/PartnerSubmissions";
-import AuditSubmissions from "./pages/admin/AuditSubmissions";
-import StrategyCallSubmissions from "./pages/admin/StrategyCallSubmissions";
-import SubscribersManagement from "@/app/pages/admin/Subscribers";
+// Lazy load pages
+const LandingPage = lazy(() => import("./pages/landing"));
+const TeamPage = lazy(() => import("./pages/ourteam"));
+const ServicesPage = lazy(() => import("./pages/services"));
+const BlogPage = lazy(() => import("./pages/blog"));
+const CareerPage = lazy(() => import("./pages/career"));
+const ContactPage = lazy(() => import("./pages/contact"));
+const BlogDetailPage = lazy(() => import("./pages/BlogDetail"));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
+const SignInPage = lazy(() => import("./components/ui/signin"));
 
+// Admin Routes
+const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const BlogManagement = lazy(() => import("./pages/admin/Blogs"));
+const ServiceManagement = lazy(() => import("./pages/admin/Services"));
+const ContactMessages = lazy(() => import("./pages/admin/ContactSubmissions"));
+const UserManagement = lazy(() => import("./pages/admin/Users"));
+const JobListingManagement = lazy(() => import("./pages/admin/JobListingManagement"));
+const JobApplications = lazy(() => import("./pages/admin/Jobs"));
+const TalentPool = lazy(() => import("./pages/admin/TalentPool"));
+const PartnerSubmissions = lazy(() => import("./pages/admin/PartnerSubmissions"));
+const AuditSubmissions = lazy(() => import("./pages/admin/AuditSubmissions"));
+const StrategyCallSubmissions = lazy(() => import("./pages/admin/StrategyCallSubmissions"));
+const SubscribersManagement = lazy(() => import("@/app/pages/admin/Subscribers"));
+
+// Drawers
+const PartnerWithUsDrawer = lazy(() => import("./components/ui/PartnerWithUsDrawer").then(m => ({ default: m.PartnerWithUsDrawer })));
+const AuditDrawer = lazy(() => import("./components/ui/AuditDrawer").then(m => ({ default: m.AuditDrawer })));
+const StrategyCallDrawer = lazy(() => import("./components/ui/StrategyCallDrawer").then(m => ({ default: m.StrategyCallDrawer })));
+
+// Loading Component
+const PageLoading = () => (
+  <div className="flex items-center justify-center min-h-screen bg-white">
+    <div className="w-12 h-12 border-4 border-[#453abc] border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 export default function App() {
   const location = useLocation();
@@ -66,58 +77,66 @@ export default function App() {
     <AuthProvider>
       <ScrollToTop />
       <Toaster position="top-center" richColors />
-      <div className="relative min-h-screen bg-white">
+      <div className="relative min-h-screen bg-white font-poppins">
         {!hideNavFooter && <Navbar />}
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/ourteam" element={<TeamPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/services/:slug" element={<ServiceDetailPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogDetailPage />} />
-          <Route path="/career" element={<CareerPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/signin" element={<SignInPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Suspense fallback={<PageLoading />}>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/ourteam" element={<TeamPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogDetailPage />} />
+            <Route path="/career" element={<CareerPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
 
-          {/* Admin Routes */}
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="blogs" element={<BlogManagement />} />
-            <Route path="services" element={<ServiceManagement />} />
-            <Route path="messages" element={<ContactMessages />} />
-            <Route path="users" element={<UserManagement />} />
-            <Route path="job-positions" element={<JobListingManagement />} />
-            <Route path="jobs" element={<JobApplications />} />
-            <Route path="talent-pool" element={<TalentPool />} />
-            <Route path="partners" element={<PartnerSubmissions />} />
-            <Route path="audits" element={<AuditSubmissions />} />
-            <Route path="strategy-calls" element={<StrategyCallSubmissions />} />
-            <Route path="subscribers" element={<SubscribersManagement />} />
-          </Route>
-        </Routes>
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="blogs" element={<BlogManagement />} />
+              <Route path="services" element={<ServiceManagement />} />
+              <Route path="messages" element={<ContactMessages />} />
+              <Route path="users" element={<UserManagement />} />
+              <Route path="job-positions" element={<JobListingManagement />} />
+              <Route path="jobs" element={<JobApplications />} />
+              <Route path="talent-pool" element={<TalentPool />} />
+              <Route path="partners" element={<PartnerSubmissions />} />
+              <Route path="audits" element={<AuditSubmissions />} />
+              <Route path="strategy-calls" element={<StrategyCallSubmissions />} />
+              <Route path="subscribers" element={<SubscribersManagement />} />
+            </Route>
+          </Routes>
+        </Suspense>
         
         {isPartnerDrawerOpen && (
-          <PartnerWithUsDrawer
-            isOpen={isPartnerDrawerOpen}
-            onClose={() => setIsPartnerDrawerOpen(false)}
-          />
+          <Suspense fallback={null}>
+            <PartnerWithUsDrawer
+              isOpen={isPartnerDrawerOpen}
+              onClose={() => setIsPartnerDrawerOpen(false)}
+            />
+          </Suspense>
         )}
         
         {isAuditDrawerOpen && (
-          <AuditDrawer
-            isOpen={isAuditDrawerOpen}
-            onClose={() => setIsAuditDrawerOpen(false)}
-          />
+          <Suspense fallback={null}>
+            <AuditDrawer
+              isOpen={isAuditDrawerOpen}
+              onClose={() => setIsAuditDrawerOpen(false)}
+            />
+          </Suspense>
         )}
         
         {isStrategyDrawerOpen && (
-          <StrategyCallDrawer
-            isOpen={isStrategyDrawerOpen}
-            onClose={() => setIsStrategyDrawerOpen(false)}
-          />
+          <Suspense fallback={null}>
+            <StrategyCallDrawer
+              isOpen={isStrategyDrawerOpen}
+              onClose={() => setIsStrategyDrawerOpen(false)}
+            />
+          </Suspense>
         )}
         
         {!hideNavFooter && <Footer />}
@@ -125,4 +144,5 @@ export default function App() {
     </AuthProvider>
   );
 }
+
 

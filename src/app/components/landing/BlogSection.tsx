@@ -50,11 +50,11 @@ export function BlogSection() {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
           {/* LEFT TEXT */}
           <div className="lg:w-[38%] text-center lg:text-left">
-            <h5 className="font-poppins text-sm font-medium tracking-widest text-[#453abc] uppercase mb-3">
+            <span className="block font-poppins text-sm font-medium tracking-widest text-[#453abc] uppercase mb-3">
               Blog Section
-            </h5>
+            </span>
 
-            <h2 className="text-3xl md:text-5xl font-poppins font-medium leading-tight mb-6 text-[#191a23]">
+            <h2 className="text-3xl md:text-5xl font-poppins font-bold leading-tight mb-6 text-[#191a23]">
               Insights and <span className="text-[#453abc]">Digital Growth</span>
             </h2>
 
@@ -142,16 +142,18 @@ function BlogCard({
           src={blog.image || "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop"}
           alt={blog.title}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
         <div className="absolute bottom-0 p-6">
-          <h4 className="text-lg font-semibold text-white leading-snug">
+          <h3 className="text-lg font-bold text-white leading-snug">
             {blog.title.split(" ").length > 6
               ? blog.title.split(" ").slice(0, 6).join(" ") + "..."
               : blog.title}
-          </h4>
+          </h3>
 
           <div className="mt-3 flex items-center text-white/80 text-sm">
             Explore More

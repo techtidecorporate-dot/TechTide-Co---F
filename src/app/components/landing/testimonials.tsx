@@ -1,4 +1,3 @@
-import React from "react";
 import { MessageSquare, Clock, Target, Users, Heart, Users2 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -30,7 +29,7 @@ export function TeamSection() {
     <section className="bg-white py-20 px-6 md:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-poppins font-medium mb-4 text-[#191a23]">
+          <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-4 text-[#191a23]">
             Why Clients <span className="text-[#453abc]">Choose to Work</span> With Us
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto italic">
@@ -51,9 +50,9 @@ export function TeamSection() {
               <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm border border-gray-100 flex-shrink-0">
                 {choice.icon}
               </div>
-              <h4 className="text-lg font-poppins font-medium text-[#191a23] leading-tight">
+              <h3 className="text-lg font-poppins font-bold text-[#191a23] leading-tight">
                 {choice.title}
-              </h4>
+              </h3>
             </motion.div>
           ))}
         </div>

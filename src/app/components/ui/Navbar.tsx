@@ -70,6 +70,8 @@ export function Navbar() {
             alt="TechTide Corporate LLP – TechTide Co. Software & Digital Solutions Company"
             title="TechTide Corporate LLP | TechTide Co."
             loading="eager"
+            // @ts-ignore
+            fetchpriority="high"
             decoding="async"
           />
         </Link>
@@ -83,7 +85,7 @@ export function Navbar() {
             <Link
               key={index}
               to={item.href}
-              className={`relative font-inter py-1 transition-all duration-300 group ${
+              className={`relative font-poppins py-1 transition-all duration-300 group ${
                 isActive
                   ? shouldBeTransparent
                     ? "text-white font-medium"

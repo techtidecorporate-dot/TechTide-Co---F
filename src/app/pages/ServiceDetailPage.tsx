@@ -177,7 +177,7 @@ export default function ServiceDetailPage() {
         {service.introContent && (
           <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-20">
             <div className="max-w-4xl mx-auto">
-              <p className="text-gray-600 text-lg md:text-xl leading-[1.8] font-inter">
+              <p className="text-gray-600 text-lg md:text-xl leading-[1.8]">
                 {service.introContent}
               </p>
             </div>
@@ -451,7 +451,7 @@ export default function ServiceDetailPage() {
                   </>
                 )}
               </h2>
-              <p className="text-white/70 text-base md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed font-inter">
+              <p className="text-white/70 text-base md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
                 {service.ctaDescription ||
                   "Join dozens of successful startups and enterprises who trust TechTide to build their most critical digital products."}
               </p>

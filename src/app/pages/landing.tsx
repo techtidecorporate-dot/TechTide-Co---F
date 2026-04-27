@@ -1,17 +1,19 @@
-import React from "react";
-import {
-  HeroSection,
-  ProblemSection,
-  SolutionSection,
-  ServicesSection,
-  ProjectsSection,
-  LeadershipSection,
-  BlogSection,
-  SupportSection,
-  WhyChooseUs,
-} from "../components/landing";
-
+import React, { lazy, Suspense } from "react";
+import { HeroSection } from "../components/landing";
 import SEO from "../components/ui/SEO";
+
+// Lazy load sections below the fold
+const ProblemSection = lazy(() => import("../components/landing").then(m => ({ default: m.ProblemSection })));
+const SolutionSection = lazy(() => import("../components/landing").then(m => ({ default: m.SolutionSection })));
+const ServicesSection = lazy(() => import("../components/landing").then(m => ({ default: m.ServicesSection })));
+const ProjectsSection = lazy(() => import("../components/landing").then(m => ({ default: m.ProjectsSection })));
+const LeadershipSection = lazy(() => import("../components/landing").then(m => ({ default: m.LeadershipSection })));
+const BlogSection = lazy(() => import("../components/landing").then(m => ({ default: m.BlogSection })));
+const SupportSection = lazy(() => import("../components/landing").then(m => ({ default: m.SupportSection })));
+const WhyChooseUs = lazy(() => import("../components/landing").then(m => ({ default: m.WhyChooseUs })));
+
+// Loading placeholder for sections
+const SectionPlaceholder = () => <div className="h-40 bg-gray-50/50 animate-pulse" />;
 
 const LandingPage: React.FC = () => {
   return (
@@ -23,17 +25,20 @@ const LandingPage: React.FC = () => {
           keywords="lead generation websites, conversion rate optimization, sales funnels, custom software development, high-converting web design, digital growth systems, TechTide Corporate"
         />
         <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
-        <ServicesSection />
-        <WhyChooseUs />
-        <LeadershipSection />
-        <ProjectsSection />
-        <BlogSection />
-        <SupportSection />
+        <Suspense fallback={<SectionPlaceholder />}>
+          <ProblemSection />
+          <SolutionSection />
+          <ServicesSection />
+          <WhyChooseUs />
+          <LeadershipSection />
+          <ProjectsSection />
+          <BlogSection />
+          <SupportSection />
+        </Suspense>
       </div>
     </>
   );
 };
 
 export default LandingPage;
+
