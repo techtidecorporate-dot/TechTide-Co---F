@@ -9,7 +9,5 @@ export { TeamSection } from "./testimonials";
 export { LeadershipSection } from "./LeadershipSection";
 export { SupportSection } from "./SupportSection";
 export { WhyChooseUs } from "./WhyChooseUs";
+export { FAQSection } from "./FAQSection";
 export { Footer } from "../../components/ui/Footer";
-
-
-
