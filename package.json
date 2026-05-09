@@ -4,9 +4,11 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && npm run sitemap && npm run rss",
     "dev": "vite",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "rss": "node scripts/generate-rss.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
