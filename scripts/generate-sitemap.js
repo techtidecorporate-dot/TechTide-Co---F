@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Configuration
-const BLOGS_DB_URL = "https://techtidecorporatellp-default-rtdb.firebaseio.com/blogs.json";
+const BLOGS_DB_URL = "https://techtide-corporate-llp-eb187-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json";
 const SITE_URL = "https://techtidecorporate.com";
 const SITEMAP_PATH = path.join(__dirname, '..', 'public', 'sitemap.xml');
 
@@ -47,7 +47,7 @@ async function generateSitemap() {
     try {
         // Fetch dynamic blogs from Firebase
         const blogsData = await fetchJson(BLOGS_DB_URL);
-        const blogs = blogsData ? Object.keys(blogsData).map(key => ({ id: key, ...blogsData[key] })) : [];
+        const blogs = blogsData && !blogsData.error ? Object.keys(blogsData).map(key => ({ id: key, ...blogsData[key] })) : [];
 
         const today = new Date().toISOString().split('T')[0];
 
@@ -89,6 +89,12 @@ async function generateSitemap() {
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/signin</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Manual Service Pages -->

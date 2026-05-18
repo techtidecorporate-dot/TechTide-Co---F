@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Configuration
-const DB_URL = "https://techtidecorporatellp-default-rtdb.firebaseio.com/blogs.json";
+const DB_URL = "https://techtide-corporate-llp-eb187-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json";
 const SITE_URL = "https://techtidecorporate.com";
 const RSS_PATH = path.join(__dirname, '..', 'public', 'rss.xml');
 
@@ -34,7 +34,7 @@ function generateRss() {
         res.on('end', () => {
             try {
                 const blogsData = JSON.parse(data);
-                if (!blogsData) {
+                if (!blogsData || blogsData.error) {
                     console.error('No blogs found in database.');
                     return;
                 }

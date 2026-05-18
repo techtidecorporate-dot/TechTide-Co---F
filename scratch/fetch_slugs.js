@@ -1,8 +1,8 @@
 
 import https from 'https';
 
-const BLOGS_URL = "https://techtidecorporatellp-default-rtdb.firebaseio.com/blogs.json";
-const SERVICES_URL = "https://techtidecorporatellp-default-rtdb.firebaseio.com/services.json";
+const BLOGS_URL = "https://techtide-corporate-llp-eb187-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json";
+const SERVICES_URL = "https://techtide-corporate-llp-eb187-default-rtdb.asia-southeast1.firebasedatabase.app/services.json";
 
 function fetchJson(url) {
     return new Promise((resolve) => {
