@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 import imgVector from "@/assets/brand-logo-dark.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -14,7 +14,8 @@ const navItems = [
   { href: "/contact", label: "Contact Us", isRoute: true },
 ];
 
-export function Navbar() {
+let scrollTick = false;
+const Navbar = memo(function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -25,10 +26,15 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (scrollTick) return;
+      scrollTick = true;
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 20);
+        scrollTick = false;
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -70,8 +76,6 @@ export function Navbar() {
             alt="TechTide Corporate LLP – TechTide Co. Software & Digital Solutions Company"
             title="TechTide Corporate LLP | TechTide Co."
             loading="eager"
-            // @ts-ignore
-            fetchpriority="high"
             decoding="async"
           />
         </Link>
@@ -237,4 +241,6 @@ export function Navbar() {
       </AnimatePresence>
     </motion.nav>
   );
-}
+});
+
+export { Navbar }

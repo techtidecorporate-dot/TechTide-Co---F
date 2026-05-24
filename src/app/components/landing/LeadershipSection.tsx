@@ -91,6 +91,7 @@ export function LeadershipSection() {
   return (
     <section
       id="leadership"
+      style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
       className="relative min-h-screen bg-white py-20 overflow-hidden"
     >
       <div className="text-center mb-12 md:mb-20 px-6">

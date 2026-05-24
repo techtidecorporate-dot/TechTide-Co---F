@@ -51,6 +51,7 @@ export function SupportSection() {
   return (
     <section
       id="support"
+      style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
       className="relative bg-gradient-to-b from-white to-gray-50 py-24 overflow-hidden"
     >
       {/* Decorative Background */}

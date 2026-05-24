@@ -17,14 +17,19 @@ export default defineConfig({
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-firebase': ['firebase/app', 'firebase/auth', 'firebase/firestore', 'firebase/database', 'firebase/storage'],
-          'vendor-charts': ['recharts'],
           'vendor-ui': ['framer-motion', 'lucide-react', 'sonner'],
         },
       },
     },
     chunkSizeWarningLimit: 1000,
     cssMinify: true,
-    minify: 'esbuild',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
   },
   resolve: {
     alias: {

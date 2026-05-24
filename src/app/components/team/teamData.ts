@@ -12,6 +12,9 @@ import AliImg from '@/assets/team/ali.png'
 import AyeshaImg from '@/assets/team/ayesha.png'
 import AbeerImg from '@/assets/team/Abeer Hayat.png'
 import FajarImg from '@/assets/team/Fajar Rizwan.webp'
+import KaleemImg from '@/assets/team/Kaleem.png'
+import IsmailImg from '@/assets/team/Ismail.png'
+import MurtazaImg from '@/assets/team/Murtaza.png'
 
 export interface TeamMember {
   id: string;
@@ -63,8 +66,8 @@ export const teamData: TeamMember[] = [
   {
     id: "69625deafda2c2b0e6345e84",
     name: "Mubashir Ahmad Hamza",
-    role: "Development Head",
-    category: "Head",
+    role: "Junior Full Stack Developer",
+    category: "Junior",
     department: "Development",
     image: MubashirImg,
     skills: [
@@ -142,9 +145,9 @@ export const teamData: TeamMember[] = [
   {
     id: "696260cefda2c2b0e6345ea8",
     name: "Ayesha Durrani",
-    role: "Front-end Developer",
+    role: "HR",
     category: "Junior",
-    department: "Development",
+    department: "",
     image: AyeshaImg,
     skills: ["HTML", "CSS", "JavaScript"],
   },
@@ -165,5 +168,32 @@ export const teamData: TeamMember[] = [
     department: "Marketing",
     image: FajarImg,
     skills: ["Graphic Design", "Brand Identity"],
+  },
+  {
+    id: "kaleem-intern",
+    name: "Kaleem",
+    role: "Web Developer Intern",
+    category: "Intern",
+    department: "Development",
+    image: KaleemImg,
+    skills: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: "ismail-intern",
+    name: "Ismail",
+    role: "Web Developer Intern",
+    category: "Intern",
+    department: "Development",
+    image: IsmailImg,
+    skills: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: "murtaza-intern",
+    name: "Murtaza",
+    role: "Web Developer Intern",
+    category: "Intern",
+    department: "Development",
+    image: MurtazaImg,
+    skills: ["HTML", "CSS", "JavaScript"],
   },
 ];

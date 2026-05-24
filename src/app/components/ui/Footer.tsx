@@ -25,7 +25,6 @@ const footerLinks = {
     label: s.title,
     href: `/services/${s.slug}`
   })),
-  legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
 };
 
 export function Footer() {
@@ -56,9 +55,7 @@ export function Footer() {
                   className="h-8 md:h-10 w-auto"
                   alt="TechTide Corporate LLP – TechTide Co. Software & Digital Solutions Company"
                   title="TechTide Corporate LLP | TechTide Co."
-                  loading="eager"
-                  // @ts-ignore
-                  fetchpriority="high"
+                  loading="lazy"
                   decoding="async"
                 />
               </Link>

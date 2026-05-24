@@ -26,7 +26,7 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section className="bg-[#f8f9fa] py-32 px-6 md:px-16 relative overflow-hidden">
+    <section style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}} className="bg-[#f8f9fa] py-32 px-6 md:px-16 relative overflow-hidden">
       {/* Abstract Background Orbs for Light Theme */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#453abc]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
 

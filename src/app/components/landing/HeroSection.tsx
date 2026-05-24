@@ -26,7 +26,7 @@ export function HeroSection() {
           
 
           {/* Main Heading */}
-          <h1 className="mb-8 leading-[1.15] opacity-0 animate-fade-up delay-200">
+          <h1 className="mb-8 leading-[1.15] opacity-0 animate-fade-up delay-[0ms]">
             <span className="font-poppins block text-white text-3xl md:text-[3.5rem] lg:text-[4.5rem] font-bold tracking-tight">
               We Help Businesses Generate
             </span>
@@ -36,14 +36,14 @@ export function HeroSection() {
           </h1>
 
           {/* Subheading */}
-          <div className="max-w-3xl mx-auto space-y-4 md:space-y-2 text-base md:text-xl leading-relaxed text-white/70 font-medium opacity-0 animate-fade-up delay-400">
+          <div className="max-w-3xl mx-auto space-y-4 md:space-y-2 text-base md:text-xl leading-relaxed text-white/70 font-medium opacity-0 animate-fade-up delay-[100ms]">
             <p>
               Through high-converting websites and digital systems. We transform your generic company profile into a high-performance sales asset that builds trust and generates qualified leads.
             </p> 
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12 opacity-0 animate-fade-up delay-600">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12 opacity-0 animate-fade-up delay-[200ms]">
             <button
               className="group relative w-full md:w-auto px-12 py-5 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 text-white font-bold text-lg shadow-[0_0_20px_rgba(69,58,188,0.3)] hover:shadow-[0_0_30px_rgba(69,58,188,0.6)]"
               onClick={() => window.dispatchEvent(new CustomEvent("open-audit-drawer"))}

@@ -44,6 +44,7 @@ export function BlogSection() {
   return (
     <section
       ref={containerRef}
+      style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
       className="relative bg-white pt-16 pb-6 md:pt-24 md:pb-0 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8">

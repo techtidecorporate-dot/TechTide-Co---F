@@ -81,13 +81,4 @@ export const getAllSubscribers = async (): Promise<Subscriber[]> => {
   }));
 };
 
-export const testSubscriberWrite = async (testEmail: string = "test@example.com"): Promise<void> => {
-  try {
-    console.log("🧪 Testing subscriber write with email:", testEmail);
-    const result = await addSubscriber(testEmail);
-    console.log("✅ Write successful:", result);
-  } catch (error) {
-    console.error("❌ Write failed:", error);
-    throw error;
-  }
-};
+

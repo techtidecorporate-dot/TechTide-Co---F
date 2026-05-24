@@ -89,6 +89,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
+      style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
       className="relative bg-white overflow-hidden py-16 md:py-24"
     >
       {/* Header */} 

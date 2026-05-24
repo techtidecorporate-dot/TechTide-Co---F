@@ -9,8 +9,6 @@ const ADMIN_TEMPLATE_ID = "template_egllx6o";
 const USER_TEMPLATE_ID = "template_j364hwm";
 
 export const sendEmailNotification = async (formData: any, type: "contact" | "partner") => {
-  console.log("Starting Email Process for:", type, formData);
-
   // 1. Prepare Admin Params
   const adminParams = {
     ...formData,
@@ -43,9 +41,7 @@ export const sendEmailNotification = async (formData: any, type: "contact" | "pa
 
     let anyFailed = false;
     results.forEach((res, index) => {
-      if (res.status === "fulfilled") {
-        console.log(`${index === 0 ? "Admin" : "User"} Email Sent Successfully!`);
-      } else {
+      if (res.status === "rejected") {
         console.error(`${index === 0 ? "Admin" : "User"} Email Failed:`, res.reason);
         anyFailed = true;
       }

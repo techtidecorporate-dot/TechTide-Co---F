@@ -24,7 +24,7 @@ const solutions = [
 
 export function SolutionSection() {
   return (
-    <section className="bg-white py-24 px-6 md:px-16 overflow-hidden">
+    <section style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}} className="bg-white py-24 px-6 md:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-20">

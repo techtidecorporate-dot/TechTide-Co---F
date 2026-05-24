@@ -9,11 +9,10 @@ import {
   Zap,
 } from "lucide-react";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { jobPositionAPI, JobPosition } from "@/api";
 import { JobApplicationForm } from "../components/career/JobApplicationForm";
-import { toast } from "sonner";
 import SEO from "../components/ui/SEO";
 
 export default function CareersPage() {
@@ -40,15 +39,17 @@ export default function CareersPage() {
     }
   };
 
-  const departments = [
+  const departments = useMemo(() => [
     "All",
     ...Array.from(new Set(jobListings.map((job) => job.department))),
-  ];
+  ], [jobListings]);
 
-  const filteredJobs =
+  const filteredJobs = useMemo(() =>
     selectedDepartment === "All"
       ? jobListings
-      : jobListings.filter((job) => job.department === selectedDepartment);
+      : jobListings.filter((job) => job.department === selectedDepartment),
+    [jobListings, selectedDepartment]
+  );
 
   const handleApplyClick = (position: JobPosition) => {
     setSelectedPosition(position);

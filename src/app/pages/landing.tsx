@@ -28,13 +28,29 @@ const LandingPage: React.FC = () => {
         <HeroSection />
         <Suspense fallback={<SectionPlaceholder />}>
           <ProblemSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
           <SolutionSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
           <ServicesSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
           <WhyChooseUs />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
           <FAQSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
           <LeadershipSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
           <ProjectsSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
           <BlogSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
           <SupportSection />
         </Suspense>
       </div>

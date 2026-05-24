@@ -31,7 +31,7 @@ const reasons = [
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-[#f8f9fa] py-20 px-6 md:px-16 overflow-hidden">
+    <section style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}} className="bg-[#f8f9fa] py-20 px-6 md:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Top Header - Centered */}
         <div className="text-center mb-16 md:mb-20">
@@ -80,6 +80,7 @@ export function WhyChooseUs() {
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
                 alt="Expert digital team collaborating on scalable solutions"
+                loading="lazy"
                 className="w-full h-full object-cover aspect-[4/5] md:aspect-auto md:h-[650px] hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#191a23]/30 to-transparent" />

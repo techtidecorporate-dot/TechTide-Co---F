@@ -29,7 +29,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-white py-32 px-6 md:px-16 relative overflow-hidden">
+    <section style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}} className="bg-white py-32 px-6 md:px-16 relative overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16 opacity-0 animate-fade-up">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[#453abc]/10 bg-[#453abc]/5 backdrop-blur-md">

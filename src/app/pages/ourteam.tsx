@@ -171,7 +171,6 @@ const TeamOption1 = () => {
                         <div className="flex-1 p-5 md:p-8 flex flex-col justify-center">
                           <span className="inline-block w-fit px-3 py-0.5 rounded-full text-[9px] font-medium tracking-wider uppercase bg-[#453abc]/8 text-[#453abc] mb-3">Development</span>
                           <h5 className="text-[21px] font-semibold text-[#191a23] mb-1">{m.name}</h5>
-                          {m.name === "Mubashir Ahmad Hamza" && <div className="text-[13px] font-light text-[#6b7280] mb-1">Full Stack Developer</div>}
                           <div className="text-[12px] font-medium tracking-wider uppercase text-[#60c3e3] mb-3">{m.role}</div>
                           <p className="text-[13px] font-light text-[#9ca3af] leading-relaxed mb-4">Leading the development team to build scalable, high-performance digital solutions.</p>
                           {m.skills && m.skills.length > 0 && (

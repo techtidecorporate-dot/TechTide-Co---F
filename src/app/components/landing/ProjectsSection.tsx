@@ -87,6 +87,7 @@ export function ProjectsSection() {
 
   return (
     <section
+      style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
       className="relative bg-white py-20 md:py-32 overflow-hidden"
       id="projects"
     >

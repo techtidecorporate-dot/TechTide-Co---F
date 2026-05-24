@@ -1,6 +1,6 @@
 import { ArrowRight, Calendar, Clock, Search } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useNewsletter } from "@/app/hooks/useNewsletter";
 import { blogAPI, BlogPost } from "../../api";
@@ -29,14 +29,17 @@ export default function BlogPage() {
     fetchBlogs();
   }, []);
 
-  const filteredPosts = blogPosts.filter((post) => {
-    const matchesCategory =
-      selectedCategory === "All" || (post.tags || []).includes(selectedCategory);
-    const matchesSearch =
-      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredPosts = useMemo(() =>
+    blogPosts.filter((post) => {
+      const matchesCategory =
+        selectedCategory === "All" || (post.tags || []).includes(selectedCategory);
+      const matchesSearch =
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.description.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    }),
+    [blogPosts, selectedCategory, searchQuery]
+  );
 
   const featuredPost = filteredPosts[0];
   const {
