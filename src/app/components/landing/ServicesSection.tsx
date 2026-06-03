@@ -14,9 +14,9 @@ interface ServiceCardProps {
 function ServiceCard({ title, description, image, slug }: ServiceCardProps) {
   return (
     <Link to={`/services/${slug}`} className="block">
-      <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      <article className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
         {/* Image */}
-        <div className="relative h-[180px] m-4 rounded-lg overflow-hidden">
+        <figure className="relative h-[180px] m-4 rounded-lg overflow-hidden">
           <img
             alt={`Illustration of ${title} services`}
             className="w-full h-full object-cover"
@@ -24,7 +24,7 @@ function ServiceCard({ title, description, image, slug }: ServiceCardProps) {
             loading="lazy"
             decoding="async"
           />
-        </div>
+        </figure>
 
         {/* Content */}
         <div className="px-5 pb-5 space-y-3">
@@ -48,7 +48,7 @@ function ServiceCard({ title, description, image, slug }: ServiceCardProps) {
             Get in touch
           </button>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }

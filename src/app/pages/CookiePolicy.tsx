@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Cookie, Info, ShieldCheck } from "lucide-react";
+import SEO from "../components/ui/SEO";
 
 const CookiePolicy = () => {
   const lastUpdated = "January 2026";
@@ -37,14 +38,19 @@ const CookiePolicy = () => {
   ];
 
   return (
-    <div className="pt-32 pb-20 min-h-screen bg-white">
+    <main className="pt-32 pb-20 min-h-screen bg-white">
+      <SEO
+        title="Cookie Policy"
+        description="Cookie Policy for TechTide Corporate LLP. Learn how we use cookies to improve your browsing experience."
+        keywords="cookie policy, TechTide cookies, website cookies, cookie usage, privacy"
+      />
       <div className="max-w-4xl mx-auto px-6">
         {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
+        <header className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#453abc]/10 text-[#453abc] mb-6">
             <Cookie className="w-4 h-4" />
             <span className="text-xs font-bold uppercase tracking-widest">
@@ -59,6 +65,7 @@ const CookiePolicy = () => {
           </h1>
           <p className="text-gray-500 text-lg">Last updated: {lastUpdated}</p>
         </motion.div>
+        </header>
 
         {/* Content Section */}
         <div className="prose prose-slate max-w-none prose-headings:font-poppins prose-headings:font-bold prose-p:text-gray-600 prose-p:leading-relaxed">
@@ -106,7 +113,7 @@ const CookiePolicy = () => {
           </section>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

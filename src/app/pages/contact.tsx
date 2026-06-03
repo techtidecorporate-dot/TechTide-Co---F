@@ -87,14 +87,14 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       <SEO
         title="Contact Us"
         description="Get in touch with TechTide Corporate LLP for your next web development project. We're here to help you build your digital future."
         keywords="contact TechTide, web development inquiry, software project consultation, hire web developers, IT services contact"
       />
       {/* Hero Section */}
-      <div className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+      <header className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[80px] md:blur-[120px]" />
@@ -121,7 +121,7 @@ export default function ContactPage() {
             </p>
           </motion.div>
         </div>
-      </div>
+      </header>
 
       {/* Contact Cards */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 mt-6 mb-12 md:mb-16">
@@ -333,6 +333,6 @@ export default function ContactPage() {
       </div>
 
       <FAQ {...contactFAQ} />
-    </div>
+    </main>
   );
 }

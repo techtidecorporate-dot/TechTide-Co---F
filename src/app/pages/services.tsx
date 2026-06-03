@@ -10,14 +10,14 @@ export default function ServicesPage() {
   const services = [...seoServicesData, ...systemsData];
 
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       <SEO
         title="Web & Software Development Services"
         description="Comprehensive web development, ERP, CRM, and custom software services. TechTide Corporate LLP helps businesses automate and scale with modern technologies."
         keywords="ERP development, CRM systems, custom web applications, e-commerce development, business automation, software consultancy, TechTide services"
       />
       {/* Hero Section */}
-      <div className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+      <header className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[80px] md:blur-[120px]" />
@@ -44,13 +44,13 @@ export default function ServicesPage() {
             </p>
           </motion.div>
         </div>
-      </div>
+      </header>
 
       {/* Services Grid */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {services.map((service) => (
-            <div
+            <article
               key={service.id}
               className="bg-white rounded-[1rem] md:rounded-[1rem] border border-transparent shadow-[0_15px_40px_rgba(0,0,0,0.25)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] hover:border-[#453abc]/10 transition-all duration-500 overflow-hidden group flex flex-col"
             >
@@ -91,7 +91,7 @@ export default function ServicesPage() {
                   Get in touch
                 </button>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
@@ -116,6 +116,6 @@ export default function ServicesPage() {
       </div>
 
       <FAQ {...servicesFAQ} />
-    </div>
+    </main>
   );
 }

@@ -31,7 +31,7 @@ const TeamOption1 = () => {
   const mktTeam = getDepartmentData("Marketing");
 
   return (
-    <div className="bg-white min-h-screen overflow-x-hidden font-poppins text-[#191a23]">
+    <main className="bg-white min-h-screen overflow-x-hidden font-poppins text-[#191a23]">
       <SEO
         title="Our Team"
         description="Meet the experts at TechTide Corporate LLP. Our team of skilled developers and designers is dedicated to building high-quality digital solutions."
@@ -39,7 +39,7 @@ const TeamOption1 = () => {
       />
 
       {/* Hero Section - Reverted to Original */}
-      <div className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+      <header className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[80px] md:blur-[120px]" />
@@ -66,7 +66,7 @@ const TeamOption1 = () => {
             </p>
           </motion.div>
         </div>
-      </div>
+      </header>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-24 pb-20">
         {/* CEO Section */}
@@ -357,7 +357,7 @@ const TeamOption1 = () => {
       </div>
 
       <FAQ {...aboutFAQ} />
-    </div>
+    </main>
   );
 };
 

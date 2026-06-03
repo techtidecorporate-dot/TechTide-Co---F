@@ -77,14 +77,14 @@ export default function CareersPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
+    <main className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
       <SEO
         title="Careers at TechTide"
         description="Join TechTide Corporate LLP and help us build the future of technology. Explore our current job openings and career opportunities."
         keywords="career at TechTide, remote tech jobs, software developer jobs, UI/UX design careers, hiring developers Lahore, join TechTide"
       />
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+      <header className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[80px] md:blur-[120px]" />
@@ -127,7 +127,7 @@ export default function CareersPage() {
             </div>
           </motion.div>
         </div>
-      </div>
+      </header>
 
       {/* Benefits Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-20">
@@ -143,7 +143,7 @@ export default function CareersPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {benefits.map((benefit, index) => (
-            <div
+            <article
               key={index}
               className="bg-white rounded-[2.5rem] border border-transparent shadow-[0_15px_40px_rgba(0,0,0,0.03)] p-8 md:p-10 hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 group"
             >
@@ -156,7 +156,7 @@ export default function CareersPage() {
               <p className="text-[#6b7280] leading-relaxed text-sm">
                 {benefit.description}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
@@ -208,7 +208,7 @@ export default function CareersPage() {
           <div className="space-y-5 md:space-y-6">
             {filteredJobs.map((job) => {
               return (
-                <motion.div
+                <motion.article
                   key={job.id}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -317,7 +317,7 @@ export default function CareersPage() {
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
                   </div>
-                </motion.div>
+                </motion.article>
               );
             })}
           </div>
@@ -362,6 +362,6 @@ export default function CareersPage() {
       />
 
       <FAQ {...careerFAQ} />
-    </div>
+    </main>
   );
 }

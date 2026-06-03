@@ -61,7 +61,7 @@ export default function ServiceDetailPage() {
         />
 
         {/* ======== Hero Section ======== */}
-        <div className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+        <header className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
             <div className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[80px] md:blur-[120px]" />
@@ -131,7 +131,7 @@ export default function ServiceDetailPage() {
               )}
             </div>
           </div>
-        </div>
+        </header>
 
         {/* ======== Introduction Section ======== */}
         {service.introContent && (

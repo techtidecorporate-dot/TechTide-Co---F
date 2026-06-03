@@ -18,7 +18,7 @@ const SectionPlaceholder = () => <div className="h-40 bg-gray-50/50 animate-puls
 const LandingPage: React.FC = () => {
   return (
     <>
-      <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
+      <main className="flex flex-col min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
         <SEO
           title="TechTide Corporate | High-Converting Websites & Digital Sales Systems"
           description="We help businesses generate 3-5x more leads through high-performance websites, conversion optimization, and scalable digital systems. Transform your online presence into a revenue-generating machine with TechTide Corporate."
@@ -49,7 +49,7 @@ const LandingPage: React.FC = () => {
         <Suspense fallback={<SectionPlaceholder />}>
           <SupportSection />
         </Suspense>
-      </div>
+      </main>
     </>
   );
 };

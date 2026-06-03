@@ -2,6 +2,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/app/context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import SEO from "@/app/components/ui/SEO";
 
 // Sign In Page Component
 export default function SignInPage() {
@@ -41,7 +42,12 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7] flex items-center justify-center py-12 px-4 relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7] flex items-center justify-center py-12 px-4 relative overflow-hidden">
+      <SEO
+        title="Sign In"
+        description="Sign in to your TechTide Corporate LLP account to access the admin dashboard."
+        keywords="sign in, TechTide login, admin login, enterprise account"
+      />
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-[#453abc]/5 rounded-full blur-[150px]" />
@@ -147,6 +153,6 @@ export default function SignInPage() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -52,14 +52,14 @@ export default function BlogPage() {
   } = useNewsletter();
 
   return (
-    <div className=" bg-white">
+    <main className="bg-white">
       <SEO
         title="Blog & Insights"
         description="Stay updated with the latest trends in web development, mobile apps, and digital innovation from TechTide Corporate LLP."
         keywords="web development blog, tech news, mobile app development trends, digital marketing insights, TechTide insights, software engineering blog"
       />
       {/* Hero Section */}
-      <div className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+      <header className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[80px] md:blur-[120px]" />
@@ -86,7 +86,7 @@ export default function BlogPage() {
             </p>
           </motion.div>
         </div>
-      </div>
+      </header>
 
       {/* Featured Post */}
       {!isLoading && featuredPost && (
@@ -109,16 +109,16 @@ export default function BlogPage() {
                   <span className="bg-[#453abc]/5 text-[#453abc] px-4 py-1.5 rounded-full font-medium">
                     {(featuredPost.tags || [])[0] || "Blog"}
                   </span>
-                  <span className="flex items-center gap-2">
+                  <time className="flex items-center gap-2" dateTime={featuredPost.createdAt || ""}>
                     <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#453abc]" />
                     {featuredPost.createdAt
                       ? new Date(featuredPost.createdAt).toLocaleDateString()
                       : "N/A"}
-                  </span>
-                  <span className="flex items-center gap-2">
+                  </time>
+                  <time className="flex items-center gap-2" dateTime={featuredPost.readTime || ""}>
                     <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#453abc]" />
                     {featuredPost.readTime}
-                  </span>
+                  </time>
                 </div>
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-poppins font-medium text-[#191a23] mb-6 leading-tight group-hover:text-[#453abc] transition-colors">
                   {featuredPost.title}
@@ -214,17 +214,17 @@ export default function BlogPage() {
 
                 <div className="px-6 py-8 flex flex-col flex-1">
                   <div className="flex items-center gap-4 text-[10px] md:text-[11px] text-[#6b7280] font-medium uppercase tracking-wider mb-4">
-                    <span className="flex items-center gap-1.5">
+                    <time className="flex items-center gap-1.5" dateTime={post.createdAt || ""}>
                       <Calendar className="w-3.5 h-3.5 text-[#453abc]" />
                       {post.createdAt
                         ? new Date(post.createdAt).toLocaleDateString()
                         : "N/A"}
-                    </span>
+                    </time>
                     <span className="w-1 h-1 rounded-full bg-gray-300" />
-                    <span className="flex items-center gap-1.5">
+                    <time className="flex items-center gap-1.5" dateTime={post.readTime || ""}>
                       <Clock className="w-3.5 h-3.5 text-[#453abc]" />
                       {post.readTime}
-                    </span>
+                    </time>
                   </div>
 
                   <h3 className="text-xl font-poppins font-medium text-[#191a23] mb-4 line-clamp-2 leading-snug group-hover:text-[#453abc] transition-colors">
@@ -318,6 +318,6 @@ export default function BlogPage() {
       </div>
 
       <FAQ {...blogFAQ} />
-    </div>
+    </main>
   );
 }
