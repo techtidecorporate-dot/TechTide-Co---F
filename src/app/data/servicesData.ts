@@ -2,27 +2,6 @@ import ApiIntegrationImg from "../../assets/Services/Api.webp";
 import BrandingImg from "../../assets/Services/branding-strategy-marketing-business-graphic-design.webp";
 import AutomationImg from "../../assets/Services/Automation.webp";
 import LeadGenerationImg from '../../assets/Services/lead-generation-service-in-pan-india-digital-marketing-1000x1000.webp'
-export interface ProcessStep {
-  step: string;
-  title: string;
-  description: string;
-}
-
-export interface Benefit {
-  title: string;
-  description: string;
-}
-
-export interface IndustryUseCase {
-  industry: string;
-  description: string;
-}
-
-export interface USP {
-  title: string;
-  description: string;
-}
-
 export interface SystemItem {
   id: string;
   title: string;
@@ -39,10 +18,6 @@ export interface SystemItem {
   seoKeywords: string[];
   isLandingPage?: boolean;
   introContent?: string;
-  benefits?: Benefit[];
-  processSteps?: ProcessStep[];
-  industryUseCases?: IndustryUseCase[];
-  usps?: USP[];
   servicesContent?: string[];
   ctaHeading?: string;
   ctaDescription?: string;

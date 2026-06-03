@@ -16,17 +16,7 @@ import KaleemImg from '@/assets/team/Kaleem.png'
 import IsmailImg from '@/assets/team/Ismail.png'
 import MurtazaImg from '@/assets/team/Murtaza.png'
 
-export interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  category: "CEO" | "COO" | "CFO" | "CTO" | "Head" | "Senior" | "Junior" | "Intern";
-  department: string;
-  image: string;
-  skills: string[];
-}
-
-export const teamData: TeamMember[] = [
+export const teamData = [
   {
     id: "69625bc4fda2c2b0e6345e6e",
     name: "Muhammad Nadir",

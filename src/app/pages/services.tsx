@@ -3,6 +3,8 @@ import { seoServicesData } from "../data/seoServicesData";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/ui/SEO";
+import { FAQ } from "../components/ui/FAQ";
+import { servicesFAQ } from "../data/faqData";
 
 export default function ServicesPage() {
   const services = [...seoServicesData, ...systemsData];
@@ -112,6 +114,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
+
+      <FAQ {...servicesFAQ} />
     </div>
   );
 }

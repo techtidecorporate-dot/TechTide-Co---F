@@ -1,7 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
@@ -15,20 +13,9 @@ const firebaseConfig = {
   measurementId: "G-L1NRKSV414"
 };
 
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
-// Initialize Firestore with persistent cache settings
-const db = initializeFirestore(app, {
-  localCache: persistentLocalCache({
-    tabManager: persistentMultipleTabManager(),
-  }),
-});
-
-const storage = getStorage(app);
 const database = getDatabase(app);
 
-export { auth, db, storage, database };
+export { auth, database };
 export default app;

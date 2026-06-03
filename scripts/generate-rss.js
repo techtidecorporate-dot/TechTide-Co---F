@@ -72,7 +72,7 @@ function generateRss() {
                 blogPosts.forEach(post => {
                     const postUrl = escapeXml(`${SITE_URL}/blog/${post.slug || post.id}`);
                     const postDate = new Date(post.uploadedDate || post.createdAt || Date.now()).toUTCString();
-                    const rawImageUrl = post.image ? (post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image}`) : '';
+                    const rawImageUrl = post.image ? (post.image.startsWith('http') || post.image.startsWith('data:') ? post.image : `${SITE_URL}${post.image}`) : '';
                     const imageUrl = escapeXml(rawImageUrl);
                     
                     rssContent += `
@@ -80,10 +80,10 @@ function generateRss() {
     <title>${escapeXml(post.title)}</title>
     <link>${postUrl}</link>
     <pubDate>${postDate}</pubDate>
-    <dc:creator><![CDATA[${post.author || 'TechTide'}]]></dc:creator>
+    <dc:creator><![CDATA[${(post.author || 'TechTide').replace(/]]>/g, ']]&gt;')}]]></dc:creator>
     <guid isPermaLink="false">${postUrl}</guid>
-    <description><![CDATA[${post.description || ''}]]></description>
-    <content:encoded><![CDATA[${post.content || post.description || ''}]]></content:encoded>
+    <description><![CDATA[${(post.description || '').replace(/]]>/g, ']]&gt;')}]]></description>
+    <content:encoded><![CDATA[${(post.content || post.description || '').replace(/]]>/g, ']]&gt;')}]]></content:encoded>
     ${imageUrl ? `<media:content url="${imageUrl}" medium="image" />` : ''}
     ${imageUrl ? `<enclosure url="${imageUrl}" length="0" type="image/jpeg" />` : ''}
   </item>`;

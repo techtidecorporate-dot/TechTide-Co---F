@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/app/context/AuthContext";
 import { Users, Briefcase, BookOpen, Mail, LucideIcon } from "lucide-react";
 import { authAPI, blogAPI, jobAPI, contactAPI, talentPoolAPI } from "@/api";

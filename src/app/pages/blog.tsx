@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useNewsletter } from "@/app/hooks/useNewsletter";
 import { blogAPI, BlogPost } from "../../api";
 import SEO from "../components/ui/SEO";
+import { FAQ } from "../components/ui/FAQ";
+import { blogFAQ } from "../data/faqData";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -314,6 +316,8 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
+
+      <FAQ {...blogFAQ} />
     </div>
   );
 }

@@ -1,4 +1,7 @@
 {
+  "functions": {
+    "source": "functions"
+  },
   "hosting": {
     "public": "dist",
     "ignore": [
@@ -7,6 +10,14 @@
       "**/node_modules/**"
     ],
     "rewrites": [
+      {
+        "source": "/sitemap.xml",
+        "function": "sitemapFeed"
+      },
+      {
+        "source": "/rss.xml",
+        "function": "rssFeed"
+      },
       {
         "source": "**",
         "destination": "/index.html"

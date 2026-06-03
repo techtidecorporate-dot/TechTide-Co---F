@@ -7,11 +7,6 @@ import {
   signInWithPopup
 } from "firebase/auth";
 import { 
-  ref, 
-  uploadBytes, 
-  getDownloadURL 
-} from "firebase/storage";
-import { 
   ref as dbRef, 
   set, 
   get, 
@@ -23,16 +18,9 @@ import {
   orderByChild,
   equalTo
 } from "firebase/database";
-import app, { auth, storage, database, db } from "@/firebase/config";
-import { User, TeamMember, BlogPost, Service, JobPosition, JobApplication, ContactMessage, PartnerRequest } from '@/types';
+import app, { auth, database } from "@/firebase/config";
+import { User, BlogPost, Service, JobPosition, JobApplication, ContactMessage, PartnerRequest } from '@/types';
 export * from "@/types";
-
-// Helper to upload files
-const uploadFile = async (file: File, path: string): Promise<string> => {
-  const storageRef = ref(storage, `${path}/${Date.now()}_${file.name}`);
-  const snapshot = await uploadBytes(storageRef, file);
-  return getDownloadURL(snapshot.ref);
-};
 
 // Helper to convert file to base64 (Data URL)
 const fileToBase64 = (file: File): Promise<string> => {
@@ -192,49 +180,6 @@ export const authAPI = {
   },
   deleteUser: async (id: string) => {
     await remove(dbRef(database, 'users/' + id));
-  }
-};
-
-export const teamAPI = {
-  getAll: async () => {
-    const snapshot = await get(dbRef(database, "teams"));
-    let data: TeamMember[] = [];
-    if (snapshot.exists()) {
-      const val = snapshot.val();
-      data = Object.keys(val).map(key => ({ id: key, ...val[key] }));
-    }
-    return { data };
-  },
-  create: async (data: FormData | Partial<TeamMember>) => {
-    let teamData: any = data;
-    if (data instanceof FormData) {
-      const image = data.get('image') as File;
-      let imageUrl = '';
-      if (image) {
-        imageUrl = await uploadFile(image, 'teams');
-      }
-      teamData = Object.fromEntries(data.entries());
-      teamData.image = imageUrl;
-    }
-    const newRef = push(dbRef(database, "teams"));
-    await set(newRef, teamData);
-    return { data: { id: newRef.key, ...teamData } };
-  },
-  update: async (id: string, data: FormData | Partial<TeamMember>) => {
-    let teamData: any = data;
-    if (data instanceof FormData) {
-      const image = data.get('image') as File;
-      if (image && image.size > 0) {
-        const imageUrl = await uploadFile(image, 'teams');
-        data.set('image', imageUrl); // Update FormData
-      }
-      teamData = Object.fromEntries(data.entries());
-    }
-    await update(dbRef(database, `teams/${id}`), teamData);
-    return { data: { id, ...teamData } };
-  },
-  delete: async (id: string) => {
-    await remove(dbRef(database, `teams/${id}`));
   }
 };
 
@@ -580,6 +525,5 @@ export const strategyCallAPI = {
   }
 };
 
-// Export app/auth/storage/database for direct usage if needed
-export { app, auth, storage, database, db };
+export { app, auth, database };
 export default app;

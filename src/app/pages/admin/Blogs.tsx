@@ -211,13 +211,20 @@ export default function BlogManagement() {
         const createdBlog = await blogAPI.create(payload);
         toast.success("Blog post published");
 
-        // Use the proper data structure for notifications
         try {
           const summary = await sendNewBlogNotification(createdBlog.data as any);
           if (summary.successCount > 0) {
             toast.success(`Newsletter sent to ${summary.successCount} subscribers.`);
+          } else if (summary.failureCount > 0) {
+            toast.error(`Failed to send ${summary.failureCount} newsletter emails. Check console for details.`);
+          } else {
+            toast.info("No subscribers to notify.");
+          }
+          if (summary.errors.length > 0) {
+            console.warn("Newsletter errors:", summary.errors);
           }
         } catch (emailError) {
+          toast.error("Newsletter email delivery failed. Check EmailJS configuration.");
           console.error("Notification error:", emailError);
         }
       }

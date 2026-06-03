@@ -7,4 +7,4 @@ export { ProjectsSection } from "./ProjectsSection";
 export { LeadershipSection } from "./LeadershipSection";
 export { SupportSection } from "./SupportSection";
 export { WhyChooseUs } from "./WhyChooseUs";
-export { FAQSection } from "./FAQSection";
+

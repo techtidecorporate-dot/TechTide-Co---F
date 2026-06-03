@@ -4,20 +4,8 @@ import {
   ArrowLeft,
   CheckCircle2,
   Code,
-  Users,
-  Database,
-  BarChart,
   Shield,
-  Link as TrendingUp,
-  Zap,
-  Sparkles,
-  Target,
   Award,
-  Globe,
-  Cpu,
-  Cloud,
-  Settings,
-  MessageSquare,
   ArrowRight,
   Briefcase,
   Lightbulb,
@@ -25,25 +13,6 @@ import {
 import { systemsData, SystemItem } from "../data/servicesData";
 import { seoServicesData } from "../data/seoServicesData";
 import SEO from "../components/ui/SEO";
-
-const iconMap: Record<string, any> = {
-  Sparkles,
-  Shield,
-  Zap,
-  Target,
-  Users,
-  TrendingUp,
-  Award,
-  Globe,
-  Code,
-  Cpu,
-  Database,
-  Cloud,
-  Lock: Shield,
-  BarChart,
-  Settings,
-  MessageSquare,
-};
 
 export default function ServiceDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -57,11 +26,6 @@ export default function ServiceDetailPage() {
       setService(foundService || null);
     }
   }, [slug]);
-
-  const getImageUrl = (image: string) => {
-    if (typeof image === "string" && image.startsWith("http")) return image;
-    return image;
-  };
 
   const hasRichContent = (s: SystemItem) =>
     s.introContent || s.benefits || s.processSteps || s.industryUseCases || s.usps;
@@ -119,11 +83,7 @@ export default function ServiceDetailPage() {
                   bg-white/70 backdrop-blur border border-[#453abc]/10
                   text-[#453abc] font-semibold text-sm shadow-sm w-fit"
                 >
-                  {service.icon && iconMap[service.icon] ? (
-                    (() => { const Icon = iconMap[service.icon]; return <Icon className="w-5 h-5" />; })()
-                  ) : (
-                    <Code className="w-5 h-5" />
-                  )}
+                  <Code className="w-5 h-5" />
                   <span>Expert Solution</span>
                 </div>
 
@@ -161,7 +121,7 @@ export default function ServiceDetailPage() {
                   ring-1 ring-black/5"
                 >
                   <img
-                    src={getImageUrl(service.image)}
+                    src={service.image}
                     alt={service.title}
                     className="w-full aspect-[4/3] object-cover
                       hover:scale-105 transition-transform duration-700"
@@ -506,11 +466,7 @@ export default function ServiceDetailPage() {
               bg-white/70 backdrop-blur border border-[#453abc]/10
               text-[#453abc] font-semibold text-sm shadow-sm w-fit"
             >
-              {service.icon && iconMap[service.icon] ? (
-                (() => { const Icon = iconMap[service.icon]; return <Icon className="w-5 h-5" />; })()
-              ) : (
-                <Code className="w-5 h-5" />
-              )}
+              <Code className="w-5 h-5" />
               <span>Expert Solution</span>
             </div>
 
@@ -588,7 +544,7 @@ export default function ServiceDetailPage() {
                 ring-1 ring-black/5"
               >
                 <img
-                  src={getImageUrl(service.image)}
+                    src={service.image}
                   alt={service.title}
                   className="w-full aspect-[4/3] object-cover
                     hover:scale-105 transition-transform duration-700"

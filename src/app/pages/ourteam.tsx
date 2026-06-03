@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { teamData } from "../components/team/teamData";
 import SEO from "../components/ui/SEO";
+import { FAQ } from "../components/ui/FAQ";
+import { aboutFAQ } from "../data/faqData";
 
 const TeamOption1 = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -353,6 +355,8 @@ const TeamOption1 = () => {
           </AnimatePresence>
         </div>
       </div>
+
+      <FAQ {...aboutFAQ} />
     </div>
   );
 };

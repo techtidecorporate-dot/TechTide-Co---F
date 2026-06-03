@@ -25,6 +25,19 @@ const MANUAL_SERVICES = [
     'saas-software-development-company'
 ];
 
+function escapeXml(unsafe) {
+    if (!unsafe || typeof unsafe !== 'string') return '';
+    return unsafe.replace(/[<>&'"]/g, function (c) {
+        switch (c) {
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '&': return '&amp;';
+            case '\'': return '&apos;';
+            case '"': return '&quot;';
+        }
+    });
+}
+
 function fetchJson(url) {
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
@@ -100,7 +113,7 @@ async function generateSitemap() {
   <!-- Manual Service Pages -->
   ${MANUAL_SERVICES.map(slug => `
   <url>
-    <loc>${SITE_URL}/services/${slug}</loc>
+    <loc>${SITE_URL}/services/${escapeXml(slug)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -109,7 +122,7 @@ async function generateSitemap() {
   <!-- Dynamic Blog Pages -->
   ${blogs.map(blog => `
   <url>
-    <loc>${SITE_URL}/blog/${blog.slug || blog.id}</loc>
+    <loc>${SITE_URL}/blog/${escapeXml(blog.slug || blog.id)}</loc>
     <lastmod>${(blog.updatedAt || blog.createdAt || blog.uploadedDate || today).split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

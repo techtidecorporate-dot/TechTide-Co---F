@@ -14,6 +14,8 @@ import { motion } from "framer-motion";
 import { jobPositionAPI, JobPosition } from "@/api";
 import { JobApplicationForm } from "../components/career/JobApplicationForm";
 import SEO from "../components/ui/SEO";
+import { FAQ } from "../components/ui/FAQ";
+import { careerFAQ } from "../data/faqData";
 
 export default function CareersPage() {
   const [selectedDepartment, setSelectedDepartment] = useState("All");
@@ -358,6 +360,8 @@ export default function CareersPage() {
         onClose={() => setIsApplicationFormOpen(false)}
         position={selectedPosition}
       />
+
+      <FAQ {...careerFAQ} />
     </div>
   );
 }

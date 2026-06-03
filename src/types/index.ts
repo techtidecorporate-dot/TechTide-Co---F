@@ -5,31 +5,6 @@ export interface User {
   role: 'admin' | 'user';
 }
 
-export interface TeamMember {
-  id: string; // Required for existing members in admin panel
-  name: string;
-  role: string;
-  category: string;
-  department: string;
-  image: any; 
-  skills: string[];
-
-  description?: string;
-  social?: {
-    linkedin?: string;
-    email?: string;
-    twitter?: string;
-    github?: string;
-  };
-}
-
-export interface TeamCategory {
-  head: TeamMember[];
-  senior: TeamMember[];
-  junior: TeamMember[];
-  intern: TeamMember[];
-}
-
 export interface BlogPost {
   id: string;
   title: string;

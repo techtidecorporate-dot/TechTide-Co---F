@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { X, Upload, FileText } from "lucide-react";
 import { jobAPI, talentPoolAPI, JobPosition } from "@/api";
 import { toast } from "sonner";

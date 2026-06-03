@@ -7,7 +7,7 @@ export const seoServicesData: SystemItem[] = [
     shortDescription:
       "Custom web and application development for startups and enterprises, delivering high-performance full-stack solutions tailored to your unique goals.",
     description:
-      "TechTide Corporate LLP is a professional web development company and web development agency delivering custom web development, web application development, bespoke web development, and full stack development services to clients across the UK, USA, Canada, Germany, and Europe. From affordable web development for small businesses to enterprise-grade web applications, our Pakistan-based team of React, Node.js, and MERN stack experts builds fast, scalable, and conversion-focused websites and web platforms that drive growth.",
+      "TechTide Corporate LLP is a professional web development company and web development agency delivering custom web development, web application development, bespoke web development, and full stack development services to clients across the UK, USA, Canada, Germany, and Europe. From affordable web development for small businesses to enterprise grade web applications, our Pakistan based team of React, Node.js, and MERN stack experts builds fast, scalable, and conversion-focused websites and web platforms that drive growth.",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
     features: [
@@ -65,26 +65,26 @@ export const seoServicesData: SystemItem[] = [
       "In today's digital-first world, your website is often the first impression potential clients have of your business. Whether you're a startup in London, an enterprise in New York, a growing company in Toronto, or a business in Berlin, having a professionally built, custom web application is essential for credibility, growth, and competitive advantage. TechTide Corporate LLP is a leading web development company based in Pakistan, proudly serving clients across the UK, USA, Canada, Germany, and Europe. As a full-service web development agency, we combine cutting-edge technologies like React.js, Node.js, and the MERN stack with deep industry expertise to deliver bespoke web development solutions tailored to your business goals — at highly competitive rates.",
     servicesContent: [
       "Custom Web Application Development — We build tailor-made web applications from the ground up using React, Node.js, and modern frameworks. Every application is designed to match your unique business workflows, scalability needs, and user experience goals.",
-      "Full Stack MERN Development — End-to-end development using MongoDB, Express.js, React, and Node.js. Our full stack expertise means a single cohesive team handles your entire project — from database architecture to pixel-perfect front-end interfaces.",
-      "React.js & Next.js Frontend Development — Lightning-fast, SEO-friendly, and interactive user interfaces built with React.js and Next.js. We create responsive, component-based frontends that deliver exceptional user experiences across all devices.",
-      "Node.js Backend & API Development — Scalable, secure server-side applications and RESTful APIs built with Node.js and Express.js. Our backends handle high traffic, complex business logic, and seamless third-party integrations.",
-      "Affordable Web Development for Small Businesses — Professional, budget-friendly web solutions for startups and small businesses across the UK, USA, Canada, and Europe. Get enterprise-quality results without enterprise-level budgets.",
-      "Bespoke Enterprise Web Solutions — Large-scale web platforms for enterprises requiring complex integrations, multi-tenant architectures, advanced security, and high-availability infrastructure.",
-      "WordPress & CMS Development — Custom WordPress themes, plugins, and headless CMS solutions for content-rich websites that are easy to manage and optimised for search engines.",
-      "Progressive Web App (PWA) Development — Combine the best of web and mobile with PWAs that work offline, load instantly, and deliver app-like experiences directly in the browser.",
+      "Full Stack MERN Development End-to-end development using MongoDB, Express.js, React, and Node.js. Our full stack expertise means a single cohesive team handles your entire project from database architecture to pixel-perfect front-end interfaces.",
+      "React.js & Next.js Frontend Development Lightning-fast, SEO-friendly, and interactive user interfaces built with React.js and Next.js. We create responsive, component-based frontends that deliver exceptional user experiences across all devices.",
+      "Node.js Backend & API Development Scalable, secure server-side applications and RESTful APIs built with Node.js and Express.js. Our backends handle high traffic, complex business logic, and seamless third-party integrations.",
+      "Affordable Web Development for Small Businesses Professional, budget-friendly web solutions for startups and small businesses across the UK, USA, Canada, and Europe. Get enterprise-quality results without enterprise-level budgets.",
+      "Bespoke Enterprise Web Solutions Large-scale web platforms for enterprises requiring complex integrations, multi-tenant architectures, advanced security, and high-availability infrastructure.",
+      "WordPress & CMS Development Custom WordPress themes, plugins, and headless CMS solutions for content-rich websites that are easy to manage and optimised for search engines.",
+      "Progressive Web App (PWA) Development Combine the best of web and mobile with PWAs that work offline, load instantly, and deliver app like experiences directly in the browser.",
     ],
     benefits: [
       {
         title: "Global Reach, Local Expertise",
-        description: "Based in Pakistan with deep understanding of UK, USA, Canadian, German, and European markets — we deliver solutions that resonate with your target audience.",
+        description: "Based in Pakistan with deep understanding of UK, USA, Canadian, German, and European markets we deliver solutions that resonate with your target audience.",
       },
       {
         title: "Premium Quality, Competitive Rates",
-        description: "Get world-class web development at rates 40-60% lower than local agencies in London, New York, or Toronto — without compromising on quality or communication.",
+        description: "Get world-class web development at rates 40-60% lower than local agencies in London, New York, or Toronto without compromising on quality or communication.",
       },
       {
         title: "Modern Technology Stack",
-        description: "We use React.js, Next.js, Node.js and the full MERN stack — ensuring your web application is fast, scalable, secure, and built with technologies that attract top talent.",
+        description: "We use React.js, Next.js, Node.js and the full MERN stack ensuring your web application is fast, scalable, secure, and built with technologies that attract top talent.",
       },
       {
         title: "Agile & Transparent Process",
@@ -92,11 +92,11 @@ export const seoServicesData: SystemItem[] = [
       },
       {
         title: "SEO & Performance Optimised",
-        description: "Every website we build is optimised for search engines, Core Web Vitals, and page speed — helping you rank higher and convert more visitors into customers.",
+        description: "Every website we build is optimised for search engines, Core Web Vitals, and page speed helping you rank higher and convert more visitors into customers.",
       },
       {
         title: "End-to-End Ownership",
-        description: "From concept and design through development, testing, deployment, and ongoing support — we take full responsibility for your project's success.",
+        description: "From concept and design through development, testing, deployment, and ongoing support we take full responsibility for your project's success.",
       },
     ],
     processSteps: [
@@ -108,7 +108,7 @@ export const seoServicesData: SystemItem[] = [
       {
         step: "02",
         title: "UI/UX Design & Prototyping",
-        description: "Our designers create intuitive, conversion-focused interfaces with interactive prototypes — validated with your team before a single line of code is written.",
+        description: "Our designers create intuitive, conversion-focused interfaces with interactive prototypes validated with your team before a single line of code is written.",
       },
       {
         step: "03",
@@ -159,26 +159,26 @@ export const seoServicesData: SystemItem[] = [
       },
       {
         title: "MERN Stack Specialists",
-        description: "Deep expertise in MongoDB, Express.js, React, Node.js, and modern JavaScript frameworks — we build web applications that are fast, modern, and future-proof.",
+        description: "Deep expertise in MongoDB, Express.js, React, Node.js, and modern JavaScript frameworks we build web applications that are fast, modern, and future-proof.",
       },
       {
         title: "Timezone-Friendly Collaboration",
-        description: "Overlapping working hours with UK and European clients, and flexible schedules for USA and Canadian clients — ensuring smooth, real-time communication.",
+        description: "Overlapping working hours with UK and European clients, and flexible schedules for USA and Canadian clients ensuring smooth, real time communication.",
       },
       {
         title: "Proven Delivery Track Record",
-        description: "We've successfully delivered web projects for businesses across multiple continents — on time, on budget, and exceeding expectations.",
+        description: "We've successfully delivered web projects for businesses across multiple continents on time, on budget, and exceeding expectations.",
       },
     ],
     ctaHeading: "Ready to Build Your Next Web Application?",
-    ctaDescription: "Partner with TechTide Corporate LLP — your trusted web development company in Pakistan serving businesses across the UK, USA, Canada, Germany, and Europe. Let's discuss your project and deliver a web solution that drives real business results.",
+    ctaDescription: "Partner with TechTide Corporate LLP your trusted web development company in Pakistan serving businesses across the UK, USA, Canada, Germany, and Europe. Let's discuss your project and deliver a web solution that drives real business results.",
   },
 
   {
     id: "seo-mobile-app-development-global",
     title: "Mobile App Development Solutions",
     shortDescription:
-      "Custom mobile app development for iOS and Android, focusing on performance, user-centric design, and seamless cross-platform functionality.",
+      "Custom mobile app development for iOS and Android, focusing on performance, user centric design, and seamless cross-platform functionality.",
     description:
       "TechTide Corporate LLP is a leading mobile app development company delivering iOS app development, Android app development, and cross-platform app development using Flutter and React Native for businesses across the UK, USA, Canada, Germany, and Europe. From custom app development for small businesses to enterprise mobile solutions, our Pakistan-based team builds high-performance, beautifully designed mobile applications that engage users and drive revenue.",
     image:
@@ -186,7 +186,7 @@ export const seoServicesData: SystemItem[] = [
     features: [
       "Native iOS app development (Swift/SwiftUI)",
       "Native Android app development (Kotlin)",
-      "Flutter cross-platform app development",
+      "Flutter cross platform app development",
       "React Native app development",
       "Custom mobile app UI/UX design",
       "App Store & Google Play submission",
@@ -232,27 +232,27 @@ export const seoServicesData: SystemItem[] = [
     introContent:
       "Mobile applications are the primary touchpoint between businesses and their customers. Whether you need a native iOS app for the UK market, an Android application for users across the USA, a cross-platform Flutter app for Canadian and European audiences, or a React Native solution for the German market, TechTide Corporate LLP has the expertise to deliver. Based in Pakistan and serving clients across the UK, USA, Canada, Germany, and Europe, we are a specialist mobile app development company that transforms ideas into high-performing, beautifully designed mobile experiences. Our team of iOS, Android, Flutter, and React Native developers builds apps that not only look stunning but also deliver measurable business results.",
     servicesContent: [
-      "Native iOS App Development — High-performance iPhone and iPad applications built with Swift and SwiftUI. We follow Apple's Human Interface Guidelines to create apps that feel native, load fast, and pass App Store review seamlessly.",
-      "Native Android App Development — Feature-rich Android applications built with Kotlin and Jetpack Compose. Our Android apps are optimised for the full range of devices, screen sizes, and Android versions.",
-      "Flutter Cross-Platform Development — Build once, deploy everywhere. Flutter lets us create beautiful, natively compiled applications for iOS and Android from a single codebase — reducing development time and costs by up to 40%.",
-      "React Native App Development — Leverage your existing JavaScript team with React Native. We build performant, near-native mobile applications that share code across platforms while maintaining platform-specific feel.",
-      "Mobile App UI/UX Design — User-centred design that drives engagement. Our designers create intuitive interfaces, smooth animations, and accessible experiences that keep users coming back.",
-      "Mobile Backend & API Development — Scalable cloud backends, real-time databases, push notification systems, and RESTful APIs that power your mobile application's core functionality.",
-      "App Store Optimisation & Submission — Complete App Store and Google Play submission management, including ASO strategies, metadata optimisation, screenshot design, and compliance review.",
-      "App Maintenance & Growth — Post-launch support including bug fixes, performance monitoring, OS compatibility updates, feature releases, and analytics-driven improvement.",
+      "Native iOS App Development High-performance iPhone and iPad applications built with Swift and SwiftUI. We follow Apple's Human Interface Guidelines to create apps that feel native, load fast, and pass App Store review seamlessly.",
+      "Native Android App Development Feature-rich Android applications built with Kotlin and Jetpack Compose. Our Android apps are optimised for the full range of devices, screen sizes, and Android versions.",
+      "Flutter Cross-Platform Development Build once, deploy everywhere. Flutter lets us create beautiful, natively compiled applications for iOS and Android from a single codebase — reducing development time and costs by up to 40%.",
+      "React Native App Development Leverage your existing JavaScript team with React Native. We build performant, near-native mobile applications that share code across platforms while maintaining platform-specific feel.",
+      "Mobile App UI/UX Design User centred design that drives engagement. Our designers create intuitive interfaces, smooth animations, and accessible experiences that keep users coming back.",
+      "Mobile Backend & API Development Scalable cloud backends, real-time databases, push notification systems, and RESTful APIs that power your mobile application's core functionality.",
+      "App Store Optimisation & Submission Complete App Store and Google Play submission management, including ASO strategies, metadata optimisation, screenshot design, and compliance review.",
+      "App Maintenance & Growth Post-launch support including bug fixes, performance monitoring, OS compatibility updates, feature releases, and analytics-driven improvement.",
     ],
     benefits: [
       {
         title: "Multi-Platform Expertise",
-        description: "Whether you need native iOS, native Android, Flutter, or React Native — we have dedicated specialists for every platform and can advise on the best approach for your project.",
+        description: "Whether you need native iOS, native Android, Flutter, or React Native we have dedicated specialists for every platform and can advise on the best approach for your project.",
       },
       {
         title: "Global Reach, Affordable Rates",
-        description: "Pakistan-based development team delivers world-class mobile apps at rates 40-60% lower than agencies in London, New York, Toronto, or Berlin — without quality compromise.",
+        description: "Pakistan-based development team delivers world-class mobile apps at rates 40-60% lower than agencies in London, New York, Toronto, or Berlin without quality compromise.",
       },
       {
         title: "Design-First Approach",
-        description: "Every app starts with user research and UI/UX design. We don't just build functional apps — we craft experiences that users genuinely enjoy and recommend to others.",
+        description: "Every app starts with user research and UI/UX design. We don't just build functional apps we craft experiences that users genuinely enjoy and recommend to others.",
       },
       {
         title: "Agile Development Process",
@@ -260,18 +260,18 @@ export const seoServicesData: SystemItem[] = [
       },
       {
         title: "End-to-End Service",
-        description: "From initial concept and market research through design, development, app store submission, and ongoing maintenance — we handle the entire mobile app lifecycle.",
+        description: "From initial concept and market research through design, development, app store submission, and ongoing maintenance we handle the entire mobile app lifecycle.",
       },
       {
         title: "Scalable Architecture",
-        description: "Our mobile backends are built to handle growth — from hundreds to millions of users — using cloud infrastructure, microservices, and real-time data synchronisation.",
+        description: "Our mobile backends are built to handle growth from hundreds to millions of users — using cloud infrastructure, microservices, and real-time data synchronisation.",
       },
     ],
     processSteps: [
       {
         step: "01",
         title: "Concept & Platform Strategy",
-        description: "We evaluate your app idea, target audience, and business goals to recommend the optimal platform strategy — native, cross-platform, or hybrid.",
+        description: "We evaluate your app idea, target audience, and business goals to recommend the optimal platform strategy native, cross-platform, or hybrid.",
       },
       {
         step: "02",
@@ -301,7 +301,7 @@ export const seoServicesData: SystemItem[] = [
       },
       {
         industry: "Healthcare & Wellness",
-        description: "Patient apps, telemedicine platforms, fitness trackers, and mental health applications — fully compliant with HIPAA and GDPR regulations.",
+        description: "Patient apps, telemedicine platforms, fitness trackers, and mental health applications fully compliant with HIPAA and GDPR regulations.",
       },
       {
         industry: "FinTech & Banking",
@@ -309,7 +309,7 @@ export const seoServicesData: SystemItem[] = [
       },
       {
         industry: "On-Demand & Logistics",
-        description: "Delivery apps, ride-sharing platforms, service marketplaces, and fleet management solutions with real-time GPS tracking.",
+        description: "Delivery apps, ride sharing platforms, service marketplaces, and fleet management solutions with real-time GPS tracking.",
       },
       {
         industry: "Education & Training",
@@ -323,11 +323,11 @@ export const seoServicesData: SystemItem[] = [
     usps: [
       {
         title: "Pakistan-Based, Globally Trusted",
-        description: "Our skilled app development team in Pakistan serves clients across the UK, USA, Canada, Germany, and Europe — delivering premium apps at competitive rates.",
+        description: "Our skilled app development team in Pakistan serves clients across the UK, USA, Canada, Germany, and Europe delivering premium apps at competitive rates.",
       },
       {
         title: "All Platforms, One Team",
-        description: "iOS, Android, Flutter, React Native — we have dedicated experts for every platform, ensuring you get the best technology for your specific needs.",
+        description: "iOS, Android, Flutter, React Native we have dedicated experts for every platform, ensuring you get the best technology for your specific needs.",
       },
       {
         title: "Timezone-Friendly Collaboration",
@@ -339,7 +339,7 @@ export const seoServicesData: SystemItem[] = [
       },
     ],
     ctaHeading: "Ready to Launch Your Mobile App?",
-    ctaDescription: "Partner with TechTide Corporate LLP — your trusted mobile app development company in Pakistan. Whether you need an iOS, Android, Flutter, or React Native app, we'll bring your vision to life for clients across the UK, USA, Canada, Germany, and Europe.",
+    ctaDescription: "Partner with TechTide Corporate LLP your trusted mobile app development company in Pakistan. Whether you need an iOS, Android, Flutter, or React Native app, we'll bring your vision to life for clients across the UK, USA, Canada, Germany, and Europe.",
   },
 
   {
@@ -388,29 +388,29 @@ export const seoServicesData: SystemItem[] = [
       "custom software development Europe",
     ],
     introContent:
-      "Building a successful SaaS product or custom software solution requires more than just coding — it demands strategic thinking, scalable architecture, and a development partner who understands your market. TechTide Corporate LLP is a trusted SaaS development company and custom software development company based in Pakistan, serving startups and enterprises across the UK, USA, Canada, Germany, and Europe. Whether you need rapid MVP development to validate your startup idea, a dedicated offshore software development team, or a fully architected enterprise SaaS platform, we deliver production-ready solutions built on modern cloud technologies that scale with your business and delight your users.",
+      "Building a successful SaaS product or custom software solution requires more than just coding it demands strategic thinking, scalable architecture, and a development partner who understands your market. TechTide Corporate LLP is a trusted SaaS development company and custom software development company based in Pakistan, serving startups and enterprises across the UK, USA, Canada, Germany, and Europe. Whether you need rapid MVP development to validate your startup idea, a dedicated offshore software development team, or a fully architected enterprise SaaS platform, we deliver production-ready solutions built on modern cloud technologies that scale with your business and delight your users.",
     servicesContent: [
-      "Custom SaaS Platform Development — End-to-end development of cloud-native SaaS products with multi-tenant architecture, subscription management, role-based access, and scalable infrastructure designed for growth.",
-      "MVP Development & Rapid Prototyping — Validate your startup idea fast. We build functional MVPs in 6-12 weeks, helping you test market fit, attract investors, and iterate based on real user feedback.",
-      "Enterprise Custom Software Development — Bespoke software solutions for enterprises requiring complex business logic, legacy system integration, compliance features, and high-availability architecture.",
-      "Offshore Dedicated Development Teams — Extend your in-house team with our dedicated developers in Pakistan. Full-time engineers working exclusively on your project, managed to your processes and standards.",
-      "SaaS Migration & Modernisation — Migrate legacy on-premise software to modern cloud-based SaaS architecture. Re-platform, re-architect, or rebuild with modern technologies for better performance and scalability.",
-      "Subscription & Billing Integration — Stripe, Paddle, Chargebee, and custom billing integrations with trial management, usage-based pricing, invoicing, and revenue analytics built into your SaaS platform.",
-      "Cloud Infrastructure & DevOps — AWS, Google Cloud, and Azure infrastructure setup with automated CI/CD pipelines, containerisation, monitoring, and auto-scaling for production-grade deployments.",
-      "SaaS Analytics & Dashboards — Built-in analytics dashboards tracking user behaviour, feature adoption, churn metrics, revenue analytics, and operational KPIs for data-driven product decisions.",
+      "Custom SaaS Platform Development End-to-end development of cloud-native SaaS products with multi-tenant architecture, subscription management, role-based access, and scalable infrastructure designed for growth.",
+      "MVP Development & Rapid Prototyping Validate your startup idea fast. We build functional MVPs in 6-12 weeks, helping you test market fit, attract investors, and iterate based on real user feedback.",
+      "Enterprise Custom Software Development Bespoke software solutions for enterprises requiring complex business logic, legacy system integration, compliance features, and high-availability architecture.",
+      "Offshore Dedicated Development Teams Extend your in-house team with our dedicated developers in Pakistan. Full-time engineers working exclusively on your project, managed to your processes and standards.",
+      "SaaS Migration & Modernisation Migrate legacy on-premise software to modern cloud-based SaaS architecture. Re-platform, re-architect, or rebuild with modern technologies for better performance and scalability.",
+      "Subscription & Billing Integration Stripe, Paddle, Chargebee, and custom billing integrations with trial management, usage-based pricing, invoicing, and revenue analytics built into your SaaS platform.",
+      "Cloud Infrastructure & DevOps AWS, Google Cloud, and Azure infrastructure setup with automated CI/CD pipelines, containerisation, monitoring, and auto-scaling for production-grade deployments.",
+      "SaaS Analytics & Dashboards Built-in analytics dashboards tracking user behaviour, feature adoption, churn metrics, revenue analytics, and operational KPIs for data driven product decisions.",
     ],
     benefits: [
       {
         title: "Startup to Enterprise Expertise",
-        description: "From lean MVPs for seed-stage startups to enterprise SaaS platforms handling millions of users — we have the experience across the full spectrum.",
+        description: "From lean MVPs for seed-stage startups to enterprise SaaS platforms handling millions of users we have the experience across the full spectrum.",
       },
       {
         title: "Offshore Cost Advantage",
-        description: "Our Pakistan-based team delivers premium software development at 40-60% lower cost than agencies in London, New York, or Toronto — making your budget go further.",
+        description: "Our Pakistan-based team delivers premium software development at 40-60% lower cost than agencies in London, New York, or Toronto making your budget go further.",
       },
       {
         title: "Cloud-Native Architecture",
-        description: "Every SaaS platform we build is designed for the cloud from day one — with auto-scaling, high availability, and infrastructure-as-code best practices.",
+        description: "Every SaaS platform we build is designed for the cloud from day one with auto-scaling, high availability, and infrastructure-as-code best practices.",
       },
       {
         title: "Rapid Time to Market",
@@ -434,7 +434,7 @@ export const seoServicesData: SystemItem[] = [
       {
         step: "02",
         title: "Architecture & Technology Selection",
-        description: "Our architects design the system blueprint — database schema, API structure, cloud infrastructure, multi-tenancy model, and technology stack selection.",
+        description: "Our architects design the system blueprint database schema, API structure, cloud infrastructure, multi-tenancy model, and technology stack selection.",
       },
       {
         step: "03",
@@ -485,18 +485,18 @@ export const seoServicesData: SystemItem[] = [
       },
       {
         title: "SaaS-First Architecture",
-        description: "We don't retrofit traditional software into SaaS — every platform we build is designed from the ground up with multi-tenancy, subscriptions, and cloud scalability.",
+        description: "We don't retrofit traditional software into SaaS every platform we build is designed from the ground up with multi-tenancy, subscriptions, and cloud scalability.",
       },
       {
         title: "Dedicated Offshore Teams",
-        description: "Hire dedicated developers who work exclusively on your project, integrated with your processes, tools, and communication channels — as an extension of your team.",
+        description: "Hire dedicated developers who work exclusively on your project, integrated with your processes, tools, and communication channels as an extension of your team.",
       },
       {
         title: "Long-Term Product Partnership",
-        description: "We're not a build-and-run agency. We partner with you for the long term — evolving your product, scaling your infrastructure, and supporting your growth journey.",
+        description: "We're not a build-and-run agency. We partner with you for the long term evolving your product, scaling your infrastructure, and supporting your growth journey.",
       },
     ],
     ctaHeading: "Ready to Build Your SaaS Product?",
-    ctaDescription: "Partner with TechTide Corporate LLP — your trusted SaaS development company and custom software development partner in Pakistan. Whether you need an MVP, a dedicated offshore team, or a full enterprise platform, we're ready to help you build, launch, and scale.",
+    ctaDescription: "Partner with TechTide Corporate LLP your trusted SaaS development company and custom software development partner in Pakistan. Whether you need an MVP, a dedicated offshore team, or a full enterprise platform, we're ready to help you build, launch, and scale.",
   },
 ];

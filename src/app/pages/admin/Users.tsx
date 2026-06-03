@@ -63,11 +63,8 @@ export default function UserManagement() {
     const searchLower = searchTerm.toLowerCase();
     return (
       user.name?.toLowerCase().includes(searchLower) ||
-      false ||
       user.email?.toLowerCase().includes(searchLower) ||
-      false ||
-      user.role?.toLowerCase().includes(searchLower) ||
-      false
+      user.role?.toLowerCase().includes(searchLower)
     );
   });
 

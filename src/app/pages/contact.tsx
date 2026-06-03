@@ -5,6 +5,8 @@ import { contactAPI } from "@/api";
 import { toast } from "sonner";
 import { sendEmailNotification } from "@/app/utils/emailService";
 import SEO from "../components/ui/SEO";
+import { FAQ } from "../components/ui/FAQ";
+import { contactFAQ } from "../data/faqData";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -329,6 +331,8 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      <FAQ {...contactFAQ} />
     </div>
   );
 }

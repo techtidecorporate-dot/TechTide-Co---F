@@ -11,7 +11,6 @@ const LeadershipSection = lazy(() => import("../components/landing").then(m => (
 const BlogSection = lazy(() => import("../components/landing").then(m => ({ default: m.BlogSection })));
 const SupportSection = lazy(() => import("../components/landing").then(m => ({ default: m.SupportSection })));
 const WhyChooseUs = lazy(() => import("../components/landing").then(m => ({ default: m.WhyChooseUs })));
-const FAQSection = lazy(() => import("../components/landing").then(m => ({ default: m.FAQSection })));
 
 // Loading placeholder for sections
 const SectionPlaceholder = () => <div className="h-40 bg-gray-50/50 animate-pulse" />;
@@ -37,9 +36,6 @@ const LandingPage: React.FC = () => {
         </Suspense>
         <Suspense fallback={<SectionPlaceholder />}>
           <WhyChooseUs />
-        </Suspense>
-        <Suspense fallback={<SectionPlaceholder />}>
-          <FAQSection />
         </Suspense>
         <Suspense fallback={<SectionPlaceholder />}>
           <LeadershipSection />
