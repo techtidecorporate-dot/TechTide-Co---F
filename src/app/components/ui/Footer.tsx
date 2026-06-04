@@ -50,6 +50,7 @@ export function Footer() {
           <div className="lg:col-span-2 text-center md:text-left">
             <div className="flex justify-center md:justify-start">
               <Link to="/">
+              
                 <img
                   src={imgVector}
                   className="h-8 md:h-10 w-auto"

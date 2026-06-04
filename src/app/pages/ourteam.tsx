@@ -31,7 +31,7 @@ const TeamOption1 = () => {
   const mktTeam = getDepartmentData("Marketing");
 
   return (
-    <main className="bg-white min-h-screen overflow-x-hidden font-poppins text-[#191a23]">
+    <main className="bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7] min-h-screen overflow-x-hidden font-poppins text-[#191a23]">
       <SEO
         title="Our Team"
         description="Meet the experts at TechTide Corporate LLP. Our team of skilled developers and designers is dedicated to building high-quality digital solutions."
@@ -53,13 +53,13 @@ const TeamOption1 = () => {
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
               Meet the TechTide Corporate LLP Team
             </p>
-            <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
-              Experts in Web Development, Software{" "}
+            <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
+              Experts in Software{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
                 Solutions & Digital Innovation
               </span>
             </h1>
-            <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#6b7280] text-base md:text-lg xl:text-xl max-w-2xl mx-auto leading-relaxed">
               Get to know our talented team of developers, designers, and
               strategists who deliver end-to-end technology solutions for
               businesses and startups.
@@ -68,7 +68,7 @@ const TeamOption1 = () => {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-24 pb-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 md:mt-12 space-y-24 pb-20">
         {/* CEO Section */}
         {ceo && (
           <section className="space-y-8">

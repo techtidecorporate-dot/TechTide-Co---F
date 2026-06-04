@@ -98,14 +98,14 @@ export default function CareersPage() {
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
               Careers
             </p>
-            <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
+            <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
               Build Your{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
                 Career
               </span>{" "}
               With Us
             </h1>
-            <p className="text-[#6b7280] text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+            <p className="text-[#6b7280] text-base md:text-lg xl:text-xl max-w-3xl mx-auto leading-relaxed">
               Join a mission-driven team dedicated to building the future of
               technology. We're looking for passionate individuals who want to
               make a real impact.

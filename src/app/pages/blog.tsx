@@ -52,7 +52,7 @@ export default function BlogPage() {
   } = useNewsletter();
 
   return (
-    <main className="bg-white">
+    <main className="bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
       <SEO
         title="Blog & Insights"
         description="Stay updated with the latest trends in web development, mobile apps, and digital innovation from TechTide Corporate LLP."
@@ -73,13 +73,13 @@ export default function BlogPage() {
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
               Our Blog on Technology, Design & Digital Innovation
             </p>
-            <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
+            <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
               Insights, Tips & Trends for{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
                 Businesses and Startups
               </span>
             </h1>
-            <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#6b7280] text-base md:text-lg xl:text-xl max-w-2xl mx-auto leading-relaxed">
               Stay ahead with TechTide Corporate LLP’s latest articles on web
               development, software solutions, digital transformation, and
               emerging tech trends that drive business growth.

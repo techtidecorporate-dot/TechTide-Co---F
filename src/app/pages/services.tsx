@@ -10,7 +10,7 @@ export default function ServicesPage() {
   const services = [...seoServicesData, ...systemsData];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
       <SEO
         title="Web & Software Development Services"
         description="Comprehensive web development, ERP, CRM, and custom software services. TechTide Corporate LLP helps businesses automate and scale with modern technologies."
@@ -31,13 +31,13 @@ export default function ServicesPage() {
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
               Our Expertise in Web & Software Solutions
             </p>
-            <h1 className="text-4xl md:text-7xl font-poppins font-bold text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
+            <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-poppins  text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
               Comprehensive Technology{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
                 Services for Businesses
               </span>
             </h1>
-            <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#6b7280] text-base md:text-lg xl:text-xl max-w-2xl mx-auto leading-relaxed">
               We deliver end-to-end web development, ERP, CRM, e-commerce, and
               custom software solutions that help businesses innovate, automate
               processes, and grow in the digital era.

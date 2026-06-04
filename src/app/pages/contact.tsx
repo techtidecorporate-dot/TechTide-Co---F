@@ -82,12 +82,12 @@ export default function ContactPage() {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
       content: "G3 heaven mall, zaraar shaheed road, lahore",
-      link: "https://www.google.com/maps/place/HEAVEN+MALL/@31.5488578,74.3987883,606m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3919055e3dbd05d5:0x6c7f09044264f7e!8m2!3d31.5488578!4d74.4013632!16s%2Fg%2F11hbfkzn6l?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D",
+      link: "https://www.google.com/maps/place/Techtide+Corporate+LLP/@31.548828,74.3988149,606m/data=!3m1!1e3!4m16!1m9!3m8!1s0x3919050017953d65:0x4946f90f8a3851c2!2sTechtide+Corporate+LLP!8m2!3d31.548828!4d74.4013898!9m1!1b1!16s%2Fg%2F11yn8dzf8z!3m5!1s0x3919050017953d65:0x4946f90f8a3851c2!8m2!3d31.548828!4d74.4013898!16s%2Fg%2F11yn8dzf8z?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D",
     },
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
       <SEO
         title="Contact Us"
         description="Get in touch with TechTide Corporate LLP for your next web development project. We're here to help you build your digital future."
@@ -108,13 +108,13 @@ export default function ContactPage() {
             <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
               Get In Touch with TechTide Corporate LLP{" "}
             </p>
-            <h1 className="text-4xl md:text-7xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
+            <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
               Let’s Build Your Next{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
                 Web or Software Project
               </span>
             </h1>
-            <p className="text-[#6b7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#6b7280] text-base md:text-lg xl:text-xl max-w-2xl mx-auto leading-relaxed">
               Have an idea for a website, ERP, CRM, or custom software? Contact
               us today, and our expert team will help bring your project to life
               quickly and efficiently.
@@ -302,31 +302,19 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="bg-[#191a23] bg-gradient-to-br from-[#191a23] via-[#453abc]/10 to-[#191a23] rounded-[2rem] p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#453abc]/10 rounded-full blur-[80px]" />
-              <div className="relative z-10">
-                <h3 className="text-xl md:text-2xl font-poppins font-semibold mb-6">
-                  Office Hours
-                </h3>
-                <div className="space-y-4 text-gray-300">
-                  <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                    <span className="text-sm">Monday - Saturday</span>
-                    <span className="font-semibold text-white">
-                      11:00 AM - 7:00 PM
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                    <span className="text-sm">Friday</span>
-                    <span className="font-semibold text-white">
-                      3:00 PM - 7:00 PM
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm">Sunday</span>
-                    <span className="font-semibold text-[#60c3e3]">Closed</span>
-                  </div>
-                </div>
-              </div>
+            <div className="bg-[#191a23] rounded-[1rem]  text-white shadow-xl ">
+             
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.786104592155!2d74.3988149!3d31.548828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919050017953d65%3A0x4946f90f8a3851c2!2sTechtide%20Corporate%20LLP!5e0!3m2!1sen!2s!4v1"
+                width="100%"
+                height="280"
+                style={{ borderRadius: "1rem", border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="TechTide Corporate LLP Location"
+                className="relative z-10"
+              />
             </div>
           </div>
         </div>

@@ -147,6 +147,20 @@ async function generateSitemap() {
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- LLM Reference Files -->
+  <url>
+    <loc>${SITE_URL}/llms.txt</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/llms-full.txt</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>`;
 
         fs.writeFileSync(SITEMAP_PATH, xml);
