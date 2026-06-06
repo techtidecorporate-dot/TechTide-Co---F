@@ -8,7 +8,7 @@ import { Toaster } from "sonner";
 
 // Lazy load pages
 const LandingPage = lazy(() => import("./pages/landing"));
-const TeamPage = lazy(() => import("./pages/ourteam"));
+const AboutPage = lazy(() => import("./pages/about"));
 const ServicesPage = lazy(() => import("./pages/services"));
 const BlogPage = lazy(() => import("./pages/blog"));
 const CareerPage = lazy(() => import("./pages/career"));
@@ -18,6 +18,7 @@ const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
+const CompanyProfile = lazy(() => import("./pages/CompanyProfile"));
 const SignInPage = lazy(() => import("./components/ui/signin"));
 
 // Admin Routes
@@ -82,7 +83,7 @@ export default function App() {
         <Suspense fallback={<PageLoading />}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/ourteam" element={<TeamPage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/:slug" element={<ServiceDetailPage />} />
             <Route path="/blog" element={<BlogPage />} />
@@ -93,6 +94,7 @@ export default function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/company-profile" element={<CompanyProfile />} />
 
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLayout />}>

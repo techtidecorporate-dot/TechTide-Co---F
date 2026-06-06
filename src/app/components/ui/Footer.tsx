@@ -17,7 +17,7 @@ import { systemsData } from "@/app/data/servicesData";
 const footerLinks = {
   quicklinks: [
     { label: "Services", href: "/services" },
-    { label: "Our Team", href: "/ourteam" },
+    { label: "About Us", href: "/about" },
     { label: "Careers", href: "/career" },
     { label: "Contact", href: "/contact" },
   ],

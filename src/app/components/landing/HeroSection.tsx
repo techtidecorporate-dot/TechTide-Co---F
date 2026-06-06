@@ -4,7 +4,6 @@ export function HeroSection() {
 
   return (
     <section className="relative h-screen px-6 md:px-[70px] flex items-center justify-center text-center overflow-hidden bg-gray-900">
-
       {/* Background Technology Image */}
       <div className="absolute inset-0">
         <img
@@ -23,8 +22,6 @@ export function HeroSection() {
       {/* Hero Content */}
       <div className="relative z-10 w-full">
         <div className="max-w-[1100px] mx-auto pt-20">
-          
-
           {/* Main Heading */}
           <h1 className="mb-8 leading-[1.15] opacity-0 animate-fade-up delay-[0ms]">
             <span className="font-poppins block text-white text-3xl md:text-[3.5rem] lg:text-[4.5rem] font-bold tracking-tight">
@@ -56,12 +53,12 @@ export function HeroSection() {
               />
               <span className="relative z-10">Get Free Website Audit</span>
             </button>
-            <button
-              className="w-full md:w-auto px-12 py-5 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 text-white font-bold text-lg backdrop-blur-md"
-              onClick={() => window.dispatchEvent(new CustomEvent("open-strategy-drawer"))}
+            <a
+              href="/contact"
+              className="w-full md:w-auto px-12 py-5 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 text-white font-bold text-lg backdrop-blur-md inline-block text-center"
             >
-              Book Strategy Call
-            </button>
+              Get in Touch
+            </a>
           </div>
         </div>
       </div>

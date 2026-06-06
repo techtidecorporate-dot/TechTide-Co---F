@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 
 import imgVector from "@/assets/brand-logo-dark.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -6,10 +6,24 @@ import { Menu, X, LogOut, LayoutDashboard } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/app/context/AuthContext";
 
+const aboutDropdownItems = [
+  { href: "/about#overview", label: "Overview" },
+  { href: "/about#products", label: "Products" },
+  { href: "/about#leadership", label: "Leadership" },
+  { href: "/company-profile", label: "Company Profile" },
+];
+
+const servicesDropdownItems = [
+  { href: "/services/lead-generation-websites", label: "Lead Generation Websites", description: "High-converting websites that generate qualified leads 24/7." },
+  { href: "/services/conversion-optimization", label: "Conversion Optimization", description: "Data-driven UI/UX strategies to turn traffic into customers." },
+  { href: "/services/growth-marketing-systems", label: "Growth Marketing Systems", description: "Scalable marketing infra for predictable growth and high ROI." },
+  { href: "/services/business-automation-systems", label: "Business Automation Systems", description: "Custom automation tools to streamline operations." },
+  { href: "/services/saas-product-development", label: "Scalable SaaS Products", description: "Build and scale profitable SaaS products from scratch." },
+  { href: "/services/api-integration", label: "API & System Integration", description: "Connect your tech stack for seamless data flow." },
+];
+
 const navItems = [
-  { href: "/services", label: "Services", isRoute: true },
   { href: "/blog", label: "Blog", isRoute: true },
-  { href: "/ourteam", label: "Our team", isRoute: true },
   { href: "/career", label: "Career", isRoute: true },
   { href: "/contact", label: "Contact Us", isRoute: true },
 ];
@@ -45,6 +59,37 @@ const Navbar = memo(function Navbar() {
 
   // Force white background on all pages except landing
   const shouldBeTransparent = isLandingPage && !isScrolled;
+
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const aboutDropdownRef = useRef<HTMLDivElement>(null);
+  const aboutTriggerRef = useRef<HTMLButtonElement>(null);
+
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
+  const servicesTriggerRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        aboutDropdownRef.current &&
+        !aboutDropdownRef.current.contains(e.target as Node) &&
+        aboutTriggerRef.current &&
+        !aboutTriggerRef.current.contains(e.target as Node)
+      ) {
+        setIsAboutDropdownOpen(false);
+      }
+      if (
+        servicesDropdownRef.current &&
+        !servicesDropdownRef.current.contains(e.target as Node) &&
+        servicesTriggerRef.current &&
+        !servicesTriggerRef.current.contains(e.target as Node)
+      ) {
+        setIsServicesDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleLogout = () => {
     logout();
@@ -83,6 +128,90 @@ const Navbar = memo(function Navbar() {
 
       {/* Desktop Navigation */}
       <div className="hidden lg:flex items-center gap-10">
+        {/* About Us with Dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => { setIsAboutDropdownOpen(true); setIsServicesDropdownOpen(false); }}
+          onMouseLeave={() => setIsAboutDropdownOpen(false)}
+        >
+          <button
+            ref={aboutTriggerRef}
+            className={`relative font-poppins py-1 transition-all duration-300 group cursor-pointer ${
+              location.pathname.startsWith("/about") || location.pathname.startsWith("/company-profile")
+                ? shouldBeTransparent
+                  ? "text-white font-medium"
+                  : "text-[#453abc] font-medium"
+                : shouldBeTransparent
+                  ? "text-white/80 hover:text-white"
+                  : "text-gray-600 hover:text-gray-900"
+            }`}
+          >
+            <span className="relative z-10 flex items-center gap-1.5">
+              About Us
+              <svg
+                className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                  isAboutDropdownOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+            <span
+              className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#453abc] to-[#60c3e3] transition-all duration-300 ${
+                location.pathname.startsWith("/about") || location.pathname.startsWith("/company-profile")
+                  ? "w-full opacity-100"
+                  : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+              }`}
+            />
+          </button>
+        </div>
+
+        {/* Services with Dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => { setIsServicesDropdownOpen(true); setIsAboutDropdownOpen(false); }}
+          onMouseLeave={() => setIsServicesDropdownOpen(false)}
+        >
+          <button
+            ref={servicesTriggerRef}
+            className={`relative font-poppins py-1 transition-all duration-300 group cursor-pointer ${
+              location.pathname.startsWith("/services")
+                ? shouldBeTransparent
+                  ? "text-white font-medium"
+                  : "text-[#453abc] font-medium"
+                : shouldBeTransparent
+                  ? "text-white/80 hover:text-white"
+                  : "text-gray-600 hover:text-gray-900"
+            }`}
+          >
+            <span className="relative z-10 flex items-center gap-1.5">
+              Services
+              <svg
+                className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                  isServicesDropdownOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+            <span
+              className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#453abc] to-[#60c3e3] transition-all duration-300 ${
+                location.pathname.startsWith("/services")
+                  ? "w-full opacity-100"
+                  : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+              }`}
+            />
+          </button>
+        </div>
+
         {navItems.map((item, index) => {
           const isActive = location.pathname === item.href;
           return (
@@ -173,6 +302,122 @@ const Navbar = memo(function Navbar() {
         )}
       </div>
 
+      {/* About Us Dropdown */}
+      <AnimatePresence>
+        {isAboutDropdownOpen && (
+          <>
+            {/* Invisible bridge to keep hover active */}
+            <div
+              className="absolute left-0 right-0 z-40"
+              style={{ top: "80px", height: "16px" }}
+              onMouseEnter={() => setIsAboutDropdownOpen(true)}
+              onMouseLeave={() => setIsAboutDropdownOpen(false)}
+            />
+            <motion.div
+              ref={aboutDropdownRef}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="absolute left-0 right-0 z-40"
+              style={{ top: "calc(80px + 16px)" }}
+              onMouseEnter={() => setIsAboutDropdownOpen(true)}
+              onMouseLeave={() => setIsAboutDropdownOpen(false)}
+            >
+              <div className="max-w-7xl mx-auto px-6 md:px-10">
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+                  <div className="grid grid-cols-4 gap-8">
+                    {aboutDropdownItems.map((item, i) => {
+                      const isActive = location.pathname + location.hash === item.href;
+                      return (
+                        <Link
+                          key={i}
+                          to={item.href}
+                          onClick={() => setIsAboutDropdownOpen(false)}
+                          className={`group p-5 rounded-xl transition-all duration-300 ${
+                            isActive
+                              ? "bg-gradient-to-br from-[#453abc]/5 to-[#60c3e3]/5 border border-[#453abc]/15"
+                              : "hover:bg-gray-50 border border-transparent"
+                          }`}
+                        >
+                          <h3 className={`font-poppins font-semibold text-lg mb-1.5 transition-colors ${
+                            isActive ? "text-[#453abc]" : "text-[#191a23] group-hover:text-[#453abc]"
+                          }`}>
+                            {item.label}
+                          </h3>
+                          <p className="text-sm text-[#6b7280] leading-relaxed">
+                            {item.label === "Overview" && "Learn about our story, mission, and values."}
+                            {item.label === "Leadership" && "Meet the experts driving our success."}
+                            {item.label === "Products" && "Explore our digital products and solutions."}
+                            {item.label === "Company Profile" && "View our company details and registration."}
+                          </p>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Services Dropdown */}
+      <AnimatePresence>
+        {isServicesDropdownOpen && (
+          <>
+            <div
+              className="absolute left-0 right-0 z-40"
+              style={{ top: "80px", height: "16px" }}
+              onMouseEnter={() => setIsServicesDropdownOpen(true)}
+              onMouseLeave={() => setIsServicesDropdownOpen(false)}
+            />
+            <motion.div
+              ref={servicesDropdownRef}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="absolute left-0 right-0 z-40"
+              style={{ top: "calc(80px + 16px)" }}
+              onMouseEnter={() => setIsServicesDropdownOpen(true)}
+              onMouseLeave={() => setIsServicesDropdownOpen(false)}
+            >
+              <div className="max-w-7xl mx-auto px-6 md:px-10">
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+                  <div className="grid grid-cols-3 gap-8">
+                    {servicesDropdownItems.map((item, i) => {
+                      const isActive = location.pathname === item.href;
+                      return (
+                        <Link
+                          key={i}
+                          to={item.href}
+                          onClick={() => setIsServicesDropdownOpen(false)}
+                          className={`group p-5 rounded-xl transition-all duration-300 ${
+                            isActive
+                              ? "bg-gradient-to-br from-[#453abc]/5 to-[#60c3e3]/5 border border-[#453abc]/15"
+                              : "hover:bg-gray-50 border border-transparent"
+                          }`}
+                        >
+                          <h3 className={`font-poppins font-semibold text-lg mb-1.5 transition-colors ${
+                            isActive ? "text-[#453abc]" : "text-[#191a23] group-hover:text-[#453abc]"
+                          }`}>
+                            {item.label}
+                          </h3>
+                          <p className="text-sm text-[#6b7280] leading-relaxed">
+                            {item.description}
+                          </p>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
       {/* Mobile Menu Toggle */}
       <button
         className={`lg:hidden p-2 rounded-lg transition-colors ${
@@ -197,6 +442,54 @@ const Navbar = memo(function Navbar() {
             className="fixed inset-0 top-[80px] h-full z-40 lg:hidden"
           >
             <div className="flex flex-col p-8 gap-6 bg-white h-[400px] overflow-y-auto pb-20">
+              {/* About Us section in mobile */}
+              <div className="space-y-1">
+                <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#453abc] px-2">
+                  About Us
+                </p>
+                {aboutDropdownItems.map((item, i) => {
+                  const isActive = location.pathname === item.href;
+                  return (
+                    <Link
+                      key={i}
+                      to={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block text-lg font-poppins font-medium p-2 transition-colors rounded-lg ${
+                        isActive
+                          ? "text-[#453abc] bg-[#453abc]/5"
+                          : "text-gray-700 hover:text-[#453abc] hover:bg-gray-50"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+              <hr className="border-gray-100" />
+              {/* Services section in mobile */}
+              <div className="space-y-1">
+                <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#453abc] px-2">
+                  Services
+                </p>
+                {servicesDropdownItems.map((item, i) => {
+                  const isActive = location.pathname === item.href;
+                  return (
+                    <Link
+                      key={i}
+                      to={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block text-lg font-poppins font-medium p-2 transition-colors rounded-lg ${
+                        isActive
+                          ? "text-[#453abc] bg-[#453abc]/5"
+                          : "text-gray-700 hover:text-[#453abc] hover:bg-gray-50"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+              <hr className="border-gray-100" />
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.href;
                 return (
