@@ -1,0 +1,38 @@
+{
+  "rules": {
+    "cookie_consents": {
+      ".read": "auth != null",
+      ".write": "newData.hasChildren(['visitorId', 'consentStatus'])",
+      ".indexOn": ["visitorId", "consentStatus"]
+    },
+    "page_visits": {
+      ".read": "auth != null",
+      ".write": "newData.hasChildren(['visitorId', 'pageUrl'])",
+      ".indexOn": ["visitorId"]
+    },
+    "leads": {
+      ".read": "auth != null",
+      ".write": "newData.hasChildren(['visitorId', 'name', 'email'])",
+      ".indexOn": ["visitorId"]
+    },
+    "lead_scores": {
+      ".read": "auth != null",
+      ".write": "newData.hasChildren(['visitorId', 'score'])",
+      ".indexOn": ["visitorId"]
+    },
+    "messages": {
+      ".read": "auth != null",
+      ".write": "newData.hasChildren(['name', 'email'])",
+      ".indexOn": ["visitorId"]
+    },
+    "users": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["email"]
+    },
+    "$other": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
+  }
+}

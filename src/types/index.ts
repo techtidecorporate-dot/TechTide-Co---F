@@ -106,3 +106,47 @@ export interface PartnerRequest {
   status: 'new' | 'contacted' | 'resolved';
   createdAt: string;
 }
+
+export interface CookieConsent {
+  id?: string;
+  visitorId: string;
+  consentStatus: 'accepted' | 'rejected';
+  timestamp: number;
+  pageUrl: string;
+  userAgent: string;
+  source: string;
+}
+
+export interface PageVisit {
+  id?: string;
+  visitorId: string;
+  pageUrl: string;
+  timestamp: number;
+}
+
+export interface Lead {
+  id?: string;
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  message: string;
+  visitorId: string;
+  source: string;
+  timestamp: number;
+}
+
+export interface LeadScore {
+  id?: string;
+  visitorId: string;
+  score: number;
+  updatedAt: number;
+}
+
+export interface LeadWithDetails {
+  visitorId: string;
+  consent?: CookieConsent | null;
+  pageVisits: PageVisit[];
+  lead?: Lead | null;
+  score: LeadScore | null;
+}

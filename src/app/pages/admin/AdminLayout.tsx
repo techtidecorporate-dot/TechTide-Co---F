@@ -12,6 +12,7 @@ import {
   Handshake,
   Target,
   CalendarCheck,
+  TrendingUp,
 } from "lucide-react";
 
 interface SidebarLinkProps {
@@ -71,6 +72,7 @@ export default function AdminLayout() {
     { to: "/admin/partners", icon: Handshake, label: "Partners" },
     { to: "/admin/subscribers", icon: Mail, label: "Subscribers" },
     { to: "/admin/messages", icon: Mail, label: "Messages" },
+    { to: "/admin/leads", icon: TrendingUp, label: "Leads" },
   ];
 
   return (

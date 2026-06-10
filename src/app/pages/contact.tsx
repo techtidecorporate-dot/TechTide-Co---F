@@ -2,6 +2,9 @@ import { useState, type FormEvent, type ChangeEvent } from "react";
 import { contactAPI } from "@/api";
 import { toast } from "sonner";
 import { sendEmailNotification } from "@/app/utils/emailService";
+import { submitLead } from "@/firebase/services/leadTracking";
+import { addScore } from "@/firebase/services/leadScoring";
+import { getStoredConsent } from "@/firebase/services/cookieConsent";
 import SEO from "../components/ui/SEO";
 import { FAQ } from "../components/ui/FAQ";
 import { contactFAQ } from "../data/faqData";
@@ -26,13 +29,25 @@ export default function ContactPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      await contactAPI.create({
-        name: `${formData.firstName} ${formData.lastName}`,
-        email: formData.email,
-        phone: formData.phone,
-        subject: formData.subject,
-        message: formData.message,
-      });
+      const consent = getStoredConsent();
+
+      await Promise.all([
+        contactAPI.create({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+        submitLead({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone,
+          company: "",
+          message: formData.message,
+        }),
+        ...(consent === "accepted" ? [addScore("lead_submitted")] : []),
+      ]);
 
       await sendEmailNotification(formData, "contact");
 

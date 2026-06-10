@@ -2,77 +2,17 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { Mail, Linkedin, Instagram } from "lucide-react";
-import imgNadir from "@/assets/team/nadir (1).png";
-import imgMoazzam from "@/assets/team/moazzam.png";
-import imgSajid from "@/assets/team/sajideen.png";
-import imgShamin from "@/assets/team/shamin.png";
-import imgAbeer from "@/assets/team/Abeer Hayat.png";
+import { teamData } from "@/app/components/team/teamData";
 
-const leaders = [
-  {
-    name: "Muhammad Nadir",
-    role: "CEO & Founder",
-    image: imgNadir,
-    message:
-      "As CEO and Founder of TechTide Corporate, I lead our vision to deliver innovative, scalable technology solutions while empowering businesses and nurturing Pakistan’s digital talent ecosystem.",
-    social: {
-      linkedin: "https://www.linkedin.com/in/muhammad-nadir-202186383/",
-      gmail: "ceo@techtidecorporate.com",
-      instagram: "https://www.instagram.com/m.nadirdurrani/",
-    },
-  },
-  {
-    name: "Muhammad Moazzam",
-    role: "CFO",
-    image: imgMoazzam,
-    message:
-      "As CFO at TechTide Co., I oversee financial strategy, budgeting, and risk management to ensure sustainable growth, profitability, and long-term financial stability across all operations.",
-    social: {
-      gmail: "moazzam2526@gmail.com",
-      linkedin: "https://www.linkedin.com/in/muhammad-moazzam-366bb238b/",
-      instagram: "#",
-    },
-  },
-  {
-    name: "Sajideen Hassan",
-    role: "CTO",
-    image: imgSajid,
-    message:
-      "As CTO of TechTide Corporate, I lead our engineering strategy by building secure, high-performance architectures and driving innovation that powers reliable, future-ready digital products.",
-    social: {
-      gmail: "sajideenhassan12@gmail.com",
-      linkedin: "https://www.linkedin.com/in/sajideen-hassan-79875428a/",
-      instagram: "https://www.instagram.com/notshigri/",
-    },
-  },
-  {
-    name: "Shamin Gull",
-    role: "COO",
-    image: imgShamin,
-    message:
-      "As COO at TechTide Co., I manage company-wide operations by aligning teams, optimizing workflows, and ensuring efficient project execution with consistent quality and accountability.",
-    social: {
-      gmail: "Khanshamin512@gmail.com",
-      linkedin: "https://www.linkedin.com/in/shamin-gul-khan/",
-      instagram: "https://www.instagram.com/gul.shamin.khan/",
-    },
-  },
-  {
-    name: "Abeer Hayat",
-    role: "Marketing Director",
-    image: imgAbeer,
-    message:
-      "As Marketing Director at TechTide Co., I lead growth initiatives by building strong brand presence, crafting data-driven strategies, and driving partnerships that turn ideas into measurable business impact. My focus is simple: connect the right solutions with the right businesses, at the right time.",
-    social: {
-      gmail: "abeerhayat@techtidecorporate.com",
-      linkedin: "https://www.linkedin.com/in/abeer-hayat/",
-      instagram: "https://www.instagram.com/_.abeer__hayat.__?igsh=d2N5cnQ0cTFhc3Zr",
-    },
-  },
-];
+const leaders = teamData.filter((m) =>
+  ["CEO", "CTO", "CFO", "COO", "Head"].includes(m.category)
+);
 
 export function LeadershipSection() {
   const [current, setCurrent] = useState(0);
+
+  // If no leaders available, don't render the section
+  if (!leaders || leaders.length === 0) return null;
 
   // Rotate leaders every 5 seconds
   useEffect(() => {
@@ -84,6 +24,7 @@ export function LeadershipSection() {
 
   const handleEmailClick = (e: React.MouseEvent, email: string) => {
     e.preventDefault();
+    if (!email) return;
     navigator.clipboard.writeText(email);
     toast.success("Email copied to clipboard!");
   };
@@ -128,7 +69,7 @@ export function LeadershipSection() {
               "
             </span>
             <p className="text-[#4b5563] text-lg leading-relaxed ">
-              {leaders[current].message}
+              {leaders[current].message || ""}
             </p>
             <span className="absolute -right-2 -bottom-4 text-4xl text-[#453abc] opacity-20 font-serif">
               "
@@ -140,7 +81,7 @@ export function LeadershipSection() {
             <a
               href=""
               onClick={(e) =>
-                handleEmailClick(e, leaders[current].social.gmail)
+                handleEmailClick(e, leaders[current].social?.gmail || "")
               }
               className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-[#453abc] hover:text-white transition-all duration-300"
               aria-label="Gmail"
@@ -148,14 +89,14 @@ export function LeadershipSection() {
               <Mail className="w-5 h-5" />
             </a>
             <a
-              href={leaders[current].social.linkedin}
+              href={leaders[current].social?.linkedin || "#"}
               className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-[#0077b5] hover:text-white transition-all duration-300"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href={leaders[current].social.instagram}
+              href={leaders[current].social?.instagram || "#"}
               className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-[#E1306C] hover:text-white transition-all duration-300"
               aria-label="Instagram"
             >
@@ -167,7 +108,7 @@ export function LeadershipSection() {
         {/* Image Section */}
         <div className="flex-1 relative w-full h-[350px] md:h-[500px] flex justify-center items-center">
           {/* Mobile View: Simple Fade */}
-          <div className="lg:hidden relative w-full h-full flex justify-center items-center">
+          <div className="lg:hidden relative w-full aspect-[4/5] flex justify-center items-center">
             <AnimatePresence mode="wait">
               <motion.img
                 key={leaders[current].name}
@@ -180,7 +121,7 @@ export function LeadershipSection() {
                 onClick={() =>
                   setCurrent((prev) => (prev + 1) % leaders.length)
                 }
-                className="w-auto h-full max-h-[350px] object-contain drop-shadow-xl cursor-pointer"
+                className="w-full h-full object-cover drop-shadow-xl cursor-pointer rounded-2xl"
                 loading="lazy"
                 decoding="async"
               />
@@ -247,7 +188,7 @@ export function LeadershipSection() {
                   }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
                   onClick={() => setCurrent(index)}
-                  className="absolute top-0 left-0 w-full h-full object-contain object-top cursor-pointer"
+                  className="absolute top-0 left-0 w-full h-full object-cover object-top cursor-pointer rounded-2xl"
                   loading="lazy"
                   decoding="async"
                 />

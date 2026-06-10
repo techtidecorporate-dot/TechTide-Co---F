@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import missionImg from "@/assets/landing/Hero Image.webp";
+import missionImg from "@/assets/About/Our Mission.webp";
+import VisionImg from "@/assets/About/Our Vision.webp";
 
 const fadeIn = {
   initial: { opacity: 0, y: 30 },
@@ -18,10 +19,8 @@ export function MissionVisionSection() {
             Our Mission
           </h3>
           <p className="text-[#6b7280] text-base md:text-lg leading-relaxed">
-            To empower businesses with innovative, high-quality digital
-            solutions that streamline operations, enhance customer
-            experiences, and drive sustainable growth in an increasingly
-            connected world.
+           Techtide Corporate LLP is committed to crafting exceptional digital solutions and reinvesting our growth where it matters into the youth, into critical job creation, and into open access to education.
+We stand for progress with intent and partnerships that make a difference.
           </p>
         </div>
         <div className="rounded-[2rem] overflow-hidden shadow-xl">
@@ -38,7 +37,7 @@ export function MissionVisionSection() {
         <div className="order-last lg:order-first">
           <div className="rounded-[2rem] overflow-hidden shadow-xl">
             <img
-              src={missionImg}
+              src={VisionImg}
               alt="Our Vision"
               className="w-full h-72 md:h-96 object-cover"
             />
@@ -50,10 +49,7 @@ export function MissionVisionSection() {
             Our Vision
           </h3>
           <p className="text-[#6b7280] text-base md:text-lg leading-relaxed">
-            To be a trusted global partner in digital transformation —
-            recognized for our technical expertise, creative problem-solving,
-            and unwavering commitment to delivering value for every client we
-            serve.
+           Techtide Corporate LLP is committed to setting a global standard in technological excellence. More than a software company, we serve as a trusted partner in innovation and meaningful impact using advanced technology to uplift communities and build a future-ready world from Pakistan outward.
           </p>
         </div>
       </motion.div>

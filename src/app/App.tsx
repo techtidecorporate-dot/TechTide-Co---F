@@ -5,6 +5,8 @@ import { Footer } from "./components/ui/Footer";
 import { AuthProvider } from "./context/AuthContext";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
 import { Toaster } from "sonner";
+import { CookieBanner } from "./components/tracking/CookieBanner";
+import { usePageTracking } from "./hooks/usePageTracking";
 
 // Lazy load pages
 const LandingPage = lazy(() => import("./pages/landing"));
@@ -35,6 +37,7 @@ const PartnerSubmissions = lazy(() => import("./pages/admin/PartnerSubmissions")
 const AuditSubmissions = lazy(() => import("./pages/admin/AuditSubmissions"));
 const StrategyCallSubmissions = lazy(() => import("./pages/admin/StrategyCallSubmissions"));
 const SubscribersManagement = lazy(() => import("@/app/pages/admin/Subscribers"));
+const LeadsDashboard = lazy(() => import("./pages/admin/LeadsDashboard"));
 
 // Drawers
 const PartnerWithUsDrawer = lazy(() => import("./components/ui/PartnerWithUsDrawer").then(m => ({ default: m.PartnerWithUsDrawer })));
@@ -54,6 +57,8 @@ export default function App() {
   const [isAuditDrawerOpen, setIsAuditDrawerOpen] = useState(false);
   const [isStrategyDrawerOpen, setIsStrategyDrawerOpen] = useState(false);
   
+  usePageTracking();
+
   const isAdminPath = location.pathname.startsWith("/admin");
   const isSignInPath = location.pathname === "/signin";
   const hideNavFooter = isAdminPath || isSignInPath;
@@ -110,6 +115,7 @@ export default function App() {
               <Route path="audits" element={<AuditSubmissions />} />
               <Route path="strategy-calls" element={<StrategyCallSubmissions />} />
               <Route path="subscribers" element={<SubscribersManagement />} />
+              <Route path="leads" element={<LeadsDashboard />} />
             </Route>
           </Routes>
         </Suspense>
@@ -141,6 +147,7 @@ export default function App() {
           </Suspense>
         )}
         
+        <CookieBanner />
         {!hideNavFooter && <Footer />}
       </div>
     </AuthProvider>

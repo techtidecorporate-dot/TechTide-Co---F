@@ -17,12 +17,11 @@ export function HeroSection() {
             About TechTide Corporate LLP
           </p>
           <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-poppins font-medium mb-6 leading-tight md:leading-[1.1] ">
-            Building Digital Solutions That <span className="bg-gradient-to-r from-[#453abc] via-[#60c3e3] to-[#453abc] bg-clip-text text-transparent"> Drive Business Growth</span>
+            Bridging Technology & <span className="bg-gradient-to-r from-[#453abc] via-[#60c3e3] to-[#453abc] bg-clip-text text-transparent"> Business Growth</span>
           </h1>
           <p className="text-[#6b7280] text-base md:text-lg xl:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-            We are a team of passionate developers, designers, and strategists
-            dedicated to helping businesses thrive in the digital age through
-            innovative technology solutions.
+            We are a team of innovators, developers, designers, marketers, and strategists
+            committed to helping businesses transform ideas into powerful digital solutions.
           </p>
           <a
             href="/contact"

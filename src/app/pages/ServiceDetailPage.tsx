@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { systemsData, SystemItem } from "../data/servicesData";
 import { seoServicesData } from "../data/seoServicesData";
+import { marketingExpertise, businessGrowthExpertise } from "../data/marketingServicesData";
 import SEO from "../components/ui/SEO";
 import { RichHeroSection } from "../components/service-detail/RichHeroSection";
 import { IntroductionSection } from "../components/service-detail/IntroductionSection";
@@ -21,7 +22,7 @@ export default function ServiceDetailPage() {
 
   useEffect(() => {
     if (slug) {
-      const allServices = [...seoServicesData, ...systemsData];
+      const allServices = [...seoServicesData, ...systemsData, ...marketingExpertise, ...businessGrowthExpertise];
       const foundService = allServices.find((s) => s.slug === slug);
       setService(foundService || null);
     }

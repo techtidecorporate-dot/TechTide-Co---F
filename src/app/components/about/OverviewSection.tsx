@@ -20,18 +20,22 @@ export function OverviewSection() {
           </span>
         </h2>
         <p className="text-[#6b7280] text-base leading-relaxed mb-4 max-w-3xl mx-auto">
-          Founded in Lahore, TechTide Corporate LLP has grown from a small
-          team of tech enthusiasts into a full-service software development
-          company. We specialize in building custom websites, web
-          applications, ERP systems, CRM platforms, and mobile apps that
-          empower businesses to operate more efficiently and scale
-          effectively.
+          At TechTide Corporate LLP, we are a team of innovators, developers,
+          designers, marketers, and strategists committed to helping businesses
+          transform ideas into powerful digital solutions.
+        </p>
+        <p className="text-[#6b7280] text-base leading-relaxed mb-4 max-w-3xl mx-auto">
+          Founded with a vision to bridge the gap between technology and
+          business growth, we partner with startups, SMEs, and enterprises to
+          build scalable, secure, and results-driven digital products. From
+          web and mobile applications to enterprise systems, digital marketing,
+          and business automation, our goal is to create solutions that deliver
+          measurable impact.
         </p>
         <p className="text-[#6b7280] text-base leading-relaxed max-w-3xl mx-auto">
-          Our approach is simple — understand the client's vision deeply,
-          apply the right technology, and deliver with excellence. Every
-          project we undertake is a partnership built on trust, transparency,
-          and a shared commitment to success.
+          At TechTide Corporate LLP, we don't just build software we build
+          partnerships, empower businesses, and create digital experiences that
+          drive growth worldwide.
         </p>
       </motion.div>
     </section>
