@@ -26,7 +26,7 @@ export function StrategyCallDrawer({ isOpen, onClose }: StrategyCallDrawerProps)
       await strategyCallAPI.create(formData);
       setIsSubmitted(true);
       toast.success("Strategy call requested!");
-    } catch (error) {
+    } catch {
       toast.error("Failed to submit request.");
     } finally {
       setLoading(false);

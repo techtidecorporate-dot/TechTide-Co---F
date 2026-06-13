@@ -68,7 +68,7 @@ export function PartnerWithUsDrawer({
 
       setIsSubmitted(true);
       toast.success("Request submitted successfully!");
-    } catch (error) {
+    } catch {
       toast.error("Failed to submit request. Please try again.");
     } finally {
       setLoading(false);

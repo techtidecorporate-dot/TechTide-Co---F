@@ -1,4 +1,9 @@
 import { SystemItem } from "./servicesData";
+import FunnelImage from '../../assets/Services/Marketing/funnel infographics.webp'
+import LeadImage from '../../assets/Services/Marketing/lead Generation.webp'
+import BrandpositionImage from '../../assets/Services/Marketing/top-viewtop-view-manager-employee-doing-teamwork-business-office-looking-charts-laptop-display.webp'
+import SEOImage from '../../assets/Services/Marketing/SEO Marketing.webp'
+import SocialMediaImage from '../../assets/Services/Marketing/businesswoman-working-laptop.jpg (1).webp'
 
 export const marketingExpertise: SystemItem[] = [
   {
@@ -6,7 +11,7 @@ export const marketingExpertise: SystemItem[] = [
     title: "SEO & Organic Growth",
     shortDescription: "Lead-focused SEO strategies that attract qualified buyers, not just traffic.",
     description: "We build organic growth engines that target high-intent keywords and drive decision-makers to your site. Our SEO goes beyond rankings — it focuses on converting search traffic into qualified leads through content aligned with your sales funnel.",
-    image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80",
+    image:SEOImage,
     features: [
       "Lead-Focused Keyword Strategy",
       "Buyer Intent Content Optimization",
@@ -22,7 +27,12 @@ export const marketingExpertise: SystemItem[] = [
     bgColor: "#f8f9fa",
     seoTitle: "Lead-Focused SEO & Organic Growth Services",
     seoDescription: "SEO strategies designed to attract qualified leads and drive conversions, not just traffic.",
-    seoKeywords: ["SEO", "organic growth", "lead generation SEO", "B2B SEO", "conversion-focused SEO"]
+    seoKeywords: ["SEO", "organic growth", "lead generation SEO", "B2B SEO", "conversion-focused SEO"],
+    faqs: [
+      { question: "How do you target buyers who are ready to purchase instead of just driving traffic?", answer: "We focus on high-intent search keywords and targeted audience mapping to bring in leads, not just vanity metrics." },
+      { question: "How do you find the specific bottlenecks on our pages that are hurting conversions?", answer: "We use heatmaps and user session recordings to see exactly where visitors drop off and then redesign those elements." },
+      { question: "How soon can we expect to see measurable results from our marketing spend?", answer: "Paid ad campaigns typically generate leads instantly, while organic SEO scales as a long-term investment over 3 to 6 months." },
+    ],
   },
   {
     id: "m2",
@@ -75,7 +85,7 @@ export const marketingExpertise: SystemItem[] = [
     title: "Paid Ads Strategy",
     shortDescription: "ROI-driven ad campaigns across Google, Meta, and LinkedIn that deliver qualified leads.",
     description: "We manage end-to-end paid media campaigns with precise targeting, compelling creative, and relentless optimization. Every dollar of ad spend is tracked and attributed to real business outcomes.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    image: SocialMediaImage,
     features: [
       "Google Ads & PPC Management",
       "Meta (Facebook & Instagram) Advertising",
@@ -98,7 +108,7 @@ export const marketingExpertise: SystemItem[] = [
     title: "Brand Positioning & Messaging",
     shortDescription: "Distinct brand positioning and messaging that differentiates you in crowded markets.",
     description: "We help you define who you are, what you stand for, and how you communicate it. From brand voice to value propositions, we craft messaging that resonates with your ideal customers and sets you apart from competitors.",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=800&q=80",
+    image: BrandpositionImage,
     features: [
       "Brand Voice & Tone Development",
       "Unique Value Proposition (UVP) Definition",
@@ -147,7 +157,7 @@ export const businessGrowthExpertise: SystemItem[] = [
     title: "Lead Generation Systems",
     shortDescription: "End-to-end lead generation systems that deliver a predictable flow of qualified prospects.",
     description: "We design and deploy integrated lead generation systems combining multi-channel strategies, automation, and CRM integration. The result is a consistent, measurable stream of high-quality leads that your sales team can convert.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    image: LeadImage,
     features: [
       "Multi-Channel Lead Generation Strategy",
       "Lead Capture & Nurture Automation",
@@ -163,14 +173,19 @@ export const businessGrowthExpertise: SystemItem[] = [
     bgColor: "#f8f9fa",
     seoTitle: "Lead Generation Systems & Pipeline Automation",
     seoDescription: "End-to-end lead generation systems delivering predictable, qualified prospects through multi-channel automation.",
-    seoKeywords: ["lead generation", "lead generation systems", "B2B lead generation", "sales pipeline", "lead automation"]
+    seoKeywords: ["lead generation", "lead generation systems", "B2B lead generation", "sales pipeline", "lead automation"],
+    faqs: [
+      { question: "What actionable insights do we get from a Growth Audit?", answer: "You receive a step-by-step roadmap exposing where your funnel loses leads and showing how to unlock hidden revenue." },
+      { question: "How do you fix the disconnect between our marketing leads and our sales team?", answer: "We map your funnel tools straight to your CRM, setting up instant alerts so sales reps can act the moment a lead is hot." },
+      { question: "How do you determine which tech tools we should implement to scale?", answer: "We analyze your operational costs and team bottlenecks, then consult on specific automations that cut overhead and boost efficiency." },
+    ],
   },
   {
     id: "b2",
     title: "Sales Funnel & Customer Journey Design",
     shortDescription: "Strategically designed sales funnels and customer journeys that guide prospects to purchase.",
     description: "We map and design every touchpoint of your customer journey — from first awareness to post-purchase retention. Our funnels are built to reduce friction, increase engagement, and maximize lifetime value.",
-    image: "https://images.unsplash.com/photo-1553729459-afe8f2e2b7e6?auto=format&fit=crop&w=800&q=80",
+    image: FunnelImage,
     features: [
       "Full-Funnel Strategy & Design",
       "Awareness to Conversion Mapping",

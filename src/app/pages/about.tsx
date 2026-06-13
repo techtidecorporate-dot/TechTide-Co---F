@@ -7,7 +7,6 @@ import {
   HeroSection,
   OverviewSection,
   MissionVisionSection,
-  ProductsSection,
   LeadershipSection,
   CoreValuesSection,
   CTASection,
@@ -37,11 +36,9 @@ export default function AboutPage() {
       <HeroSection />
       <OverviewSection />
       <MissionVisionSection />
-      <ProductsSection />
       <LeadershipSection />
       <CoreValuesSection />
       <CTASection />
-
       <FAQ {...aboutFAQ} />
     </main>
   );

@@ -25,7 +25,7 @@ export function AuditDrawer({ isOpen, onClose }: AuditDrawerProps) {
       await auditAPI.create(formData);
       setIsSubmitted(true);
       toast.success("Audit request submitted!");
-    } catch (error) {
+    } catch {
       toast.error("Failed to submit request.");
     } finally {
       setLoading(false);

@@ -16,10 +16,13 @@ import { systemsData } from "@/app/data/servicesData";
 
 const footerLinks = {
   quicklinks: [
-    { label: "Services", href: "/services" },
-    { label: "About Us", href: "/about" },
-    { label: "Careers", href: "/career" },
-    { label: "Contact", href: "/contact" },
+    { label: "Web Development", href: "/services/web-applications" },
+    { label: "Custom Software", href: "/services/custom-software" },
+    { label: "E-Commerce", href: "/services/ecommerce-development" },
+    { label: "SaaS", href: "/services/saas-product-development" },
+    { label: "UI/UX Design", href: "/services/ui-ux-design" },
+    { label: "Integrations", href: "/services/api-integration" },
+    { label: "Maintenance", href: "/services/maintenance-support" },
   ],
   services: systemsData.slice(0, 4).map(s => ({
     label: s.title,
@@ -62,9 +65,9 @@ export function Footer() {
               </Link>
             </div>
             <p className="text-gray-400 text-sm mt-6 max-w-md mx-auto md:mx-0 leading-relaxed">
-              Based in Pakistan, Serving the World. We build high-performance
+              Based in Pakistan, Serving the World. We build high performance
               web, mobile, and SaaS solutions for businesses across the UK, USA, 
-              Canada, Germany, and Europe.
+              Canada, Germany.
             </p>
 
             {/* Social Links */}
@@ -172,6 +175,7 @@ export function Footer() {
                 <li className="flex items-start gap-3">
                   <a
                     href="https://www.google.com/maps/place/Techtide+Corporate+LLP/@31.548828,74.3988149,606m/data=!3m1!1e3!4m16!1m9!3m8!1s0x3919050017953d65:0x4946f90f8a3851c2!2sTechtide+Corporate+LLP!8m2!3d31.548828!4d74.4013898!9m1!1b1!16s%2Fg%2F11yn8dzf8z!3m5!1s0x3919050017953d65:0x4946f90f8a3851c2!8m2!3d31.548828!4d74.4013898!16s%2Fg%2F11yn8dzf8z?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
                     className="flex items-center gap-2 text-gray-400 text-sm leading-relaxed"
                   >
                     <MapPin
@@ -225,7 +229,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-400 text-sm text-center">
-            © 2025 TechTideCo. All rights reserved.
+            © 2026 TechTideCo. All rights reserved.
           </p>
 
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">

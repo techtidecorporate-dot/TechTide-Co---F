@@ -35,17 +35,15 @@ const serviceCategories: {
     ],
   },
   {
-    category: "Development",
+    category: "Web Services",
     items: [
-      { href: "/services/web-applications", label: "Web Applications" },
-      { href: "/services/mobile-applications", label: "Mobile Applications" },
-      { href: "/services/custom-software", label: "Custom Software" },
-      { href: "/services/saas-product-development", label: "Scalable SaaS Products" },
-      { href: "/services/api-integration", label: "API & System Integration" },
-      { href: "/services/business-automation-systems", label: "Business Automation Systems" },
-      { href: "/services/machine-learning", label: "Machine Learning" },
-      { href: "/services/ai-automation", label: "AI Automation" },
-      { href: "/services/generative-ai", label: "Generative AI" },
+      { href: "/services/web-applications", label: "Web Application Development" },
+      { href: "/services/custom-software", label: "Custom Software Development" },
+      { href: "/services/ecommerce-development", label: "E-Commerce Development" },
+      { href: "/services/saas-product-development", label: "SaaS Product Development" },
+      { href: "/services/ui-ux-design", label: "UI/UX Design" },
+      { href: "/services/api-integration", label: "Integration & Workflow Automation" },
+      { href: "/services/maintenance-support", label: "Ongoing Maintenance & Support" },
     ],
   },
   {
@@ -58,6 +56,7 @@ const serviceCategories: {
 ];
 
 const navItems = [
+  { href: "/products", label: "Products" },
   { href: "/blog", label: "Blog" },
   { href: "/career", label: "Career" },
   { href: "/contact", label: "Contact Us" },

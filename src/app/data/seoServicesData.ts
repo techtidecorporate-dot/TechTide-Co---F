@@ -172,6 +172,11 @@ export const seoServicesData: SystemItem[] = [
     ],
     ctaHeading: "Ready to Build Your Next Web Application?",
     ctaDescription: "Partner with TechTide Corporate LLP your trusted web development company in Pakistan serving businesses across the UK, USA, Canada, Germany, and Europe. Let's discuss your project and deliver a web solution that drives real business results.",
+    faqs: [
+      { question: "How do we know if we need a web application or just a regular website?", answer: "If your users need to log in, manage accounts, and manipulate data (like a portal or dashboard), you need a web application." },
+      { question: "Will the application work smoothly on mobile phones?", answer: "Yes, we build everything with responsive design so it functions perfectly on all screens and mobile devices." },
+      { question: "How do you ensure the system won't crash during high-traffic spikes?", answer: "We build on cloud-based, scalable infrastructure that automatically adjusts to handle surges in active users." },
+    ],
   },
 
   {
@@ -340,6 +345,11 @@ export const seoServicesData: SystemItem[] = [
     ],
     ctaHeading: "Ready to Launch Your Mobile App?",
     ctaDescription: "Partner with TechTide Corporate LLP your trusted mobile app development company in Pakistan. Whether you need an iOS, Android, Flutter, or React Native app, we'll bring your vision to life for clients across the UK, USA, Canada, Germany, and Europe.",
+    faqs: [
+      { question: "Do we have to pay for two separate apps for iOS and Android?", answer: "No, we use cross-platform frameworks to build one codebase that deploys beautifully to both stores, saving you time and budget." },
+      { question: "Will you handle the process of getting our app approved by Apple and Google?", answer: "Yes, we manage the entire submission lifecycle and ensure compliance with all privacy and technical guidelines." },
+      { question: "Can you build the mobile app to work when users are offline?", answer: "Yes, we can design local data caching so users retain core features without internet and sync once reconnected." },
+    ],
   },
 
   {
@@ -498,5 +508,10 @@ export const seoServicesData: SystemItem[] = [
     ],
     ctaHeading: "Ready to Build Your SaaS Product?",
     ctaDescription: "Partner with TechTide Corporate LLP your trusted SaaS development company and custom software development partner in Pakistan. Whether you need an MVP, a dedicated offshore team, or a full enterprise platform, we're ready to help you build, launch, and scale.",
+    faqs: [
+      { question: "Can you help us launch a lean MVP to test the market first?", answer: "Yes, we focus on building a core version quickly so you can get to market, gather user feedback, and validate your idea." },
+      { question: "How do you handle automated recurring billing and customer upgrades?", answer: "We integrate flexible billing engines like Stripe or Paddle to automate subscriptions, tiers, and invoices." },
+      { question: "How do you prevent users from seeing other customers' data?", answer: "We use high-security, multi-tenant architecture to completely isolate data between different user accounts." },
+    ],
   },
 ];

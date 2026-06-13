@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { ScrollText, ShieldCheck, Award, Cloud } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -8,10 +8,10 @@ const fadeUp = {
 };
 
 const certifications = [
-  { title: "Registered LLP", body: "Fully registered Limited Liability Partnership compliant with SECP regulations." },
-  { title: "Data Protection Compliant", body: "Adhering to international data protection standards including GDPR guidelines." },
-  { title: "ISO-aligned Processes", body: "Our development and delivery processes follow ISO 9001 quality management standards." },
-  { title: "Cloud Certified Team", body: "Team members hold certifications in AWS, Google Cloud, and Microsoft Azure." },
+  { title: "Registered LLP", body: "Fully registered Limited Liability Partnership compliant with SECP regulations.", icon: <ScrollText className="w-5 h-5" /> },
+  { title: "Data Protection Compliant", body: "Adhering to international data protection standards including GDPR guidelines.", icon: <ShieldCheck className="w-5 h-5" /> },
+  { title: "ISO-aligned Processes", body: "Our development and delivery processes follow ISO 9001 quality management standards.", icon: <Award className="w-5 h-5" /> },
+  { title: "Cloud Certified Team", body: "Team members hold certifications in AWS, Google Cloud, and Microsoft Azure.", icon: <Cloud className="w-5 h-5" /> },
 ];
 
 export function CertificationsSection() {
@@ -34,7 +34,7 @@ export function CertificationsSection() {
             className="bg-white rounded-2xl border border-gray-100 p-6 shadow-md hover:shadow-xl transition-all"
           >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white mb-4">
-              <CheckCircle className="w-5 h-5" />
+              {cert.icon}
             </div>
             <h3 className="text-base font-poppins font-semibold text-[#191a23] mb-2">
               {cert.title}

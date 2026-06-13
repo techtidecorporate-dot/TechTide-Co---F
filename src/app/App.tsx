@@ -21,6 +21,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
 const CompanyProfile = lazy(() => import("./pages/CompanyProfile"));
+const ProductsPage = lazy(() => import("./pages/products"));
 const SignInPage = lazy(() => import("./components/ui/signin"));
 
 // Admin Routes
@@ -100,6 +101,7 @@ export default function App() {
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/company-profile" element={<CompanyProfile />} />
+            <Route path="/products" element={<ProductsPage />} />
 
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLayout />}>

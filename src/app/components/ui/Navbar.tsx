@@ -12,6 +12,7 @@ import { MobileMenu } from "./MobileMenu";
 import imgVector from "@/assets/brand-logo-dark.svg";
 
 const navItems = [
+  { href: "/products", label: "Products" },
   { href: "/blog", label: "Blog" },
   { href: "/career", label: "Career" },
   { href: "/contact", label: "Contact Us" },

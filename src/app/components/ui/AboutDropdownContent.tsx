@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const aboutDropdownItems = [
   { href: "/about#overview", label: "Overview" },
-  { href: "/about#products", label: "Products" },
   { href: "/about#leadership", label: "Leadership" },
   { href: "/company-profile", label: "Company Profile" },
 ];
@@ -10,7 +9,6 @@ const aboutDropdownItems = [
 const descriptions: Record<string, string> = {
   Overview: "Learn about our story, mission, and values.",
   Leadership: "Meet the experts driving our success.",
-  Products: "Explore our digital products and solutions.",
   "Company Profile": "View our company details and registration.",
 };
 

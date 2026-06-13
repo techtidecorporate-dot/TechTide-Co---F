@@ -32,7 +32,7 @@ export function SupportSection() {
         subject: "",
         message: "",
       });
-    } catch (error) {
+    } catch {
       toast.error("Failed to send message. Please try again later.");
     } finally {
       setLoading(false);

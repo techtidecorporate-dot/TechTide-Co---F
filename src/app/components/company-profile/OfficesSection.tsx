@@ -12,8 +12,8 @@ const office = {
   address: "G3 Heaven Mall, Zaraar Shaheed Road",
   country: "Pakistan",
   isHeadquarters: true,
-  phone: "+92 300 1234567",
-  hours: "Mon-Sat: 11:00 AM - 7:00 PM",
+  phone: "+92 324 7991484",
+  hours: "Mon-Sat: 10:00 AM - 06:00 PM",
 };
 
 export function OfficesSection() {
@@ -71,7 +71,7 @@ export function OfficesSection() {
             </div>
 
             <a
-              href="https://maps.google.com/?q=G3+Heaven+Mall+Zaraar+Shaheed+Road+Lahore"
+              href="https://www.google.com/maps/place/Techtide+Corporate+LLP/@31.548828,74.3988149,606m/data=!3m1!1e3!4m16!1m9!3m8!1s0x3919050017953d65:0x4946f90f8a3851c2!2sTechtide+Corporate+LLP!8m2!3d31.548828!4d74.4013898!9m1!1b1!16s%2Fg%2F11yn8dzf8z!3m5!1s0x3919050017953d65:0x4946f90f8a3851c2!8m2!3d31.548828!4d74.4013898!16s%2Fg%2F11yn8dzf8z?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-[#453abc] hover:text-[#3a2ea0] transition-colors w-fit"

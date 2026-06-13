@@ -9,3 +9,4 @@ export { FeaturesSection } from "./FeaturesSection";
 export { RichCTASection } from "./RichCTASection";
 export { FallbackLayout } from "./FallbackLayout";
 export { ServiceNotFound } from "./ServiceNotFound";
+export { FAQSection } from "./FAQSection";

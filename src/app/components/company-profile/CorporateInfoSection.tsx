@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, FileText, Calendar, Landmark, Users, Globe, Phone, Mail } from "lucide-react";
+import { Building2, FileText, Calendar, Landmark, Globe, Phone, Mail, Fingerprint } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -10,17 +10,17 @@ const fadeUp = {
 const corporateInfo = [
   { icon: <Building2 className="w-5 h-5" />, label: "Legal Name", value: "TechTide Corporate LLP" },
   { icon: <FileText className="w-5 h-5" />, label: "Entity Type", value: "Limited Liability Partnership (LLP)" },
-  { icon: <Calendar className="w-5 h-5" />, label: "Year Established", value: "2021" },
+  { icon: <Fingerprint className="w-5 h-5" />, label: "Registration No", value: "Z-25-17381/25" },
+  { icon: <Calendar className="w-5 h-5" />, label: "Year Established", value: "2025" },
   { icon: <Landmark className="w-5 h-5" />, label: "Jurisdiction", value: "Registered under the laws of Pakistan" },
-  { icon: <Users className="w-5 h-5" />, label: "Team Size", value: "20+ Professionals" },
   { icon: <Globe className="w-5 h-5" />, label: "Service Area", value: "Worldwide (Remote & On-site)" },
   { icon: <Phone className="w-5 h-5" />, label: "Phone", value: "+92 300 1234567" },
   { icon: <Mail className="w-5 h-5" />, label: "Email", value: "info@techtidecorporate.com" },
-];
+ ];
 
 export function CorporateInfoSection() {
   return (
-    <section className="max-w-5xl mx-auto px-6 pb-20">
+    <section className="max-w-5xl mx-auto px-6 pb-20 mt-16">
       <motion.div {...fadeUp} className="text-center mb-12">
         <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
           Corporate Information

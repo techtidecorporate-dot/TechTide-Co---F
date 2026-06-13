@@ -15,6 +15,7 @@ import { FeaturesSection } from "../components/service-detail/FeaturesSection";
 import { RichCTASection } from "../components/service-detail/RichCTASection";
 import { FallbackLayout } from "../components/service-detail/FallbackLayout";
 import { ServiceNotFound } from "../components/service-detail/ServiceNotFound";
+import { FAQSection } from "../components/service-detail/FAQSection";
 
 export default function ServiceDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -80,6 +81,10 @@ export default function ServiceDetailPage() {
           <FeaturesSection features={service.features} />
         )}
 
+        {service.faqs && service.faqs.length > 0 && (
+          <FAQSection faqs={service.faqs} title={service.title} />
+        )}
+
         <RichCTASection service={service} />
       </div>
     );
@@ -87,7 +92,7 @@ export default function ServiceDetailPage() {
 
   /* ---- Fallback: Original Simple Layout ---- */
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f9fafb] via-[#fcfcfd] to-white pt-32 pb-24">
+    <div className="py-24 ">
       <SEO
         title={service.title}
         description={service.shortDescription}
@@ -96,6 +101,10 @@ export default function ServiceDetailPage() {
         ogUrl={`https://techtidecorporate.com/services/${service.slug}`}
       />
       <FallbackLayout service={service} />
+
+      {service.faqs && service.faqs.length > 0 && (
+        <FAQSection faqs={service.faqs} title={service.title} />
+      )}
     </div>
   );
 }

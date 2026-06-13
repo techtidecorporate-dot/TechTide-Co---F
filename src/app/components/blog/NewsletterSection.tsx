@@ -18,7 +18,7 @@ export function NewsletterSection({
       <div className="relative overflow-hidden bg-[#191a23] bg-gradient-to-br from-[#191a23] via-[#453abc]/20 to-[#191a23] rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 text-center">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#453abc]/10 rounded-full blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#60c3e3]/10 rounded-full blur-[100px]" />
-
+ 
         <div className="relative z-10">
           <h2 className="text-3xl md:text-5xl font-poppins font-medium text-white mb-6">
             Subscribe to TechTide{" "}
