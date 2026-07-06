@@ -1,6 +1,10 @@
 export { RichHeroSection } from "./RichHeroSection";
 export { IntroductionSection } from "./IntroductionSection";
 export { OfferingsSection } from "./OfferingsSection";
+export { SolutionsSection } from "./SolutionsSection";
+export { PerfectForSection } from "./PerfectForSection";
+export { BusinessOutcomesSection } from "./BusinessOutcomesSection";
+export { TechnologyStackSection } from "./TechnologyStackSection";
 export { BenefitsSection } from "./BenefitsSection";
 export { ProcessSection } from "./ProcessSection";
 export { UseCasesSection } from "./UseCasesSection";

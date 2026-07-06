@@ -31,10 +31,10 @@ const reasons = [
 
 export function WhyChooseUs() {
   return (
-    <section style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}} className="bg-[#f8f9fa] py-20 px-6 md:px-16 overflow-hidden">
+    <section style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}} className="bg-[#f8f9fa] py-16 md:py-20 px-4 sm:px-6 md:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Top Header - Centered */}
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,9 +48,9 @@ export function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-poppins font-bold text-[#191a23] leading-[1.1] mb-8"
+            className="text-[1.75rem] sm:text-4xl md:text-6xl font-poppins font-bold text-[#191a23] leading-[1.1] mb-6 md:mb-8"
           >
-            A Digital Partner That <br className="hidden md:block" />
+            A Digital Partner That <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
               Focuses on Results
             </span>
@@ -60,14 +60,14 @@ export function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-500 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
+            className="text-gray-500 text-sm sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
           >
             We focus on what actually matters to your business. We move beyond
             basic digital presence to build efficient, reliable systems.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
           {/* Left Column: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -81,7 +81,7 @@ export function WhyChooseUs() {
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
                 alt="Expert digital team collaborating on scalable solutions"
                 loading="lazy"
-                className="w-full h-full object-cover aspect-[4/5] md:aspect-auto md:h-[650px] hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover aspect-[16/9] sm:aspect-[4/5] md:aspect-auto md:h-[650px] hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#191a23]/30 to-transparent" />
             </div>
@@ -102,13 +102,13 @@ export function WhyChooseUs() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ x: 10 }}
-                  className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex items-start gap-5 hover:shadow-md transition-all group"
+                  className="bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100 flex items-start gap-4 sm:gap-5 hover:shadow-md transition-all group"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 group-hover:scale-110 transition-transform">
                     {reason.icon}
                   </div>
                   <div>
-                    <h4 className="text-xl font-poppins font-bold text-[#191a23] mb-1 group-hover:text-[#453abc] transition-colors">
+                    <h4 className="text-base sm:text-xl font-poppins font-bold text-[#191a23] mb-1 group-hover:text-[#453abc] transition-colors">
                       {reason.title}
                     </h4>
                     <p className="text-gray-500 text-sm leading-relaxed">
@@ -126,9 +126,9 @@ export function WhyChooseUs() {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5 }}
-           className="mt-24 text-center"
+           className="mt-12 md:mt-24 text-center"
         >
-          <p className="text-xl md:text-3xl text-[#191a23] font-poppins font-medium italic opacity-80">
+          <p className="text-base sm:text-xl md:text-3xl text-[#191a23] font-poppins font-medium italic opacity-80">
             "Clients work with us because we make things <span className="text-[#453abc]">simple</span>, <span className="text-[#453abc]">reliable</span>, and <span className="text-[#453abc]">effective</span>."
           </p>
   

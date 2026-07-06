@@ -2,27 +2,27 @@ import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
-    <header className="relative h-screen pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+    <header className="relative min-h-[50vh] md:h-screen pt-24 pb-12 md:pt-48 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[80px] md:blur-[120px]" />
+        <div className="absolute top-[-10%] right-[-10%] w-[200px] md:w-[600px] h-[200px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[60px] md:blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[200px] md:w-[600px] h-[200px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[60px] md:blur-[120px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-8 text-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
+          <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-xs sm:text-sm font-medium tracking-[0.2em] uppercase mb-3 md:mb-4">
             Our Expertise in Web & Software Solutions
           </p>
-          <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-poppins text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
+          <h1 className="text-[1.75rem] sm:text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-poppins text-[#191a23] mb-4 md:mb-6 leading-tight md:leading-[1.1]">
             Comprehensive Technology{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
               Services for Businesses
             </span>
           </h1>
-          <p className="text-[#6b7280] text-base md:text-lg xl:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#6b7280] text-sm sm:text-base md:text-lg xl:text-xl max-w-2xl mx-auto leading-relaxed">
             We deliver end-to-end web development, ERP, CRM, e-commerce, and
             custom software solutions that help businesses innovate, automate
             processes, and grow in the digital era.

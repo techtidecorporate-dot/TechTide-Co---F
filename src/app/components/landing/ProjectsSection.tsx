@@ -88,7 +88,7 @@ export function ProjectsSection() {
   return (
     <section
       style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
-      className="relative bg-white py-20 md:py-32 overflow-hidden"
+      className="relative bg-white py-16 md:py-32 overflow-hidden"
       id="projects"
     >
       {/* Animated Background Elements */}
@@ -101,22 +101,22 @@ export function ProjectsSection() {
       </div>
 
       {/* Header */}
-      <div className="relative text-center mb-16 md:mb-24 px-6">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 text-gray-900 tracking-tight">
+      <div className="relative text-center mb-12 md:mb-24 px-4 sm:px-6">
+        <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl lg:text-6xl font-poppins font-bold mb-4 md:mb-6 text-gray-900 tracking-tight">
           Success Stories &{" "}
           <span className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">
             Case Studies
           </span>
         </h2>
 
-        <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+        <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">
           Real businesses. Real problems. Measurable results.
         </p>
       </div>
 
       {/* Main Content - Image Left, Info Right */}
-      <div className="relative max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center mb-12 md:mb-16">
           {/* Left Side - Project Image */}
           <div className="relative group order-2 lg:order-1">
             <div className="absolute -inset-4 bg-gradient-to-r from-[#453abc] to-[#60c3e3] rounded-[2.5rem] blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
@@ -150,12 +150,12 @@ export function ProjectsSection() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               {/* Title */}
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold mb-6 text-gray-900 leading-[1.15]">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-poppins font-bold mb-4 md:mb-6 text-gray-900 leading-[1.15]">
                 {activeProject.title}
               </h3>
 
               {/* Problem */}
-              <div className="mb-6">
+              <div className="mb-4 md:mb-6">
                 <p className="text-sm font-bold text-[#453abc] uppercase tracking-widest mb-2">
                   The Problem
                 </p>
@@ -165,18 +165,18 @@ export function ProjectsSection() {
               </div>
 
               {/* Description */}
-              <div className="mb-8">
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+              <div className="mb-6 md:mb-8">
+                <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
                   {activeProject.description}
                 </p>
               </div>
 
               {/* Results */}
-              <div className="mb-8 p-6 bg-gradient-to-br from-[#453abc]/5 to-[#60c3e3]/5 rounded-2xl border border-[#453abc]/10">
+              <div className="mb-6 md:mb-8 p-4 sm:p-6 bg-gradient-to-br from-[#453abc]/5 to-[#60c3e3]/5 rounded-2xl border border-[#453abc]/10">
                 <p className="text-sm font-bold text-[#453abc] uppercase tracking-widest mb-2">
                   Measurable Results
                 </p>
-                <p className="text-2xl md:text-3xl font-poppins font-bold text-gray-900">
+                <p className="text-lg sm:text-2xl md:text-3xl font-poppins font-bold text-gray-900">
                   {activeProject.results}
                 </p>
               </div>
@@ -205,8 +205,8 @@ export function ProjectsSection() {
         </div>
 
         {/* Thumbnail Gallery & Dots combined for tighter UX */}
-        <div className="flex flex-col items-center gap-8 mt-12 md:mt-20">
-          <div className="flex justify-center items-center gap-4 px-4 overflow-x-auto pb-6 scrollbar-hide w-full max-w-4xl">
+        <div className="flex flex-col items-center gap-6 md:gap-8 mt-8 md:mt-20">
+          <div className="flex justify-center items-center gap-3 sm:gap-4 px-4 overflow-x-auto pb-4 md:pb-6 scrollbar-hide w-full max-w-4xl">
             {projects.map((project, index) => (
               <button
                 key={index}

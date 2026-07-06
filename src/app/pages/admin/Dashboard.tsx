@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/app/context/AuthContext";
 import { Users, Briefcase, BookOpen, Mail, LucideIcon } from "lucide-react";
-import { authAPI, blogAPI, jobAPI, contactAPI, talentPoolAPI } from "@/api";
+import { getCount, getLatest } from "@/api";
 
 interface StatCardProps {
   label: string;
@@ -53,29 +53,31 @@ export default function Dashboard() {
   >([]);
 
   useEffect(() => {
+    let cancelled = false;
+
     const fetchStats = async () => {
       try {
-        const [usersRes, jobsRes, blogsRes, messagesRes, talentRes] =
-          await Promise.allSettled([
-            authAPI.getUsers(),
-            jobAPI.getAll(),
-            blogAPI.getAll(),
-            contactAPI.getAll(),
-            talentPoolAPI.getAll(),
+        const [users, jobs, blogs, messages, talentPool] = await Promise.all([
+          getCount("users"),
+          getCount("jobs"),
+          getCount("blogs"),
+          getCount("messages"),
+          getCount("talent-pool"),
+        ]);
+
+        if (cancelled) return;
+        setStats({ users, jobs, blogs, messages, talentPool });
+
+        const [latestBlog, latestMessage, latestJob, latestTalent] =
+          await Promise.all([
+            getLatest<any>("blogs"),
+            getLatest<any>("messages"),
+            getLatest<any>("jobs"),
+            getLatest<any>("talent-pool"),
           ]);
 
-        const get = (res: PromiseSettledResult<any>) =>
-          res.status === "fulfilled" ? (res.value?.data?.length ?? 0) : 0;
+        if (cancelled) return;
 
-        setStats({
-          users: get(usersRes),
-          jobs: get(jobsRes),
-          blogs: get(blogsRes),
-          messages: get(messagesRes),
-          talentPool: get(talentRes),
-        });
-
-        // Build recent activity
         const getRelativeTime = (iso?: string) => {
           if (!iso) return "Recently";
           const diff = Date.now() - new Date(iso).getTime();
@@ -88,48 +90,32 @@ export default function Dashboard() {
 
         const activity: { label: string; time: string }[] = [];
 
-        if (blogsRes.status === "fulfilled") {
-          const blogsData = blogsRes.value?.data ?? [];
-          if (blogsData.length > 0) {
-            const latest = blogsData[blogsData.length - 1];
-            activity.push({
-              label: `Blog post: "${latest.title?.slice(0, 40) ?? "Untitled"}"`,
-              time: getRelativeTime(latest.createdAt),
-            });
-          }
+        if (latestBlog) {
+          activity.push({
+            label: `Blog post: "${latestBlog.title?.slice(0, 40) ?? "Untitled"}"`,
+            time: getRelativeTime(latestBlog.createdAt),
+          });
         }
 
-        if (messagesRes.status === "fulfilled") {
-          const messagesData = messagesRes.value?.data ?? [];
-          if (messagesData.length > 0) {
-            const latest = messagesData[messagesData.length - 1];
-            activity.push({
-              label: `Contact form from ${latest.name ?? "Unknown"}`,
-              time: getRelativeTime(latest.createdAt),
-            });
-          }
+        if (latestMessage) {
+          activity.push({
+            label: `Contact form from ${latestMessage.name ?? "Unknown"}`,
+            time: getRelativeTime(latestMessage.createdAt),
+          });
         }
 
-        if (jobsRes.status === "fulfilled") {
-          const jobsData = jobsRes.value?.data ?? [];
-          if (jobsData.length > 0) {
-            const latest = jobsData[jobsData.length - 1];
-            activity.push({
-              label: `Job application from ${latest.name ?? "Unknown"}`,
-              time: getRelativeTime(latest.createdAt),
-            });
-          }
+        if (latestJob) {
+          activity.push({
+            label: `Job application from ${latestJob.name ?? "Unknown"}`,
+            time: getRelativeTime(latestJob.createdAt),
+          });
         }
 
-        if (talentRes.status === "fulfilled") {
-          const talentData = talentRes.value?.data ?? [];
-          if (talentData.length > 0) {
-            const latest = talentData[talentData.length - 1];
-            activity.push({
-              label: `Talent Pool entry from ${latest.name ?? "Unknown"}`,
-              time: getRelativeTime(latest.createdAt),
-            });
-          }
+        if (latestTalent) {
+          activity.push({
+            label: `Talent Pool entry from ${latestTalent.name ?? "Unknown"}`,
+            time: getRelativeTime(latestTalent.createdAt),
+          });
         }
 
         if (activity.length === 0) {
@@ -140,11 +126,15 @@ export default function Dashboard() {
       } catch (err) {
         console.error("Failed to load dashboard stats", err);
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
 
     fetchStats();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (

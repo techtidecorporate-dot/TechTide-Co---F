@@ -7,11 +7,11 @@ import SEO from "../components/ui/SEO";
 import { RichHeroSection } from "../components/service-detail/RichHeroSection";
 import { IntroductionSection } from "../components/service-detail/IntroductionSection";
 import { OfferingsSection } from "../components/service-detail/OfferingsSection";
+import { SolutionsSection } from "../components/service-detail/SolutionsSection";
+import { PerfectForSection } from "../components/service-detail/PerfectForSection";
+import { BusinessOutcomesSection } from "../components/service-detail/BusinessOutcomesSection";
 import { BenefitsSection } from "../components/service-detail/BenefitsSection";
-import { ProcessSection } from "../components/service-detail/ProcessSection";
 import { UseCasesSection } from "../components/service-detail/UseCasesSection";
-import { WhyTechTideSection } from "../components/service-detail/WhyTechTideSection";
-import { FeaturesSection } from "../components/service-detail/FeaturesSection";
 import { RichCTASection } from "../components/service-detail/RichCTASection";
 import { FallbackLayout } from "../components/service-detail/FallbackLayout";
 import { ServiceNotFound } from "../components/service-detail/ServiceNotFound";
@@ -50,11 +50,19 @@ export default function ServiceDetailPage() {
 
         <RichHeroSection service={service} />
 
+        {service.perfectFor && service.perfectFor.length > 0 && (
+          <PerfectForSection perfectFor={service.perfectFor} />
+        )}
+
         {service.introContent && (
           <IntroductionSection introContent={service.introContent} />
         )}
 
-        {service.servicesContent && service.servicesContent.length > 0 && (
+        {service.solutionCategories && service.solutionCategories.length > 0 ? (
+          <SolutionsSection
+            solutionCategories={service.solutionCategories}
+          />
+        ) : service.servicesContent && service.servicesContent.length > 0 && (
           <OfferingsSection
             servicesContent={service.servicesContent}
             title={service.title.split("|")[0].trim().split("&")[0].trim()}
@@ -65,20 +73,12 @@ export default function ServiceDetailPage() {
           <BenefitsSection benefits={service.benefits} />
         )}
 
-        {service.processSteps && service.processSteps.length > 0 && (
-          <ProcessSection processSteps={service.processSteps} />
+        {service.businessOutcomes && service.businessOutcomes.length > 0 && (
+          <BusinessOutcomesSection businessOutcomes={service.businessOutcomes} />
         )}
 
         {service.industryUseCases && service.industryUseCases.length > 0 && (
           <UseCasesSection industryUseCases={service.industryUseCases} />
-        )}
-
-        {service.usps && service.usps.length > 0 && (
-          <WhyTechTideSection usps={service.usps} />
-        )}
-
-        {service.features && service.features.length > 0 && (
-          <FeaturesSection features={service.features} />
         )}
 
         {service.faqs && service.faqs.length > 0 && (

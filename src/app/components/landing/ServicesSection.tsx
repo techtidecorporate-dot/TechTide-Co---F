@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { systemsData } from "../../data/servicesData";
+import { marketingExpertise, businessGrowthExpertise } from "../../data/marketingServicesData";
 
 interface ServiceCardProps {
   title: string;
@@ -16,7 +17,7 @@ function ServiceCard({ title, description, image, slug }: ServiceCardProps) {
     <Link to={`/services/${slug}`} className="block">
       <article className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
         {/* Image */}
-        <figure className="relative h-[180px] m-4 rounded-lg overflow-hidden">
+        <figure className="relative h-[140px] sm:h-[180px] m-3 sm:m-4 rounded-lg overflow-hidden">
           <img
             alt={`Illustration of ${title} services`}
             className="w-full h-full object-cover"
@@ -27,8 +28,8 @@ function ServiceCard({ title, description, image, slug }: ServiceCardProps) {
         </figure>
 
         {/* Content */}
-        <div className="px-5 pb-5 space-y-3">
-          <h3 className="text-[#191a23] text-lg font-bold">{title}</h3>
+        <div className="px-4 sm:px-5 pb-4 sm:pb-5 space-y-2 sm:space-y-3">
+          <h3 className="text-[#191a23] text-sm sm:text-lg font-bold">{title}</h3>
 
           <p className="text-[#6b7280] text-sm leading-relaxed line-clamp-3">
             {description}
@@ -53,8 +54,23 @@ function ServiceCard({ title, description, image, slug }: ServiceCardProps) {
   );
 }
 
+const featuredSlugs = [
+  "web-applications",
+  "custom-software",
+  "ecommerce-development",
+  "saas-product-development",
+  "ui-ux-design",
+  "api-integration",
+  "maintenance-support",
+];
+
 export function ServicesSection() {
-  const services = systemsData;
+  const techServices = featuredSlugs
+    .map((slug) => systemsData.find((s) => s.slug === slug))
+    .filter(Boolean) as typeof systemsData;
+
+  const services = [...techServices, ...marketingExpertise, ...businessGrowthExpertise];
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -92,25 +108,25 @@ export function ServicesSection() {
       style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
       className="relative bg-white overflow-hidden py-16 md:py-24"
     >
-      {/* Header */} 
-      <div className="flex flex-col gap-3 items-center text-center mb-12 md:mb-16 px-6">
+        {/* Header */} 
+      <div className="flex flex-col gap-3 items-center text-center mb-12 md:mb-16 px-4 sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[#191a23] text-4xl md:text-6xl font-poppins font-bold leading-[1.1]"
+          className="text-[1.75rem] sm:text-4xl md:text-6xl font-poppins font-bold leading-[1.1]"
         >
           Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#453abc] to-[#60c3e3]">Services</span>
         </motion.h2>
 
-        <p className="text-[#6b7280] max-w-2xl text-base md:text-xl">
+        <p className="text-[#6b7280] max-w-2xl text-sm sm:text-base md:text-xl">
           End-to-End Digital Solutions for Growing Businesses
         </p>
       </div>
 
-      {/* Slider Container */}
+        {/* Slider Container */}
       <div
-        className="relative max-w-[1440px] mx-auto h-[480px] md:h-[520px] flex items-center justify-center"
+        className="relative max-w-[1440px] mx-auto h-[440px] sm:h-[480px] md:h-[520px] flex items-center justify-center"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
@@ -118,15 +134,16 @@ export function ServicesSection() {
           {services.map((service, index) => {
             const distance = getDistance(index);
             const isVisible = Math.abs(distance) <= 2;
-            const isMobile =
-              typeof window !== "undefined" && window.innerWidth < 768;
+            const win = typeof window !== "undefined" ? window.innerWidth : 9999;
+            const isMobile = win < 768;
+            const isSmallPhone = win < 400;
 
             // Clamping distance for X only prevents "flying" across the center during wrap
             const xDistance = Math.max(-3, Math.min(3, distance));
 
             // Positioning constants
             const desktopSpacing = 200;
-            const mobileSpacing = 140;
+            const mobileSpacing = isSmallPhone ? 100 : 140;
 
             const x = isMobile
               ? xDistance * mobileSpacing
@@ -141,7 +158,7 @@ export function ServicesSection() {
             return (
               <motion.div
                 key={service.id}
-                className="absolute w-[280px] md:w-[320px]"
+                className="absolute w-[260px] sm:w-[280px] md:w-[320px]"
                 animate={{
                   x,
                   scale,
@@ -171,13 +188,13 @@ export function ServicesSection() {
         </div>
 
         {/* Controls */}
-        <div className="absolute inset-x-4 md:inset-x-10 flex justify-between items-center pointer-events-none z-40">
+        <div className="absolute inset-x-2 sm:inset-x-4 md:inset-x-10 flex justify-between items-center pointer-events-none z-40">
           <button
             onClick={handlePrevious}
             aria-label="Previous service"
             className="pointer-events-auto bg-white/90 backdrop-blur border border-gray-200 p-2 md:p-3 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 active:scale-90"
           >
-            <ChevronLeft size={24} className="text-[#453abc]" />
+            <ChevronLeft size={20} className="md:size-6 text-[#453abc]" />
           </button>
 
           <button
@@ -185,7 +202,7 @@ export function ServicesSection() {
             aria-label="Next service"
             className="pointer-events-auto bg-white/90 backdrop-blur border border-gray-200 p-2 md:p-3 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110 active:scale-90"
           >
-            <ChevronRight size={24} className="text-[#453abc]" />
+            <ChevronRight size={20} className="md:size-6 text-[#453abc]" />
           </button>
         </div>
       </div>

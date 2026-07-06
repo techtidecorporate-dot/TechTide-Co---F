@@ -17,7 +17,7 @@ if (
   !EMAILJS_TEMPLATE_ID ||
   !EMAILJS_PUBLIC_KEY
 ) {
-  console.warn("EmailJS env vars missing — blog notifications will be skipped");
+  console.warn("EmailJS env vars missing blog notifications will be skipped");
 } else {
   emailjs.init(EMAILJS_PUBLIC_KEY);
 }
@@ -28,7 +28,7 @@ export const sendBlogNotificationEmail = async (
 ) => {
 
   if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-    throw new Error("EmailJS not configured — check VITE_EMAILJS_* env vars");
+    throw new Error("EmailJS not configured check VITE_EMAILJS_* env vars");
   }
 
   const emailLink = `${BLOG_BASE_URL}/blog/${blog.slug || blog.id}`;

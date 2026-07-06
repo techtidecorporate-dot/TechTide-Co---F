@@ -8,7 +8,6 @@ import { DropdownPanel } from "./DropdownPanel";
 import { AboutDropdownContent } from "./AboutDropdownContent";
 import { ServicesDropdownContent } from "./ServicesDropdownContent";
 import { MobileMenu } from "./MobileMenu";
-
 import imgVector from "@/assets/brand-logo-dark.svg";
 
 const navItems = [
@@ -27,7 +26,7 @@ const Navbar = memo(function Navbar() {
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const aboutTriggerRef = useRef<HTMLButtonElement>(null);
-  const servicesTriggerRef = useRef<HTMLButtonElement>(null);
+  const servicesTriggerRef = useRef<HTMLAnchorElement>(null);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -98,15 +97,15 @@ const Navbar = memo(function Navbar() {
         boxShadow: shouldBeTransparent
           ? "0 0 0 rgba(0, 0, 0, 0)"
           : "0 10px 30px -10px rgba(0, 0, 0, 0.1)",
-        height: "80px",
+        height: window.innerWidth < 768 ? "64px" : "80px",
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-10 h-16 md:h-20"
     >
       <Link to="/" className="flex-shrink-0 flex items-center">
         <img
           src={imgVector}
-          className="h-8 md:h-10 w-auto"
+          className="h-7 sm:h-8 md:h-10 w-auto"
           alt="TechTide Corporate LLP"
           loading="eager"
         />
@@ -142,11 +141,13 @@ const Navbar = memo(function Navbar() {
           onMouseEnter={() => { setIsServicesDropdownOpen(true); setIsAboutDropdownOpen(false); }}
           onMouseLeave={() => setIsServicesDropdownOpen(false)}
         >
-          <button
+          <Link
+            to="/services"
             ref={servicesTriggerRef}
             className={`relative font-poppins py-1 transition-all duration-300 group cursor-pointer ${textClasses(
               location.pathname.startsWith("/services"),
             )}`}
+            onClick={() => setIsServicesDropdownOpen(false)}
           >
             <span className="relative z-10 flex items-center gap-1.5">
               Services
@@ -155,7 +156,7 @@ const Navbar = memo(function Navbar() {
               </svg>
             </span>
             <span className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#453abc] to-[#60c3e3] transition-all duration-300" style={{ width: location.pathname.startsWith("/services") ? "100%" : "0%", opacity: location.pathname.startsWith("/services") ? 1 : 0 }} />
-          </button>
+          </Link>
         </div>
 
         {navItems.map((item) => (
@@ -234,16 +235,18 @@ const Navbar = memo(function Navbar() {
         <ServicesDropdownContent onClose={() => setIsServicesDropdownOpen(false)} />
       </DropdownPanel>
 
-      {/* Mobile Toggle */}
-      <button
-        className={`lg:hidden p-2 rounded-lg transition-colors ${
-          shouldBeTransparent ? "text-white hover:bg-white/10" : "text-gray-900 hover:bg-gray-100"
-        }`}
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label="Toggle mobile menu"
-      >
-        {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-      </button>
+      {/* Mobile Actions */}
+      <div className="flex items-center gap-2 lg:hidden">
+        <button
+          className={`flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg transition-colors ${
+            shouldBeTransparent ? "text-white hover:bg-white/10" : "text-gray-900 hover:bg-gray-100"
+          }`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />

@@ -20,6 +20,7 @@ export default function JobApplications() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedResume, setSelectedResume] = useState<string | null>(null);
   const [selectedCoverLetter, setSelectedCoverLetter] = useState<string | null>(null);
+  const [loadingResume, setLoadingResume] = useState<string | null>(null);
 
   useEffect(() => {
     fetchJobs();
@@ -36,10 +37,20 @@ export default function JobApplications() {
     }
   };
 
-  const getFileUrl = (path: string | undefined) => {
-    if (!path) return "";
-    if (path.startsWith("http") || path.startsWith("data:")) return path;
-    return `http://localhost:5000${path}`;
+  const handleViewResume = async (id: string) => {
+    setLoadingResume(id);
+    try {
+      const { data } = await jobAPI.getResume(id);
+      if (data) {
+        setSelectedResume(data);
+      } else {
+        toast.error("No resume found");
+      }
+    } catch {
+      toast.error("Failed to load resume");
+    } finally {
+      setLoadingResume(null);
+    }
   };
 
   const handleStatusUpdate = async (id: string, status: string) => {
@@ -197,13 +208,18 @@ export default function JobApplications() {
                     </button>
                   </div>
 
-                  {job.resume && (
+                  {job.hasResume && (
                     <button
-                      onClick={() => setSelectedResume(getFileUrl(job.resume))}
-                      className="flex items-center gap-1 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-sm transition-all"
+                      onClick={() => handleViewResume(job.id)}
+                      disabled={loadingResume === job.id}
+                      className="flex items-center gap-1 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-sm transition-all disabled:opacity-50"
                     >
-                      <Eye size={14} />
-                      View CV
+                      {loadingResume === job.id ? (
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      ) : (
+                        <Eye size={14} />
+                      )}
+                      {loadingResume === job.id ? "Loading..." : "View CV"}
                     </button>
                   )}
                 </div>

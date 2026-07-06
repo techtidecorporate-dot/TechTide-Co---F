@@ -433,7 +433,7 @@ export default function JobListingManagement() {
                   placeholder="A short 1–2 sentence summary of the role and its purpose..."
                 />
                 <p className="text-[10px] text-gray-600 mt-1">
-                  Keep this brief — use "Key Responsibilities" below for the
+                  Keep this brief use "Key Responsibilities" below for the
                   numbered bullet points.
                 </p>
               </div>
@@ -489,7 +489,7 @@ export default function JobListingManagement() {
                 )}
                 {formData.responsibilities.length === 0 && (
                   <p className="text-[11px] text-gray-600 mt-1">
-                    Add each responsibility as a separate point — they'll appear
+                    Add each responsibility as a separate point they'll appear
                     as a numbered list on the career page.
                   </p>
                 )}
@@ -576,7 +576,7 @@ export default function JobListingManagement() {
                     />
                   </div>
                   <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
-                    Active — visible on career page
+                    Active visible on career page
                   </span>
                 </label>
               </div>

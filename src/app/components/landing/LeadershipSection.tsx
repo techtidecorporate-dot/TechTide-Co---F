@@ -33,25 +33,25 @@ export function LeadershipSection() {
     <section
       id="leadership"
       style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
-      className="relative min-h-screen bg-white py-20 overflow-hidden"
+      className="relative min-h-screen bg-white py-16 md:py-20 overflow-hidden"
     >
-      <div className="text-center mb-12 md:mb-20 px-6">
-        <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-4 text-[#191a23]">
+      <div className="text-center mb-10 md:mb-20 px-4 sm:px-6">
+        <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl font-poppins font-bold mb-3 md:mb-4 text-[#191a23]">
           Leadership and <span className="text-[#453abc]">Management</span>
         </h2>
-        <h3 className="text-xl md:text-2xl font-poppins font-bold text-gray-800 mb-4">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-poppins font-bold text-gray-800 mb-3 md:mb-4">
           Leadership That Understands Both Technology and Business
         </h3>
-        <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+        <p className="text-sm sm:text-lg text-gray-500 max-w-2xl mx-auto">
           We combine technical expertise with business insight to build market-ready solutions.
         </p>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-8 flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-28">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col-reverse lg:flex-row items-center gap-8 md:gap-12 lg:gap-28">
         {/* Text Section */}
         <div className="flex-1 max-w-full lg:max-w-[500px] text-center lg:text-left">
           <h3
-            className="text-4xl md:text-5xl font-bold mb-2 leading-tight"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 leading-tight"
             style={{
               WebkitTextFillColor: "transparent",
               backgroundImage:
@@ -61,7 +61,7 @@ export function LeadershipSection() {
           >
             {leaders[current].name}
           </h3>
-          <p className="text-xl md:text-2xl font-semibold text-gray-800 mb-6 uppercase tracking-wide">
+          <p className="text-base sm:text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-6 uppercase tracking-wide">
             {leaders[current].role}
           </p>
           <div className="relative mb-10">

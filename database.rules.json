@@ -23,12 +23,61 @@
     "messages": {
       ".read": "auth != null",
       ".write": "newData.hasChildren(['name', 'email'])",
-      ".indexOn": ["visitorId"]
+      ".indexOn": ["visitorId", "createdAt"]
     },
     "users": {
       ".read": "auth != null",
       ".write": "auth != null",
       ".indexOn": ["email"]
+    },
+    "blogs": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["slug", "createdAt"]
+    },
+    "services": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["slug", "createdAt"]
+    },
+    "jobs": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+    },
+    "job-positions": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+    },
+    "talent-pool": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+    },
+    "audits": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+    },
+    "strategy-calls": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+    },
+    "partners": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+    },
+    "subscribers": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+    },
+    "job-resumes": {
+      ".read": "auth != null",
+      ".write": "auth != null"
     },
     "$other": {
       ".read": "auth != null",

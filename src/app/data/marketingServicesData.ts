@@ -10,7 +10,7 @@ export const marketingExpertise: SystemItem[] = [
     id: "m1",
     title: "SEO & Organic Growth",
     shortDescription: "Lead-focused SEO strategies that attract qualified buyers, not just traffic.",
-    description: "We build organic growth engines that target high-intent keywords and drive decision-makers to your site. Our SEO goes beyond rankings — it focuses on converting search traffic into qualified leads through content aligned with your sales funnel.",
+    description: "We build organic growth engines that target high-intent keywords and drive decision-makers to your site. Our SEO goes beyond rankings it focuses on converting search traffic into qualified leads through content aligned with your sales funnel.",
     image:SEOImage,
     features: [
       "Lead-Focused Keyword Strategy",
@@ -38,7 +38,7 @@ export const marketingExpertise: SystemItem[] = [
     id: "m2",
     title: "Conversion-Optimized Websites & Funnels",
     shortDescription: "High-performing websites and sales funnels engineered to turn visitors into customers.",
-    description: "We design and develop websites that do more than look good — they convert. Every layout, headline, CTA, and micro-interaction is strategically aligned with your customer journey to maximize lead capture and sales.",
+    description: "We design and develop websites that do more than look good they convert. Every layout, headline, CTA, and micro-interaction is strategically aligned with your customer journey to maximize lead capture and sales.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     features: [
       "Landing Page & Funnel Design",
@@ -99,7 +99,7 @@ export const marketingExpertise: SystemItem[] = [
     slug: "paid-ads-strategy",
     color: "#453abc",
     bgColor: "#f8f9fa",
-    seoTitle: "Paid Ads Strategy — Google, Meta & LinkedIn",
+    seoTitle: "Paid Ads Strategy Google, Meta & LinkedIn",
     seoDescription: "ROI-driven ad campaigns across Google, Meta, and LinkedIn that deliver qualified leads and measurable results.",
     seoKeywords: ["paid ads", "Google Ads", "Facebook advertising", "LinkedIn ads", "PPC management", "lead generation ads"]
   },
@@ -184,7 +184,7 @@ export const businessGrowthExpertise: SystemItem[] = [
     id: "b2",
     title: "Sales Funnel & Customer Journey Design",
     shortDescription: "Strategically designed sales funnels and customer journeys that guide prospects to purchase.",
-    description: "We map and design every touchpoint of your customer journey — from first awareness to post-purchase retention. Our funnels are built to reduce friction, increase engagement, and maximize lifetime value.",
+    description: "We map and design every touchpoint of your customer journey from first awareness to post-purchase retention. Our funnels are built to reduce friction, increase engagement, and maximize lifetime value.",
     image: FunnelImage,
     features: [
       "Full-Funnel Strategy & Design",

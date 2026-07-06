@@ -62,9 +62,9 @@ export const seoServicesData: SystemItem[] = [
       "offshore web development Europe",
     ],
     introContent:
-      "In today's digital-first world, your website is often the first impression potential clients have of your business. Whether you're a startup in London, an enterprise in New York, a growing company in Toronto, or a business in Berlin, having a professionally built, custom web application is essential for credibility, growth, and competitive advantage. TechTide Corporate LLP is a leading web development company based in Pakistan, proudly serving clients across the UK, USA, Canada, Germany, and Europe. As a full-service web development agency, we combine cutting-edge technologies like React.js, Node.js, and the MERN stack with deep industry expertise to deliver bespoke web development solutions tailored to your business goals — at highly competitive rates.",
+      "In today's digital-first world, your website is often the first impression potential clients have of your business. Whether you're a startup in London, an enterprise in New York, a growing company in Toronto, or a business in Berlin, having a professionally built, custom web application is essential for credibility, growth, and competitive advantage. TechTide Corporate LLP is a leading web development company based in Pakistan, proudly serving clients across the UK, USA, Canada, Germany, and Europe. As a full-service web development agency, we combine cutting-edge technologies like React.js, Node.js, and the MERN stack with deep industry expertise to deliver bespoke web development solutions tailored to your business goals at highly competitive rates.",
     servicesContent: [
-      "Custom Web Application Development — We build tailor-made web applications from the ground up using React, Node.js, and modern frameworks. Every application is designed to match your unique business workflows, scalability needs, and user experience goals.",
+      "Custom Web Application Development We build tailor made web applications from the ground up using React, Node.js, and modern frameworks. Every application is designed to match your unique business workflows, scalability needs, and user experience goals.",
       "Full Stack MERN Development End-to-end development using MongoDB, Express.js, React, and Node.js. Our full stack expertise means a single cohesive team handles your entire project from database architecture to pixel-perfect front-end interfaces.",
       "React.js & Next.js Frontend Development Lightning-fast, SEO-friendly, and interactive user interfaces built with React.js and Next.js. We create responsive, component-based frontends that deliver exceptional user experiences across all devices.",
       "Node.js Backend & API Development Scalable, secure server-side applications and RESTful APIs built with Node.js and Express.js. Our backends handle high traffic, complex business logic, and seamless third-party integrations.",
@@ -88,7 +88,7 @@ export const seoServicesData: SystemItem[] = [
       },
       {
         title: "Agile & Transparent Process",
-        description: "Weekly sprint demos, daily standups aligned to your timezone, and full project visibility through modern collaboration tools — no surprises, ever.",
+        description: "Weekly sprint demos, daily standups aligned to your timezone, and full project visibility through modern collaboration tools no surprises, ever.",
       },
       {
         title: "SEO & Performance Optimised",
@@ -113,7 +113,7 @@ export const seoServicesData: SystemItem[] = [
       {
         step: "03",
         title: "Agile Development",
-        description: "We build your application in iterative sprints using React, Node.js, and modern DevOps practices — delivering working features every two weeks.",
+        description: "We build your application in iterative sprints using React, Node.js, and modern DevOps practices delivering working features every two weeks.",
       },
       {
         step: "04",
@@ -155,7 +155,7 @@ export const seoServicesData: SystemItem[] = [
     usps: [
       {
         title: "Pakistan-Based, Globally Trusted",
-        description: "Our expert team in Pakistan delivers premium web development services to clients across the UK, USA, Canada, Germany, and Europe — combining skill with affordability.",
+        description: "Our expert team in Pakistan delivers premium web development services to clients across the UK, USA, Canada, Germany, and Europe combining skill with affordability.",
       },
       {
         title: "MERN Stack Specialists",
@@ -239,7 +239,7 @@ export const seoServicesData: SystemItem[] = [
     servicesContent: [
       "Native iOS App Development High-performance iPhone and iPad applications built with Swift and SwiftUI. We follow Apple's Human Interface Guidelines to create apps that feel native, load fast, and pass App Store review seamlessly.",
       "Native Android App Development Feature-rich Android applications built with Kotlin and Jetpack Compose. Our Android apps are optimised for the full range of devices, screen sizes, and Android versions.",
-      "Flutter Cross-Platform Development Build once, deploy everywhere. Flutter lets us create beautiful, natively compiled applications for iOS and Android from a single codebase — reducing development time and costs by up to 40%.",
+      "Flutter Cross-Platform Development Build once, deploy everywhere. Flutter lets us create beautiful, natively compiled applications for iOS and Android from a single codebase reducing development time and costs by up to 40%.",
       "React Native App Development Leverage your existing JavaScript team with React Native. We build performant, near-native mobile applications that share code across platforms while maintaining platform-specific feel.",
       "Mobile App UI/UX Design User centred design that drives engagement. Our designers create intuitive interfaces, smooth animations, and accessible experiences that keep users coming back.",
       "Mobile Backend & API Development Scalable cloud backends, real-time databases, push notification systems, and RESTful APIs that power your mobile application's core functionality.",
@@ -269,7 +269,7 @@ export const seoServicesData: SystemItem[] = [
       },
       {
         title: "Scalable Architecture",
-        description: "Our mobile backends are built to handle growth from hundreds to millions of users — using cloud infrastructure, microservices, and real-time data synchronisation.",
+        description: "Our mobile backends are built to handle growth from hundreds to millions of users using cloud infrastructure, microservices, and real-time data synchronisation.",
       },
     ],
     processSteps: [

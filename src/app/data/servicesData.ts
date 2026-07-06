@@ -3,10 +3,22 @@ import BrandingImg from "../../assets/Services/branding-strategy-marketing-busin
 import AutomationImg from "../../assets/Services/Automation.webp";
 import LeadGenerationImg from '../../assets/Services/lead-generation-service-in-pan-india-digital-marketing-1000x1000.webp'
 import SAASImage from '../../assets/Services/Marketing/SAAS Image (1).webp'
+import MaintenanceSupportImg from '../../assets/Services/Ongoing Maintenance & Support.webp'
+import SEOImage from '../../assets/Services/SEO.webp'
 
 export interface FAQItem {
   question: string;
   answer: string;
+}
+
+export interface SolutionCategory {
+  category: string;
+  solutions: { title: string; description: string; icon: string; href?: string }[];
+}
+
+export interface TechStackGroup {
+  category: string;
+  items: string[];
 }
 
 export interface SystemItem {
@@ -33,6 +45,11 @@ export interface SystemItem {
   processSteps?: { step: string; title: string; description: string }[];
   industryUseCases?: { industry: string; description: string }[];
   usps?: { title: string; description: string }[];
+  solutionCategories?: SolutionCategory[];
+  technologyStack?: TechStackGroup[];
+  perfectFor?: string[];
+  businessOutcomes?: { title: string; description: string }[];
+  featuresIncluded?: string[];
 }
 
 export const systemsData: SystemItem[] = [
@@ -114,9 +131,9 @@ export const systemsData: SystemItem[] = [
   },
   {
     id: "s2",
-    title: "Scalable SaaS Products",
-    shortDescription: "Build and scale profitable software-as-a-service products from scratch.",
-    description: "We help founders and enterprises build secure, scalable, and multi-tenant SaaS platforms that are ready for mass adoption.",
+    title: "SaaS Product Development",
+    shortDescription: "Have a software idea you want to turn into a business? We build scalable SaaS platforms from the ground up with user accounts, subscription billing, dashboards, and everything needed to launch, grow, and support real customers.",
+    description: "Have a software idea you want to turn into a business? We build scalable SaaS platforms from the ground up with user accounts, subscription billing, dashboards, and everything needed to launch, grow, and support real customers.",
     image: SAASImage,
     features: [
       "Multi-tenant Architecture",
@@ -138,9 +155,9 @@ export const systemsData: SystemItem[] = [
   },
   {
     id: "s6",
-    title: "API & System Integration",
-    shortDescription: "Connect your tech stack for seamless data flow and zero manual entry.",
-    description: "We integrate your existing tools and build custom APIs to ensure your systems talk to each other, improving data accuracy and speed.",
+    title: "Integration & Workflow Automation",
+    shortDescription: "Your tools shouldn't work in silos. We connect your website or application with payment gateways, CRMs, inventory systems, shipping providers, and other third-party services so your business runs smoother without the manual work.",
+    description: "Your tools shouldn't work in silos. We connect your website or application with payment gateways, CRMs, inventory systems, shipping providers, and other third-party services so your business runs smoother without the manual work.",
     image: ApiIntegrationImg,
     features: [
       "Custom API Development",
@@ -162,9 +179,9 @@ export const systemsData: SystemItem[] = [
   },
   {
     id: "s9",
-    title: "Web Applications",
-    shortDescription: "Custom web applications built with modern frameworks and industry best practices.",
-    description: "We build high-performance web applications using cutting-edge technologies, ensuring scalability, security, and a seamless user experience tailored to your business needs.",
+    title: "Web Application Development",
+    shortDescription: "You have a business process, a product idea, or a platform to build. We turn it into a fast, reliable web application engineered for real users and built to scale as your business grows. From internal tools to customer-facing platforms, we handle everything from start to finish.",
+    description: "You have a business process, a product idea, or a platform to build. We turn it into a fast, reliable web application engineered for real users and built to scale as your business grows. From internal tools to customer-facing platforms, we handle everything from start to finish.",
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80",
     features: [
       "React & Next.js Frontends",
@@ -178,10 +195,115 @@ export const systemsData: SystemItem[] = [
     seoTitle: "Custom Web Application Development Services",
     seoDescription: "Build scalable, secure web applications with modern tech stacks.",
     seoKeywords: ["web applications", "custom web development", "React", "Next.js"],
+    introContent: "From startups to enterprises, every business needs custom software to operate efficiently. We specialise in building full-stack web applications that automate workflows, manage data, and deliver exceptional user experiences. Whether you need a CRM, an ERP, a marketplace, or a booking platform we design and develop it from the ground up, tailored exactly to how your business works.",
+    perfectFor: ["Startups", "SMEs", "Enterprises", "Healthcare", "Education", "Logistics", "Retail", "Real Estate"],
+    solutionCategories: [
+      {
+        category: "Business & Enterprise",
+        solutions: [
+          { title: "CRM Systems", description: "Lead tracking, pipeline management, contact history, and team collaboration tools tailored to your sales process.", icon: "Users", href: "/services/crm-development" },
+          { title: "ERP Solutions", description: "End-to-end resource planning integrating finance, HR, inventory, procurement, and operations into one unified dashboard.", icon: "Building2", href: "/services/erp-development" },
+          { title: "HR & Payroll Systems", description: "Employee records, attendance, leave management, payroll processing, tax calculations, and performance reviews.", icon: "UserCheck", href: "/services/hr-payroll-system" },
+          { title: "Inventory Management", description: "Real-time stock tracking, purchase orders, supplier coordination, and multi-warehouse support.", icon: "Package", href: "/services/inventory-management-system" },
+          { title: "Warehouse Management", description: "Bin location tracking, receiving and putaway, pick-pack-ship workflows, and shipping carrier integration.", icon: "Warehouse", href: "/services/warehouse-management-system" },
+          { title: "POS Systems", description: "Billing, receipt generation, payment gateways, inventory sync, and sales analytics for retail and hospitality.", icon: "ShoppingCart", href: "/services/pos-system" },
+        ],
+      },
+      {
+        category: "Education & Healthcare",
+        solutions: [
+          { title: "School & College Management", description: "Student admissions, attendance tracking, grade management, timetable scheduling, and parent communication portals.", icon: "GraduationCap", href: "/services/school-management-software" },
+          { title: "Hospital & Clinic Management", description: "Patient registration, appointments, electronic health records, billing, pharmacy, and doctor dashboards.", icon: "HeartPulse", href: "/services/hospital-management-software" },
+          { title: "Online Learning (LMS)", description: "Course creation, video hosting, quizzes, certifications, student progress tracking, and discussion forums.", icon: "BookOpen", href: "/services/lms-development" },
+          { title: "Appointment Booking Systems", description: "Calendar syncing, staff management, automated reminders, cancellation policies, and payment at booking.", icon: "CalendarCheck", href: "/services/appointment-booking-system" },
+        ],
+      },
+      {
+        category: "Retail & Commerce",
+        solutions: [
+          { title: "E-Commerce Platforms", description: "Product catalogues, cart and checkout, secure payments, order management, and personalised shopping experiences.", icon: "ShoppingBag", href: "/services/ecommerce-development" },
+          { title: "Restaurant Management", description: "Menu management, online ordering, table reservations, kitchen display, billing, and delivery coordination.", icon: "UtensilsCrossed", href: "/services/restaurant-management-system" },
+          { title: "Food Delivery Applications", description: "Restaurant management, real-time order tracking, driver assignment, payment splitting, and push notifications.", icon: "Pizza", href: "/services/food-delivery-app" },
+          { title: "Multi-Vendor Marketplaces", description: "Vendor onboarding, product listings, cart and checkout, commission management, and seller analytics dashboards.", icon: "Store", href: "/services/multi-vendor-marketplace" },
+        ],
+      },
+      {
+        category: "Real Estate & Logistics",
+        solutions: [
+          { title: "Real Estate Platforms", description: "Property listings, virtual tours, mortgage calculators, agent profiles, inquiry management, and map-based search.", icon: "Home", href: "/services/real-estate-platform" },
+          { title: "Property Rental Platforms", description: "Listings, tenant screening, lease agreements, rent collection, and maintenance request tracking.", icon: "Key", href: "/services/property-rental-platform" },
+          { title: "Courier & Logistics Systems", description: "Order dispatching, real-time tracking, route optimisation, delivery confirmation, and driver management.", icon: "Truck", href: "/services/courier-logistics-system" },
+          { title: "Taxi Booking Applications", description: "GPS tracking, fare estimation, driver matching, in-app payments, ride history, and rating systems.", icon: "Car", href: "/services/taxi-booking-app" },
+        ],
+      },
+      {
+        category: "Custom Solutions",
+        solutions: [
+          { title: "Event Management Systems", description: "Online registration, ticketing, seating, attendee check-in, agenda scheduling, and post-event analytics.", icon: "CalendarRange", href: "/services/event-management-system" },
+          { title: "Gym Management Systems", description: "Member management, plans, class scheduling, trainer assignments, attendance tracking, and payment collection.", icon: "Dumbbell", href: "/services/gym-management-system" },
+          { title: "Social Media Platforms", description: "User profiles, news feeds, messaging, content sharing, follower systems, and moderation tools.", icon: "Share2", href: "/services/social-media-platform" },
+          { title: "Custom Business Software", description: "Any bespoke web application tailored to your unique business process, industry requirement, or operational workflow.", icon: "Code", href: "/services/custom-software" },
+        ],
+      },
+    ],
+    featuresIncluded: [
+      "Secure Authentication", "Role-Based Access Control", "Admin Dashboard",
+      "Analytics & Reports", "Real-Time Notifications", "Real-Time Chat & Messaging",
+      "Payment Gateway Integration", "Google Maps Integration", "Multi-Language Support",
+      "Cloud Deployment", "API Integrations", "High Performance & Security"
+    ],
+    technologyStack: [
+      { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
+      { category: "Backend", items: ["Node.js", "Express.js", "Python"] },
+      { category: "Database", items: ["MongoDB", "PostgreSQL", "MySQL"] },
+      { category: "Cloud", items: ["AWS", "Azure", "Google Cloud"] },
+      { category: "DevOps", items: ["Docker", "CI/CD", "Kubernetes"] },
+    ],
+    businessOutcomes: [
+      { title: "Increased Productivity", description: "Automate repetitive tasks and streamline workflows so your team can focus on high-value work instead of manual processes." },
+      { title: "Reduced Manual Work", description: "Eliminate data entry errors and redundant operations with intelligent automation across your entire business." },
+      { title: "Faster Business Operations", description: "Accelerate decision-making with real-time dashboards, automated approvals, and instant data access across departments." },
+      { title: "Better Customer Experience", description: "Deliver seamless, personalised experiences with intuitive interfaces, fast load times, and responsive support tools." },
+      { title: "Scalable Infrastructure", description: "Cloud-native architecture that grows with you from hundreds to millions of users without compromising performance." },
+      { title: "Improved Data Security", description: "Enterprise-grade security with encryption, role-based access, regular audits, and compliance with industry standards." },
+    ],
+    benefits: [
+      { title: "Tailored to Your Business", description: "Every application is custom-built around your specific workflows not generic templates. You get exactly what you need, nothing you don't." },
+      { title: "Scalable from Day One", description: "We architect your application on cloud-native infrastructure that scales automatically as your user base and data grow from hundreds to millions." },
+      { title: "Modern Technology Stack", description: "We use React, Next.js, Node.js, Python, and cloud platforms (AWS/GCP/Azure) to build fast, secure, and maintainable applications." },
+      { title: "End-to-End Ownership", description: "You receive 100% ownership of the source code and intellectual property. No licensing fees, no vendor lock-in your application is truly yours." },
+      { title: "Responsive & Accessible", description: "Every application we build works flawlessly across desktop, tablet, and mobile with accessibility best practices built in from the start." },
+      { title: "Ongoing Support", description: "We don't disappear after launch. Our maintenance and support plans keep your application secure, updated, and evolving with your business." },
+    ],
+    processSteps: [
+      { step: "01", title: "Discovery & Requirements", description: "We dive deep into your business processes, pain points, and goals. You get a detailed project roadmap with clear timelines and milestones." },
+      { step: "02", title: "UI/UX Design & Prototyping", description: "Our designers create intuitive, conversion-focused interfaces with interactive prototypes. You see and approve the design before development begins." },
+      { step: "03", title: "Agile Development", description: "We build your application in iterative sprints, delivering working features every two weeks. You stay involved with regular demos and feedback cycles." },
+      { step: "04", title: "Testing & Quality Assurance", description: "Comprehensive testing including unit tests, integration tests, performance benchmarks, security audits, and cross-browser compatibility checks." },
+      { step: "05", title: "Deployment & Launch", description: "Smooth production deployment with monitoring, analytics, and backup systems in place. We ensure a seamless go-live with zero downtime." },
+    ],
+    industryUseCases: [
+      { industry: "Healthcare", description: "Hospital management systems, clinic management platforms, telemedicine portals, patient records, and appointment scheduling systems." },
+      { industry: "Education", description: "School and college management systems, LMS platforms, virtual classrooms, student portals, and examination management systems." },
+      { industry: "Retail & E-Commerce", description: "Multi-vendor marketplaces, inventory management, POS systems, and omnichannel commerce platforms." },
+      { industry: "Logistics & Transportation", description: "Courier management, fleet tracking, route optimisation, warehouse management, and delivery coordination platforms." },
+      { industry: "Real Estate & Property", description: "Property listing platforms, rental management systems, tenant portals, and real estate CRM platforms." },
+      { industry: "Food & Hospitality", description: "Restaurant management systems, food delivery platforms, table booking systems, and hotel management solutions." },
+    ],
+    usps: [
+      { title: "Full-Stack Expertise", description: "From frontend to backend, database to DevOps we handle every layer of your web application in-house with no outsourcing." },
+      { title: "Industry-Specific Solutions", description: "We've built applications for healthcare, education, logistics, retail, real estate, and more we understand your domain." },
+      { title: "Agile & Transparent", description: "Weekly sprint demos, daily standups, and full project visibility through modern collaboration tools no surprises, ever." },
+      { title: "Long-Term Partnership", description: "We're not a build-and-run agency. We stay with you post-launch to support, maintain, and evolve your application as your business grows." },
+    ],
+    ctaHeading: "Ready to Build Your Web Application?",
+    ctaDescription: "Tell us about your project whether it's a CRM, an ERP, a marketplace, or a completely new idea. We'll turn it into a powerful, scalable web application.",
     faqs: [
       { question: "How do we know if we need a web application or just a regular website?", answer: "If your users need to log in, manage accounts, and manipulate data (like a portal or dashboard), you need a web application." },
       { question: "Will the application work smoothly on mobile phones?", answer: "Yes, we build everything with responsive design so it functions perfectly on all screens and mobile devices." },
       { question: "How do you ensure the system won't crash during high-traffic spikes?", answer: "We build on cloud-based, scalable infrastructure that automatically adjusts to handle surges in active users." },
+      { question: "How long does it take to build a typical web application?", answer: "A simple MVP can be delivered in 6-12 weeks. More complex enterprise applications typically take 3-6 months depending on scope and features." },
+      { question: "Do we retain ownership of the source code?", answer: "Yes, you receive 100% ownership of all source code, databases, and intellectual property with zero ongoing licensing fees." },
     ],
   },
   {
@@ -202,17 +324,104 @@ export const systemsData: SystemItem[] = [
     seoTitle: "Mobile App Development Services",
     seoDescription: "Engaging mobile applications for iOS and Android platforms.",
     seoKeywords: ["mobile apps", "iOS development", "Android development", "React Native"],
+    introContent: "Your customers live on their phones. Whether it's ordering food, booking a ride, managing health, or shopping online mobile apps are how people interact with businesses today. We build Android and iOS applications that are fast, beautiful, and built to scale. From cross-platform apps using Flutter and React Native to fully native experiences in Swift and Kotlin, we deliver apps your users will love.",
+    perfectFor: ["Startups", "SMEs", "Enterprises", "Healthcare", "Education", "Logistics", "Retail", "Real Estate"],
+    solutionCategories: [
+      {
+        category: "On-Demand & Logistics",
+        solutions: [
+          { title: "Food Delivery Apps", description: "Restaurant browsing, real-time order tracking, driver assignment, in-app payments, push notifications, and ratings.", icon: "Pizza", href: "/services/food-delivery-app" },
+          { title: "Taxi Booking Apps", description: "GPS-based driver matching, live tracking, fare estimation, multiple payment options, ride history, and ratings.", icon: "Car", href: "/services/taxi-booking-app" },
+          { title: "Courier & Delivery Apps", description: "Real-time parcel tracking, pickup scheduling, delivery confirmation with photo proof, and driver communication.", icon: "Truck", href: "/services/courier-logistics-system" },
+        ],
+      },
+      {
+        category: "Commerce & Retail",
+        solutions: [
+          { title: "E-Commerce Apps", description: "Product catalogues, search, wishlists, cart, secure checkout, order tracking, and personalised recommendations.", icon: "ShoppingBag", href: "/services/ecommerce-development" },
+          { title: "Restaurant Apps", description: "Menu browsing, table reservations, online ordering, loyalty programmes, push offers, and feedback collection.", icon: "UtensilsCrossed", href: "/services/restaurant-management-system" },
+          { title: "Real Estate Apps", description: "Map-based property search, virtual tours, saved searches, agent chat, mortgage calculators, and instant alerts.", icon: "Home", href: "/services/real-estate-platform" },
+        ],
+      },
+      {
+        category: "Health & Education",
+        solutions: [
+          { title: "Healthcare Apps", description: "Telemedicine, video consultations, appointment booking, prescription management, health records, and medicine reminders.", icon: "HeartPulse", href: "/services/hospital-management-software" },
+          { title: "LMS & Learning Apps", description: "Video course playback, offline downloads, quizzes, progress tracking, certifications, and instructor messaging.", icon: "BookOpen", href: "/services/lms-development" },
+        ],
+      },
+      {
+        category: "Enterprise Solutions",
+        solutions: [
+          { title: "Custom Enterprise Apps", description: "Bespoke mobile applications from field service management to internal team tools and customer portals.", icon: "Building2", href: "/services/custom-software" },
+        ],
+      },
+    ],
+    featuresIncluded: [
+      "Secure Authentication", "Role-Based Access Control", "Admin Dashboard",
+      "Analytics & Reports", "Push Notifications", "Offline Mode",
+      "Payment Gateway Integration", "Social Login", "Multi-Language Support",
+      "Cloud Sync", "App Store Optimisation", "High Performance & Security"
+    ],
+    technologyStack: [
+      { category: "Frontend", items: ["React Native", "Flutter", "Swift", "Kotlin"] },
+      { category: "Backend", items: ["Node.js", "Express.js", "Python"] },
+      { category: "Database", items: ["MongoDB", "Firebase", "PostgreSQL"] },
+      { category: "Cloud", items: ["AWS", "Google Cloud", "Firebase"] },
+      { category: "DevOps", items: ["Docker", "CI/CD", "TestFlight", "Google Play Console"] },
+    ],
+    businessOutcomes: [
+      { title: "Increased Revenue", description: "Open new revenue channels with a direct-to-consumer mobile presence that drives sales and repeat engagement." },
+      { title: "Better Customer Engagement", description: "Push notifications, in-app messaging, and personalised experiences keep users coming back." },
+      { title: "Faster Time to Market", description: "Cross-platform frameworks deliver iOS and Android simultaneously, cutting development time by up to 40%." },
+      { title: "Enhanced Brand Loyalty", description: "A polished, intuitive mobile experience builds trust and turns casual users into brand advocates." },
+      { title: "Scalable Architecture", description: "Cloud-powered backends that scale from hundreds to millions of users with real-time data sync." },
+      { title: "Data-Driven Decisions", description: "Built-in analytics and crash reporting give you actionable insights to improve your app continuously." },
+    ],
+    benefits: [
+      { title: "Cross-Platform or Native", description: "Choose Flutter or React Native for faster launches across iOS and Android, or go fully native with Swift/Kotlin for maximum performance." },
+      { title: "Beautiful User Experience", description: "Our designers craft intuitive, engaging interfaces that users enjoy. Every app follows platform-specific design guidelines for a natural feel." },
+      { title: "App Store & Play Store Ready", description: "We handle the entire submission process from preparing assets to compliance checks ensuring smooth approval by Apple and Google." },
+      { title: "Real-Time & Offline Capable", description: "Push notifications keep users engaged, while offline-first architecture lets them access core features without an internet connection." },
+      { title: "Scalable Backend Infrastructure", description: "Cloud-powered backends that scale from hundreds to millions of users, with real-time data sync, secure APIs, and robust analytics." },
+      { title: "Post-Launch Growth Support", description: "We don't stop at launch. We help you iterate with new features, performance monitoring, and app store optimisation to grow your user base." },
+    ],
+    processSteps: [
+      { step: "01", title: "Concept & Strategy", description: "We define your app's purpose, target audience, core features, and platform strategy. You get a clear product roadmap and timeline." },
+      { step: "02", title: "UI/UX Design & Prototyping", description: "Interactive, high-fidelity prototypes that let you experience the app before a single line of code is written. User testing validates the flow early." },
+      { step: "03", title: "Agile Development", description: "We build your app in iterative sprints using Flutter, React Native, or native technologies. You see working builds regularly and provide feedback." },
+      { step: "04", title: "Testing & QA", description: "Rigorous device testing across iOS and Android, performance profiling, security audits, and beta distribution via TestFlight and Google Play Console." },
+      { step: "05", title: "Launch & Optimisation", description: "App Store and Google Play submission with ASO-optimised metadata. Post-launch monitoring, crash analytics, and continuous improvement." },
+    ],
+    industryUseCases: [
+      { industry: "Food & Hospitality", description: "Food delivery apps, restaurant ordering platforms, table reservation apps, and loyalty programme mobile solutions." },
+      { industry: "Healthcare & Wellness", description: "Telehealth apps, patient portals, fitness tracking apps, medication reminder apps, and mental health platforms." },
+      { industry: "Retail & E-Commerce", description: "Mobile shopping apps, marketplace apps, fashion try-on apps, and omnichannel retail experiences." },
+      { industry: "Logistics & Transportation", description: "Courier tracking apps, ride-hailing platforms, fleet management apps, and last-mile delivery solutions." },
+      { industry: "Education & E-Learning", description: "LMS mobile apps, language learning platforms, exam preparation apps, and corporate training solutions." },
+      { industry: "Real Estate", description: "Property listing apps, rental management apps, agent communication platforms, and virtual tour experiences." },
+    ],
+    usps: [
+      { title: "Multi-Platform Mastery", description: "iOS native, Android native, Flutter, React Native we have dedicated specialists for every platform and advise on the best approach for your project." },
+      { title: "Design-First Approach", description: "Every app starts with user research and UI/UX design. We don't just build functional apps we craft experiences users genuinely enjoy." },
+      { title: "End-to-End Service", description: "From concept through design, development, testing, app store submission, and ongoing maintenance we handle the entire mobile app lifecycle." },
+      { title: "Proven Track Record", description: "We've delivered mobile apps across food, healthcare, e-commerce, logistics, education, and real estate we know what works." },
+    ],
+    ctaHeading: "Ready to Launch Your Mobile App?",
+    ctaDescription: "Whether you need a food delivery app, an e-commerce platform, a healthcare solution, or a custom enterprise app we'll bring your mobile vision to life.",
     faqs: [
       { question: "Do we have to pay for two separate apps for iOS and Android?", answer: "No, we use cross-platform frameworks to build one codebase that deploys beautifully to both stores, saving you time and budget." },
       { question: "Will you handle the process of getting our app approved by Apple and Google?", answer: "Yes, we manage the entire submission lifecycle and ensure compliance with all privacy and technical guidelines." },
       { question: "Can you build the mobile app to work when users are offline?", answer: "Yes, we can design local data caching so users retain core features without internet and sync once reconnected." },
+      { question: "How long does it take to build a mobile app?", answer: "A simple MVP can be delivered in 8-12 weeks. More complex apps typically take 3-6 months depending on features and platform requirements." },
+      { question: "Which platform should we launch on first?", answer: "We'll analyse your target market and recommend the best strategy whether that's iOS first, Android first, or both simultaneously with cross-platform development." },
     ],
   },
   {
     id: "s11",
-    title: "Custom Software",
-    shortDescription: "Tailored software solutions engineered for your unique business requirements.",
-    description: "We design and develop custom software that aligns perfectly with your workflows, helping you automate processes and gain a competitive edge.",
+    title: "Custom Software Development",
+    shortDescription: "Off-the-shelf software doesn't always fit. We build fully customized solutions tailored to how your business actually operates whether that's a management system, a client portal, an admin dashboard, or something entirely unique to your industry.",
+    description: "Off-the-shelf software doesn't always fit. We build fully customized solutions tailored to how your business actually operates whether that's a management system, a client portal, an admin dashboard, or something entirely unique to your industry.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
     features: [
       "Requirement-Driven Architecture",
@@ -294,7 +503,7 @@ export const systemsData: SystemItem[] = [
     title: "SEO",
     shortDescription: "Data-driven SEO strategies to boost your organic search rankings and traffic.",
     description: "Our SEO services combine technical audits, content strategy, and link building to improve your visibility on search engines and drive qualified organic traffic.",
-    image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80",
+    image:SEOImage,
     features: [
       "Technical SEO Audits",
       "On-Page Optimization",
@@ -313,7 +522,7 @@ export const systemsData: SystemItem[] = [
     title: "Social Media Marketing",
     shortDescription: "Engaging social media campaigns that build your brand presence and community.",
     description: "We create compelling social media strategies across platforms to increase brand awareness, foster community engagement, and drive conversions.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80",
     features: [
       "Platform-Specific Content Strategy",
       "Community Management",
@@ -349,8 +558,8 @@ export const systemsData: SystemItem[] = [
   {
     id: "s18",
     title: "UI/UX Design",
-    shortDescription: "Intuitive interfaces and seamless user experiences that delight your customers.",
-    description: "We design user-centric interfaces that balance aesthetic appeal with usability, ensuring your digital products are both beautiful and functional.",
+    shortDescription: "Good design is the difference between a user completing a task or leaving your site. We design interfaces that are clean, intuitive, and built around how real people interact with your product across desktop and mobile.",
+    description: "Good design is the difference between a user completing a task or leaving your site. We design interfaces that are clean, intuitive, and built around how real people interact with your product across desktop and mobile.",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
     features: [
       "User Research & Personas",
@@ -392,8 +601,8 @@ export const systemsData: SystemItem[] = [
   {
     id: "s20",
     title: "E-Commerce Development",
-    shortDescription: "Conversion-focused e-commerce stores with smooth checkouts and secure payments.",
-    description: "We build high-converting online stores on Shopify, WooCommerce, or custom engines — with seamless product management, secure payment gateways, and inventory integration.",
+    shortDescription: "Your online store should work as hard as you do. We build stores focused on conversion smooth checkouts, easy product management, and secure payments. Whether you're launching your first store or scaling an existing one, we build it to sell.",
+    description: "Your online store should work as hard as you do. We build stores focused on conversion smooth checkouts, easy product management, and secure payments. Whether you're launching your first store or scaling an existing one, we build it to sell.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
     features: [
       "Shopify & WooCommerce Development",
@@ -416,9 +625,9 @@ export const systemsData: SystemItem[] = [
   {
     id: "s21",
     title: "Ongoing Maintenance & Support",
-    shortDescription: "Keep your website or application secure, updated, and running smoothly.",
-    description: "We provide proactive security monitoring, regular updates, backups, and new feature development to ensure your digital products stay reliable and current.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80",
+    shortDescription: "Launching is day one, not the finish line. We keep your website or application secure, updated, and running smoothly and help you roll out new features as your business continues to grow.",
+    description: "Launching is day one, not the finish line. We keep your website or application secure, updated, and running smoothly and help you roll out new features as your business continues to grow.",
+    image: MaintenanceSupportImg,
     features: [
       "Security Monitoring & Patches",
       "Software Updates & Backups",

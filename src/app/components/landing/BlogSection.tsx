@@ -47,19 +47,19 @@ export function BlogSection() {
       style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
       className="relative bg-white pt-16 pb-6 md:pt-24 md:pb-0 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16">
           {/* LEFT TEXT */}
           <div className="lg:w-[38%] text-center lg:text-left">
             <span className="block font-poppins text-sm font-medium tracking-widest text-[#453abc] uppercase mb-3">
               Blog Section
             </span>
 
-            <h2 className="text-3xl md:text-5xl font-poppins font-bold leading-tight mb-6 text-[#191a23]">
+            <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl font-poppins font-bold leading-tight mb-4 md:mb-6 text-[#191a23]">
               Insights and <span className="text-[#453abc]">Digital Growth</span>
             </h2>
 
-            <p className="text-gray-500 text-base md:text-lg mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-gray-500 text-sm sm:text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0">
               Stay informed with practical insights, industry trends, and expert perspectives on web development, software solutions, and digital marketing.
             </p>
 
@@ -103,9 +103,9 @@ export function BlogSection() {
           </div>
 
           {/* MOBILE LIST - VISIBLE ONLY ON SMALL SCREENS */}
-          <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+          <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-8">
             {blogPosts.slice(0, 4).map((blog) => (
-              <div key={blog.id} className="h-64 sm:h-72">
+              <div key={blog.id} className="h-56 sm:h-64 md:h-72">
                 <BlogCard blog={blog} variant="mobile" />
               </div>
             ))}

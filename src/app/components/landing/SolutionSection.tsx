@@ -24,15 +24,15 @@ const solutions = [
 
 export function SolutionSection() {
   return (
-    <section style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}} className="bg-white py-24 px-6 md:px-16 overflow-hidden">
+    <section style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}} className="bg-white py-16 md:py-24 px-4 sm:px-6 md:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-poppins font-bold text-[#191a23] mb-6"
+            className="text-[1.75rem] sm:text-4xl md:text-6xl font-poppins font-bold text-[#191a23] mb-4 md:mb-6"
           >
             From Generic Profile to <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#453abc] to-[#60c3e3]">Growth Machine</span>
           </motion.h2>
@@ -41,14 +41,14 @@ export function SolutionSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-600 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed"
+            className="text-gray-600 text-sm sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed"
           >
             We stop the leak in your sales funnel by implementing a proprietary 3-step system that clarifies your message, builds authority, and optimizes for conversions.
           </motion.p>
         </div>
 
         {/* Content Section: Image and Points */}
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-24">
           {/* Image Side */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: -30 }}
@@ -80,18 +80,18 @@ export function SolutionSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group flex items-start gap-6 px-6 rounded-3xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-all duration-300"
+                className="group flex items-start gap-4 sm:gap-6 px-4 sm:px-6 rounded-2xl sm:rounded-3xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-all duration-300"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} p-[1.5px] flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                   <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center text-[#453abc]">
+                <div className={`w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br ${item.gradient} p-[1.5px] flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                   <div className="w-full h-full bg-white rounded-xl sm:rounded-2xl flex items-center justify-center text-[#453abc]">
                       {item.icon}
                    </div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-[#191a23] mb-3 font-poppins group-hover:text-[#453abc] transition-colors">
+                  <h3 className="text-lg sm:text-2xl font-bold text-[#191a23] mb-2 sm:mb-3 font-poppins group-hover:text-[#453abc] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-gray-500 text-base md:text-lg leading-relaxed font-light">
+                  <p className="text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed font-light">
                     {item.description}
                   </p>
                 </div>

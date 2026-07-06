@@ -16,13 +16,12 @@ import { systemsData } from "@/app/data/servicesData";
 
 const footerLinks = {
   quicklinks: [
-    { label: "Web Development", href: "/services/web-applications" },
-    { label: "Custom Software", href: "/services/custom-software" },
-    { label: "E-Commerce", href: "/services/ecommerce-development" },
-    { label: "SaaS", href: "/services/saas-product-development" },
-    { label: "UI/UX Design", href: "/services/ui-ux-design" },
-    { label: "Integrations", href: "/services/api-integration" },
-    { label: "Maintenance", href: "/services/maintenance-support" },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Blog", href: "/blog" },
+    { label: "Career", href: "/career" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "Company Profile", href: "/company-profile" },
   ],
   services: systemsData.slice(0, 4).map(s => ({
     label: s.title,
@@ -46,9 +45,9 @@ export function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white pt-8 md:pt-16 pb-14 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 lg:gap-8 mb-12 md:mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-2 text-center md:text-left">
             <div className="flex justify-center md:justify-start">
@@ -102,7 +101,7 @@ export function Footer() {
           </div>
 
           {/* Links Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:col-span-3 gap-8 text-left">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:col-span-3 gap-6 md:gap-8 text-left">
             <div>
               <h3 className="text-white font-poppins font-medium mb-6">
                 Quick Links
@@ -121,6 +120,7 @@ export function Footer() {
               </ul>
             </div>
 
+           
             {/* Services */}
             <div className="flex flex-col">
               <h3 className="text-white font-poppins font-medium mb-6">
@@ -147,8 +147,8 @@ export function Footer() {
               </Link>
             </div>
 
-            {/* Contact Information */}
-            <div>
+
+             <div>
               <h3 className="text-white font-poppins font-medium mb-6">
                 Contact
               </h3>
@@ -189,6 +189,7 @@ export function Footer() {
                 </li>
               </ul>
             </div>
+
           </div>
         </div>
 
@@ -209,12 +210,12 @@ export function Footer() {
                 value={footerEmail}
                 onChange={(event) => setFooterEmail(event.target.value)}
                 placeholder="Enter your email"
-                className="flex-1 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#453abc] transition-all"
+                className="flex-1 px-4 sm:px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#453abc] transition-all text-sm sm:text-base"
               />
               <button
                 type="submit"
                 disabled={footerLoading}
-                className="px-8 py-3 rounded-xl font-medium text-white transition-all hover:shadow-[0_10px_30px_-5px_rgba(69,58,188,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-xl font-medium text-white transition-all hover:shadow-[0_10px_30px_-5px_rgba(69,58,188,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
                 style={{
                   backgroundImage:
                     "linear-gradient(93.1835deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",

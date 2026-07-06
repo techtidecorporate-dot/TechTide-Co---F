@@ -16,11 +16,49 @@ import {
   remove,
   query,
   orderByChild,
-  equalTo
+  equalTo,
+  limitToLast,
+  orderByKey
 } from "firebase/database";
 import app, { auth, database } from "@/firebase/config";
 import { User, BlogPost, Service, JobPosition, JobApplication, ContactMessage, PartnerRequest } from '@/types';
 export * from "@/types";
+import { getCached, setCache } from "./cache";
+
+const DB_URL = "https://techtide-corporate-llp-eb187-default-rtdb.asia-southeast1.firebasedatabase.app";
+
+// Lightweight: fetch only keys via REST shallow=true (fast counts, no value payload)
+export async function getCount(path: string): Promise<number> {
+  try {
+    const user = auth.currentUser;
+    if (!user) return 0;
+    const token = await user.getIdToken();
+    const res = await fetch(`${DB_URL}/${path}.json?shallow=true&auth=${token}`);
+    const data = await res.json();
+    return data ? Object.keys(data).length : 0;
+  } catch {
+    return 0;
+  }
+}
+
+// Lightweight: fetch only the latest child ordered by createdAt
+export async function getLatest<T = any>(path: string): Promise<T | null> {
+  const snap = await get(
+    query(dbRef(database, path), orderByKey(), limitToLast(1))
+  );
+  if (!snap.exists()) return null;
+  const val = snap.val();
+  const key = Object.keys(val)[0];
+  return { id: key, ...val[key] } as T;
+}
+
+export async function cachedGet<T = any>(key: string, fetcher: () => Promise<T>, ttl = 15_000): Promise<T> {
+  const cached = getCached<T>(key);
+  if (cached !== null) return cached;
+  const data = await fetcher();
+  setCache(key, data, ttl);
+  return data;
+}
 
 // Helper to convert file to base64 (Data URL)
 const fileToBase64 = (file: File): Promise<string> => {
@@ -346,28 +384,46 @@ export const jobPositionAPI = {
 export const jobAPI = {
   getAll: async () => {
     const snapshot = await get(dbRef(database, "jobs"));
-    let data: JobApplication[] = [];
+    let data: any[] = [];
     if (snapshot.exists()) {
       const val = snapshot.val();
-      data = Object.keys(val).map(key => ({ id: key, ...val[key] }));
+      data = Object.keys(val).map(key => {
+        const { resume, ...rest } = val[key];
+        return { id: key, ...rest, hasResume: !!resume };
+      });
     }
     return { data };
+  },
+  getResume: async (id: string) => {
+    try {
+      const snap = await get(child(dbRef(database), `job-resumes/${id}/resume`));
+      if (snap.exists()) return { data: snap.val() };
+      const legacySnap = await get(child(dbRef(database), `jobs/${id}/resume`));
+      if (legacySnap.exists()) return { data: legacySnap.val() };
+      return { data: null };
+    } catch {
+      return { data: null };
+    }
   },
   create: async (data: FormData) => {
     const resumeFile = (data.get('resume') || data.get('cv')) as File;
     let cvLink = '';
     if (resumeFile && resumeFile instanceof File) {
-        // As per user request: "get storage may store ni karna cv be realtie dataabse may link bana kr stor eho"
-        // Using base64 Data URL to store in RTDB
         cvLink = await fileToBase64(resumeFile);
     }
     const jobData = Object.fromEntries(data.entries());
-    jobData.resume = cvLink; 
+    delete jobData.resume;
+    delete jobData.cv;
     jobData.createdAt = new Date().toISOString();
     jobData.status = 'pending';
     
     const newRef = push(dbRef(database, "jobs"));
     await set(newRef, jobData);
+
+    if (cvLink) {
+      await set(dbRef(database, `job-resumes/${newRef.key}`), { resume: cvLink });
+    }
+
     return { data: { id: newRef.key, ...jobData } };
   },
   updateStatus: async (id: string, status: string) => {
@@ -376,6 +432,7 @@ export const jobAPI = {
   },
   delete: async (id: string) => {
     await remove(dbRef(database, `jobs/${id}`));
+    await remove(dbRef(database, `job-resumes/${id}`));
   }
 };
 
