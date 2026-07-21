@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Restricted Areas
+
+Disallow: /admin
+Disallow: /signin
+
+# Sitemaps
+
+Sitemap: https://techtidecorporate.com/sitemap.xml
+
+# AI Discovery Files
+
+# These are informational comments for developers and AI systems.
+
+# Main AI directory:
+
+# https://techtidecorporate.com/llms.txt
+
+#
+
+# Complete AI knowledge base:
+
+# https://techtidecorporate.com/llms-full.txt
