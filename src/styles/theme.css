@@ -167,6 +167,10 @@
           rgba(96, 195, 227, 1));
     }
 
+    .bg-gradient-primary-to-r {
+      background-image: linear-gradient(90deg, rgba(69, 58, 188, 1), rgba(96, 195, 227, 1));
+    }
+
     .bg-gradient-primary-diagonal {
       background-image: linear-gradient(45deg,
           rgba(69, 58, 188, 1),
@@ -186,6 +190,16 @@
       border-image: linear-gradient(135deg,
           rgba(69, 58, 188, 1),
           rgba(96, 195, 227, 1)) 1;
+    }
+
+    .no-scrollbar {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      width: 0;
+      height: 0;
     }
 
     /* 3D Flip utilities */
@@ -254,6 +268,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -328,7 +343,8 @@
     font-family: var(--font-poppins);
   }
 
-  input, textarea {
+  input,
+  textarea {
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;

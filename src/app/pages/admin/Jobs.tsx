@@ -129,22 +129,22 @@ export default function JobApplications() {
               key={job.id}
               className="bg-[#16161a] border border-white/5 rounded-2xl p-6 shadow-xl hover:border-white/10 transition-all"
             >
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div className="flex flex-col justify-between gap-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#453abc] to-[#60c3e3] flex items-center justify-center font-bold">
+                  <div className="size-12 rounded-full bg-gradient-to-br from-[#453abc] to-[#60c3e3] flex items-center justify-center font-bold">
                     {job.name[0]}
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">{job.name}</h3>
                     <div className="flex flex-wrap gap-4 mt-1 text-sm text-gray-400">
                       <span className="flex items-center gap-1">
-                        <User size={14} /> {job.position}
+                        <User size={16} /> {job.position}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Mail size={14} /> {job.email}
+                        <Mail size={16} /> {job.email}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Phone size={14} /> {job.phone}
+                        <Phone size={16} /> {job.phone}
                       </span>
                     </div>
                     {job.position === "Speculative" && job.areaOfInterest && (
@@ -152,76 +152,75 @@ export default function JobApplications() {
                         Interest: {job.areaOfInterest}
                       </div>
                     )}
-                    {job.coverLetter && (
-                      <div className="mt-3 p-3 bg-white/5 rounded-lg">
-                        <p className="text-xs text-gray-500 mb-1">
-                          Cover Letter:
-                        </p>
-                        <p className="text-sm text-gray-300 line-clamp-3">
-                          {job.coverLetter}
-                        </p>
-                        <button
-                          onClick={() => setSelectedCoverLetter(job.coverLetter)}
-                          className="mt-2 flex items-center gap-1 text-xs bg-[#453abc]/20 hover:bg-[#453abc]/30 text-[#60c3e3] px-3 py-1.5 rounded transition-all font-semibold"
-                        >
-                          <Eye size={12} />
-                          See Full Letter
-                        </button>
-                      </div>
-                    )}
+
                   </div>
                 </div>
+                <div className="mt-3 flex gap-3 justify-between">
 
-                <div className="flex flex-wrap items-center gap-3">
-                  <span
-                    className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest ${getStatusColor(
-                      job.status,
-                    )}`}
-                  >
-                    {job.status}
-                  </span>
-
-                  <div className="flex items-center gap-2 border-l border-white/10 pl-3">
-                    <button
-                      onClick={() => handleStatusUpdate(job.id, "reviewed")}
-                      className="p-2 hover:bg-blue-500/10 rounded-lg text-blue-400 transition-all title='Mark as Reviewed'"
-                    >
-                      <Clock size={18} />
-                    </button>
-                    <button
-                      onClick={() => handleStatusUpdate(job.id, "contacted")}
-                      className="p-2 hover:bg-green-500/10 rounded-lg text-green-400 transition-all title='Mark as Contacted'"
-                    >
-                      <CheckCircle size={18} />
-                    </button>
-                    <button
-                      onClick={() => handleStatusUpdate(job.id, "rejected")}
-                      className="p-2 hover:bg-red-500/10 rounded-lg text-red-400 transition-all title='Mark as Rejected'"
-                    >
-                      <XCircle size={18} />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(job.id)}
-                      className="p-2 hover:bg-gray-500/10 rounded-lg text-gray-400 hover:text-white transition-all title='Delete'"
-                    >
-                      <Trash2 size={18} />
-                    </button>
-                  </div>
-
-                  {job.hasResume && (
-                    <button
-                      onClick={() => handleViewResume(job.id)}
-                      disabled={loadingResume === job.id}
-                      className="flex items-center gap-1 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-sm transition-all disabled:opacity-50"
-                    >
-                      {loadingResume === job.id ? (
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      ) : (
-                        <Eye size={14} />
-                      )}
-                      {loadingResume === job.id ? "Loading..." : "View CV"}
-                    </button>
+                  {job.coverLetter && (
+                    <div className="flex-1 p-3 bg-white/5 rounded-lg">
+                      <p className="text-xs text-gray-500 mb-1">Cover Letter:</p>
+                      <p className="text-sm text-gray-300 line-clamp-2">{job.coverLetter}</p>
+                      <button
+                        onClick={() => setSelectedCoverLetter(job.coverLetter)}
+                        className="mt-2 flex items-center gap-1 text-xs bg-[#453abc]/20 hover:bg-[#453abc]/30 text-[#60c3e3] px-3 py-1.5 rounded transition-all font-semibold"
+                      >
+                        <Eye size={12} />
+                        See Full Letter
+                      </button>
+                    </div>
                   )}
+                  <div className="flex flex-col items-start gap-3">
+                    <span
+                      className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest ${getStatusColor(
+                        job.status,
+                      )}`}
+                    >
+                      {job.status}
+                    </span>
+
+                    <div className="flex items-center gap-2 border-l border-white/10 pl-3">
+                      <button
+                        onClick={() => handleStatusUpdate(job.id, "reviewed")}
+                        className="p-2 hover:bg-blue-500/10 rounded-md text-blue-400 transition-all title='Mark as Reviewed'"
+                      >
+                        <Clock size={18} />
+                      </button>
+                      <button
+                        onClick={() => handleStatusUpdate(job.id, "contacted")}
+                        className="p-2 hover:bg-green-500/10 rounded-md text-green-400 transition-all title='Mark as Contacted'"
+                      >
+                        <CheckCircle size={18} />
+                      </button>
+                      <button
+                        onClick={() => handleStatusUpdate(job.id, "rejected")}
+                        className="p-2 hover:bg-red-500/10 rounded-md text-red-400 transition-all title='Mark as Rejected'"
+                      >
+                        <XCircle size={18} />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(job.id)}
+                        className="p-2 hover:bg-gray-500/10 rounded-md text-gray-400 hover:text-white transition-all title='Delete'"
+                      >
+                        <Trash2 size={18} />
+                      </button>
+                    </div>
+
+                    {job.hasResume && (
+                      <button
+                        onClick={() => handleViewResume(job.id)}
+                        disabled={loadingResume === job.id}
+                        className="flex items-center gap-1 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-sm transition-all disabled:opacity-50"
+                      >
+                        {loadingResume === job.id ? (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        ) : (
+                          <Eye size={14} />
+                        )}
+                        {loadingResume === job.id ? "Loading..." : "View CV"}
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
               <div className="mt-4 pt-4 border-t border-white/5 text-xs text-gray-500">

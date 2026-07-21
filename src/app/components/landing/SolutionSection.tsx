@@ -24,7 +24,7 @@ const solutions = [
 
 export function SolutionSection() {
   return (
-    <section style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}} className="bg-white py-16 md:py-24 px-4 sm:px-6 md:px-16 overflow-hidden">
+    <section style={{ contentVisibility: 'auto', containIntrinsicSize: '500px' }} className="bg-white py-16 md:py-24 px-4 sm:px-6 md:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12 md:mb-20">
@@ -80,15 +80,15 @@ export function SolutionSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group flex items-start gap-4 sm:gap-6 px-4 sm:px-6 rounded-2xl sm:rounded-3xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-all duration-300"
+                className="group flex items-start gap-4 sm:gap-6 px-4 sm:px-6 rounded-xl sm:rounded-3xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-all duration-300"
               >
-                <div className={`w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br ${item.gradient} p-[1.5px] flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                   <div className="w-full h-full bg-white rounded-xl sm:rounded-2xl flex items-center justify-center text-[#453abc]">
-                      {item.icon}
-                   </div>
+                <div className={`w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-xl bg-gradient-to-br ${item.gradient} p-[1.5px] flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                  <div className="w-full h-full bg-white rounded-xl sm:rounded-xl flex items-center justify-center text-[#453abc]">
+                    {item.icon}
+                  </div>
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-2xl font-bold text-[#191a23] mb-2 sm:mb-3 font-poppins group-hover:text-[#453abc] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#191a23] mb-2 sm:mb-3 font-poppins group-hover:text-[#453abc] transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed font-light">

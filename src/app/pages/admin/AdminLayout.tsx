@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate, useLocation, Outlet } from "react-router-dom";
 import { useAuth } from "@/app/context/AuthContext";
+import brandLogoLight from "@/assets/brand-logo-dark.svg";
 import {
   Users,
   Briefcase,
@@ -28,17 +29,18 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({
   label,
   active,
 }) => (
-  <Link
-    to={to}
-    className={`flex items-center gap-3 px-6 py-4 transition-all ${
-      active
-        ? "bg-[#453abc] text-white"
-        : "text-gray-400 hover:text-white hover:bg-white/5"
-    }`}
-  >
-    <Icon size={20} />
-    <span className="font-medium">{label}</span>
-  </Link>
+  <li>
+    <Link
+      to={to}
+      className={`flex items-center gap-3 p-4 transition-all ${active
+        ? "bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-white shadow-lg shadow-[#453abc]/20"
+        : "text-gray-400 hover:text-white hover:bg-white/10"
+        } rounded-lg`}
+    >
+      <Icon size={20} />
+      <span className="font-medium">{label}</span>
+    </Link>
+  </li>
 );
 
 export default function AdminLayout() {
@@ -78,34 +80,34 @@ export default function AdminLayout() {
   return (
     <div className="flex min-h-screen bg-[#0a0a0c] text-white">
       {/* Sidebar */}
-      <aside className="w-64 border-r border-white/10 flex flex-col">
+      <aside className="w-72 border-r border-white/10 flex flex-col sticky top-0 h-screen bg-[#09090c]">
         <Link
           to="/"
-          className="p-8 hover:opacity-80 transition-opacity cursor-pointer"
+          className="flex flex-col gap-3 items-center p-6"
         >
-          <h1 className="text-2xl font-poppins font-semibold bg-gradient-to-r from-[#453abc] via-[#60c3e3] to-[#453abc] bg-clip-text text-transparent">
-            TechTide
-          </h1>
-          <p className="text-xs bg-gradient-to-r from-[#60c3e3] to-[#453abc] bg-clip-text text-transparent mt-1 uppercase tracking-widest font-semibold">
-            Admin Panel
-          </p>
+          <img src={brandLogoLight} alt="TechTide" className="w-auto h-10 object-contain" />
+          <div>
+            <p className="text-xs text-gray-400 uppercase tracking-[0.35em] font-semibold">Admin Panel</p>
+          </div>
         </Link>
 
-        <nav className="flex-1 mt-4">
-          {menuItems.map((item) => (
-            <SidebarLink
-              key={item.to}
-              to={item.to}
-              icon={item.icon}
-              label={item.label}
-              active={location.pathname === item.to}
-            />
-          ))}
+        <nav className="flex-1 overflow-y-auto p-4 no-scrollbar">
+          <ul className="flex flex-col gap-1">
+            {menuItems.map((item) => (
+              <SidebarLink
+                key={item.to}
+                to={item.to}
+                icon={item.icon}
+                label={item.label}
+                active={location.pathname === item.to}
+              />
+            ))}
+          </ul>
         </nav>
 
         <div className="p-4 border-t border-white/10">
           <div className="flex items-center gap-3 px-4 py-3 mb-4">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#453abc] to-[#60c3e3] flex items-center justify-center text-xs font-bold">
+            <div className="w-10 h-10 rounded-md bg-gradient-primary-to-r flex items-center justify-center text-sm font-bold text-white">
               {user?.name?.[0]}
             </div>
             <div className="overflow-hidden">
@@ -115,7 +117,7 @@ export default function AdminLayout() {
           </div>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-lg transition-all"
+            className="w-full flex items-center gap-3 px-4 py-3 text-white bg-gradient-primary-to-r hover:shadow-lg hover:shadow-[#453abc]/20 rounded-lg transition-all"
           >
             <LogOut size={20} />
             <span className="font-medium">Logout</span>

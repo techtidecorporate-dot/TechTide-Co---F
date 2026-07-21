@@ -18,23 +18,26 @@ const StatCard: React.FC<StatCardProps> = ({
   color,
   loading,
 }) => (
-  <div className="bg-[#16161a] p-6 rounded-2xl border border-white/5 shadow-xl">
-    <div className="flex items-center justify-between mb-4">
-      <div className={`p-3 rounded-xl ${color}`}>
+  <div className="bg-[#16161a] p-6 rounded-xl border border-white/5 shadow-xl flex items-center justify-between">
+    <div>
+      <h3 className="text-3xl font-bold mt-1">
+        {loading ? (
+          <span className="inline-block w-12 h-8 bg-white/5 rounded animate-pulse" />
+        ) : (
+          value
+        )}
+      </h3>
+      <h4 className="text-gray-400 text-sm font-medium">{label}</h4>
+    </div>
+    <div className="flex items-center justify-end mb-4">
+      <div className={`p-3 rounded-lg ${color}`}>
         <Icon size={24} className="text-white" />
       </div>
       {loading && (
         <div className="w-4 h-4 border-2 border-white/20 border-t-white/60 rounded-full animate-spin" />
       )}
     </div>
-    <h3 className="text-gray-400 text-sm font-medium">{label}</h3>
-    <p className="text-3xl font-bold mt-1">
-      {loading ? (
-        <span className="inline-block w-12 h-8 bg-white/5 rounded animate-pulse" />
-      ) : (
-        value
-      )}
-    </p>
+
   </div>
 );
 
@@ -146,40 +149,40 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
+          label="Talent Pool"
+          value={stats.talentPool}
+          icon={Briefcase}
+          color="bg-blue-600/70"
+          loading={loading}
+        />
+        <StatCard
           label="Total Users"
           value={stats.users}
           icon={Users}
-          color="bg-blue-500"
+          color="bg-blue-500/70"
           loading={loading}
         />
         <StatCard
           label="Job Applications"
           value={stats.jobs}
           icon={Briefcase}
-          color="bg-purple-500"
+          color="bg-purple-500/70"
           loading={loading}
         />
         <StatCard
           label="Blog Posts"
           value={stats.blogs}
           icon={BookOpen}
-          color="bg-green-500"
+          color="bg-green-500/70"
           loading={loading}
         />
-        <StatCard
+        {/* <StatCard
           label="Messages"
           value={stats.messages}
           icon={Mail}
-          color="bg-orange-500"
+          color="bg-orange-500/70"
           loading={loading}
-        />
-        <StatCard
-          label="Talent Pool"
-          value={stats.talentPool}
-          icon={Briefcase}
-          color="bg-blue-600"
-          loading={loading}
-        />
+        /> */}
       </div>
 
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -188,25 +191,25 @@ export default function Dashboard() {
           <div className="space-y-4">
             {loading
               ? [1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between p-4 bg-white/5 rounded-xl animate-pulse"
-                  >
-                    <div className="h-4 w-48 bg-white/10 rounded" />
-                    <div className="h-3 w-12 bg-white/10 rounded" />
-                  </div>
-                ))
+                <div
+                  key={i}
+                  className="flex items-center justify-between p-4 bg-white/5 rounded-xl animate-pulse"
+                >
+                  <div className="h-4 w-48 bg-white/10 rounded" />
+                  <div className="h-3 w-12 bg-white/10 rounded" />
+                </div>
+              ))
               : recentActivity.map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between p-4 bg-white/5 rounded-xl"
-                  >
-                    <span className="text-sm">{item.label}</span>
-                    {item.time && (
-                      <span className="text-xs text-gray-500">{item.time}</span>
-                    )}
-                  </div>
-                ))}
+                <div
+                  key={i}
+                  className="flex items-center justify-between p-4 bg-white/5 rounded-xl"
+                >
+                  <span className="text-sm">{item.label}</span>
+                  {item.time && (
+                    <span className="text-xs text-gray-500">{item.time}</span>
+                  )}
+                </div>
+              ))}
           </div>
         </div>
 

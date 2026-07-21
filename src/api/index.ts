@@ -1,17 +1,17 @@
 
-import { 
-  signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword, 
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signOut,
   GoogleAuthProvider,
   signInWithPopup
 } from "firebase/auth";
-import { 
-  ref as dbRef, 
-  set, 
-  get, 
-  child, 
-  update, 
+import {
+  ref as dbRef,
+  set,
+  get,
+  child,
+  update,
   push,
   remove,
   query,
@@ -74,14 +74,14 @@ export const authAPI = {
   login: async (credentials: any) => {
     const userCredential = await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
     const user = userCredential.user;
-    
+
     let role = user.email === "techtidecorporate@gmail.com" ? "admin" : "user";
-    
+
     try {
       // Fetch user profile from Realtime Database to get role
       const rtdbRef = dbRef(database);
       const snapshot = await get(child(rtdbRef, `users/${user.uid}`));
-      
+
       if (snapshot.exists()) {
         const userData = snapshot.val();
         role = userData.role || role;
@@ -98,8 +98,8 @@ export const authAPI = {
       console.error("Database error during login, falling back to email-based role:", dbError);
       // We still return success because authentication was successful
     }
-    
-    return { 
+
+    return {
       data: {
         ...user,
         role: role
@@ -110,7 +110,7 @@ export const authAPI = {
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
-    
+
     let role = user.email === "techtidecorporate@gmail.com" ? "admin" : "user";
 
     try {
@@ -128,19 +128,19 @@ export const authAPI = {
           photoURL: user.photoURL
         });
       } else {
-         const userData = snapshot.val();
-         role = userData.role || role;
-         // Optional: Ensure admin role is enforced if it's the admin email
-         if (user.email === "techtidecorporate@gmail.com" && userData.role !== "admin") {
-           await update(dbRef(database, 'users/' + user.uid), { role: "admin" });
-           role = "admin";
-         }
+        const userData = snapshot.val();
+        role = userData.role || role;
+        // Optional: Ensure admin role is enforced if it's the admin email
+        if (user.email === "techtidecorporate@gmail.com" && userData.role !== "admin") {
+          await update(dbRef(database, 'users/' + user.uid), { role: "admin" });
+          role = "admin";
+        }
       }
     } catch (dbError) {
       console.error("Database error during Google login:", dbError);
     }
-    
-    return { 
+
+    return {
       data: {
         ...user,
         role: role
@@ -169,7 +169,7 @@ export const authAPI = {
   getProfile: async () => {
     const user = auth.currentUser;
     if (!user) return { data: null };
-    
+
     let role = user.email === "techtidecorporate@gmail.com" ? "admin" : "user";
     let userData: any = null;
 
@@ -186,20 +186,20 @@ export const authAPI = {
       // Fallback to role based on email if DB read fails
     }
 
-    return { 
-      data: { 
-        id: user.uid, 
+    return {
+      data: {
+        id: user.uid,
         name: userData?.username || user.displayName || (user.email ? user.email.split('@')[0] : 'User'),
         email: user.email || '',
         role: role as 'admin' | 'user'
-      } as User 
+      } as User
     };
   },
   // Admin function - Users from Realtime Database
   getUsers: async () => {
     const rtdbRef = dbRef(database);
     const snapshot = await get(child(rtdbRef, `users`));
-    
+
     let users: User[] = [];
     if (snapshot.exists()) {
       const usersData = snapshot.val();
@@ -212,7 +212,7 @@ export const authAPI = {
   },
   createUser: async (userData: any) => {
     // For manual creation by admin - using push() would generate an ID, or we can use the pattern like below
-    const newRef = push(dbRef(database, 'users')); 
+    const newRef = push(dbRef(database, 'users'));
     await set(newRef, userData);
     return { data: { id: newRef.key, ...userData } };
   },
@@ -259,7 +259,7 @@ export const blogAPI = {
   },
   update: async (id: string, data: Partial<BlogPost>) => {
     const blogData = { ...data };
-    
+
     // Ensure tags and keywords are arrays
     if (typeof blogData.tags === 'string') {
       blogData.tags = (blogData.tags as string).split(',').map((t: string) => t.trim()).filter(Boolean);
@@ -282,10 +282,10 @@ export const blogAPI = {
     // In RTDB filtering by field is less efficient than in Firestore, but we can iterate
     const snapshot = await get(dbRef(database, "blogs"));
     if (!snapshot.exists()) return { data: null };
-    
+
     const val = snapshot.val();
     const key = Object.keys(val).find(k => val[k].slug === slug);
-    
+
     if (key) {
       return { data: { id: key, ...val[key] } as BlogPost };
     }
@@ -307,26 +307,26 @@ export const serviceAPI = {
     const q = query(dbRef(database, "services"), orderByChild("slug"), equalTo(slug));
     const snapshot = await get(q);
     if (!snapshot.exists()) return { data: null };
-    
+
     // Since query returns a map of matches (usually 1), we need the first one
     const val = snapshot.val();
     const key = Object.keys(val)[0];
     return { data: { id: key, ...val[key] } as Service };
   },
   create: async (data: FormData | Partial<Service>) => {
-     let serviceData: any = data;
-     if (data instanceof FormData) {
-       serviceData = Object.fromEntries(data.entries());
-     }
+    let serviceData: any = data;
+    if (data instanceof FormData) {
+      serviceData = Object.fromEntries(data.entries());
+    }
     const newRef = push(dbRef(database, "services"));
     await set(newRef, serviceData);
     return { data: { id: newRef.key, ...serviceData } };
   },
   update: async (id: string, data: FormData | Partial<Service>) => {
     let serviceData: any = data;
-     if (data instanceof FormData) {
-       serviceData = Object.fromEntries(data.entries());
-     }
+    if (data instanceof FormData) {
+      serviceData = Object.fromEntries(data.entries());
+    }
     await update(dbRef(database, `services/${id}`), serviceData);
     return { data: { id, ...serviceData } };
   },
@@ -385,11 +385,22 @@ export const jobAPI = {
   getAll: async () => {
     const snapshot = await get(dbRef(database, "jobs"));
     let data: any[] = [];
+    let resumeIds = new Set<string>();
+
+    const resumesSnapshot = await get(dbRef(database, "job-resumes"));
+    if (resumesSnapshot.exists()) {
+      resumeIds = new Set(Object.keys(resumesSnapshot.val()));
+    }
+
     if (snapshot.exists()) {
       const val = snapshot.val();
       data = Object.keys(val).map(key => {
         const { resume, ...rest } = val[key];
-        return { id: key, ...rest, hasResume: !!resume };
+        return {
+          id: key,
+          ...rest,
+          hasResume: !!resume || resumeIds.has(key),
+        };
       });
     }
     return { data };
@@ -409,14 +420,14 @@ export const jobAPI = {
     const resumeFile = (data.get('resume') || data.get('cv')) as File;
     let cvLink = '';
     if (resumeFile && resumeFile instanceof File) {
-        cvLink = await fileToBase64(resumeFile);
+      cvLink = await fileToBase64(resumeFile);
     }
     const jobData = Object.fromEntries(data.entries());
     delete jobData.resume;
     delete jobData.cv;
     jobData.createdAt = new Date().toISOString();
     jobData.status = 'pending';
-    
+
     const newRef = push(dbRef(database, "jobs"));
     await set(newRef, jobData);
 
