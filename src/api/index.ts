@@ -21,7 +21,7 @@ import {
   orderByKey
 } from "firebase/database";
 import app, { auth, database } from "@/firebase/config";
-import { User, BlogPost, Service, JobPosition, JobApplication, ContactMessage, PartnerRequest } from '@/types';
+import { User, BlogPost, Service, JobPosition, ContactMessage, PartnerRequest } from '@/types';
 export * from "@/types";
 import { getCached, setCache } from "./cache";
 

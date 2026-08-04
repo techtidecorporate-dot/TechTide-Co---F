@@ -1,6 +1,6 @@
 import { ref, set, get, serverTimestamp } from "firebase/database";
 import { database } from "@/firebase/config";
-import { getVisitorId } from "@/app/utils/visitorId";
+import { getVisitorId } from "@/utils/visitorId";
 import { getStoredConsent } from "@/firebase/services/cookieConsent";
 
 const SCORE_MAP: Record<string, number> = {

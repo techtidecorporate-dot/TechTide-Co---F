@@ -1,6 +1,6 @@
 import { ref, push, set, serverTimestamp } from "firebase/database";
 import { database } from "@/firebase/config";
-import { getVisitorId } from "@/app/utils/visitorId";
+import { getVisitorId } from "@/utils/visitorId";
 
 export interface LeadSubmission {
   name: string;

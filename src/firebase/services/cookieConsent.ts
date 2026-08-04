@@ -1,6 +1,6 @@
 import { ref, set, push, serverTimestamp } from "firebase/database";
 import { database } from "@/firebase/config";
-import { getVisitorId } from "@/app/utils/visitorId";
+import { getVisitorId } from "@/utils/visitorId";
 
 const COOKIE_CONSENT_KEY = "techtide_cookie_consent";
 
