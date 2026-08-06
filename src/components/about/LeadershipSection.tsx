@@ -15,7 +15,7 @@ export function LeadershipSection() {
         <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
           Leadership
         </p>
-        <h2 className="text-3xl md:text-4xl font-poppins font-semibold text-[#191a23] mb-4">
+        <h2 className="text-3xl md:text-4xl  font-semibold text-[#191a23] mb-4">
           Meet the Team Behind TechTide
         </h2>
         <p className="text-[#6b7280] text-base max-w-xl mx-auto">
@@ -65,7 +65,7 @@ export function LeadershipSection() {
                   )}
                 </div>
                 <div className="p-5 text-center">
-                  <h3 className="text-lg font-poppins font-semibold text-[#191a23] mb-1">
+                  <h3 className="text-lg  font-semibold text-[#191a23] mb-1">
                     {member.name}
                   </h3>
                   <p className="text-sm text-[#6b7280] font-medium">
@@ -80,3 +80,4 @@ export function LeadershipSection() {
     </section>
   );
 }
+

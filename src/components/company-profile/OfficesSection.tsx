@@ -23,7 +23,7 @@ export function OfficesSection() {
         <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
           Our Office
         </p>
-        <h2 className="text-3xl md:text-4xl font-poppins font-semibold text-[#191a23]">
+        <h2 className="text-3xl md:text-4xl  font-semibold text-[#191a23]">
           Visit Us
         </h2>
       </motion.div>
@@ -40,7 +40,7 @@ export function OfficesSection() {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-poppins font-semibold text-[#191a23]">
+                  <h3 className="text-xl  font-semibold text-[#191a23]">
                     {office.city}
                   </h3>
                   <span className="text-xs font-medium text-[#453abc] bg-[#453abc]/10 px-2.5 py-0.5 rounded-full">
@@ -86,7 +86,7 @@ export function OfficesSection() {
               <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white mx-auto mb-4">
                 <MapPin className="w-9 h-9" />
               </div>
-              <p className="text-2xl font-poppins font-semibold text-[#191a23]">
+              <p className="text-2xl  font-semibold text-[#191a23]">
                 {office.city}
               </p>
               <p className="text-sm text-[#6b7280] mt-1">One team, one home</p>
@@ -97,3 +97,4 @@ export function OfficesSection() {
     </section>
   );
 }
+

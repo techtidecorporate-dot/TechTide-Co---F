@@ -25,7 +25,7 @@ export function CorporateInfoSection() {
         <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
           Corporate Information
         </p>
-        <h2 className="text-3xl md:text-4xl font-poppins font-semibold text-[#191a23]">
+        <h2 className="text-3xl md:text-4xl  font-semibold text-[#191a23]">
           Company Details
         </h2>
       </motion.div>
@@ -54,3 +54,4 @@ export function CorporateInfoSection() {
     </section>
   );
 }
+

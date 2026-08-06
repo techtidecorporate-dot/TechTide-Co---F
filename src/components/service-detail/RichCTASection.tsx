@@ -13,7 +13,7 @@ export function RichCTASection({ service }: RichCTASectionProps) {
         <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[100px] md:blur-[120px]" />
 
         <div className="relative z-10">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-poppins font-medium text-white mb-6 md:mb-8 leading-tight">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl  font-medium text-white mb-6 md:mb-8 leading-tight">
             {service.ctaHeading || (
               <>
                 Ready to Start Your{" "}
@@ -29,7 +29,7 @@ export function RichCTASection({ service }: RichCTASectionProps) {
             onClick={() =>
               window.dispatchEvent(new CustomEvent("open-partner-drawer"))
             }
-            className="px-12 py-4 rounded-2xl font-poppins font-bold text-lg text-white
+            className="px-12 py-4 rounded-2xl  font-bold text-lg text-white
             bg-gradient-to-r from-[#453abc] to-[#6b5cff]
             shadow-[0_20px_60px_rgba(69,58,188,0.4)]
             hover:shadow-[0_30px_80px_rgba(69,58,188,0.5)]
@@ -44,3 +44,4 @@ export function RichCTASection({ service }: RichCTASectionProps) {
     </div>
   );
 }
+

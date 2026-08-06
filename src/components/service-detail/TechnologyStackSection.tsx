@@ -9,10 +9,10 @@ export function TechnologyStackSection({ technologyStack }: TechnologyStackSecti
     <div className="py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
+          <p className=" text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
             Technology Stack
           </p>
-          <h2 className="text-3xl md:text-5xl font-poppins font-bold text-[#191a23]">
+          <h2 className="text-3xl md:text-5xl  font-bold text-[#191a23]">
             Built With Modern Technologies
           </h2>
         </div>
@@ -27,14 +27,14 @@ export function TechnologyStackSection({ technologyStack }: TechnologyStackSecti
                 hover:border-[#453abc]/10
                 transition-all duration-300"
             >
-              <h3 className="text-xs font-poppins font-semibold tracking-[0.12em] uppercase text-[#453abc]/60 mb-4">
+              <h3 className="text-xs  font-semibold tracking-[0.12em] uppercase text-[#453abc]/60 mb-4">
                 {group.category}
               </h3>
               <ul className="space-y-2">
                 {group.items.map((item, j) => (
                   <li
                     key={j}
-                    className="text-sm font-poppins font-medium text-gray-700 bg-gray-50 rounded-lg px-3 py-1.5"
+                    className="text-sm  font-medium text-gray-700 bg-gray-50 rounded-lg px-3 py-1.5"
                   >
                     {item}
                   </li>

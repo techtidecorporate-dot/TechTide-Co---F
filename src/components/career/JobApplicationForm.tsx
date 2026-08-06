@@ -187,7 +187,7 @@ export function JobApplicationForm({
       <div className="bg-white  max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white p-6 border-b border-gray-100 flex items-center justify-between rounded-t-[2rem]">
           <div>
-            <h3 className="text-2xl font-poppins font-medium text-[#191a23]">
+            <h3 className="text-2xl  font-medium text-[#191a23]">
               {position
                 ? `Apply for ${position.title}`
                 : "Speculative Application"}

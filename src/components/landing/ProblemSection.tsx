@@ -62,7 +62,7 @@ export function ProblemSection() {
           </div>
 
           <h2
-            className="text-[1.75rem] sm:text-4xl md:text-6xl lg:text-7xl font-poppins font-bold text-[#191a23] mb-6 md:mb-8 leading-[1.1] ps-fade-up"
+            className="text-[1.75rem] sm:text-4xl md:text-6xl lg:text-7xl  font-bold text-[#191a23] mb-6 md:mb-8 leading-[1.1] ps-fade-up"
             style={{ animationDelay: "0.15s" }}
           >
             Is Your Website <br />
@@ -104,7 +104,7 @@ export function ProblemSection() {
                 {/* Large Background ID Number for Light Theme */}
                 <div
                   aria-hidden="true"
-                  className="absolute -top-6 -right-4 text-9xl font-bold text-gray-400/10 select-none group-hover:text-[#453abc]/10 transition-colors pointer-events-none font-poppins"
+                  className="absolute -top-6 -right-4 text-9xl font-bold text-gray-400/10 select-none group-hover:text-[#453abc]/10 transition-colors pointer-events-none "
                 >
                   {problem.id}
                 </div>
@@ -116,7 +116,7 @@ export function ProblemSection() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#191a23] mb-6 font-poppins leading-tight tracking-tight capitalize shrink-0">
+                <h3 className="text-xl font-bold text-[#191a23] mb-6  leading-tight tracking-tight capitalize shrink-0">
                   {problem.title}
                 </h3>
 

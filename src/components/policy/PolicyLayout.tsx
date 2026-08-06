@@ -47,7 +47,7 @@ export const PolicyLayout = ({
                 {badgeLabel}
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-poppins font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl  font-bold text-gray-900 mb-6">
               {titleBefore}{" "}
               <span className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">
                 {titleGradient}
@@ -58,7 +58,7 @@ export const PolicyLayout = ({
         </header>
 
         {/* Content Sections */}
-        <div className="prose prose-slate max-w-none prose-headings:font-poppins prose-headings:font-bold prose-p:text-gray-600 prose-p:leading-relaxed">
+        <div className="prose prose-slate max-w-none prose-headings: prose-headings:font-bold prose-p:text-gray-600 prose-p:leading-relaxed">
           {sections.map((section, index) => (
             <section key={index} className="mb-12">
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
@@ -100,3 +100,4 @@ export const PolicyLayout = ({
     </main>
   );
 };
+

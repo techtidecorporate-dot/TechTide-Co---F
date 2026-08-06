@@ -13,22 +13,17 @@ export function HeroSection() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
-            Get In Touch with TechTide Corporate LLP
-          </p>
-          <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-poppins font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
+          <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">Get In Touch with TechTide Corporate LLP</span>
+          <h1 className="text-4xl md:text-6xl xl:text-7xl font-medium text-[#191a23] mb-6 leading-tight md:leading-[1.1]">
             Let&rsquo;s Build Your Next{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
               Web or Software Project
             </span>
           </h1>
-          <p className="text-[#6b7280] text-base md:text-lg xl:text-xl max-w-2xl mx-auto leading-relaxed">
-            Have an idea for a website, ERP, CRM, or custom software? Contact
-            us today, and our expert team will help bring your project to life
-            quickly and efficiently.
-          </p>
+          <p className="text-[#6b7280] text-base md:text-lg xl:text-xl max-w-2xl mx-auto leading-relaxed">Have an idea for a website, ERP, CRM, or custom software? Contact us today, and our expert team will help bring your project to life quickly and efficiently.</p>
         </motion.div>
       </div>
     </header>
   );
 }
+

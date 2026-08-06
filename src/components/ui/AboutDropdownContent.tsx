@@ -35,7 +35,7 @@ export function AboutDropdownContent({ onClose }: AboutDropdownContentProps) {
                   : "hover:bg-gray-50 border border-transparent"
               }`}
             >
-              <h3 className={`font-poppins font-semibold text-lg mb-1.5 transition-colors ${
+              <h3 className={` font-semibold text-lg mb-1.5 transition-colors ${
                 isActive ? "text-[#453abc]" : "text-[#191a23] group-hover:text-[#453abc]"
               }`}>
                 {item.label}
@@ -50,3 +50,4 @@ export function AboutDropdownContent({ onClose }: AboutDropdownContentProps) {
     </div>
   );
 }
+

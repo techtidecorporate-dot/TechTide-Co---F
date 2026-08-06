@@ -110,7 +110,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     key={i}
                     to={item.href}
                     onClick={onClose}
-                    className={`block text-lg sm:text-xl font-poppins font-semibold py-3 px-3 transition-colors rounded-xl ${
+                    className={`block text-lg sm:text-xl  font-semibold py-3 px-3 transition-colors rounded-xl ${
                       isActive
                         ? "text-white bg-gradient-to-r from-[#453abc] to-[#60c3e3]"
                         : "text-gray-800 hover:text-[#453abc] hover:bg-gray-50"
@@ -154,7 +154,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             key={i}
                             to={item.href}
                             onClick={onClose}
-                            className={`block text-sm sm:text-base font-poppins font-medium py-2.5 px-3 transition-colors rounded-xl ${
+                            className={`block text-sm sm:text-base  font-medium py-2.5 px-3 transition-colors rounded-xl ${
                               isActive
                                 ? "text-[#453abc] bg-[#453abc]/5"
                                 : "text-gray-600 hover:text-[#453abc] hover:bg-gray-50"
@@ -208,7 +208,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                   key={j}
                                   to={item.href}
                                   onClick={onClose}
-                                  className={`block text-sm font-poppins font-medium py-2.5 px-3 transition-colors rounded-xl ${
+                                  className={`block text-sm  font-medium py-2.5 px-3 transition-colors rounded-xl ${
                                     isActive
                                       ? "text-[#453abc] bg-[#453abc]/5"
                                       : "text-gray-600 hover:text-[#453abc] hover:bg-gray-50"
@@ -234,7 +234,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 onClose();
                 window.dispatchEvent(new CustomEvent("open-partner-drawer"));
               }}
-              className="w-full py-4 rounded-xl text-center text-white font-poppins font-semibold shadow-lg shadow-[#453abc]/20"
+              className="w-full py-4 rounded-xl text-center text-white  font-semibold shadow-lg shadow-[#453abc]/20"
               style={{
                 background:
                   "linear-gradient(95deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 100%)",
@@ -254,3 +254,4 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     </AnimatePresence>
   );
 }
+

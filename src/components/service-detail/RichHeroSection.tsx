@@ -35,7 +35,7 @@ export function RichHeroSection({ service }: RichHeroSectionProps) {
             </div>
 
             <h1
-              className="text-3xl md:text-5xl lg:text-6xl font-poppins font-extrabold
+              className="text-3xl md:text-5xl lg:text-6xl  font-extrabold
               text-[#191a23] leading-[1.08] tracking-tight"
             >
               {service.title}
@@ -50,7 +50,7 @@ export function RichHeroSection({ service }: RichHeroSectionProps) {
                 onClick={() =>
                   window.dispatchEvent(new CustomEvent("open-partner-drawer"))
                 }
-                className="px-10 py-4 rounded-2xl font-poppins font-bold text-lg text-white
+                className="px-10 py-4 rounded-2xl  font-bold text-lg text-white
                 bg-gradient-to-r from-[#453abc] to-[#5f54e6]
                 shadow-[0_20px_60px_rgba(69,58,188,0.35)]
                 hover:shadow-[0_30px_80px_rgba(69,58,188,0.45)]
@@ -62,7 +62,7 @@ export function RichHeroSection({ service }: RichHeroSectionProps) {
               </button>
               <a
                 href="/contact"
-                className="px-10 py-4 rounded-2xl font-poppins font-bold text-lg text-[#453abc]
+                className="px-10 py-4 rounded-2xl  font-bold text-lg text-[#453abc]
                 border-2 border-[#453abc]
                 hover:bg-[#453abc] hover:text-white
                 transition-all duration-300 transform hover:scale-[1.03]
@@ -93,3 +93,4 @@ export function RichHeroSection({ service }: RichHeroSectionProps) {
     </header>
   );
 }
+

@@ -35,7 +35,7 @@
 //             <button
 //               key={category}
 //               onClick={() => onCategoryChange(category)}
-//               className={`px-6 py-3 rounded-2xl font-poppins text-xs md:text-sm font-medium transition-all whitespace-nowrap ${
+//               className={`px-6 py-3 rounded-2xl  text-xs md:text-sm font-medium transition-all whitespace-nowrap ${
 //                 selectedCategory === category
 //                   ? "bg-[#191a23] text-white shadow-lg"
 //                   : "bg-white text-[#6b7280] hover:bg-[#f8f9fa] border border-gray-200"
@@ -49,3 +49,4 @@
 //     </div>
 //   );
 // }
+

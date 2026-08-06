@@ -58,7 +58,7 @@ export default function SignInPage() {
       <div className="relative w-full max-w-xl">
         {/* Logo Area */}
         <div className="text-center mb-8 md:mb-12">
-          <h1 className="text-3xl md:text-5xl font-poppins font-medium text-[#191a23] mb-3 md:mb-4">
+          <h1 className="text-3xl md:text-5xl  font-medium text-[#191a23] mb-3 md:mb-4">
             Tech
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
               Tide
@@ -73,7 +73,7 @@ export default function SignInPage() {
         {/* Sign In Card */}
         <div className="glass rounded-3xl md:rounded-4xl p-8 md:p-12 lg:p-16 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white/40">
           <div className="mb-8 md:mb-10 text-center">
-            <h2 className="text-2xl md:text-3xl font-poppins font-semibold text-[#191a23] mb-2">Welcome Back</h2>
+            <h2 className="text-2xl md:text-3xl  font-semibold text-[#191a23] mb-2">Welcome Back</h2>
             <p className="text-[#6b7280] text-xs md:text-sm">Please enter your details to sign in.</p>
           </div>
 
@@ -85,7 +85,7 @@ export default function SignInPage() {
 
           <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
             <div className="space-y-2 md:space-y-3">
-              <label className="block text-sm font-poppins font-semibold text-[#6b7280] uppercase tracking-widest ml-1">Email</label>
+              <label className="block text-sm  font-semibold text-[#6b7280] uppercase tracking-widest ml-1">Email</label>
               <input
                 type="email"
                 name="email"
@@ -99,7 +99,7 @@ export default function SignInPage() {
 
             <div className="space-y-2 md:space-y-3">
               <div className="flex items-center justify-between px-1">
-                <label className="block text-sm font-poppins font-semibold text-[#6b7280] uppercase tracking-widest">Password</label>
+                <label className="block text-sm  font-semibold text-[#6b7280] uppercase tracking-widest">Password</label>
               </div>
               <div className="relative group">
                 <input
@@ -127,7 +127,7 @@ export default function SignInPage() {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-white px-8 py-4.5 md:py-5 rounded-xl font-poppins font-medium shadow-[0_10px_30px_rgba(69,58,188,0.2)] transition-all duration-300 hover:-translate-y-1 active:scale-[0.98] text-sm md:text-base"
+              className="w-full bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-white px-8 py-4.5 md:py-5 rounded-xl  font-medium shadow-[0_10px_30px_rgba(69,58,188,0.2)] transition-all duration-300 hover:-translate-y-1 active:scale-[0.98] text-sm md:text-base"
             >
               Sign In
             </button>
@@ -149,3 +149,4 @@ export default function SignInPage() {
     </main>
   );
 }
+

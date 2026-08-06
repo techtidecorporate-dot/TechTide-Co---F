@@ -48,7 +48,7 @@ export function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[1.75rem] sm:text-4xl md:text-6xl font-poppins font-bold text-[#191a23] leading-[1.1] mb-6 md:mb-8"
+            className="text-[1.75rem] sm:text-4xl md:text-6xl  font-bold text-[#191a23] leading-[1.1] mb-6 md:mb-8"
           >
             A Digital Partner That <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">
@@ -104,7 +104,7 @@ export function WhyChooseUs() {
                     {reason.icon}
                   </div>
                   <div>
-                    <h4 className="text-base sm:text-xl font-poppins font-bold text-[#191a23] mb-1 group-hover:text-[#453abc] transition-colors">
+                    <h4 className="text-base sm:text-xl  font-bold text-[#191a23] mb-1 group-hover:text-[#453abc] transition-colors">
                       {reason.title}
                     </h4>
                     <p className="text-gray-500 text-sm leading-relaxed">
@@ -124,7 +124,7 @@ export function WhyChooseUs() {
            transition={{ delay: 0.5 }}
            className="mt-12 md:mt-24 text-center"
         >
-          <p className="text-base sm:text-xl md:text-3xl text-[#191a23] font-poppins font-medium italic opacity-80">
+          <p className="text-base sm:text-xl md:text-3xl text-[#191a23]  font-medium italic opacity-80">
             "Clients work with us because we make things <span className="text-[#453abc]">simple</span>, <span className="text-[#453abc]">reliable</span>, and <span className="text-[#453abc]">effective</span>."
           </p>
   

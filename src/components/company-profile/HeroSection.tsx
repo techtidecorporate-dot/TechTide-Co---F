@@ -17,11 +17,11 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
         >
           
-          <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
+          <p className=" text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
             Company Profile
           </p>
 
-          <h1 className="text-4xl md:text-6xl xl:text-7xl font-poppins font-medium mb-6 leading-tight md:leading-[1.1] text-[#191a23]">
+          <h1 className="text-4xl md:text-6xl xl:text-7xl  font-medium mb-6 leading-tight md:leading-[1.1] text-[#191a23]">
             <span className="bg-gradient-to-r from-[#453abc] via-[#60c3e3] to-[#453abc] bg-clip-text text-transparent">
               TechTide Corporate
             </span>{" "}
@@ -35,7 +35,7 @@ export function HeroSection() {
 
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-poppins font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl  font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
             style={{
               background:
                 "linear-gradient(95deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 100%)",

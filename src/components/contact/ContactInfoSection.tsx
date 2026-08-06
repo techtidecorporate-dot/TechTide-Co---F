@@ -49,18 +49,13 @@ export function ContactInfoSection() {
             viewport={{ once: true, margin: "-50px" }}
             className="bg-white rounded-2xl border border-gray-100 p-8 shadow-md hover:shadow-xl transition-all group"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-lg">
-              {info.icon}
-            </div>
-            <h3 className="text-[#191a23] font-poppins font-semibold mb-2 text-lg">
-              {info.title}
-            </h3>
-            <p className="text-[#6b7280] text-sm leading-relaxed">
-              {info.content}
-            </p>
+            <div className="size-12 rounded-lg bg-gradient-to-r from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-lg">{info.icon}</div>
+            <h3 className="text-[#191a23] font-semibold mb-2 text-lg">{info.title}</h3>
+            <p className="text-[#6b7280] text-sm leading-relaxed">{info.content}</p>
           </motion.a>
         ))}
       </div>
     </div>
   );
 }
+

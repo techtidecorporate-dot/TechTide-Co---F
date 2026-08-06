@@ -46,10 +46,10 @@ export function SolutionsSection({ solutionCategories }: SolutionsSectionProps) 
     <div className="bg-[#f4f5f7] py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
+          <p className=" text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
             What We Offer
           </p>
-          <h2 className="text-3xl md:text-5xl font-poppins font-bold text-[#191a23]">
+          <h2 className="text-3xl md:text-5xl  font-bold text-[#191a23]">
             Applications We Build
           </h2>
         </div>
@@ -57,7 +57,7 @@ export function SolutionsSection({ solutionCategories }: SolutionsSectionProps) 
         <div className="space-y-16">
           {visibleCategories.map((cat, ci) => (
             <div key={ci}>
-              <h3 className="text-lg font-poppins font-semibold text-[#453abc] mb-8 flex items-center gap-3">
+              <h3 className="text-lg  font-semibold text-[#453abc] mb-8 flex items-center gap-3">
                 <span className="w-8 h-0.5 bg-gradient-to-r from-[#453abc] to-[#60c3e3] rounded-full shrink-0" />
                 {cat.category}
               </h3>
@@ -76,7 +76,7 @@ export function SolutionsSection({ solutionCategories }: SolutionsSectionProps) 
                       <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#453abc]/10 to-[#60c3e3]/10 flex items-center justify-center mb-4 group-hover:from-[#453abc]/20 group-hover:to-[#60c3e3]/20 transition-colors">
                         <Icon className="w-5 h-5 text-[#453abc]" />
                       </div>
-                      <h4 className="text-base font-poppins font-semibold text-[#191a23] mb-2 group-hover:text-[#453abc] transition-colors">
+                      <h4 className="text-base  font-semibold text-[#191a23] mb-2 group-hover:text-[#453abc] transition-colors">
                         {sol.title}
                       </h4>
                       <p className="text-gray-600 text-sm leading-relaxed flex-1">
@@ -85,7 +85,7 @@ export function SolutionsSection({ solutionCategories }: SolutionsSectionProps) 
                       {sol.href && (
                         <a
                           href={sol.href}
-                          className="mt-3 text-xs font-poppins font-medium text-[#453abc] hover:text-[#60c3e3] transition-colors inline-flex items-center gap-1"
+                          className="mt-3 text-xs  font-medium text-[#453abc] hover:text-[#60c3e3] transition-colors inline-flex items-center gap-1"
                         >
                           Learn More &rarr;
                         </a>
@@ -102,7 +102,7 @@ export function SolutionsSection({ solutionCategories }: SolutionsSectionProps) 
           <div className="text-center mt-12">
             <button
               onClick={() => setShowAll(true)}
-              className="px-10 py-4 rounded-2xl font-poppins font-bold text-base text-white
+              className="px-10 py-4 rounded-2xl  font-bold text-base text-white
                 bg-gradient-to-r from-[#453abc] to-[#5f54e6]
                 shadow-[0_15px_40px_rgba(69,58,188,0.3)]
                 hover:shadow-[0_25px_60px_rgba(69,58,188,0.4)]

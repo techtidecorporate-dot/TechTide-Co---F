@@ -13,7 +13,7 @@ export function NavLink({ href, label, isActive, shouldBeTransparent, onClick }:
     <Link
       to={href}
       onClick={onClick}
-      className={`relative font-poppins py-1 transition-all duration-300 group ${
+      className={`relative  py-1 transition-all duration-300 group ${
         isActive
           ? shouldBeTransparent
             ? "text-white font-medium"
@@ -34,3 +34,4 @@ export function NavLink({ href, label, isActive, shouldBeTransparent, onClick }:
     </Link>
   );
 }
+

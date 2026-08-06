@@ -18,7 +18,7 @@ export function CTASection() {
   <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#60c3e3]/10 rounded-full blur-[100px]" />
 
   <div className="relative z-10">
-    <h2 className="text-2xl md:text-3xl font-poppins text-white font-semibold mb-4">
+    <h2 className="text-2xl md:text-3xl  text-white font-semibold mb-4">
       Let's Work Together
     </h2>
 
@@ -29,7 +29,7 @@ export function CTASection() {
 
     <a
       href="/contact"
-      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-white px-8 py-3.5 rounded-xl font-poppins font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-white px-8 py-3.5 rounded-xl  font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
     >
       <Mail className="w-5 h-5" />
       Get in Touch
@@ -39,3 +39,4 @@ export function CTASection() {
  </div>
   );
 }
+

@@ -124,7 +124,7 @@ export function ServicesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[1.75rem] sm:text-4xl md:text-6xl font-poppins font-bold leading-[1.1]"
+          className="text-[1.75rem] sm:text-4xl md:text-6xl  font-bold leading-[1.1]"
         >
           Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#453abc] to-[#60c3e3]">Services</span>
         </motion.h2>

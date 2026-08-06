@@ -47,13 +47,10 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-white pt-8 md:pt-16 pb-14 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 lg:gap-8 mb-12 md:mb-16">
-          {/* Brand Column */}
           <div className="lg:col-span-2 text-center md:text-left">
             <div className="flex justify-center md:justify-start">
               <Link to="/">
-              
                 <img
                   src={imgVector}
                   className="h-8 md:h-10 w-auto"
@@ -64,11 +61,7 @@ export function Footer() {
                 />
               </Link>
             </div>
-            <p className="text-gray-400 text-sm mt-6 max-w-md mx-auto md:mx-0 leading-relaxed">
-              Based in Pakistan, Serving the World. We build high performance
-              web, mobile, and SaaS solutions for businesses across the UK, USA, 
-              Canada, Germany.
-            </p>
+            <p className="text-gray-400 text-sm mt-6 max-w-md mx-auto md:mx-0 leading-relaxed">Based in Pakistan, Serving the World. We build high performance web, mobile, and SaaS solutions for businesses across the UK, USA, Canada, Germany.</p>
 
             {/* Social Links */}
             <div className="flex justify-center md:justify-start gap-4 mt-8">
@@ -104,7 +97,7 @@ export function Footer() {
           {/* Links Columns */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:col-span-3 gap-6 md:gap-8 text-left">
             <div>
-              <h3 className="text-white font-poppins font-medium mb-6">
+              <h3 className="text-white  font-medium mb-6">
                 Quick Links
               </h3>
               <ul className="space-y-4">
@@ -121,10 +114,9 @@ export function Footer() {
               </ul>
             </div>
 
-           
             {/* Services */}
             <div className="flex flex-col">
-              <h3 className="text-white font-poppins font-medium mb-6">
+              <h3 className="text-white  font-medium mb-6">
                 Services
               </h3>
               <ul className="space-y-4 mb-6">
@@ -148,9 +140,8 @@ export function Footer() {
               </Link>
             </div>
 
-
-             <div>
-              <h3 className="text-white font-poppins font-medium mb-6">
+            <div>
+              <h3 className="text-white font-medium mb-6">
                 Contact
               </h3>
               <ul className="space-y-4">
@@ -198,12 +189,8 @@ export function Footer() {
         <div className="border-t border-white/5 py-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="text-center lg:text-left">
-              <h3 className="text-xl font-poppins font-medium mb-2">
-                Subscribe to our Newsletter
-              </h3>
-              <p className="text-gray-400 text-sm">
-                Stay updated with our latest news and offers
-              </p>
+              <h3 className="text-xl  font-medium mb-2">Subscribe to our Newsletter</h3>
+              <p className="text-gray-400 text-sm">Stay updated with our latest news and offers</p>
             </div>
             <form onSubmit={handleFooterSubscribe} className="flex flex-col sm:flex-row gap-3">
               <input
@@ -211,12 +198,12 @@ export function Footer() {
                 value={footerEmail}
                 onChange={(event) => setFooterEmail(event.target.value)}
                 placeholder="Enter your email"
-                className="flex-1 px-4 sm:px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#453abc] transition-all text-sm sm:text-base"
+                className="flex-1 px-4 sm:px-5 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#453abc] transition-all text-sm sm:text-base"
               />
               <button
                 type="submit"
                 disabled={footerLoading}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-xl font-medium text-white transition-all hover:shadow-[0_10px_30px_-5px_rgba(69,58,188,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-lg font-medium text-white transition-all hover:shadow-[0_10px_30px_-5px_rgba(69,58,188,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
                 style={{
                   backgroundImage:
                     "linear-gradient(93.1835deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",
@@ -234,21 +221,23 @@ export function Footer() {
             © 2026 TechTideCo. All rights reserved.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
+          <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2">
             {[
               { label: "Privacy Policy", href: "/privacy-policy" },
               { label: "Terms of Service", href: "/terms-of-service" },
               { label: "Cookie Policy", href: "/cookie-policy" },
             ].map((link, index) => (
-              <Link
-                key={index}
-                to={link.href}
-                className="text-gray-400 text-xs hover:text-white transition-colors"
-              >
-                {link.label}
-              </Link>
+              <li>
+                <Link
+                  key={index}
+                  to={link.href}
+                  className="text-gray-400 text-xs hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </footer>

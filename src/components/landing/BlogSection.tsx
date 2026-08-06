@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { blogAPI, BlogPost } from "../../api";
-
 export function BlogSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
@@ -51,11 +50,11 @@ export function BlogSection() {
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16">
           {/* LEFT TEXT */}
           <div className="lg:w-[38%] text-center lg:text-left">
-            <span className="block font-poppins text-sm font-medium tracking-widest text-[#453abc] uppercase mb-3">
+            <span className="block  text-sm font-medium tracking-widest text-[#453abc] uppercase mb-3">
               Blog Section
             </span>
 
-            <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl font-poppins font-bold leading-tight mb-4 md:mb-6 text-[#191a23]">
+            <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl  font-bold leading-tight mb-4 md:mb-6 text-[#191a23]">
               Insights and <span className="text-[#453abc]">Digital Growth</span>
             </h2>
 
@@ -165,3 +164,4 @@ function BlogCard({
     </motion.div>
   );
 }
+

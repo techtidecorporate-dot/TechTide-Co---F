@@ -16,10 +16,10 @@ export function ProcessSection({ processSteps }: ProcessSectionProps) {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <p className="font-poppins text-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
+          <p className=" text-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
             Our Process
           </p>
-          <h2 className="text-3xl md:text-5xl font-poppins font-bold text-white">
+          <h2 className="text-3xl md:text-5xl  font-bold text-white">
             How We Build Your Solution
           </h2>
         </div>
@@ -35,7 +35,7 @@ export function ProcessSection({ processSteps }: ProcessSectionProps) {
               <div className="shrink-0">
                 <div
                   className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#453abc] to-[#60c3e3]
-                  flex items-center justify-center text-white font-poppins font-bold text-xl
+                  flex items-center justify-center text-white  font-bold text-xl
                   shadow-[0_10px_30px_rgba(69,58,188,0.3)]
                   group-hover:shadow-[0_15px_40px_rgba(69,58,188,0.5)]
                   transition-all duration-500"
@@ -44,7 +44,7 @@ export function ProcessSection({ processSteps }: ProcessSectionProps) {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl font-poppins font-semibold text-white mb-3">
+                <h3 className="text-xl md:text-2xl  font-semibold text-white mb-3">
                   {step.title}
                 </h3>
                 <p className="text-white/60 text-base leading-relaxed">
@@ -58,3 +58,4 @@ export function ProcessSection({ processSteps }: ProcessSectionProps) {
     </div>
   );
 }
+

@@ -87,7 +87,7 @@ const Navbar = memo(function Navbar() {
   };
 
   return (
-    <motion.nav
+    <motion.header
       initial={false}
       animate={{
         backgroundColor: shouldBeTransparent
@@ -112,63 +112,71 @@ const Navbar = memo(function Navbar() {
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="hidden lg:flex items-center gap-10">
-        {/* About Us */}
-        <div
-          className="relative"
-          onMouseEnter={() => { setIsAboutDropdownOpen(true); setIsServicesDropdownOpen(false); }}
-          onMouseLeave={() => setIsAboutDropdownOpen(false)}
-        >
-          <button
-            ref={aboutTriggerRef}
-            className={`relative font-poppins py-1 transition-all duration-300 group cursor-pointer ${textClasses(
-              location.pathname.startsWith("/about") || location.pathname.startsWith("/company-profile"),
-            )}`}
-          >
-            <span className="relative z-10 flex items-center gap-1.5">
-              About Us
-              <svg className={`w-3.5 h-3.5 transition-transform ${isAboutDropdownOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-            <span className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#453abc] to-[#60c3e3] transition-all duration-300" style={{ width: location.pathname.startsWith("/about") || location.pathname.startsWith("/company-profile") ? "100%" : "0%", opacity: location.pathname.startsWith("/about") || location.pathname.startsWith("/company-profile") ? 1 : 0 }} />
-          </button>
-        </div>
+      <nav className="hidden lg:block">
+        <ul className="flex items-center gap-10">
+          {/* About Us */}
+          <li>
+            <div
+              className="relative"
+              onMouseEnter={() => { setIsAboutDropdownOpen(true); setIsServicesDropdownOpen(false); }}
+              onMouseLeave={() => setIsAboutDropdownOpen(false)}
+            >
+              <button
+                ref={aboutTriggerRef}
+                className={`relative  py-1 transition-all duration-300 group cursor-pointer ${textClasses(
+                  location.pathname.startsWith("/about") || location.pathname.startsWith("/company-profile"),
+                )}`}
+              >
+                <span className="relative z-10 flex items-center gap-1.5">
+                  About Us
+                  <svg className={`w-3.5 h-3.5 transition-transform ${isAboutDropdownOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+                <span className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#453abc] to-[#60c3e3] transition-all duration-300" style={{ width: location.pathname.startsWith("/about") || location.pathname.startsWith("/company-profile") ? "100%" : "0%", opacity: location.pathname.startsWith("/about") || location.pathname.startsWith("/company-profile") ? 1 : 0 }} />
+              </button>
+            </div>
+          </li>
 
-        {/* Services */}
-        <div
-          className="relative"
-          onMouseEnter={() => { setIsServicesDropdownOpen(true); setIsAboutDropdownOpen(false); }}
-          onMouseLeave={() => setIsServicesDropdownOpen(false)}
-        >
-          <Link
-            to="/services"
-            ref={servicesTriggerRef}
-            className={`relative font-poppins py-1 transition-all duration-300 group cursor-pointer ${textClasses(
-              location.pathname.startsWith("/services"),
-            )}`}
-            onClick={() => setIsServicesDropdownOpen(false)}
-          >
-            <span className="relative z-10 flex items-center gap-1.5">
-              Services
-              <svg className={`w-3.5 h-3.5 transition-transform ${isServicesDropdownOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-            <span className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#453abc] to-[#60c3e3] transition-all duration-300" style={{ width: location.pathname.startsWith("/services") ? "100%" : "0%", opacity: location.pathname.startsWith("/services") ? 1 : 0 }} />
-          </Link>
-        </div>
+          {/* Services */}
+          <li>
+            <div
+              className="relative"
+              onMouseEnter={() => { setIsServicesDropdownOpen(true); setIsAboutDropdownOpen(false); }}
+              onMouseLeave={() => setIsServicesDropdownOpen(false)}
+            >
+              <Link
+                to="/services"
+                ref={servicesTriggerRef}
+                className={`relative  py-1 transition-all duration-300 group cursor-pointer ${textClasses(
+                  location.pathname.startsWith("/services"),
+                )}`}
+                onClick={() => setIsServicesDropdownOpen(false)}
+              >
+                <span className="relative z-10 flex items-center gap-1.5">
+                  Services
+                  <svg className={`w-3.5 h-3.5 transition-transform ${isServicesDropdownOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+                <span className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#453abc] to-[#60c3e3] transition-all duration-300" style={{ width: location.pathname.startsWith("/services") ? "100%" : "0%", opacity: location.pathname.startsWith("/services") ? 1 : 0 }} />
+              </Link>
+            </div>
+          </li>
 
-        {navItems.map((item) => (
-          <NavLink
-            key={item.href}
-            href={item.href}
-            label={item.label}
-            isActive={location.pathname === item.href}
-            shouldBeTransparent={shouldBeTransparent}
-          />
-        ))}
-      </div>
+          {navItems.map((item) => (
+            <li>
+              <NavLink
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                isActive={location.pathname === item.href}
+                shouldBeTransparent={shouldBeTransparent}
+              />
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       {/* Desktop Auth */}
       <div className="hidden lg:block">
@@ -238,9 +246,8 @@ const Navbar = memo(function Navbar() {
       {/* Mobile Actions */}
       <div className="flex items-center gap-2 lg:hidden">
         <button
-          className={`flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg transition-colors ${
-            shouldBeTransparent ? "text-white hover:bg-white/10" : "text-gray-900 hover:bg-gray-100"
-          }`}
+          className={`flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg transition-colors ${shouldBeTransparent ? "text-white hover:bg-white/10" : "text-gray-900 hover:bg-gray-100"
+            }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
         >
@@ -250,8 +257,9 @@ const Navbar = memo(function Navbar() {
 
       {/* Mobile Menu */}
       <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
-    </motion.nav>
+    </motion.header>
   );
 });
 
 export { Navbar }
+

@@ -61,7 +61,7 @@ export function AuditDrawer({ isOpen, onClose }: AuditDrawerProps) {
             className="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-white z-[101] shadow-2xl flex flex-col"
           >
             <div className="p-6 flex items-center justify-between border-b border-gray-100">
-              <h2 className="text-2xl font-poppins font-semibold text-[#453abc]">Free Website Audit</h2>
+              <h2 className="text-2xl  font-semibold text-[#453abc]">Free Website Audit</h2>
               <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full"><X size={24} /></button>
             </div>
 

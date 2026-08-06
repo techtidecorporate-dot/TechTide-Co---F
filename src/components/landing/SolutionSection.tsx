@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Zap, Shield, Rocket } from "lucide-react";
 import growthImg from "@/assets/Dashboard-Growth.webp";
+
 const solutions = [
   {
     title: "Conversion-Focused Design",
@@ -24,7 +25,8 @@ const solutions = [
 
 export function SolutionSection() {
   return (
-    <section className="bg-white py-16 md:py-24 px-4 sm:px-6 md:px-16 overflow-hidden">
+    // 'relative' added here to ensure Framer Motion container positioning warning resolves
+    <section className="relative bg-white py-16 md:py-24 px-4 sm:px-6 md:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12 md:mb-20">
@@ -32,7 +34,7 @@ export function SolutionSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[1.75rem] sm:text-4xl md:text-6xl font-poppins font-bold text-[#191a23] mb-4 md:mb-6"
+            className="text-[1.75rem] sm:text-4xl md:text-6xl  font-bold text-[#191a23] mb-4 md:mb-6"
           >
             From Generic Profile to <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#453abc] to-[#60c3e3]">Growth Machine</span>
           </motion.h2>
@@ -49,15 +51,15 @@ export function SolutionSection() {
 
         {/* Content Section: Image and Points */}
         <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-24">
-          {/* Image Side — no animation, renders instantly, no blink/flash on load */}
+          {/* Image Side */}
           <div className="lg:w-1/2 relative">
             <div className="relative rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] bg-gray-50 aspect-[4/3]">
               <img
                 src={growthImg}
                 alt="Growth Machine Dashboard Transformation"
                 className="w-full h-full object-cover"
-                fetchPriority="high"
-                decoding="sync"
+                decoding="async" // Changed from 'sync' for better UI main thread responsiveness
+                loading="eager"  // Ensures image loads immediately without console warnings
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-[#453abc]/20 via-transparent to-transparent pointer-events-none" />
             </div>
@@ -82,7 +84,7 @@ export function SolutionSection() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#191a23] mb-2 sm:mb-3 font-poppins group-hover:text-[#453abc] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#191a23] mb-2 sm:mb-3  group-hover:text-[#453abc] transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed font-light">

@@ -86,7 +86,7 @@ export function SupportSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-[#191a23] text-[1.75rem] sm:text-3xl md:text-5xl font-poppins font-bold mb-3 md:mb-4">
+          <h2 className="text-[#191a23] text-[1.75rem] sm:text-3xl md:text-5xl  font-bold mb-3 md:mb-4">
             Ready to <span
               className="bg-clip-text"
               style={{
@@ -104,7 +104,7 @@ export function SupportSection() {
         <div className="max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] shadow-xl sm:p-8 md:p-10 border border-gray-100 p-5 flex flex-col justify-center">
-            <h3 className="text-[#191a23] text-xl sm:text-2xl font-poppins font-bold mb-6 md:mb-8">
+            <h3 className="text-[#191a23] text-xl sm:text-2xl  font-bold mb-6 md:mb-8">
               Book Your Free Consultation
             </h3>
 
@@ -215,7 +215,7 @@ export function SupportSection() {
                     "linear-gradient(93.1835deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",
                 }}
               >
-                <span className="text-white font-poppins font-bold text-lg">
+                <span className="text-white  font-bold text-lg">
                   {loading ? "Booking..." : "Book My Strategy Call"}
                 </span>
                 {!loading && <Send className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />}
@@ -226,7 +226,7 @@ export function SupportSection() {
           {/* Information Column */}
           <div className="space-y-6 flex flex-col">
             <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] border border-gray-100 shadow-xl p-5 sm:p-8 md:p-10 flex-grow">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-poppins font-bold text-[#191a23] mb-6 md:mb-8">
+              <h3 className="text-lg sm:text-xl md:text-2xl  font-bold text-[#191a23] mb-6 md:mb-8">
                 Why book a call?
               </h3>
               <div className="space-y-6">
@@ -235,7 +235,7 @@ export function SupportSection() {
                     <CheckCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
+                    <h4 className=" font-bold text-[#191a23] text-sm md:text-base">
                       Customized Growth Roadmap
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -248,7 +248,7 @@ export function SupportSection() {
                     <RefreshCw className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
+                    <h4 className=" font-bold text-[#191a23] text-sm md:text-base">
                       Predictable Results
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -261,7 +261,7 @@ export function SupportSection() {
                     <BarChart className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
+                    <h4 className=" font-bold text-[#191a23] text-sm md:text-base">
                       Expert Guidance
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -274,7 +274,7 @@ export function SupportSection() {
                     <Zap className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-poppins font-bold text-[#191a23] text-sm md:text-base">
+                    <h4 className=" font-bold text-[#191a23] text-sm md:text-base">
                       Zero Obligation
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -288,7 +288,7 @@ export function SupportSection() {
             <div className="bg-[#191a23] bg-gradient-to-br from-[#191a23] via-[#453abc]/20 to-[#191a23] rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 text-white shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#453abc]/10 rounded-full blur-[60px] group-hover:scale-150 transition-transform duration-700" />
               <div className="relative z-10">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-poppins font-bold mb-6">
+                <h3 className="text-lg sm:text-xl md:text-2xl  font-bold mb-6">
                   Office Hours
                 </h3>
                 <div className="space-y-4 text-gray-400">

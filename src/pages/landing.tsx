@@ -8,9 +8,10 @@ const SolutionSection = lazy(() => import("../components/landing").then(m => ({ 
 const ServicesSection = lazy(() => import("../components/landing").then(m => ({ default: m.ServicesSection })));
 const ProjectsSection = lazy(() => import("../components/landing").then(m => ({ default: m.ProjectsSection })));
 const BlogSection = lazy(() => import("../components/landing").then(m => ({ default: m.BlogSection })));
+const TestimonialsSection = lazy(() => import("../components/landing").then(m => ({ default: m.Testimonials })));
 const SupportSection = lazy(() => import("../components/landing").then(m => ({ default: m.SupportSection })));
 const WhyChooseUs = lazy(() => import("../components/landing").then(m => ({ default: m.WhyChooseUs })));
-
+const LeadershipSection = lazy(() => import("../components/landing").then(m => ({ default: m.LeadershipSection })));
 // Loading placeholder for sections
 const SectionPlaceholder = () => <div className="h-40 bg-gray-50/50 animate-pulse" />;
 
@@ -36,12 +37,19 @@ const LandingPage: React.FC = () => {
         <Suspense fallback={<SectionPlaceholder />}>
           <WhyChooseUs />
         </Suspense>
-      
+
+
+        <Suspense fallback={<SectionPlaceholder />}>
+          <LeadershipSection />
+        </Suspense>
         <Suspense fallback={<SectionPlaceholder />}>
           <ProjectsSection />
         </Suspense>
         <Suspense fallback={<SectionPlaceholder />}>
           <BlogSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <TestimonialsSection />
         </Suspense>
         <Suspense fallback={<SectionPlaceholder />}>
           <SupportSection />
@@ -52,4 +60,3 @@ const LandingPage: React.FC = () => {
 };
 
 export default LandingPage;
-

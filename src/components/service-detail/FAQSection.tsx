@@ -17,7 +17,7 @@ export function FAQSection({ faqs, title }: FAQSectionProps) {
         <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
           {title} FAQ
         </p>
-        <h2 className="text-3xl md:text-4xl font-poppins font-semibold text-[#191a23]">
+        <h2 className="text-3xl md:text-4xl  font-semibold text-[#191a23]">
           Frequently Asked Questions
         </h2>
       </div>
@@ -35,7 +35,7 @@ export function FAQSection({ faqs, title }: FAQSectionProps) {
                 className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
               >
-                <span className={`text-base font-semibold font-poppins transition-colors ${isOpen ? "text-[#453abc]" : "text-gray-900"}`}>
+                <span className={`text-base font-semibold  transition-colors ${isOpen ? "text-[#453abc]" : "text-gray-900"}`}>
                   {faq.question}
                 </span>
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? "bg-[#453abc] text-white" : "bg-gray-100 text-gray-500"}`}>
@@ -63,3 +63,4 @@ export function FAQSection({ faqs, title }: FAQSectionProps) {
     </section>
   );
 }
+

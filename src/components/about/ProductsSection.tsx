@@ -52,7 +52,7 @@ export function ProductsSection() {
         <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
           Our Products
         </p>
-        <h2 className="text-3xl md:text-4xl font-poppins font-semibold text-[#191a23] mb-4">
+        <h2 className="text-3xl md:text-4xl  font-semibold text-[#191a23] mb-4">
           Digital Products Built to Scale
         </h2>
         <p className="text-[#6b7280] text-base max-w-xl mx-auto">
@@ -80,7 +80,7 @@ export function ProductsSection() {
               <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform shadow-lg">
                 {product.icon}
               </div>
-              <h3 className="text-xl font-poppins font-semibold text-[#191a23] mb-3">
+              <h3 className="text-xl  font-semibold text-[#191a23] mb-3">
                 {product.title}
               </h3>
               <p className="text-[#6b7280] text-sm leading-relaxed mb-6 flex-1">
@@ -101,3 +101,4 @@ export function ProductsSection() {
     </section>
   );
 }
+

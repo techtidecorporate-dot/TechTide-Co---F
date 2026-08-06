@@ -85,7 +85,7 @@ export function ProjectsSection() {
 
       {/* Header */}
       <div className="relative text-center mb-12 md:mb-24 px-4 sm:px-6">
-        <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl lg:text-6xl font-poppins font-bold mb-4 md:mb-6 text-gray-900 tracking-tight">
+        <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl lg:text-6xl  font-bold mb-4 md:mb-6 text-gray-900 tracking-tight">
           Success Stories &{" "}
           <span className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">
             Case Studies
@@ -130,7 +130,7 @@ export function ProjectsSection() {
 
               {/* Content */}
               <div className="p-6 md:p-7">
-                <h3 className="text-xl md:text-2xl font-poppins font-bold mb-3 text-gray-900 leading-snug">
+                <h3 className="text-xl md:text-2xl  font-bold mb-3 text-gray-900 leading-snug">
                   {project.title}
                 </h3>
 
@@ -151,7 +151,7 @@ export function ProjectsSection() {
                   <p className="text-[11px] font-bold text-[#453abc] uppercase tracking-widest mb-1.5">
                     Measurable Results
                   </p>
-                  <p className="text-base md:text-lg font-poppins font-bold text-gray-900 leading-snug">
+                  <p className="text-base md:text-lg  font-bold text-gray-900 leading-snug">
                     {project.results}
                   </p>
                 </div>

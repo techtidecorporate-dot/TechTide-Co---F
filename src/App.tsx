@@ -62,7 +62,7 @@ export default function App() {
 
   usePageTracking();
 
-  // Site-wide fix: on a hard reload, return the user to the exact
+  // Site-wide fix: on a hsolutionard reload, return the user to the exact
   // scroll position they reloaded from (on ANY page), instead of the
   // browser jumping to the wrong spot (e.g. the footer) while async
   // content is still loading. See hooks/useScrollRestoration.ts.

@@ -91,7 +91,7 @@ export function ServicesDropdownContent({ onClose }: ServicesDropdownContentProp
                         : "hover:bg-gray-50 border border-transparent"
                     }`}
                   >
-                    <span className={`font-poppins text-sm transition-colors ${
+                    <span className={` text-sm transition-colors ${
                       isActive ? "text-[#453abc]" : "text-[#191a23]"
                     }`}>
                       {item.label}
@@ -107,3 +107,4 @@ export function ServicesDropdownContent({ onClose }: ServicesDropdownContentProp
     </div>
   );
 }
+

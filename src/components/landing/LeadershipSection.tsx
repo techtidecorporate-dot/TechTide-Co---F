@@ -1,202 +1,147 @@
-// import { useState, useEffect } from "react";
-// import { motion, AnimatePresence } from "framer-motion";
-// import { toast } from "sonner";
-// import { Mail, Linkedin, Instagram } from "lucide-react";
-// import { teamData } from "@/components/team/teamData";
+import { Mail, Linkedin, Instagram } from "lucide-react";
+import { teamData } from "@/components/team/teamData";
+import { toast } from "react-hot-toast";
 
-// const leaders = teamData.filter((m) =>
-//   ["CEO", "CTO", "CFO", "COO", "Head"].includes(m.category)
-// );
+export function LeadershipSection() {
+  const ceo = teamData.find((m) => m.category === "CEO");
+  if (!ceo) return null;
 
-// export function LeadershipSection() {
-//   const [current, setCurrent] = useState(0);
+  const handleEmailClick = (e: React.MouseEvent, email: string) => {
+    e.preventDefault();
+    if (!email) return;
+    navigator.clipboard.writeText(email);
+    toast.success("Email copied to clipboard!");
+  };
 
-//   // If no leaders available, don't render the section
-//   if (!leaders || leaders.length === 0) return null;
+  return (
+    <section
+      id="leadership"
+      className="relative min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 py-20 px-6 overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16">
+        {/* Text Content */}
+        <div className="flex-1 text-center lg:text-left px-4">
+          {/* Heading with animated underline */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 relative inline-block text-gray-800 animate-fadeInUp">
+            Message from the{" "}
+            <span className="text-[#4F46E5]">CEO</span>
+          </h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-500 mx-auto lg:mx-0 mb-8 rounded-full animate-slideIn" />
 
-//   // Rotate leaders every 5 seconds
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrent((prev) => (prev + 1) % leaders.length);
-//     }, 5000);
-//     return () => clearInterval(interval);
-//   }, []);
+          {/* CEO's custom message */}
+          <p className="text-gray-700 text-lg md:text-xl mb-6 px-4 lg:px-0 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+            Technology is most powerful when it unlocks human potential and solves real-world problems. At TechTide Corporate, we blend strategy, design, and development to build scalable products that make a difference. We remain committed to excellence, continuous learning, and shaping a vibrant digital ecosystem.
+          </p>
 
-//   const handleEmailClick = (e: React.MouseEvent, email: string) => {
-//     e.preventDefault();
-//     if (!email) return;
-//     navigator.clipboard.writeText(email);
-//     toast.success("Email copied to clipboard!");
-//   };
+          {/* Name & Role */}
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 relative animate-fadeInUp delay-200">
+            {ceo.name}
+          </h3>
+          <p className="text-xl md:text-2xl text-indigo-600 font-semibold mb-8 uppercase tracking-wide text-center lg:text-left animate-fadeInUp delay-400">
+            {ceo.role}
+          </p>
 
-//   return (
-//     <section
-//       id="leadership"
-//       style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
-//       className="relative min-h-screen bg-white py-16 md:py-20 overflow-hidden"
-//     >
-//       <div className="text-center mb-10 md:mb-20 px-4 sm:px-6">
-//         <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl font-poppins font-bold mb-3 md:mb-4 text-[#191a23]">
-//           Leadership and <span className="text-[#453abc]">Management</span>
-//         </h2>
-//         <h3 className="text-lg sm:text-xl md:text-2xl font-poppins font-bold text-gray-800 mb-3 md:mb-4">
-//           Leadership That Understands Both Technology and Business
-//         </h3>
-//         <p className="text-sm sm:text-lg text-gray-500 max-w-2xl mx-auto">
-//           We combine technical expertise with business insight to build market-ready solutions.
-//         </p>
-//       </div>
+          {/* Quote Icon */}
+          <div className="relative mb-10 px-4 lg:px-0 animate-fadeInUp delay-600">
+            <div className="absolute -top-4 -left-6 text-4xl text-indigo-300 opacity-50 font-serif animate-bounce">
+              &ldquo;
+            </div>
+            <p className="text-gray-600 text-lg italic leading-relaxed px-4">
+              "{ceo.message || ""}"
+            </p>
+            <div className="absolute -bottom-4 -right-6 text-4xl text-indigo-300 opacity-50 font-serif animate-bounce">
+              &rdquo;
+            </div>
+          </div>
 
-//       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col-reverse lg:flex-row items-center gap-8 md:gap-12 lg:gap-28">
-//         {/* Text Section */}
-//         <div className="flex-1 max-w-full lg:max-w-[500px] text-center lg:text-left">
-//           <h3
-//             className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 leading-tight"
-//             style={{
-//               WebkitTextFillColor: "transparent",
-//               backgroundImage:
-//                 "linear-gradient(95.6204deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 103.41%)",
-//               backgroundClip: "text",
-//             }}
-//           >
-//             {leaders[current].name}
-//           </h3>
-//           <p className="text-base sm:text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-6 uppercase tracking-wide">
-//             {leaders[current].role}
-//           </p>
-//           <div className="relative mb-10">
-//             <span className="absolute -left-6 -top-4 text-4xl text-[#453abc] opacity-20 font-serif">
-//               "
-//             </span>
-//             <p className="text-[#4b5563] text-lg leading-relaxed ">
-//               {leaders[current].message || ""}
-//             </p>
-//             <span className="absolute -right-2 -bottom-4 text-4xl text-[#453abc] opacity-20 font-serif">
-//               "
-//             </span>
-//           </div>
+          {/* Social Icons */}
+          <div className="flex justify-center lg:justify-start gap-4 animate-fadeInUp delay-800">
+            {/* Gmail */}
+            <button
+              onClick={(e) => handleEmailClick(e, ceo.social?.gmail || "")}
+              className="p-3 rounded-full bg-white shadow-lg hover:bg-gradient-to-r from-pink-400 to-purple-600 transition-transform transform hover:scale-110"
+              aria-label="Gmail"
+            >
+              <Mail className="w-5 h-5 text-gray-700" />
+            </button>
+            {/* LinkedIn */}
+            <a
+              href={ceo.social?.linkedin || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white shadow-lg hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 transition-transform transform hover:scale-110"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5 text-gray-700" />
+            </a>
+            {/* Instagram */}
+            <a
+              href={ceo.social?.instagram || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white shadow-lg hover:bg-gradient-to-r from-pink-500 via-purple-500 to-purple-700 transition-transform transform hover:scale-110"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5 text-gray-700" />
+            </a>
+          </div>
+        </div>
 
-//           {/* Social Links */}
-//           <div className="flex justify-center lg:justify-start gap-4">
-//             <a
-//               href=""
-//               onClick={(e) =>
-//                 handleEmailClick(e, leaders[current].social?.gmail || "")
-//               }
-//               className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-[#453abc] hover:text-white transition-all duration-300"
-//               aria-label="Gmail"
-//             >
-//               <Mail className="w-5 h-5" />
-//             </a>
-//             <a
-//               href={leaders[current].social?.linkedin || "#"}
-//               className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-[#0077b5] hover:text-white transition-all duration-300"
-//               aria-label="LinkedIn"
-//             >
-//               <Linkedin className="w-5 h-5" />
-//             </a>
-//             <a
-//               href={leaders[current].social?.instagram || "#"}
-//               className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-[#E1306C] hover:text-white transition-all duration-300"
-//               aria-label="Instagram"
-//             >
-//               <Instagram className="w-5 h-5" />
-//             </a>
-//           </div>
-//         </div>
+        {/* Image Section */}
+        <div className="flex-1 flex justify-center px-4">
+          <div className="w-full max-w-sm aspect-[4/5] rounded-3xl shadow-xl overflow-hidden border-4 border-white hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img
+              src={ceo.image}
+              alt={ceo.name}
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
 
-//         {/* Image Section */}
-//         <div className="flex-1 relative w-full h-[350px] md:h-[500px] flex justify-center items-center">
-//           {/* Mobile View: Simple Fade */}
-//           <div className="lg:hidden relative w-full aspect-[4/5] flex justify-center items-center">
-//             <AnimatePresence mode="wait">
-//               <motion.img
-//                 key={leaders[current].name}
-//                 src={leaders[current].image}
-//                 alt={leaders[current].name}
-//                 initial={{ opacity: 0, x: 20 }}
-//                 animate={{ opacity: 1, x: 0 }}
-//                 exit={{ opacity: 0, x: -20 }}
-//                 transition={{ duration: 0.5 }}
-//                 onClick={() =>
-//                   setCurrent((prev) => (prev + 1) % leaders.length)
-//                 }
-//                 className="w-full h-full object-cover drop-shadow-xl cursor-pointer rounded-2xl"
-//                 loading="lazy"
-//                 decoding="async"
-//               />
-//             </AnimatePresence>
-//           </div>
-
-//           {/* Desktop View: 3D Carousel */}
-//           <div className="hidden lg:block relative w-full max-w-sm h-full perspective-1000">
-//             {leaders.map((leader, index) => {
-//               const isCenter = index === current;
-//               const rightIndex = (current + 1) % leaders.length;
-//               const leftIndex = (current - 1 + leaders.length) % leaders.length;
-
-//               let xOffset = 0;
-//               let scale = 1;
-//               let blur = "0px";
-//               let rotateY = 0;
-//               let zIndex = 30;
-//               let opacity = 1;
-
-//               if (isCenter) {
-//                 xOffset = 0;
-//                 scale = 1;
-//                 rotateY = 0;
-//                 zIndex = 30;
-//                 opacity = 1;
-//                 blur = "0px";
-//               } else if (index === rightIndex) {
-//                 xOffset = 180;
-//                 scale = 0.8;
-//                 rotateY = -25;
-//                 zIndex = 20;
-//                 opacity = 0.55;
-//                 blur = "6px";
-//               } else if (index === leftIndex) {
-//                 xOffset = -180;
-//                 scale = 0.8;
-//                 rotateY = 25;
-//                 zIndex = 20;
-//                 opacity = 0.55;
-//                 blur = "6px";
-//               } else {
-//                 xOffset = 0;
-//                 scale = 0;
-//                 rotateY = 0;
-//                 zIndex = 1;
-//                 opacity = 0;
-//                 blur = "0px";
-//               }
-
-//               return (
-//                 <motion.img
-//                   key={leader.name}
-//                   src={leader.image}
-//                   alt={leader.name}
-//                   initial={{ opacity: 0, scale: 0.8 }}
-//                   animate={{
-//                     opacity,
-//                     scale,
-//                     x: xOffset,
-//                     zIndex,
-//                     filter: `blur(${blur})`,
-//                     rotateY,
-//                   }}
-//                   transition={{ duration: 0.8, ease: "easeInOut" }}
-//                   onClick={() => setCurrent(index)}
-//                   className="absolute top-0 left-0 w-full h-full object-cover object-top cursor-pointer rounded-2xl"
-//                   loading="lazy"
-//                   decoding="async"
-//                 />
-//               );
-//             })}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
+      {/* Custom Animations */}
+      <style>{`
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes slideIn {
+          0% {
+            width: 0;
+            opacity: 0;
+          }
+          100% {
+            width: 64px;
+            opacity: 1;
+          }
+        }
+        @keyframes gradient {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 100% 50%;
+          }
+        }
+        .animate-fadeInUp {
+          animation: fadeInUp 1s forwards;
+        }
+        .animate-slideIn {
+          animation: slideIn 1s forwards;
+        }
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 3s linear infinite;
+        }
+      `}</style>
+    </section>
+  );
+}

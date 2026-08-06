@@ -10,10 +10,10 @@ export function OfferingsSection({ servicesContent, title }: OfferingsSectionPro
     <div className="bg-[#f4f5f7] py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <p className="font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
+          <p className=" text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
             What We Offer
           </p>
-          <h2 className="text-3xl md:text-5xl font-poppins font-bold text-[#191a23]">
+          <h2 className="text-3xl md:text-5xl  font-bold text-[#191a23]">
             Our {title} Services
           </h2>
         </div>
@@ -36,7 +36,7 @@ export function OfferingsSection({ servicesContent, title }: OfferingsSectionPro
                     <CheckCircle2 className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-poppins font-semibold text-[#191a23] mb-2 group-hover:text-[#453abc] transition-colors">
+                    <h3 className="text-lg  font-semibold text-[#191a23] mb-2 group-hover:text-[#453abc] transition-colors">
                       {offerTitle}
                     </h3>
                     {desc && (
@@ -54,3 +54,4 @@ export function OfferingsSection({ servicesContent, title }: OfferingsSectionPro
     </div>
   );
 }
+

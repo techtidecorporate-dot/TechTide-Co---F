@@ -6,4 +6,6 @@ export { BlogSection } from "./BlogSection";
 export { ProjectsSection } from "./ProjectsSection";
 export { SupportSection } from "./SupportSection";
 export { WhyChooseUs } from "./WhyChooseUs";
+export {LeadershipSection} from "./LeadershipSection";
+export { default as Testimonials } from "./Testimonials";
 

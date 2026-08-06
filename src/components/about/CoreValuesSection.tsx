@@ -38,24 +38,15 @@ const values = [
     title: "Global Perspective, Local Commitment",
     description: " We work with businesses across diverse industries and markets, bringing a global mindset while understanding the unique needs of every client and project.",
   },
-
-
 ];
 
 export function CoreValuesSection() {
   return (
     <section className="max-w-7xl mx-auto px-6 md:px-8 pb-20 md:pb-32">
       <div className="text-center mb-16">
-        <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">
-          What We Stand For
-        </p>
-        <h2 className="text-3xl md:text-4xl font-poppins font-semibold text-[#191a23] mb-4">
-          What We Stand For
-        </h2>
-        <p className="text-[#6b7280] text-base max-w-xl mx-auto">
-          These principles guide everything we do from how we collaborate
-          with clients to how we build our products.
-        </p>
+        <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">What We Stand For</span>
+        <h2 className="text-3xl md:text-4xl font-semibold text-[#191a23] mb-4">What We Stand For</h2>
+        <p className="text-[#6b7280] text-base max-w-xl mx-auto">These principles guide everything we do from how we collaborate with clients to how we build our products.</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
@@ -64,20 +55,15 @@ export function CoreValuesSection() {
             key={i}
             {...fadeUp}
             transition={{ delay: i * 0.1 }}
-            className="bg-white rounded-2xl border border-gray-100 p-8 shadow-md hover:shadow-xl transition-all group"
+            className="bg-white rounded-xl border border-gray-100 p-8 shadow-md hover:shadow-xl transition-all group"
           >
-            {/* <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform shadow-lg">
-              {value.icon}
-            </div> */}
-            <h3 className="text-lg font-poppins font-semibold text-[#191a23] mb-3">
-              {value.title}
-            </h3>
-            <p className="text-[#6b7280] text-sm leading-relaxed">
-              {value.description}
-            </p>
+            <div className="size-12 rounded-md bg-gradient-to-r from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform shadow-lg">{value.icon}</div>
+            <h3 className="text-lg  font-semibold text-[#191a23] mb-3">{value.title}</h3>
+            <p className="text-[#6b7280] text-sm leading-relaxed">{value.description}</p>
           </motion.div>
         ))}
       </div>
     </section>
   );
 }
+

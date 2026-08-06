@@ -34,7 +34,7 @@ export function FallbackLayout({ service }: FallbackLayoutProps) {
 
           {/* Title */}
           <h1
-            className="text-4xl md:text-6xl font-poppins font-extrabold
+            className="text-4xl md:text-6xl  font-extrabold
             text-[#191a23] leading-[1.05] tracking-tight"
           >
             {service.title}
@@ -55,7 +55,7 @@ export function FallbackLayout({ service }: FallbackLayoutProps) {
           {/* Features */}
           {service.features && service.features.length > 0 && (
             <div className="space-y-6 pt-4">
-              <h3 className="text-2xl font-poppins font-bold text-[#191a23]">
+              <h3 className="text-2xl  font-bold text-[#191a23]">
                 Key Features
               </h3>
 
@@ -85,7 +85,7 @@ export function FallbackLayout({ service }: FallbackLayoutProps) {
               onClick={() =>
                 window.dispatchEvent(new CustomEvent("open-partner-drawer"))
               }
-              className="px-12 py-4 rounded-2xl font-poppins font-bold text-lg text-white
+              className="px-12 py-4 rounded-2xl  font-bold text-lg text-white
               bg-gradient-to-r from-[#453abc] to-[#5f54e6]
               shadow-[0_20px_60px_rgba(69,58,188,0.35)]
               hover:shadow-[0_30px_80px_rgba(69,58,188,0.45)]
@@ -125,7 +125,7 @@ export function FallbackLayout({ service }: FallbackLayoutProps) {
             <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#453abc]/30 rounded-full blur-[120px]" />
 
             <div className="relative z-10 space-y-6">
-              <h4 className="text-2xl font-poppins font-bold">
+              <h4 className="text-2xl  font-bold">
                 Why TechTide?
               </h4>
 
@@ -161,3 +161,4 @@ export function FallbackLayout({ service }: FallbackLayoutProps) {
     </div>
   );
 }
+
