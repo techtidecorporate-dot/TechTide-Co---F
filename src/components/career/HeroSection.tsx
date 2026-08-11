@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export function HeroSection({ count }: { count: number }) {
   return (
-    <header className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+    <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#453abc]/10 rounded-full blur-[80px] md:blur-[120px]" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#60c3e3]/10 rounded-full blur-[80px] md:blur-[120px]" />
@@ -40,7 +40,7 @@ export function HeroSection({ count }: { count: number }) {
 
         </motion.div>
       </div>
-    </header>
+    </section>
   );
 }
 

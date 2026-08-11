@@ -15,7 +15,7 @@ export function FAQ({ faqs, title = "Frequently Asked Questions", subtitle, tag 
 
   return (
     <section style={{ contentVisibility: 'auto', containIntrinsicSize: '500px' }} className="py-32 px-6 md:px-16 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 opacity-0 animate-fade-up">
           <div className="inline-block px-4 py-1 mb-6 rounded-full border border-[#453abc]/10 bg-[#453abc]/5 backdrop-blur-md">
             <span className="text-xs font-bold text-[#453abc] uppercase tracking-wide">{tag}</span>
@@ -47,9 +47,9 @@ export function FAQ({ faqs, title = "Frequently Asked Questions", subtitle, tag 
                   className="w-full px-6 py-6 flex items-center justify-between text-left focus:outline-none"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
-                  <span className={`text-lg font-semibold  transition-colors ${isOpen ? 'text-[#453abc]' : 'text-gray-900'}`}>
+                  <h5 className={`text-lg font-semibold  transition-colors ${isOpen ? 'text-[#453abc]' : 'text-gray-900'}`}>
                     {faq.question}
-                  </span>
+                  </h5>
                   <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-[#453abc] text-white' : 'bg-gray-100 text-gray-500'}`}>
                     {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>
@@ -62,9 +62,7 @@ export function FAQ({ faqs, title = "Frequently Asked Questions", subtitle, tag 
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-6 text-gray-600 leading-relaxed font-light">
-                        {faq.answer}
-                      </div>
+                      <p className="px-6 pb-6 text-gray-600 leading-relaxed font-light">{faq.answer}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

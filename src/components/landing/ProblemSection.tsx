@@ -53,7 +53,7 @@ export function ProblemSection() {
       {/* Abstract Background Orbs for Light Theme */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#453abc]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="container relative z-10">
         <div className="text-center mb-12 md:mb-24">
           <div
             className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[#453abc]/10 bg-[#453abc]/5 backdrop-blur-md ps-fade-up"
@@ -102,12 +102,12 @@ export function ProblemSection() {
 
               <div className="relative h-full flex flex-col p-6 sm:p-10 md:p-12 rounded-xl bg-white border border-gray-100 overflow-hidden transition-all duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(69,58,188,0.15)] group-hover:-translate-y-2">
                 {/* Large Background ID Number for Light Theme */}
-                <div
+                <span
                   aria-hidden="true"
                   className="absolute -top-6 -right-4 text-9xl font-bold text-gray-400/10 select-none group-hover:text-[#453abc]/10 transition-colors pointer-events-none "
                 >
                   {problem.id}
-                </div>
+                </span>
 
                 {/* Card Icon */}
                 <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${problem.gradient} p-[1.5px] mb-10 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-[#453abc]/10 shrink-0`}>
@@ -116,18 +116,14 @@ export function ProblemSection() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#191a23] mb-6  leading-tight tracking-tight capitalize shrink-0">
-                  {problem.title}
-                </h3>
+                <h3 className="text-xl font-bold text-[#191a23] mb-6  leading-tight tracking-tight capitalize shrink-0">{problem.title}</h3>
 
-                <p className="text-gray-600 leading-relaxed text-base font-light mb-10 group-hover:text-gray-700 transition-colors">
-                  {problem.description}
-                </p>
+                <p className="text-gray-600 leading-relaxed text-base font-light mb-10 group-hover:text-gray-700 transition-colors">{problem.description}</p>
 
                 <div className="pt-8 border-t border-gray-100 mt-auto flex items-center justify-between shrink-0">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-1">Financial Impact</span>
-                    <span className="text-lg font-bold text-[#453abc] tracking-tight">Revenue Loss</span>
+                    <h6 className="text-lg font-bold text-[#453abc] tracking-tight">Revenue Loss</h6>
                   </div>
                 </div>
               </div>

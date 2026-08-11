@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import HeroImage from '../../assets/Hero Image.webp';
 export function HeroSection() {
 
@@ -20,7 +21,7 @@ export function HeroSection() {
 
       {/* Hero Content */}
       <div className="relative z-10 w-full">
-        <div className="max-w-[1100px] mx-auto pt-16 sm:pt-20">
+        <div className="container pt-16 sm:pt-20">
           {/* Main Heading */}
           <h1 className="mb-8 leading-[1.15] opacity-0 animate-fade-up delay-[0ms]">
             <span className="block text-white text-[1.75rem] sm:text-3xl md:text-[3.5rem] lg:text-[4.5rem] font-bold tracking-tight">
@@ -49,15 +50,14 @@ export function HeroSection() {
                 />
                 <span className="relative z-10">Get Free Website Audit</span>
               </button>
-              <a
-                href="/contact#contact-form"
+              <Link
+                to="/contact#contact-form"
                 className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 text-white font-bold text-base sm:text-lg backdrop-blur-md inline-block text-center"
               >
                 Get in Touch
-              </a>
+              </Link>
             </div>
           </div>
-
         </div>
       </div>
     </section>

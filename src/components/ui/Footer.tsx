@@ -46,7 +46,7 @@ export function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white pt-8 md:pt-16 pb-14 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 lg:gap-8 mb-12 md:mb-16">
           <div className="lg:col-span-2 text-center md:text-left">
             <div className="flex justify-center md:justify-start">
@@ -54,7 +54,7 @@ export function Footer() {
                 <img
                   src={imgVector}
                   className="h-8 md:h-10 w-auto"
-                  alt="TechTide Corporate LLP – TechTide Co. Software & Digital Solutions Company"
+                  alt="TechTide Corporate LLP - TechTide Co. Software & Digital Solutions Company"
                   title="TechTide Corporate LLP | TechTide Co."
                   loading="lazy"
                   decoding="async"
@@ -64,42 +64,46 @@ export function Footer() {
             <p className="text-gray-400 text-sm mt-6 max-w-md mx-auto md:mx-0 leading-relaxed">Based in Pakistan, Serving the World. We build high performance web, mobile, and SaaS solutions for businesses across the UK, USA, Canada, Germany.</p>
 
             {/* Social Links */}
-            <div className="flex justify-center md:justify-start gap-4 mt-8">
-              <a
-                href="mailto:info@techtidecorporate.com"
-                onClick={handleCopyEmail}
-                aria-label="Copy email address to clipboard"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#EA4335] flex items-center justify-center transition-all hover:-translate-y-1"
-              >
-                <Mail className="text-white w-4 h-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/techtideco/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on LinkedIn"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#453abc] flex items-center justify-center transition-all hover:-translate-y-1"
-              >
-                <Linkedin className="text-white w-4 h-4" />
-              </a>
-              <a
-                href="https://www.instagram.com/techtidecorporatellp/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on Instagram"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#c13584] flex items-center justify-center transition-all hover:-translate-y-1"
-              >
-                <Instagram className="text-white w-4 h-4" />
-              </a>
-            </div>
+            <ul className="flex justify-center md:justify-start gap-4 mt-8">
+              <li>
+                <Link
+                  to="mailto:info@techtidecorporate.com"
+                  onClick={handleCopyEmail}
+                  aria-label="Copy email address to clipboard"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#EA4335] flex items-center justify-center transition-all hover:-translate-y-1"
+                >
+                  <Mail className="text-white w-4 h-4" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="https://www.linkedin.com/company/techtideco/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow us on LinkedIn"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#453abc] flex items-center justify-center transition-all hover:-translate-y-1"
+                >
+                  <Linkedin className="text-white w-4 h-4" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="https://www.instagram.com/techtidecorporatellp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow us on Instagram"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#c13584] flex items-center justify-center transition-all hover:-translate-y-1"
+                >
+                  <Instagram className="text-white w-4 h-4" />
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Links Columns */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:col-span-3 gap-6 md:gap-8 text-left">
             <div>
-              <h3 className="text-white  font-medium mb-6">
-                Quick Links
-              </h3>
+              <h3 className="text-white font-medium mb-6">Quick Links</h3>
               <ul className="space-y-4">
                 {footerLinks.quicklinks.map((link, index) => (
                   <li key={index}>
@@ -116,9 +120,7 @@ export function Footer() {
 
             {/* Services */}
             <div className="flex flex-col">
-              <h3 className="text-white  font-medium mb-6">
-                Services
-              </h3>
+              <h3 className="text-white font-medium mb-6">Services</h3>
               <ul className="space-y-4 mb-6">
                 {footerLinks.services.map((service, index) => (
                   <li key={index}>
@@ -133,7 +135,7 @@ export function Footer() {
               </ul>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-white/10 text-white text-sm font-medium hover:bg-white/5 transition-all w-fit"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-white/10 text-white text-sm font-medium hover:bg-white/5 transition-all w-fit"
               >
                 <span>Explore More</span>
                 <ArrowRight size={14} className="text-[#453abc]" />
@@ -141,47 +143,44 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="text-white font-medium mb-6">
-                Contact
-              </h3>
+              <h3 className="text-white font-medium mb-6">Contact</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <a
-                    href="mailto:info@techtidecorporate.com"
+                  <Link
+                    to="mailto:info@techtidecorporate.com"
                     onClick={handleCopyEmail}
                     className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                   >
-                    <Mail className="text-[#453abc]" size={14} />
+                    <Mail className="text-[#453abc]" size={16} />
                     info@techtidecorporate.com
-                  </a>
+                  </Link>
                 </li>
                 <li className="flex items-start gap-3">
-                  <a
-                    href="tel:+923247991484"
+                  <Link
+                    to="tel:+923247991484"
                     className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                   >
-                    <Phone className="text-[#453abc]" size={14} />
+                    <Phone className="text-[#453abc]" size={16} />
                     +92 324 7991484
-                  </a>
+                  </Link>
                 </li>
                 <li className="flex items-start gap-3">
-                  <a
-                    href="https://www.google.com/maps/place/Techtide+Corporate+LLP/@31.548828,74.3988149,606m/data=!3m1!1e3!4m16!1m9!3m8!1s0x3919050017953d65:0x4946f90f8a3851c2!2sTechtide+Corporate+LLP!8m2!3d31.548828!4d74.4013898!9m1!1b1!16s%2Fg%2F11yn8dzf8z!3m5!1s0x3919050017953d65:0x4946f90f8a3851c2!8m2!3d31.548828!4d74.4013898!16s%2Fg%2F11yn8dzf8z?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
+                  <Link
+                    to="https://www.google.com/maps/place/Techtide+Corporate+LLP/@31.548828,74.3988149,606m/data=!3m1!1e3!4m16!1m9!3m8!1s0x3919050017953d65:0x4946f90f8a3851c2!2sTechtide+Corporate+LLP!8m2!3d31.548828!4d74.4013898!9m1!1b1!16s%2Fg%2F11yn8dzf8z!3m5!1s0x3919050017953d65:0x4946f90f8a3851c2!8m2!3d31.548828!4d74.4013898!16s%2Fg%2F11yn8dzf8z?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
-                    className="flex items-center gap-2 text-gray-400 text-sm leading-relaxed"
+                    className="flex items-center gap-2 capitalize text-gray-400 text-sm leading-relaxed"
                   >
                     <MapPin
                       className="text-[#453abc] mt-1 flex-shrink-0"
-                      size={14}
+                      size={16}
                     />
                     G3 heaven mall zaraar
                     <br />
                     shaheed road lahore
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
-
           </div>
         </div>
 
@@ -217,9 +216,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-400 text-sm text-center">
-            © 2026 TechTideCo. All rights reserved.
-          </p>
+          <p className="text-gray-400 capitalize text-sm text-center">© 2026 <Link to='/' className="duration-300 hover:text-white">TechTideCo.</Link> All rights reserved.</p>
 
           <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2">
             {[
@@ -231,7 +228,7 @@ export function Footer() {
                 <Link
                   key={index}
                   to={link.href}
-                  className="text-gray-400 text-xs hover:text-white transition-colors"
+                  className="text-gray-400 text-xs md:text-sm hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>

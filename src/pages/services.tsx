@@ -84,30 +84,31 @@ export default function ServicesPage() {
 
       {/* Filter Tabs */}
       <div className="sticky top-16 md:top-20 z-30 bg-white/80 backdrop-blur-lg border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-          <div className="flex gap-1 sm:gap-2 overflow-x-auto scrollbar-hide py-3 md:py-4">
+        <div className="container">
+          <ul className="flex gap-1 sm:gap-2 overflow-x-auto scrollbar-hide py-3 md:py-4">
             {tabs.map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
-                className={`relative flex-shrink-0 whitespace-nowrap px-3 sm:px-6 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold font-poppins transition-all duration-200 ${
-                  activeTab === tab.key
+              <li>
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`relative flex-shrink-0 whitespace-nowrap px-3 sm:px-6 py-2.5 rounded-md text-xs sm:text-sm md:text-base font-semibold font-poppins transition-all duration-200 ${activeTab === tab.key
                     ? "text-white shadow-lg"
                     : "text-gray-600 hover:text-[#453abc] hover:bg-[#453abc]/5"
-                }`}
-                style={
-                  activeTab === tab.key
-                    ? {
+                    }`}
+                  style={
+                    activeTab === tab.key
+                      ? {
                         background:
                           "linear-gradient(95deg, rgb(69, 58, 188) 0%, rgb(96, 195, 227) 100%)",
                       }
-                    : undefined
-                }
-              >
-                {tab.label}
-              </button>
+                      : undefined
+                  }
+                >
+                  {tab.label}
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
 

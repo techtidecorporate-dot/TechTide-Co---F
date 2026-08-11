@@ -14,61 +14,61 @@ const serviceCategories: {
   category: string;
   items: { href: string; label: string }[];
 }[] = [
-  {
-    category: "Development",
-    items: [
-      { href: "/services/web-applications", label: "Web Application Development" },
-      { href: "/services/mobile-applications", label: "Mobile App Development" },
-      { href: "/services/saas-product-development", label: "SaaS Product Development" },
-      { href: "/services/custom-software", label: "Custom Software Development" },
-      { href: "/services/ecommerce-development", label: "E-Commerce Development" },
-    ],
-  },
-  {
-    category: "Design",
-    items: [
-      { href: "/services/ui-ux-design", label: "UI/UX Design" },
-      { href: "/services/brand-identity", label: "Brand Identity" },
-    ],
-  },
-  {
-    category: "AI & Automation",
-    items: [
-      { href: "/services/ai-automation", label: "AI Automation" },
-      { href: "/services/machine-learning", label: "Machine Learning" },
-      { href: "/services/generative-ai", label: "Generative AI" },
-      { href: "/services/api-integration", label: "API Integration & Workflow Automation" },
-    ],
-  },
-  {
-    category: "Business Growth",
-    items: [
-      { href: "/services/lead-generation-systems", label: "Lead Generation Systems" },
-      { href: "/services/sales-funnel-customer-journey", label: "Sales Funnel & Customer Journey Design" },
-      { href: "/services/marketing-sales-alignment", label: "Marketing + Sales Alignment" },
-      { href: "/services/automation-crm-integration", label: "Automation & CRM Integration" },
-      { href: "/services/growth-audits-scaling-strategy", label: "Growth Audits & Scaling Strategy" },
-      { href: "/services/tech-business-consulting", label: "Tech-Driven Business Consulting" },
-    ],
-  },
-  {
-    category: "Marketing Expertise",
-    items: [
-      { href: "/services/seo-organic-growth", label: "SEO & Organic Growth" },
-      { href: "/services/conversion-websites-funnels", label: "Conversion-Optimized Websites & Funnels" },
-      { href: "/services/content-landing-page-strategy", label: "Content & Landing Page Strategy" },
-      { href: "/services/paid-ads-strategy", label: "Paid Ads Strategy" },
-      { href: "/services/brand-positioning-messaging", label: "Brand Positioning & Messaging" },
-      { href: "/services/analytics-tracking-cro", label: "Analytics, Tracking & CRO" },
-    ],
-  },
-  {
-    category: "Support",
-    items: [
-      { href: "/services/maintenance-support", label: "Ongoing Maintenance & Support" },
-    ],
-  },
-];
+    {
+      category: "Development",
+      items: [
+        { href: "/services/web-applications", label: "Web Application Development" },
+        { href: "/services/mobile-applications", label: "Mobile App Development" },
+        { href: "/services/saas-product-development", label: "SaaS Product Development" },
+        { href: "/services/custom-software", label: "Custom Software Development" },
+        { href: "/services/ecommerce-development", label: "E-Commerce Development" },
+      ],
+    },
+    {
+      category: "Design",
+      items: [
+        { href: "/services/ui-ux-design", label: "UI/UX Design" },
+        { href: "/services/brand-identity", label: "Brand Identity" },
+      ],
+    },
+    {
+      category: "AI & Automation",
+      items: [
+        { href: "/services/ai-automation", label: "AI Automation" },
+        { href: "/services/machine-learning", label: "Machine Learning" },
+        { href: "/services/generative-ai", label: "Generative AI" },
+        { href: "/services/api-integration", label: "API Integration & Workflow Automation" },
+      ],
+    },
+    {
+      category: "Business Growth",
+      items: [
+        { href: "/services/lead-generation-systems", label: "Lead Generation Systems" },
+        { href: "/services/sales-funnel-customer-journey", label: "Sales Funnel & Customer Journey Design" },
+        { href: "/services/marketing-sales-alignment", label: "Marketing + Sales Alignment" },
+        { href: "/services/automation-crm-integration", label: "Automation & CRM Integration" },
+        { href: "/services/growth-audits-scaling-strategy", label: "Growth Audits & Scaling Strategy" },
+        { href: "/services/tech-business-consulting", label: "Tech-Driven Business Consulting" },
+      ],
+    },
+    {
+      category: "Marketing Expertise",
+      items: [
+        { href: "/services/seo-organic-growth", label: "SEO & Organic Growth" },
+        { href: "/services/conversion-websites-funnels", label: "Conversion-Optimized Websites & Funnels" },
+        { href: "/services/content-landing-page-strategy", label: "Content & Landing Page Strategy" },
+        { href: "/services/paid-ads-strategy", label: "Paid Ads Strategy" },
+        { href: "/services/brand-positioning-messaging", label: "Brand Positioning & Messaging" },
+        { href: "/services/analytics-tracking-cro", label: "Analytics, Tracking & CRO" },
+      ],
+    },
+    {
+      category: "Support",
+      items: [
+        { href: "/services/maintenance-support", label: "Ongoing Maintenance & Support" },
+      ],
+    },
+  ];
 
 const navItems = [
   { href: "/products", label: "Products" },
@@ -99,28 +99,29 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         >
           <div className="flex flex-col p-5 sm:p-8 gap-4 sm:gap-5 bg-white h-full overflow-y-auto pb-24">
             {/* Main Nav Items */}
-            <div className="space-y-1">
+            <ul className="space-y-1">
               {[
                 { href: "/", label: "Home" },
                 ...navItems,
               ].map((item, i) => {
                 const isActive = location.pathname === item.href;
                 return (
-                  <Link
-                    key={i}
-                    to={item.href}
-                    onClick={onClose}
-                    className={`block text-lg sm:text-xl  font-semibold py-3 px-3 transition-colors rounded-xl ${
-                      isActive
-                        ? "text-white bg-gradient-to-r from-[#453abc] to-[#60c3e3]"
-                        : "text-gray-800 hover:text-[#453abc] hover:bg-gray-50"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
+                  <li>
+                    <Link
+                      key={i}
+                      to={item.href}
+                      onClick={onClose}
+                      className={`block text-lg sm:text-xl  font-semibold py-3 px-3 transition-colors rounded-xl ${isActive
+                          ? "text-white bg-gradient-to-r from-[#453abc] to-[#60c3e3]"
+                          : "text-gray-800 hover:text-[#453abc] hover:bg-gray-50"
+                        }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
 
             <hr className="border-gray-200" />
 
@@ -154,11 +155,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             key={i}
                             to={item.href}
                             onClick={onClose}
-                            className={`block text-sm sm:text-base  font-medium py-2.5 px-3 transition-colors rounded-xl ${
-                              isActive
+                            className={`block text-sm sm:text-base  font-medium py-2.5 px-3 transition-colors rounded-xl ${isActive
                                 ? "text-[#453abc] bg-[#453abc]/5"
                                 : "text-gray-600 hover:text-[#453abc] hover:bg-gray-50"
-                            }`}
+                              }`}
                           >
                             {item.label}
                           </Link>
@@ -208,11 +208,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                   key={j}
                                   to={item.href}
                                   onClick={onClose}
-                                  className={`block text-sm  font-medium py-2.5 px-3 transition-colors rounded-xl ${
-                                    isActive
+                                  className={`block text-sm  font-medium py-2.5 px-3 transition-colors rounded-xl ${isActive
                                       ? "text-[#453abc] bg-[#453abc]/5"
                                       : "text-gray-600 hover:text-[#453abc] hover:bg-gray-50"
-                                  }`}
+                                    }`}
                                 >
                                   {item.label}
                                 </Link>

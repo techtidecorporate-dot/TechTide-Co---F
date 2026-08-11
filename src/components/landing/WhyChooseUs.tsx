@@ -31,8 +31,8 @@ const reasons = [
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-[#f8f9fa] py-16 md:py-20 px-4 sm:px-6 md:px-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#f8f9fa] py-16 md:py-20 px-4 overflow-hidden">
+      <div className="container">
         {/* Top Header - Centered */}
         <div className="text-center mb-12 md:mb-20">
           <motion.span
@@ -62,8 +62,7 @@ export function WhyChooseUs() {
             transition={{ delay: 0.2 }}
             className="text-gray-500 text-sm sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
           >
-            We focus on what actually matters to your business. We move beyond
-            basic digital presence to build efficient, reliable systems.
+            We focus on what actually matters to your business. We move beyond basic digital presence to build efficient, reliable systems.
           </motion.p>
         </div>
 
@@ -82,7 +81,7 @@ export function WhyChooseUs() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#191a23]/30 to-transparent" />
             </div>
             {/* Minimalist Floating Card */}
-            <div className="absolute -bottom-8 -left-8 bg-white px-8 py-6 rounded-3xl shadow-2xl border border-gray-100 hidden md:block max-w-[220px]">
+            <div className="absolute -bottom-8 -left-8 bg-white px-8 py-6 rounded-xl shadow-2xl border border-gray-100 hidden md:block max-w-[220px]">
               <p className="text-[#453abc] font-bold text-3xl mb-1">100%</p>
               <p className="text-gray-500 text-sm font-medium leading-tight">Result-Driven Strategy & Execution</p>
             </div>
@@ -91,44 +90,39 @@ export function WhyChooseUs() {
           {/* Right Column: Cards */}
           <div className="space-y-4 pt-4">
             {reasons.map((reason, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ x: 10 }}
-                  className="bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100 flex items-start gap-4 sm:gap-5 hover:shadow-md transition-all group"
-                >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 group-hover:scale-110 transition-transform">
-                    {reason.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-base sm:text-xl  font-bold text-[#191a23] mb-1 group-hover:text-[#453abc] transition-colors">
-                      {reason.title}
-                    </h4>
-                    <p className="text-gray-500 text-sm leading-relaxed">
-                      {reason.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ x: 10 }}
+                className="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4 sm:gap-5 hover:shadow-md transition-all group"
+              >
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-md bg-[#453abc]/5 flex items-center justify-center text-[#453abc] flex-shrink-0 group-hover:scale-110 transition-transform">
+                  {reason.icon}
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-xl font-bold text-[#191a23] mb-1 group-hover:text-[#453abc] transition-colors">{reason.title}</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">{reason.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
+        </div>
 
         {/* Brand Punchline */}
-        <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ delay: 0.5 }}
-           className="mt-12 md:mt-24 text-center"
+        {/* <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-12 md:mt-24 text-center"
         >
           <p className="text-base sm:text-xl md:text-3xl text-[#191a23]  font-medium italic opacity-80">
             "Clients work with us because we make things <span className="text-[#453abc]">simple</span>, <span className="text-[#453abc]">reliable</span>, and <span className="text-[#453abc]">effective</span>."
           </p>
-  
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -33,9 +33,7 @@ function ServiceCard({ title, description, image, slug, priority }: ServiceCardP
         <div className="px-4 sm:px-5 pb-4 sm:pb-5 space-y-2 sm:space-y-3">
           <h3 className="text-[#191a23] text-sm sm:text-lg font-bold">{title}</h3>
 
-          <p className="text-[#6b7280] text-sm leading-relaxed line-clamp-3">
-            {description}
-          </p>
+          <p className="text-[#6b7280] text-sm leading-relaxed line-clamp-3">{description}</p>
 
           <button
             onClick={(e) => {
@@ -118,7 +116,7 @@ export function ServicesSection() {
       id="services"
       className="relative bg-white overflow-hidden py-16 md:py-24"
     >
-        {/* Header */} 
+      {/* Header */}
       <div className="flex flex-col gap-3 items-center text-center mb-12 md:mb-16 px-4 sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -129,12 +127,10 @@ export function ServicesSection() {
           Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#453abc] to-[#60c3e3]">Services</span>
         </motion.h2>
 
-        <p className="text-[#6b7280] max-w-2xl text-sm sm:text-base md:text-xl">
-          End-to-End Digital Solutions for Growing Businesses
-        </p>
+        <p className="text-[#6b7280] max-w-2xl text-sm sm:text-base md:text-xl">End-to-End Digital Solutions for Growing Businesses</p>
       </div>
 
-        {/* Slider Container */}
+      {/* Slider Container */}
       <div
         className="relative max-w-[1440px] mx-auto h-[440px] sm:h-[480px] md:h-[520px] flex items-center justify-center"
         onMouseEnter={() => setIsPaused(true)}

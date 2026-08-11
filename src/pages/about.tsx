@@ -28,7 +28,7 @@ export default function AboutPage() {
     <main className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
       <SEO
         title="About Us"
-        description="Learn about TechTide Corporate LLP – a leading software development company delivering web, mobile, and enterprise solutions."
+        description="Learn about TechTide Corporate LLP - a leading software development company delivering web, mobile, and enterprise solutions."
         keywords="about TechTide, software company Lahore, web development agency, digital solutions provider, TechTide Corporate LLP"
       />
 

@@ -1,4 +1,5 @@
 import { Mail, Linkedin, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
 import { teamData } from "@/components/team/teamData";
 import { toast } from "react-hot-toast";
 
@@ -16,87 +17,76 @@ export function LeadershipSection() {
   return (
     <section
       id="leadership"
-      className="relative min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 py-20 px-6 overflow-hidden"
+      className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 py-20 px-6 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16">
-        {/* Text Content */}
-        <div className="flex-1 text-center lg:text-left px-4">
-          {/* Heading with animated underline */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 relative inline-block text-gray-800 animate-fadeInUp">
-            Message from the{" "}
-            <span className="text-[#4F46E5]">CEO</span>
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-500 mx-auto lg:mx-0 mb-8 rounded-full animate-slideIn" />
+      <div className="container">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16">
+          {/* Text Content */}
+          <div className="flex-1 text-center lg:text-left px-4">
+            {/* Heading with animated underline */}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 relative inline-block text-gray-800 animate-fadeInUp">
+              Message from the{" "}
+              <span className="text-[#4F46E5]">CEO</span>
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-500 mx-auto lg:mx-0 mb-8 rounded-full animate-slideIn" />
 
-          {/* CEO's custom message */}
-          <p className="text-gray-700 text-lg md:text-xl mb-6 px-4 lg:px-0 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
-            Technology is most powerful when it unlocks human potential and solves real-world problems. At TechTide Corporate, we blend strategy, design, and development to build scalable products that make a difference. We remain committed to excellence, continuous learning, and shaping a vibrant digital ecosystem.
-          </p>
+            {/* Name & Role */}
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 relative animate-fadeInUp delay-200">{ceo.name}</h3>
+            <p className="text-xl md:text-2xl text-indigo-600 font-semibold mb-8 uppercase tracking-wide text-center lg:text-left animate-fadeInUp delay-400">{ceo.role}</p>
 
-          {/* Name & Role */}
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 relative animate-fadeInUp delay-200">
-            {ceo.name}
-          </h3>
-          <p className="text-xl md:text-2xl text-indigo-600 font-semibold mb-8 uppercase tracking-wide text-center lg:text-left animate-fadeInUp delay-400">
-            {ceo.role}
-          </p>
-
-          {/* Quote Icon */}
-          <div className="relative mb-10 px-4 lg:px-0 animate-fadeInUp delay-600">
-            <div className="absolute -top-4 -left-6 text-4xl text-indigo-300 opacity-50 font-serif animate-bounce">
-              &ldquo;
+            {/* Quote Icon */}
+            <div className="relative mb-10 px-4 lg:px-0 animate-fadeInUp delay-600">
+              <div className="absolute -top-4 -left-6 text-4xl text-indigo-300 opacity-50 font-serif animate-bounce">
+                &ldquo;
+              </div>
+              <p className="text-gray-600 text-lg italic leading-relaxed px-4">"{ceo.message || ""}"</p>
+              <div className="absolute -bottom-4 -right-6 text-4xl text-indigo-300 opacity-50 font-serif animate-bounce">&rdquo;</div>
             </div>
-            <p className="text-gray-600 text-lg italic leading-relaxed px-4">
-              "{ceo.message || ""}"
-            </p>
-            <div className="absolute -bottom-4 -right-6 text-4xl text-indigo-300 opacity-50 font-serif animate-bounce">
-              &rdquo;
+
+            {/* Social Icons */}
+            <div className="flex justify-center lg:justify-start gap-4 animate-fadeInUp delay-800">
+              {/* Gmail */}
+              <button
+                onClick={(e) => handleEmailClick(e, ceo.social?.gmail || "")}
+                className="p-3 rounded-full bg-white shadow-lg hover:bg-gradient-to-r from-pink-400 to-purple-600 transition-transform transform hover:scale-110"
+                aria-label="Gmail"
+              >
+                <Mail className="w-5 h-5 text-gray-700" />
+              </button>
+              {/* LinkedIn */}
+              <Link
+                to={ceo.social?.linkedin || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-white shadow-lg hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 transition-transform transform hover:scale-110"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5 text-gray-700" />
+              </Link>
+              {/* Instagram */}
+              <Link
+                to={ceo.social?.instagram || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-white shadow-lg hover:bg-gradient-to-r from-pink-500 via-purple-500 to-purple-700 transition-transform transform hover:scale-110"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5 text-gray-700" />
+              </Link>
             </div>
           </div>
 
-          {/* Social Icons */}
-          <div className="flex justify-center lg:justify-start gap-4 animate-fadeInUp delay-800">
-            {/* Gmail */}
-            <button
-              onClick={(e) => handleEmailClick(e, ceo.social?.gmail || "")}
-              className="p-3 rounded-full bg-white shadow-lg hover:bg-gradient-to-r from-pink-400 to-purple-600 transition-transform transform hover:scale-110"
-              aria-label="Gmail"
-            >
-              <Mail className="w-5 h-5 text-gray-700" />
-            </button>
-            {/* LinkedIn */}
-            <a
-              href={ceo.social?.linkedin || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white shadow-lg hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 transition-transform transform hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5 text-gray-700" />
-            </a>
-            {/* Instagram */}
-            <a
-              href={ceo.social?.instagram || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white shadow-lg hover:bg-gradient-to-r from-pink-500 via-purple-500 to-purple-700 transition-transform transform hover:scale-110"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-5 h-5 text-gray-700" />
-            </a>
-          </div>
-        </div>
-
-        {/* Image Section */}
-        <div className="flex-1 flex justify-center px-4">
-          <div className="w-full max-w-sm aspect-[4/5] rounded-3xl shadow-xl overflow-hidden border-4 border-white hover:scale-105 transition-transform duration-300 ease-in-out">
-            <img
-              src={ceo.image}
-              alt={ceo.name}
-              className="w-full h-full object-cover object-center"
-              loading="lazy"
-              decoding="async"
-            />
+          {/* Image Section */}
+          <div className="flex-1 flex justify-center px-4">
+            <div className="w-full max-w-sm aspect-[4/5] rounded-3xl shadow-xl overflow-hidden border-4 border-white hover:scale-105 transition-transform duration-300 ease-in-out">
+              <img
+                src={ceo.image}
+                alt={ceo.name}
+                className="w-full h-full object-cover object-top"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
         </div>
       </div>

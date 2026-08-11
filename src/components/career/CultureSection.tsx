@@ -6,7 +6,7 @@ interface CultureSectionProps {
 
 export function CultureSection({ onSpeculativeApply }: CultureSectionProps) {
   return (
-    <div className="max-w-5xl mx-auto px-6 md:px-8 pb-16">
+    <div className="max-w-6xl mx-auto px-6 md:px-8 pb-16">
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: 30 }}

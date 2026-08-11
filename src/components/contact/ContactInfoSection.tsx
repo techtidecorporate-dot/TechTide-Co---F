@@ -33,29 +33,31 @@ const contactInfoData = [
 
 export function ContactInfoSection() {
   return (
-    <div className="max-w-7xl mx-auto px-6 md:px-8 mt-6 mb-12 md:mb-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {contactInfoData.map((info, index) => (
-          <motion.a
-            key={index}
-            href={info.link}
-            onClick={(e) => {
-              if (info.title === "Email Us" && "onClick" in info) {
-                info.onClick!(e as React.MouseEvent<HTMLAnchorElement>, info.content);
-              }
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 20 }}
-            viewport={{ once: true, margin: "-50px" }}
-            className="bg-white rounded-2xl border border-gray-100 p-8 shadow-md hover:shadow-xl transition-all group"
-          >
-            <div className="size-12 rounded-lg bg-gradient-to-r from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-lg">{info.icon}</div>
-            <h3 className="text-[#191a23] font-semibold mb-2 text-lg">{info.title}</h3>
-            <p className="text-[#6b7280] text-sm leading-relaxed">{info.content}</p>
-          </motion.a>
-        ))}
+    <section className="mt-6 mb-12 md:mb-16">
+      <div className="container">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {contactInfoData.map((info, index) => (
+            <motion.a
+              key={index}
+              href={info.link}
+              onClick={(e) => {
+                if (info.title === "Email Us" && "onClick" in info) {
+                  info.onClick!(e as React.MouseEvent<HTMLAnchorElement>, info.content);
+                }
+              }}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="bg-white rounded-2xl border border-gray-100 p-8 shadow-md hover:shadow-xl transition-all group"
+            >
+              <div className="size-12 rounded-lg bg-gradient-to-r from-[#453abc] to-[#60c3e3] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-lg">{info.icon}</div>
+              <h3 className="text-[#191a23] font-semibold mb-2 text-lg">{info.title}</h3>
+              <p className="text-[#6b7280] text-sm leading-relaxed">{info.content}</p>
+            </motion.a>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

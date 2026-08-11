@@ -92,9 +92,7 @@ export function ProjectsSection() {
           </span>
         </h2>
 
-        <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">
-          Real businesses. Real problems. Measurable results.
-        </p>
+        <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">Real businesses. Real problems. Measurable results.</p>
       </div>
 
       {/* Grid of Projects */}
@@ -107,7 +105,7 @@ export function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white rounded-[1.75rem] border border-gray-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_rgba(69,58,188,0.12)] transition-all duration-500 overflow-hidden"
+              className="group relative bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_rgba(69,58,188,0.12)] transition-all duration-500 overflow-hidden"
             >
               {/* Image */}
               <div className="relative overflow-hidden aspect-[16/9]">
