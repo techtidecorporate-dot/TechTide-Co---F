@@ -43,24 +43,20 @@ export function BlogSection() {
   return (
     <section
       ref={containerRef}
-      style={{contentVisibility: 'auto', containIntrinsicSize: '500px'}}
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '500px' }}
       className="relative bg-white pt-16 pb-6 md:pt-24 md:pb-0 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="container">
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16">
           {/* LEFT TEXT */}
-          <div className="lg:w-[38%] text-center lg:text-left">
-            <span className="block  text-sm font-medium tracking-widest text-[#453abc] uppercase mb-3">
-              Blog Section
-            </span>
+          <div className="lg:w-2/5 text-center lg:text-left">
+            <span className="block text-sm font-medium tracking-widest text-[#453abc] uppercase mb-3">Blog Section</span>
 
             <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl  font-bold leading-tight mb-4 md:mb-6 text-[#191a23]">
               Insights and <span className="text-[#453abc]">Digital Growth</span>
             </h2>
 
-            <p className="text-gray-500 text-sm sm:text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0">
-              Stay informed with practical insights, industry trends, and expert perspectives on web development, software solutions, and digital marketing.
-            </p>
+            <p className="text-gray-500 text-sm sm:text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0">Stay informed with practical insights, industry trends, and expert perspectives on web development, software solutions, and digital marketing.</p>
 
             <Link
               to="/blog"
@@ -72,18 +68,20 @@ export function BlogSection() {
           </div>
 
           {/* RIGHT EDITORIAL LAYOUT - DESKTOP */}
-          <div className="relative hidden lg:flex lg:w-[62%] h-[110vh] gap-8">
+          <div className="relative hidden lg:grid lg:grid-cols-[1.1fr_1fr_1fr] gap-4 lg:w-3/5 items-start">
             {/* LEFT — FEATURED */}
-            {blogPosts[0] && (
-              <motion.div style={{ y: slow }} className="w-48 h-72 mt-24">
-                <BlogCard blog={blogPosts[0]} variant="featured" />
-              </motion.div>
-            )}
+            <div className="flex flex-col justify-start pt-16">
+              {blogPosts[0] && (
+                <motion.div style={{ y: slow }}>
+                  <BlogCard blog={blogPosts[0]} variant="featured" />
+                </motion.div>
+              )}
+            </div>
 
             {/* CENTER — 3 STACK */}
             <motion.div
               style={{ y: medium }}
-              className="w-48 h-[90vh] flex flex-col justify-between"
+              className="flex flex-col gap-4"
             >
               {blogPosts.slice(1, 4).map((blog) => (
                 <BlogCard key={blog.id} blog={blog} variant="medium" />
@@ -93,7 +91,7 @@ export function BlogSection() {
             {/* RIGHT — 2 LARGE */}
             <motion.div
               style={{ y: fast }}
-              className="w-48 h-[70vh] flex flex-col gap-10 justify-between mt-24"
+              className="flex flex-col gap-4 pt-16"
             >
               {blogPosts.slice(4, 6).map((blog) => (
                 <BlogCard key={blog.id} blog={blog} variant="large" />
@@ -122,26 +120,24 @@ function BlogCard({
   blog: any;
   variant: "featured" | "medium" | "large" | "mobile";
 }) {
-  const height =
-    variant === "mobile"
-      ? "h-full"
-      : variant === "featured"
-      ? "h-[92%]" // adjusted ↓
-      : variant === "large"
-      ? "h-[52%]" // adjusted ↑
-      : "h-[30%]";
+  const variantClasses = {
+    mobile: "h-full",
+    featured: "h-[360px] md:h-[420px] lg:h-[420px]",
+    medium: "h-[180px] md:h-[210px]",
+    large: "h-[220px] md:h-[250px] lg:h-[260px]",
+  };
 
   return (
-    <motion.div
+    <motion.article
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      className={`relative ${height} rounded-2xl overflow-hidden shadow-lg group cursor-pointer`}
+      className={`relative ${variantClasses[variant]} rounded-3xl overflow-hidden shadow-lg group cursor-pointer`}
     >
       <Link to={`/blog/${blog.slug || blog.id}`}>
         <img
           src={blog.image || "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop"}
           alt={blog.title}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="absolute inset-0 w-full h-full object-cover transition-transform blur-none duration-700 group-hover:blur-sm group-hover:scale-110"
           loading="lazy"
           decoding="async"
         />
@@ -161,7 +157,7 @@ function BlogCard({
           </div>
         </div>
       </Link>
-    </motion.div>
+    </motion.article>
   );
 }
 

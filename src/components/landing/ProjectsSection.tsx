@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import imgNexusClinic from "@/assets/nexus.webp";
-import imgRaynovaTech from "@/assets/raynova.webp";
+import imgRaynovaTech from "@/assets/raynova-tech.webp";
 import imgSerenaiva from "@/assets/sereniva.webp";
-import imgAura from "@/assets/winter1.webp";
+import imgAura from "@/assets/aura-commerce.webp";
 
-const projects = [
+export const projects = [
   {
     title: "Nexus Clinic",
     category: "Web Development",
@@ -85,18 +85,18 @@ export function ProjectsSection() {
 
       {/* Header */}
       <div className="relative text-center mb-12 md:mb-24 px-4 sm:px-6">
-        <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl lg:text-6xl  font-bold mb-4 md:mb-6 text-gray-900 tracking-tight">
+        <h2 className="text-[1.75rem] sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-gray-900 tracking-tight">
           Success Stories &{" "}
           <span className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">
             Case Studies
           </span>
         </h2>
 
-        <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">Real businesses. Real problems. Measurable results.</p>
+        <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">Real businesses. Real problems. Measurable results.</p>
       </div>
 
       {/* Grid of Projects */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -116,9 +116,7 @@ export function ProjectsSection() {
                   loading="lazy"
                   decoding="async"
                 />
-                <div
-                  className={`absolute inset-0 bg-gradient-to-tr ${project.gradient} opacity-5 mix-blend-overlay`}
-                ></div>
+                <div className={`absolute inset-0 bg-gradient-to-tr ${project.gradient} opacity-5 mix-blend-overlay`} />
 
                 {/* Category Badge */}
                 <span className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-[11px] font-bold uppercase tracking-widest text-[#453abc] shadow-sm">
@@ -128,42 +126,30 @@ export function ProjectsSection() {
 
               {/* Content */}
               <div className="p-6 md:p-7">
-                <h3 className="text-xl md:text-2xl  font-bold mb-3 text-gray-900 leading-snug">
-                  {project.title}
-                </h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 leading-snug">{project.title}</h3>
 
                 <div className="mb-4">
-                  <p className="text-[11px] font-bold text-[#453abc] uppercase tracking-widest mb-1.5">
-                    The Problem
-                  </p>
-                  <p className="text-gray-900 text-sm font-medium italic leading-relaxed">
-                    "{project.problem}"
-                  </p>
+                  <p className="text-[11px] font-bold text-[#453abc] uppercase tracking-widest mb-1.5">The Problem</p>
+                  <p className="text-gray-900 text-sm font-medium italic leading-relaxed">"{project.problem}"</p>
                 </div>
 
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">{project.description}</p>
 
                 <div className="mb-5 p-4 bg-gradient-to-br from-[#453abc]/5 to-[#60c3e3]/5 rounded-xl border border-[#453abc]/10">
-                  <p className="text-[11px] font-bold text-[#453abc] uppercase tracking-widest mb-1.5">
-                    Measurable Results
-                  </p>
-                  <p className="text-base md:text-lg  font-bold text-gray-900 leading-snug">
-                    {project.results}
-                  </p>
+                  <p className="text-[11px] font-bold text-[#453abc] uppercase tracking-widest mb-1.5">Measurable Results</p>
+                  <p className="text-base md:text-lg font-bold text-gray-900 leading-snug">{project.results}</p>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <ul className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
-                    <span
+                    <li
                       key={i}
-                      className="px-3 py-1.5 text-[11px] font-semibold rounded-lg bg-slate-50 text-slate-700 border border-slate-200"
+                      className="px-3 py-1.5 text-[11px] font-semibold rounded-sm bg-slate-50 text-slate-700 border border-slate-200"
                     >
                       {tech}
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </motion.div>
           ))}

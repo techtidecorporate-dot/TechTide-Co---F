@@ -70,9 +70,9 @@ export function Footer() {
                   to="mailto:info@techtidecorporate.com"
                   onClick={handleCopyEmail}
                   aria-label="Copy email address to clipboard"
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#EA4335] flex items-center justify-center transition-all hover:-translate-y-1"
+                  className="size-10 rounded-full bg-white/5 hover:bg-[#EA4335] flex items-center justify-center transition-all hover:-translate-y-1"
                 >
-                  <Mail className="text-white w-4 h-4" />
+                  <Mail className="text-white size-4" />
                 </Link>
               </li>
               <li>
@@ -81,9 +81,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow us on LinkedIn"
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#453abc] flex items-center justify-center transition-all hover:-translate-y-1"
+                  className="size-10 rounded-full bg-white/5 hover:bg-[#453abc] flex items-center justify-center transition-all hover:-translate-y-1"
                 >
-                  <Linkedin className="text-white w-4 h-4" />
+                  <Linkedin className="text-white size-4" />
                 </Link>
               </li>
               <li>
@@ -92,9 +92,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow us on Instagram"
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#c13584] flex items-center justify-center transition-all hover:-translate-y-1"
+                  className="size-10 rounded-full bg-white/5 hover:bg-[#c13584] flex items-center justify-center transition-all hover:-translate-y-1"
                 >
-                  <Instagram className="text-white w-4 h-4" />
+                  <Instagram className="text-white size-4" />
                 </Link>
               </li>
             </ul>

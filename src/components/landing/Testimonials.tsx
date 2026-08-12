@@ -57,166 +57,51 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="testimonial-section">
-      <h2 className="heading">TESTIMONIALS</h2>
-      <div className="underline" />
-      <p className="subtext">Subscribe Easy Tutorials YouTube channel to watch more videos.</p>
+    <section className="bg-[#f8f9fa] py-16 md:py-20 px-4 overflow-hidden">
+      <div className="container">
+        <div className="text-center mb-12 md:mb-16">
+          <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.3em] uppercase mb-4">
+            Testimonials
+          </span>
+          <h2 className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#191a23] leading-[1.1] mb-4 md:mb-6">
+            What Our Clients <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3]">Say</span>
+          </h2>
+          <p className="text-gray-500 text-sm sm:text-lg max-w-3xl mx-auto leading-relaxed">
+            We build digital experiences that help businesses grow, and our clients stay with us because the results speak for themselves.
+          </p>
+        </div>
 
-      <div className="testimonial-grid">
-        {testimonials.map((t, i) => (
-          <div
-            key={t.id}
-            data-id={t.id}
-            ref={(el) => {
-              cardRefs.current[i] = el;
-            }}
-            className={`testimonial-card ${visibleCards.includes(t.id) ? "in-view" : ""}`}
-            style={{ transitionDelay: `${i * 120}ms` }}
-          >
-            <div className="avatar">{t.initials}</div>
-            <div className="card-body">
-              <span className="quote-icon">&ldquo;</span>
-              <p className="quote">{t.quote}</p>
-              <span className="quote-icon end">&rdquo;</span>
-              <p className="name">
-                {t.name} <span className="role">{t.role}</span>
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {testimonials.map((t, i) => (
+            <div
+              key={t.id}
+              data-id={t.id}
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
+              className={`relative bg-white rounded-3xl border border-gray-100 shadow-sm p-6 pt-14 transition-all duration-700 ease-out ${visibleCards.includes(t.id) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+              style={{ transitionDelay: `${i * 120}ms` }}
+            >
+              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-[#453abc] to-[#60c3e3] text-white font-bold text-lg flex items-center justify-center shadow-lg shadow-[#453abc]/20 ring-4 ring-white">
+                {t.initials}
+              </div>
+
+              <div className="text-left">
+                <span className="block font-serif text-5xl leading-none text-[#453abc]/80">&ldquo;</span>
+                <p className="text-sm md:text-[15px] text-gray-600 leading-7 mt-2 mb-6">{t.quote}</p>
+                <div className="flex items-center justify-between gap-3 pt-4 border-t border-gray-100">
+                  <div>
+                    <p className="text-base font-bold text-[#191a23]">{t.name}</p>
+                    <p className="text-sm text-gray-500">{t.role}</p>
+                  </div>
+                  <span className="text-[#453abc] text-2xl font-serif leading-none">&rdquo;</span>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
-      <style>{`
-        .testimonial-section {
-          padding: 70px 40px;
-          background: #ffffff;
-          text-align: center;
-        }
-
-      .heading {
-  color: #0066cc; /* TechTide Blue */
-  font-size: 32px; /* Increased font size for prominence */
-  font-weight: 800;
-  letter-spacing: 1.5px; /* Slight letter-spacing */
-  margin: 0 0 15px; /* More bottom margin for spacing */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  text-transform: uppercase; /* Optional: makes heading uppercase */
-}
-
-        .underline {
-          width: 60px;
-          height: 3px;
-          background: #0066cc; /* TechTide Blue */
-          margin: 0 auto 18px;
-          border-radius: 2px;
-        }
-
-        .subtext {
-          color: #6b6b6b;
-          font-size: 14px;
-          margin-bottom: 44px;
-        }
-
-        .testimonial-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 30px;
-          max-width: 1100px;
-          margin: 0 auto;
-        }
-
-        .testimonial-card {
-          position: relative;
-          background: #f4f5f7;
-          border-radius: 6px;
-          padding-top: 46px;
-          padding-bottom: 28px;
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s ease;
-        }
-
-        .testimonial-card.in-view {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .testimonial-card:hover {
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-          transform: translateY(-4px);
-        }
-
-        .testimonial-card.in-view:hover {
-          transform: translateY(-4px);
-        }
-
-        .avatar {
-          position: absolute;
-          top: -32px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 64px;
-          height: 64px;
-          border-radius: 50%;
-          background: linear-gradient(135deg, #0066cc, #004499); /* TechTide Blue Gradient */
-          color: #fff;
-          font-weight: 700;
-          font-size: 16px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 0 0 5px #ffffff, 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-body {
-          padding: 0 26px;
-        }
-
-        .quote-icon {
-          font-family: Georgia, serif;
-          font-size: 28px;
-          color: #0066cc; /* TechTide Blue */
-          line-height: 1;
-          display: block;
-        }
-
-        .quote-icon.end {
-          text-align: right;
-        }
-
-        .quote {
-          color: #555555;
-          font-size: 13.5px;
-          line-height: 1.8;
-          margin: 4px 0;
-        }
-
-        .name {
-          margin-top: 14px;
-          font-weight: 700;
-          color: #0066cc; /* TechTide Blue */
-          font-size: 14px;
-        }
-
-        .role {
-          color: #8a8a8a;
-          font-weight: 400;
-          font-size: 13px;
-        }
-
-        @media (max-width: 1024px) {
-          .testimonial-grid {
-            grid-template-columns: 1fr;
-            max-width: 420px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .testimonial-section {
-            padding: 50px 20px;
-          }
-        }
-      `}</style>
     </section>
   );
 }

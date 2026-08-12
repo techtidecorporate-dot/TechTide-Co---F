@@ -137,12 +137,8 @@ export function PartnerWithUsDrawer({
             {/* Header */}
             <div className="p-6 md:p-8 flex items-center justify-between border-b border-gray-100">
               <div>
-                <h2 className="text-2xl  font-semibold text-[#191a23]">
-                  Partner with Us
-                </h2>
-                <p className="text-sm text-gray-500 mt-1">
-                  Let's build something powerful together
-                </p>
+                <h2 className="text-2xl font-semibold text-[#191a23]">Partner with Us</h2>
+                <p className="text-sm text-gray-500 mt-1">Let's build something powerful together</p>
               </div>
               <button
                 onClick={onClose}
@@ -153,7 +149,7 @@ export function PartnerWithUsDrawer({
             </div>
 
             {/* Content */}
-            <div className="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-8">
+            <div className="flex-1 overflow-y-auto p-6 md:p-8 no-scrollbar">
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -163,13 +159,8 @@ export function PartnerWithUsDrawer({
                   <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center">
                     <CheckCircle2 className="w-10 h-10 text-green-500" />
                   </div>
-                  <h2 className="text-3xl  font-semibold text-[#191a23]">
-                    Request Received!
-                  </h2>
-                  <p className="text-gray-500 leading-relaxed max-w-sm">
-                    Thank you for reaching out. Our team will review your
-                    project details and get back to you within 24 hours.
-                  </p>
+                  <h2 className="text-3xl font-semibold text-[#191a23]">Request Received!</h2>
+                  <p className="text-gray-500 leading-relaxed max-w-sm">Thank you for reaching out. Our team will review your project details and get back to you within 24 hours.</p>
                   <button
                     onClick={resetAndClose}
                     className="px-8 py-4 bg-[#453abc] text-white rounded-2xl font-semibold hover:bg-[#362a9a] transition-all shadow-lg shadow-[#453abc]/20"
@@ -180,15 +171,11 @@ export function PartnerWithUsDrawer({
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6 pb-10">
                   <div className="space-y-4">
-                    <h3 className="text-lg  font-semibold text-[#453abc]">
-                      Project Details
-                    </h3>
+                    <h3 className="text-lg font-semibold text-[#453abc]">Project Details</h3>
 
                     {/* Full Name */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
-                        Full Name
-                      </label>
+                      <label className="text-xs font-medium text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
                       <div className="relative">
                         <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                         <input
@@ -197,16 +184,14 @@ export function PartnerWithUsDrawer({
                           value={formData.fullName}
                           onChange={handleChange}
                           placeholder="Enter Full Name"
-                          className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm"
+                          className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm"
                         />
                       </div>
                     </div>
 
                     {/* Email */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
-                        Email
-                      </label>
+                      <label className="text-xs font-medium text-gray-400 uppercase tracking-widest ml-1">Email</label>
                       <div className="relative">
                         <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                         <input
@@ -216,7 +201,7 @@ export function PartnerWithUsDrawer({
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="Enter Email"
-                          className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm"
+                          className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm"
                         />
                       </div>
                     </div>
@@ -224,9 +209,7 @@ export function PartnerWithUsDrawer({
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {/* Company Name */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
-                          Company
-                        </label>
+                        <label className="text-xs font-medium text-gray-400 uppercase tracking-widest ml-1">Company</label>
                         <div className="relative">
                           <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                           <input
@@ -235,16 +218,14 @@ export function PartnerWithUsDrawer({
                             value={formData.companyName}
                             onChange={handleChange}
                             placeholder="Enter Company Name"
-                            className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm"
+                            className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm"
                           />
                         </div>
                       </div>
 
                       {/* Phone */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
-                          Phone
-                        </label>
+                        <label className="text-xs font-medium text-gray-400 uppercase tracking-widest ml-1">Phone</label>
                         <div className="relative">
                           <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                           <input
@@ -253,7 +234,7 @@ export function PartnerWithUsDrawer({
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="+920000000000"
-                            className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm"
+                            className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm"
                           />
                         </div>
                       </div>
@@ -261,9 +242,7 @@ export function PartnerWithUsDrawer({
 
                     {/* Service Selection */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
-                        Service Interested In
-                      </label>
+                      <label className="text-xs font-medium text-gray-400 uppercase tracking-widest ml-1">Service Interested In</label>
                       <div className="relative">
                         <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                         <select
@@ -271,7 +250,7 @@ export function PartnerWithUsDrawer({
                           required
                           value={formData.service}
                           onChange={handleChange}
-                          className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all appearance-none text-sm text-gray-600"
+                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all appearance-none text-sm text-gray-600"
                         >
                           <option value="" disabled>
                             Select a service
@@ -287,9 +266,7 @@ export function PartnerWithUsDrawer({
 
                     {/* Project Description */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
-                        Project Description
-                      </label>
+                      <label className="text-xs font-medium text-gray-400 uppercase tracking-widest ml-1">Project Description</label>
                       <div className="relative">
                         <MessageSquare className="absolute left-4 top-4 w-4 h-4 text-gray-400" />
                         <textarea
@@ -299,16 +276,14 @@ export function PartnerWithUsDrawer({
                           value={formData.description}
                           onChange={handleChange}
                           placeholder="Briefly describe your project goals..."
-                          className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm resize-none"
+                          className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#453abc]/10 focus:border-[#453abc] transition-all text-sm resize-none"
                         />
                       </div>
                     </div>
 
                     {/* Budget Range */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">
-                        Budget Range
-                      </label>
+                      <label className="text-xs font-medium text-gray-400 uppercase tracking-widest ml-1">Budget Range</label>
                       <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
                         {budgetRanges.map((range) => (
                           <button
@@ -317,11 +292,10 @@ export function PartnerWithUsDrawer({
                             onClick={() =>
                               setFormData({ ...formData, budget: range })
                             }
-                            className={`py-2 px-1 text-[10px] font-bold rounded-lg border transition-all ${
-                              formData.budget === range
-                                ? "bg-[#453abc] border-[#453abc] text-white shadow-sm"
-                                : "bg-white border-gray-100 text-gray-500 hover:border-gray-200"
-                            }`}
+                            className={`py-2 px-1 text-xs font-medium rounded-sm border transition-all ${formData.budget === range
+                              ? "bg-[#453abc] border-[#453abc] text-white shadow-sm"
+                              : "bg-white border-gray-100 text-gray-500 hover:border-gray-200"
+                              }`}
                           >
                             {range}
                           </button>
@@ -335,7 +309,7 @@ export function PartnerWithUsDrawer({
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full bg-[#453abc] text-white py-4 rounded-xl  font-semibold text-base hover:bg-[#362a9a] transition-all transform hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#453abc]/20 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-[#453abc] text-white py-4 rounded-lg font-semibold text-base hover:bg-[#362a9a] transition-all transform hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#453abc]/20 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <span>
                         {loading ? "Submitting..." : "Request a Callback"}
