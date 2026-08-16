@@ -6,6 +6,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
 import { Toaster } from "sonner";
 import { CookieBanner } from "./components/tracking/CookieBanner";
+import { Chatbot } from "./components/chatbot/Chatbot";
 import { usePageTracking } from "./hooks/usePageTracking";
 import { useScrollRestoration } from "./hooks/useScrollRestoration";
 
@@ -158,6 +159,7 @@ export default function App() {
         )}
         
         <CookieBanner />
+        {!hideNavFooter && <Chatbot />}
         {!hideNavFooter && <Footer />}
       </div>
     </AuthProvider>
