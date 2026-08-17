@@ -8,8 +8,8 @@ export default function ProductsPage() {
     <main className="bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
       <SEO
         title="Products"
-        description="Explore TechTide Corporate LLP's innovative products."
-        keywords="TechTide products, software products"
+        description="Discover TechTide Corporate LLP's product suite — SaaS tools, custom enterprise platforms, and ready-to-deploy solutions built for scalable business growth."
+        keywords="TechTide products, SaaS products, enterprise software solutions, business automation tools, custom platform development"
       />
 
       <section

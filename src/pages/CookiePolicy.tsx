@@ -8,6 +8,7 @@ const CookiePolicy = () => {
         title="Cookie Policy"
         description="Cookie Policy for TechTide Corporate LLP. Learn how we use cookies to improve your browsing experience."
         keywords="cookie policy, TechTide cookies, website cookies, cookie usage, privacy"
+        noindex // optional — legal boilerplate pages rarely benefit from ranking
       />
       <PolicyLayout {...cookieContent} />
     </>

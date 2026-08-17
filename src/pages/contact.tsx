@@ -82,6 +82,19 @@ export default function ContactPage() {
         title="Contact Us"
         description="Get in touch with TechTide Corporate LLP for your next web development project. We're here to help you build your digital future."
         keywords="contact TechTide, web development inquiry, software project consultation, hire web developers, IT services contact"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "TechTide Corporate LLP",
+          url: "https://techtidecorporate.com",
+          telephone: "+923247991484",
+          email: "info@techtidecorporate.com",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Lahore",
+            addressCountry: "PK",
+          },
+        }}
       />
 
       <HeroSection />

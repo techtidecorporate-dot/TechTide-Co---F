@@ -26,19 +26,40 @@ TechTide Corporate LLP helps organizations design, develop, and scale digital pr
 
 * Home: https://techtidecorporate.com
 * Services: https://techtidecorporate.com/services
-* Team: https://techtidecorporate.com/ourteam
 * Blog: https://techtidecorporate.com/blog
 * Careers: https://techtidecorporate.com/career
 * Contact: https://techtidecorporate.com/contact
 
 ### Services
 
-* https://techtidecorporate.com/services/web-development-company
-* https://techtidecorporate.com/services/mobile-app-development-company
-* https://techtidecorporate.com/services/saas-software-development-company
+* https://techtidecorporate.com/services/seo
+* https://techtidecorporate.com/services/leads-generation-websites
+* https://techtidecorporate.com/services/conversion-optimization
+* https://techtidecorporate.com/services/paid-ads-strategy
+* https://techtidecorporate.com/services/brand-positioning-messaging
+* https://techtidecorporate.com/services/social-media-marketing
+* https://techtidecorporate.com/services/performance-marketing
+* https://techtidecorporate.com/services/lead-generation-systems
 * https://techtidecorporate.com/services/business-automation-systems
-* https://techtidecorporate.com/services/api-integration
 * https://techtidecorporate.com/services/growth-marketing-systems
+* https://techtidecorporate.com/services/sales-funnel-customer-journey
+* https://techtidecorporate.com/services/marketing-sales-alignment
+* https://techtidecorporate.com/services/growth-audits-scaling-strategy
+* https://techtidecorporate.com/services/tech-business-consulting
+* https://techtidecorporate.com/services/web-applications
+* https://techtidecorporate.com/services/mobile-applications
+* https://techtidecorporate.com/services/machine-learning
+* https://techtidecorporate.com/services/generative-ai
+* https://techtidecorporate.com/services/ai-automation
+* https://techtidecorporate.com/services/custom-software
+* https://techtidecorporate.com/services/ecommerce-development
+* https://techtidecorporate.com/services/saas-product-development
+* https://techtidecorporate.com/services/api-integration
+* https://techtidecorporate.com/services/maintenance-support
+* https://techtidecorporate.com/services/ui-ux-design
+* https://techtidecorporate.com/services/brand-identity
+    
+
 
 ## Industries
 
@@ -54,3 +75,5 @@ TechTide Corporate LLP helps organizations design, develop, and scale digital pr
 ## AI Summary
 
 TechTide Corporate LLP is a software development company specializing in scalable web applications, mobile applications, SaaS products, automation systems, API integrations, and AI-enabled business solutions.
+
+- [Company Profile](https://techtidecorporate.com/company-profile): Corporate information, certifications, and offices served.

@@ -43,8 +43,8 @@ export default function ServiceDetailPage() {
           title={service.seoTitle || service.title}
           description={service.seoDescription || service.shortDescription}
           keywords={service.seoKeywords?.join(", ") || `${service.title}, web development, custom software`}
-          ogImage={service.image}
-          ogUrl={`https://techtidecorporate.com/services/${service.slug}`}
+          ogImage={service.image || undefined}
+          ogImageAlt={service.title}
         />
 
         <RichHeroSection service={service} />
@@ -93,11 +93,11 @@ export default function ServiceDetailPage() {
   return (
     <div className="py-24 ">
       <SEO
-        title={service.title}
-        description={service.shortDescription}
-        keywords={`${service.title}, web development, custom software, ${service.features?.slice(0, 3).join(", ")}`}
-        ogImage={service.image}
-        ogUrl={`https://techtidecorporate.com/services/${service.slug}`}
+        title={service.seoTitle || service.title}
+        description={service.seoDescription || service.shortDescription}
+        keywords={service.seoKeywords?.join(", ") || `${service.title}, web development, custom software`}
+        ogImage={service.image || undefined}
+        ogImageAlt={service.title}
       />
       <FallbackLayout service={service} />
 

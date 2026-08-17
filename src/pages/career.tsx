@@ -83,8 +83,8 @@ export default function CareersPage() {
       selectedDepartment === "All"
         ? jobListings
         : jobListings.filter(
-            (job) => job.department === selectedDepartment,
-          ),
+          (job) => job.department === selectedDepartment,
+        ),
     [jobListings, selectedDepartment],
   );
 

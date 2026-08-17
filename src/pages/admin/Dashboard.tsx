@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { Users, Briefcase, BookOpen, Mail, LucideIcon } from "lucide-react";
 import { getCount, getLatest } from "@/api";
+import SEO from "@/components/ui/SEO";
 
 interface StatCardProps {
   label: string;
@@ -141,96 +142,99 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div>
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold">Welcome back, {user?.name}!</h2>
-        <p className="text-gray-400 mt-1">Here is what's happening today.</p>
-      </div>
+    <>
+      <SEO title="Admin Dashboard" noindex nofollow />
+      <div>
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold">Welcome back, {user?.name}!</h2>
+          <p className="text-gray-400 mt-1">Here is what's happening today.</p>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard
-          label="Talent Pool"
-          value={stats.talentPool}
-          icon={Briefcase}
-          color="bg-blue-600/70"
-          loading={loading}
-        />
-        <StatCard
-          label="Total Users"
-          value={stats.users}
-          icon={Users}
-          color="bg-blue-500/70"
-          loading={loading}
-        />
-        <StatCard
-          label="Job Applications"
-          value={stats.jobs}
-          icon={Briefcase}
-          color="bg-purple-500/70"
-          loading={loading}
-        />
-        <StatCard
-          label="Blog Posts"
-          value={stats.blogs}
-          icon={BookOpen}
-          color="bg-green-500/70"
-          loading={loading}
-        />
-        {/* <StatCard
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StatCard
+            label="Talent Pool"
+            value={stats.talentPool}
+            icon={Briefcase}
+            color="bg-blue-600/70"
+            loading={loading}
+          />
+          <StatCard
+            label="Total Users"
+            value={stats.users}
+            icon={Users}
+            color="bg-blue-500/70"
+            loading={loading}
+          />
+          <StatCard
+            label="Job Applications"
+            value={stats.jobs}
+            icon={Briefcase}
+            color="bg-purple-500/70"
+            loading={loading}
+          />
+          <StatCard
+            label="Blog Posts"
+            value={stats.blogs}
+            icon={BookOpen}
+            color="bg-green-500/70"
+            loading={loading}
+          />
+          {/* <StatCard
           label="Messages"
           value={stats.messages}
           icon={Mail}
           color="bg-orange-500/70"
           loading={loading}
         /> */}
-      </div>
-
-      <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-[#16161a] p-8 rounded-2xl border border-white/5">
-          <h3 className="text-xl font-bold mb-6">Recent Activity</h3>
-          <div className="space-y-4">
-            {loading
-              ? [1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between p-4 bg-white/5 rounded-xl animate-pulse"
-                >
-                  <div className="h-4 w-48 bg-white/10 rounded" />
-                  <div className="h-3 w-12 bg-white/10 rounded" />
-                </div>
-              ))
-              : recentActivity.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between p-4 bg-white/5 rounded-xl"
-                >
-                  <span className="text-sm">{item.label}</span>
-                  {item.time && (
-                    <span className="text-xs text-gray-500">{item.time}</span>
-                  )}
-                </div>
-              ))}
-          </div>
         </div>
 
-        <div className="bg-[#16161a] p-8 rounded-2xl border border-white/5">
-          <h3 className="text-xl font-bold mb-6">Resources</h3>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="p-4 bg-gradient-to-br from-[#453abc]/20 to-transparent border border-[#453abc]/30 rounded-xl">
-              <h4 className="font-bold text-[#60c3e3]">Guide</h4>
-              <p className="text-xs text-gray-400 mt-1">
-                How to manage teams and content.
-              </p>
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-[#16161a] p-8 rounded-2xl border border-white/5">
+            <h3 className="text-xl font-bold mb-6">Recent Activity</h3>
+            <div className="space-y-4">
+              {loading
+                ? [1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between p-4 bg-white/5 rounded-xl animate-pulse"
+                  >
+                    <div className="h-4 w-48 bg-white/10 rounded" />
+                    <div className="h-3 w-12 bg-white/10 rounded" />
+                  </div>
+                ))
+                : recentActivity.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between p-4 bg-white/5 rounded-xl"
+                  >
+                    <span className="text-sm">{item.label}</span>
+                    {item.time && (
+                      <span className="text-xs text-gray-500">{item.time}</span>
+                    )}
+                  </div>
+                ))}
             </div>
-            <div className="p-4 bg-gradient-to-br from-[#60c3e3]/20 to-transparent border border-[#60c3e3]/30 rounded-xl">
-              <h4 className="font-bold text-[#453abc]">Support</h4>
-              <p className="text-xs text-gray-400 mt-1">
-                Contact technical administration.
-              </p>
+          </div>
+
+          <div className="bg-[#16161a] p-8 rounded-2xl border border-white/5">
+            <h3 className="text-xl font-bold mb-6">Resources</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-4 bg-gradient-to-br from-[#453abc]/20 to-transparent border border-[#453abc]/30 rounded-xl">
+                <h4 className="font-bold text-[#60c3e3]">Guide</h4>
+                <p className="text-xs text-gray-400 mt-1">
+                  How to manage teams and content.
+                </p>
+              </div>
+              <div className="p-4 bg-gradient-to-br from-[#60c3e3]/20 to-transparent border border-[#60c3e3]/30 rounded-xl">
+                <h4 className="font-bold text-[#453abc]">Support</h4>
+                <p className="text-xs text-gray-400 mt-1">
+                  Contact technical administration.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

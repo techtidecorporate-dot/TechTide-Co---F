@@ -30,6 +30,9 @@ export default function AboutPage() {
         title="About Us"
         description="Learn about TechTide Corporate LLP - a leading software development company delivering web, mobile, and enterprise solutions."
         keywords="about TechTide, software company Lahore, web development agency, digital solutions provider, TechTide Corporate LLP"
+        ogType="website"
+        ogImage="/og-about.jpg" // dedicated image for this page, not the landing page's
+        ogImageAlt="About TechTide Corporate LLP — our team and mission"
       />
 
       <HeroSection />

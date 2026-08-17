@@ -41,7 +41,11 @@ export default function BlogDetailPage() {
         title={post.seoTitle || post.title}
         description={post.seoDescription || post.description}
         keywords={(post.seoKeywords || post.tags || []).join(", ")}
-        ogImage={post.image}
+        ogImage={post.image || undefined}
+        ogImageAlt={post.title}
+        ogType="article"
+        publishedTime={post.createdAt}
+        articleAuthor={post.author}
       />
 
       <div className="max-w-4xl mx-auto px-6">

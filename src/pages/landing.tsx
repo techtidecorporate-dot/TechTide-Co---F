@@ -19,10 +19,14 @@ const LandingPage: React.FC = () => {
   return (
     <>
       <main className="flex flex-col min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#eef2f7]">
+
         <SEO
           title="TechTide Corporate | High-Converting Websites & Digital Sales Systems"
           description="We help businesses generate 3-5x more leads through high-performance websites, conversion optimization, and scalable digital systems. Transform your online presence into a revenue-generating machine with TechTide Corporate."
           keywords="lead generation websites, conversion rate optimization, sales funnels, custom software development, high-converting web design, digital growth systems, TechTide Corporate"
+          ogType="website"
+          ogImage="/og-landing.jpg" // a dedicated hero/preview image for the homepage, not the generic default
+          ogImageAlt="TechTide Corporate — High-converting websites and digital sales systems"
         />
         <HeroSection />
         <Suspense fallback={<SectionPlaceholder />}>

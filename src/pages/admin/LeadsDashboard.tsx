@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ref, get } from "firebase/database";
 import { database } from "@/firebase/config";
+import SEO from "@/components/ui/SEO";
 
 interface LeadRecord {
   id: string;
@@ -152,149 +153,150 @@ export default function LeadsDashboard() {
   }
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-bold text-white">Lead Tracking</h1>
-          <p className="text-gray-400 text-sm mt-1">
-            {filtered.length} visitor{filtered.length !== 1 && "s"}
-          </p>
+    <>
+      <SEO title="Leads Dashboard" noindex nofollow />
+      <div>
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-2xl font-bold text-white">Lead Tracking</h1>
+            <p className="text-gray-400 text-sm mt-1">
+              {filtered.length} visitor{filtered.length !== 1 && "s"}
+            </p>
+          </div>
+
+          <div className="flex gap-2">
+            {(["score", "recent", "leads", "accepted"] as FilterMode[]).map((mode) => (
+              <button
+                key={mode}
+                onClick={() => setFilter(mode)}
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${filter === mode
+                    ? "bg-[#453abc] text-white"
+                    : "bg-white/5 text-gray-400 hover:bg-white/10"
+                  }`}
+              >
+                {mode === "score"
+                  ? "Highest Lead Score"
+                  : mode === "recent"
+                    ? "Recent Visitors"
+                    : mode === "leads"
+                      ? "Leads Only"
+                      : "Accepted Consent"}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="flex gap-2">
-          {(["score", "recent", "leads", "accepted"] as FilterMode[]).map((mode) => (
-            <button
-              key={mode}
-              onClick={() => setFilter(mode)}
-              className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-                filter === mode
-                  ? "bg-[#453abc] text-white"
-                  : "bg-white/5 text-gray-400 hover:bg-white/10"
-              }`}
-            >
-              {mode === "score"
-                ? "Highest Lead Score"
-                : mode === "recent"
-                  ? "Recent Visitors"
-                  : mode === "leads"
-                    ? "Leads Only"
-                    : "Accepted Consent"}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {filtered.length === 0 ? (
-        <div className="text-center py-20 text-gray-500">
-          <p className="text-lg">No lead data yet.</p>
-          <p className="text-sm mt-1">Data will appear once visitors interact with the site.</p>
-        </div>
-      ) : (
-        <div className="grid gap-4">
-          {filtered.map((item) => (
-            <div
-              key={item.visitorId}
-              className="bg-[#16161a] border border-white/5 rounded-2xl p-6"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <div className="flex items-center gap-3 mb-1">
-                    <h3 className="text-white font-semibold truncate max-w-[300px]">
-                      {item.lead?.name || "Anonymous Visitor"}
-                    </h3>
-                    <span
-                      className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                        item.consent?.consentStatus === "accepted"
-                          ? "bg-green-500/20 text-green-400"
-                          : "bg-gray-500/20 text-gray-400"
-                      }`}
-                    >
-                      {item.consent?.consentStatus || "No Response"}
-                    </span>
+        {filtered.length === 0 ? (
+          <div className="text-center py-20 text-gray-500">
+            <p className="text-lg">No lead data yet.</p>
+            <p className="text-sm mt-1">Data will appear once visitors interact with the site.</p>
+          </div>
+        ) : (
+          <div className="grid gap-4">
+            {filtered.map((item) => (
+              <div
+                key={item.visitorId}
+                className="bg-[#16161a] border border-white/5 rounded-2xl p-6"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <div className="flex items-center gap-3 mb-1">
+                      <h3 className="text-white font-semibold truncate max-w-[300px]">
+                        {item.lead?.name || "Anonymous Visitor"}
+                      </h3>
+                      <span
+                        className={`text-xs px-2 py-0.5 rounded-full font-medium ${item.consent?.consentStatus === "accepted"
+                            ? "bg-green-500/20 text-green-400"
+                            : "bg-gray-500/20 text-gray-400"
+                          }`}
+                      >
+                        {item.consent?.consentStatus || "No Response"}
+                      </span>
+                    </div>
+                    <p className="text-gray-500 text-xs font-mono truncate max-w-[300px]">
+                      {item.visitorId}
+                    </p>
                   </div>
-                  <p className="text-gray-500 text-xs font-mono truncate max-w-[300px]">
-                    {item.visitorId}
-                  </p>
+
+                  <div className="text-right">
+                    <p className="text-2xl font-bold text-[#60c3e3]">
+                      {item.score}
+                    </p>
+                    <p className="text-xs text-gray-500">Lead Score</p>
+                  </div>
                 </div>
 
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-[#60c3e3]">
-                    {item.score}
-                  </p>
-                  <p className="text-xs text-gray-500">Lead Score</p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-                {item.lead && (
-                  <>
-                    <div>
-                      <p className="text-xs text-gray-500 mb-0.5">Email</p>
-                      <p className="text-sm text-gray-300 truncate">
-                        {item.lead.email}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 mb-0.5">Phone</p>
-                      <p className="text-sm text-gray-300">{item.lead.phone}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 mb-0.5">Company</p>
-                      <p className="text-sm text-gray-300">
-                        {item.lead.company}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 mb-0.5">Visits</p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                  {item.lead && (
+                    <>
+                      <div>
+                        <p className="text-xs text-gray-500 mb-0.5">Email</p>
+                        <p className="text-sm text-gray-300 truncate">
+                          {item.lead.email}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-500 mb-0.5">Phone</p>
+                        <p className="text-sm text-gray-300">{item.lead.phone}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-500 mb-0.5">Company</p>
+                        <p className="text-sm text-gray-300">
+                          {item.lead.company}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-500 mb-0.5">Visits</p>
+                        <p className="text-sm text-gray-300">
+                          {item.visitCount} page{item.visitCount !== 1 && "s"}
+                        </p>
+                      </div>
+                    </>
+                  )}
+                  {!item.lead && (
+                    <div className="col-span-4">
+                      <p className="text-xs text-gray-500 mb-0.5">Pages Visited</p>
                       <p className="text-sm text-gray-300">
                         {item.visitCount} page{item.visitCount !== 1 && "s"}
                       </p>
                     </div>
-                  </>
+                  )}
+                </div>
+
+                {item.visits.length > 0 && (
+                  <div>
+                    <p className="text-xs text-gray-500 mb-1.5">Pages Visited</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {[...new Set(item.visits)].slice(0, 10).map((url) => (
+                        <span
+                          key={url}
+                          className="text-xs bg-white/5 text-gray-400 px-2 py-1 rounded-md"
+                        >
+                          {url || "/"}
+                        </span>
+                      ))}
+                      {[...new Set(item.visits)].length > 10 && (
+                        <span className="text-xs text-gray-600 px-2 py-1">
+                          +{[...new Set(item.visits)].length - 10} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 )}
-                {!item.lead && (
-                  <div className="col-span-4">
-                    <p className="text-xs text-gray-500 mb-0.5">Pages Visited</p>
-                    <p className="text-sm text-gray-300">
-                      {item.visitCount} page{item.visitCount !== 1 && "s"}
+
+                {item.lead?.message && (
+                  <div className="mt-4 pt-4 border-t border-white/5">
+                    <p className="text-xs text-gray-500 mb-1">Message</p>
+                    <p className="text-sm text-gray-400 line-clamp-2">
+                      {item.lead.message}
                     </p>
                   </div>
                 )}
               </div>
-
-              {item.visits.length > 0 && (
-                <div>
-                  <p className="text-xs text-gray-500 mb-1.5">Pages Visited</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {[...new Set(item.visits)].slice(0, 10).map((url) => (
-                      <span
-                        key={url}
-                        className="text-xs bg-white/5 text-gray-400 px-2 py-1 rounded-md"
-                      >
-                        {url || "/"}
-                      </span>
-                    ))}
-                    {[...new Set(item.visits)].length > 10 && (
-                      <span className="text-xs text-gray-600 px-2 py-1">
-                        +{[...new Set(item.visits)].length - 10} more
-                      </span>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {item.lead?.message && (
-                <div className="mt-4 pt-4 border-t border-white/5">
-                  <p className="text-xs text-gray-500 mb-1">Message</p>
-                  <p className="text-sm text-gray-400 line-clamp-2">
-                    {item.lead.message}
-                  </p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
