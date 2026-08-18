@@ -1,7 +1,8 @@
 import SEO from "../components/ui/SEO";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { projects } from "../components/landing/ProjectsSection";
+import { HeroSection } from "../components/products";
 
 export default function ProductsPage() {
   return (
@@ -12,6 +13,8 @@ export default function ProductsPage() {
         keywords="TechTide products, SaaS products, enterprise software solutions, business automation tools, custom platform development"
       />
 
+      <HeroSection />
+
       <section
         className="relative bg-white py-16 md:py-28 overflow-hidden"
         style={{ contentVisibility: "auto", containIntrinsicSize: "500px" }}
@@ -21,62 +24,74 @@ export default function ProductsPage() {
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#60c3e3]/5 rounded-full mix-blend-multiply filter blur-3xl opacity-50" />
         </div>
 
-        <div className="relative text-center mb-12 md:mb-20 px-4 sm:px-6">
-          <span className="inline-block text-xs font-semibold tracking-[0.2em] text-[#453abc] uppercase mb-4 px-3 py-1.5 rounded-full bg-[#453abc]/10">
-            Our Products
-          </span>
-          <h1 className="text-[1.75rem] sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-[#191a23] tracking-tight">
-            Built for how modern teams <span className="bg-gradient-to-r from-[#453abc] to-[#60c3e3] bg-clip-text text-transparent">work</span>
-          </h1>
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
-            Four focused products, one connected ecosystem designed to help businesses move faster, grow smarter, and operate with more certainty.
-          </p>
-        </div>
-
         <div className="container relative">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {projects.map((project, i) => (
-              <motion.div
+              <motion.article
                 key={project.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group relative bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col"
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+                className="group flex flex-col overflow-hidden rounded-3xl border border-transparent bg-white shadow-[0_15px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_30px_60px_rgba(69,58,188,0.12)] transition-all duration-500"
               >
-                <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r ${project.gradient} opacity-80 group-hover:opacity-100 transition-opacity`} />
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="max-h-[350px] w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-tr ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`} />
+                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#453abc] backdrop-blur-sm shadow-sm">
+                    {project.category}
+                  </span>
+                </div>
 
-                <div className="flex items-center justify-between mb-5">
-                  <div className={`size-12 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center shadow-md shadow-[#453abc]/20 group-hover:scale-105 transition-transform`}>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-8 h-8 object-cover rounded-lg"
-                    />
+                <div className="flex flex-1 flex-col p-6 md:p-7">
+                  <h3 className="mb-3 text-2xl font-bold text-[#191a23] transition-colors duration-300 group-hover/link:text-[#453abc]">
+                    {project.title}
+                  </h3>
+
+                  <p className="mb-5 flex-1 text-sm leading-relaxed text-[#6b7280]">
+                    {project.description}
+                  </p>
+
+                  <div className="mb-5 rounded-xl border border-[#453abc]/10 bg-gradient-to-br from-[#453abc]/5 to-[#60c3e3]/5 p-4">
+                    <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#453abc]">
+                      Result
+                    </p>
+                    <p className="text-sm font-semibold leading-snug text-[#191a23]">{project.results}</p>
                   </div>
-                  <span className="text-[11px] font-mono text-gray-400 tracking-wider">{project.category}</span>
-                </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{project.title}</h3>
-                <p className="text-sm font-medium text-[#453abc] mb-3">{project.category}</p>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6 flex-1">{project.description}</p>
+                  <div className="mb-6 flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="rounded-full bg-[#453abc]/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#453abc]">
+                        +{project.technologies.length - 3}
+                      </span>
+                    )}
+                  </div>
 
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {project.technologies.slice(0, 2).map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 rounded-full px-2.5 py-1"
+                  {/* <div className="mt-auto border-t border-gray-50 pt-4">
+                    <Link
+                      to={`/projects/${project.slug}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#453abc] transition-all duration-300 hover:gap-3"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      Explore product
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div> */}
                 </div>
-
-                <button className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#453abc] hover:gap-2.5 transition-all self-start">
-                  Learn more
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
