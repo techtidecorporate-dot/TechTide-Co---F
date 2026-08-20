@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Schibsted Grotesk';
+    src: url('./SchibstedGrotesk-SemiBold.eot');
+    src: url('./SchibstedGrotesk-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('./SchibstedGrotesk-SemiBold.woff2') format('woff2'),
+        url('./SchibstedGrotesk-SemiBold.woff') format('woff'),
+        url('./SchibstedGrotesk-SemiBold.ttf') format('truetype'),
+        url('./SchibstedGrotesk-SemiBold.svg#SchibstedGrotesk-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Schibsted Grotesk';
+    src: url('./SchibstedGrotesk-Bold.eot');
+    src: url('./SchibstedGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./SchibstedGrotesk-Bold.woff2') format('woff2'),
+        url('./SchibstedGrotesk-Bold.woff') format('woff'),
+        url('./SchibstedGrotesk-Bold.ttf') format('truetype'),
+        url('./SchibstedGrotesk-Bold.svg#SchibstedGrotesk-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Schibsted Grotesk';
+    src: url('./SchibstedGrotesk-Medium.eot');
+    src: url('./SchibstedGrotesk-Medium.eot?#iefix') format('embedded-opentype'),
+        url('./SchibstedGrotesk-Medium.woff2') format('woff2'),
+        url('./SchibstedGrotesk-Medium.woff') format('woff'),
+        url('./SchibstedGrotesk-Medium.ttf') format('truetype'),
+        url('./SchibstedGrotesk-Medium.svg#SchibstedGrotesk-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Schibsted Grotesk';
+    src: url('./SchibstedGrotesk-Regular.eot');
+    src: url('./SchibstedGrotesk-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./SchibstedGrotesk-Regular.woff2') format('woff2'),
+        url('./SchibstedGrotesk-Regular.woff') format('woff'),
+        url('./SchibstedGrotesk-Regular.ttf') format('truetype'),
+        url('./SchibstedGrotesk-Regular.svg#SchibstedGrotesk-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

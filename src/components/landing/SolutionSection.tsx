@@ -68,7 +68,7 @@ export function SolutionSection() {
           </div>
 
           {/* Points Side */}
-          <div className="lg:w-1/2 space-y-10">
+          <div className="lg:w-1/2 space-y-2">
             {solutions.map((item, index) => (
               <motion.div
                 key={index}
@@ -76,7 +76,7 @@ export function SolutionSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group flex items-start gap-4 sm:gap-6 px-4 sm:px-6 rounded-xl sm:rounded-3xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-all duration-300"
+                className="group flex items-start gap-4 sm:gap-6 px-4 sm:p-6 rounded-xl sm:rounded-3xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-all duration-300"
               >
                 <div className={`w-10 h-10 sm:w-14 sm:h-14 rounded-xl  bg-gradient-to-br ${item.gradient} p-[1.5px] flex-shrink-0 group-hover:scale-110 transition-transform`}>
                   <div className="w-full h-full bg-white rounded-xl flex items-center justify-center text-[#453abc]">

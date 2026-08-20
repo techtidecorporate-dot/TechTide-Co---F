@@ -5,6 +5,8 @@ import SEO from "../components/ui/SEO";
 // Lazy load sections below the fold
 const ProblemSection = lazy(() => import("../components/landing").then(m => ({ default: m.ProblemSection })));
 const SolutionSection = lazy(() => import("../components/landing").then(m => ({ default: m.SolutionSection })));
+const HowWeWorkSection = lazy(() => import("../components/landing").then(m => ({ default: m.HowWeWorkSection })));
+const TechStackSection = lazy(() => import("../components/landing").then(m => ({ default: m.TechStackSection })));
 const ServicesSection = lazy(() => import("../components/landing").then(m => ({ default: m.ServicesSection })));
 const ProjectsSection = lazy(() => import("../components/landing").then(m => ({ default: m.ProjectsSection })));
 const BlogSection = lazy(() => import("../components/landing").then(m => ({ default: m.BlogSection })));
@@ -39,6 +41,12 @@ const LandingPage: React.FC = () => {
           <ServicesSection />
         </Suspense>
         <Suspense fallback={<SectionPlaceholder />}>
+          <HowWeWorkSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <TechStackSection />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
           <WhyChooseUs />
         </Suspense>
 
@@ -46,9 +54,9 @@ const LandingPage: React.FC = () => {
         <Suspense fallback={<SectionPlaceholder />}>
           <LeadershipSection />
         </Suspense>
-        <Suspense fallback={<SectionPlaceholder />}>
+        {/* <Suspense fallback={<SectionPlaceholder />}>
           <ProjectsSection />
-        </Suspense>
+        </Suspense> */}
         <Suspense fallback={<SectionPlaceholder />}>
           <BlogSection />
         </Suspense>

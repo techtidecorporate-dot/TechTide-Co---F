@@ -3,7 +3,7 @@
 :root {
   --font-size: 16px;
   --font-inter: "Inter", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
+  --font-Schibsted: "Schibsted Grotesk", sans-serif;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
 
@@ -141,7 +141,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-poppins);
+    font-family: var(--font-Schibsted);
   }
 
   h1,
@@ -150,7 +150,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-poppins);
+    font-family: var(--font-Schibsted);
   }
 
   /* Add custom gradient utilities */
@@ -297,84 +297,29 @@
   * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
   */
 
-  html {
-    font-size: var(--font-size);
+  /* Swiper Navigation Styling */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background-color: white !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgb(243, 244, 246) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.2;
-    font-family: var(--font-poppins);
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: rgb(249, 250, 251) !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
   }
 
-  h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.3;
-    font-family: var(--font-poppins);
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 20px !important;
+    font-weight: bold !important;
   }
-
-  h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.4;
-    font-family: var(--font-poppins);
-  }
-
-  h4 {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-    font-family: var(--font-poppins);
-  }
-
-  label {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-    font-family: var(--font-poppins);
-  }
-
-  button {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-    font-family: var(--font-poppins);
-  }
-
-  input,
-  textarea {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-normal);
-    line-height: 1.5;
-    font-family: var(--font-poppins);
-  }
-}
-
-/* Swiper Navigation Styling */
-.swiper-button-next,
-.swiper-button-prev {
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 50% !important;
-  background-color: white !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
-  border: 1px solid rgb(243, 244, 246) !important;
-  transition: all 0.3s ease !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background-color: rgb(249, 250, 251) !important;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 20px !important;
-  font-weight: bold !important;
-}

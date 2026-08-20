@@ -17,7 +17,7 @@ export function LeadershipSection() {
   return (
     <section
       id="leadership"
-      className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 py-20 px-6 overflow-hidden"
+      className="relative bg-white py-20 px-6 overflow-hidden"
     >
       <div className="container">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16">
@@ -28,7 +28,7 @@ export function LeadershipSection() {
               Message from the{" "}
               <span className="text-[#4F46E5]">CEO</span>
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-500 mx-auto lg:mx-0 mb-8 rounded-full animate-slideIn" />
+            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 mx-auto lg:mx-0 mb-8 rounded-full animate-slideIn" />
 
             {/* Name & Role */}
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 relative animate-fadeInUp delay-200">{ceo.name}</h3>
@@ -78,7 +78,7 @@ export function LeadershipSection() {
 
           {/* Image Section */}
           <div className="flex-1 flex justify-center px-4">
-            <div className="w-full max-w-sm aspect-[4/5] rounded-3xl shadow-xl overflow-hidden border-4 border-white hover:scale-105 transition-transform duration-300 ease-in-out">
+            <div className="w-full max-w-sm aspect-[4/5] rounded-3xl shadow-xl overflow-hidden bg-gray-800 duration-300 ease-in-out">
               <img
                 src={ceo.image}
                 alt={ceo.name}

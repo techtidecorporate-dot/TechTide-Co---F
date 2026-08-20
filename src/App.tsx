@@ -77,11 +77,11 @@ export default function App() {
     const handleOpenPartner = () => setIsPartnerDrawerOpen(true);
     const handleOpenAudit = () => setIsAuditDrawerOpen(true);
     const handleOpenStrategy = () => setIsStrategyDrawerOpen(true);
-    
+
     window.addEventListener("open-partner-drawer", handleOpenPartner);
     window.addEventListener("open-audit-drawer", handleOpenAudit);
     window.addEventListener("open-strategy-drawer", handleOpenStrategy);
-    
+
     return () => {
       window.removeEventListener("open-partner-drawer", handleOpenPartner);
       window.removeEventListener("open-audit-drawer", handleOpenAudit);
@@ -93,7 +93,7 @@ export default function App() {
     <AuthProvider>
       <ScrollToTop />
       <Toaster position="top-center" richColors />
-      <div className="relative min-h-screen bg-white font-poppins">
+      <div className="relative min-h-screen bg-white">
         {!hideNavFooter && <Navbar />}
         <Suspense fallback={<PageLoading />}>
           <Routes>
@@ -130,7 +130,7 @@ export default function App() {
             </Route>
           </Routes>
         </Suspense>
-        
+
         {isPartnerDrawerOpen && (
           <Suspense fallback={null}>
             <PartnerWithUsDrawer
@@ -139,7 +139,7 @@ export default function App() {
             />
           </Suspense>
         )}
-        
+
         {isAuditDrawerOpen && (
           <Suspense fallback={null}>
             <AuditDrawer
@@ -148,7 +148,7 @@ export default function App() {
             />
           </Suspense>
         )}
-        
+
         {isStrategyDrawerOpen && (
           <Suspense fallback={null}>
             <StrategyCallDrawer
@@ -157,7 +157,7 @@ export default function App() {
             />
           </Suspense>
         )}
-        
+
         <CookieBanner />
         {!hideNavFooter && <Chatbot />}
         {!hideNavFooter && <Footer />}
