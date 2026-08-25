@@ -131,9 +131,6 @@ export function TechStackSection() {
                         </motion.div>
                     ))}
                 </motion.div>
-
-                {/* Bottom accent line */}
-                <div className="mt-12 md:mt-16 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
             </div>
         </section>
     );

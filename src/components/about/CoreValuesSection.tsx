@@ -42,7 +42,7 @@ const values = [
 
 export function CoreValuesSection() {
   return (
-    <section className="pb-20 md:pb-32">
+    <section className="py-20 md:py-32">
       <div className="container">
         <div className="text-center mb-16">
           <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#453abc] to-[#60c3e3] text-sm font-medium tracking-[0.2em] uppercase mb-4">What We Stand For</span>

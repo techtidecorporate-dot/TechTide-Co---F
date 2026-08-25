@@ -10,6 +10,7 @@ import {
   CoreValuesSection,
   CTASection,
 } from "../components/about";
+import { LeadershipSection } from "@/components/landing";
 
 export default function AboutPage() {
   const location = useLocation();
@@ -38,6 +39,7 @@ export default function AboutPage() {
       <HeroSection />
       <OverviewSection />
       <MissionVisionSection />
+      <LeadershipSection />
       <CoreValuesSection />
       <CTASection />
       <FAQ {...aboutFAQ} />

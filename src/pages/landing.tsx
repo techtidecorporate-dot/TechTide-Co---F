@@ -51,18 +51,18 @@ const LandingPage: React.FC = () => {
         </Suspense>
 
 
-        <Suspense fallback={<SectionPlaceholder />}>
+        {/* <Suspense fallback={<SectionPlaceholder />}>
           <LeadershipSection />
-        </Suspense>
+        </Suspense> */}
         {/* <Suspense fallback={<SectionPlaceholder />}>
           <ProjectsSection />
         </Suspense> */}
         <Suspense fallback={<SectionPlaceholder />}>
           <BlogSection />
         </Suspense>
-        <Suspense fallback={<SectionPlaceholder />}>
+        {/* <Suspense fallback={<SectionPlaceholder />}>
           <TestimonialsSection />
-        </Suspense>
+        </Suspense> */}
         <Suspense fallback={<SectionPlaceholder />}>
           <SupportSection />
         </Suspense>

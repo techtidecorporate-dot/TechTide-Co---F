@@ -8,7 +8,6 @@ const TermsOfService = () => {
         title="Terms of Service"
         description="Terms of Service for TechTide Corporate LLP. Review the terms governing the use of our website and services."
         keywords="terms of service, TechTide terms, website terms, legal agreement, terms and conditions"
-        noindex // optional, same reasoning as Cookie Policy — thin legal boilerplate rarely needs to rank
       />
       <PolicyLayout {...termsContent} />
     </>
