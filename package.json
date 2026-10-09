@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-rss.js",
     "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
